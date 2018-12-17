@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
-		9587403021C3FB2800489865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402F21C3FB2800489865 /* ViewController.swift */; };
 		9587403321C3FB2800489865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403121C3FB2800489865 /* Main.storyboard */; };
 		9587403521C3FB2900489865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9587403421C3FB2900489865 /* Assets.xcassets */; };
 		9587403821C3FB2900489865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403621C3FB2900489865 /* LaunchScreen.storyboard */; };
 		9587404321C3FB2900489865 /* NearDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587404221C3FB2900489865 /* NearDiscoveryTests.swift */; };
+		9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405121C3FE2500489865 /* HomePageViewController.swift */; };
+		9587405A21C404D600489865 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405921C404D600489865 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587402D21C3FB2800489865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9587402F21C3FB2800489865 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9587403221C3FB2800489865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9587403421C3FB2900489865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9587403721C3FB2900489865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		9587403E21C3FB2900489865 /* NearDiscoveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearDiscoveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587404221C3FB2900489865 /* NearDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearDiscoveryTests.swift; sourceTree = "<group>"; };
 		9587404421C3FB2900489865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9587405121C3FE2500489865 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		9587405921C404D600489865 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				9587402C21C3FB2800489865 /* NearDiscovery */,
+				9587405021C3FC0F00489865 /* Supporting Files */,
 				9587404121C3FB2900489865 /* NearDiscoveryTests */,
 				9587402B21C3FB2800489865 /* Products */,
 			);
@@ -77,12 +82,10 @@
 		9587402C21C3FB2800489865 /* NearDiscovery */ = {
 			isa = PBXGroup;
 			children = (
-				9587402D21C3FB2800489865 /* AppDelegate.swift */,
-				9587402F21C3FB2800489865 /* ViewController.swift */,
-				9587403121C3FB2800489865 /* Main.storyboard */,
-				9587403421C3FB2900489865 /* Assets.xcassets */,
-				9587403621C3FB2900489865 /* LaunchScreen.storyboard */,
-				9587403921C3FB2900489865 /* Info.plist */,
+				9587404D21C3FBF700489865 /* Model */,
+				9587404E21C3FBFF00489865 /* Controller */,
+				9587404F21C3FC0500489865 /* View */,
+				95E4575F21C54F99008BB555 /* Helpers */,
 			);
 			path = NearDiscovery;
 			sourceTree = "<group>";
@@ -94,6 +97,57 @@
 				9587404421C3FB2900489865 /* Info.plist */,
 			);
 			path = NearDiscoveryTests;
+			sourceTree = "<group>";
+		};
+		9587404D21C3FBF700489865 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9587405321C3FE4500489865 /* Services */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9587404E21C3FBFF00489865 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587405121C3FE2500489865 /* HomePageViewController.swift */,
+				9587405921C404D600489865 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9587404F21C3FC0500489865 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9587403121C3FB2800489865 /* Main.storyboard */,
+				9587403621C3FB2900489865 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9587405021C3FC0F00489865 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9587402D21C3FB2800489865 /* AppDelegate.swift */,
+				9587403921C3FB2900489865 /* Info.plist */,
+				9587403421C3FB2900489865 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9587405321C3FE4500489865 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		95E4575F21C54F99008BB555 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9552F07F21C7EE1D00BBBB03 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9587403021C3FB2800489865 /* ViewController.swift in Sources */,
+				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
+				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
+				9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +418,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
-				INFOPLIST_FILE = NearDiscovery/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HERE_iOS_SDK_Starter/framework",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +441,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
-				INFOPLIST_FILE = NearDiscovery/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HERE_iOS_SDK_Starter/framework",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
