@@ -12,6 +12,9 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     
+    private let placeDetailsServices = PlaceDetailsServices()
+    private let searchRadius: Double = 1000
+    private var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     var locationManager = CLLocationManager()
     lazy var geocoder = CLGeocoder()
     let regionInMeters: Double = 200
@@ -28,9 +31,11 @@ class MapViewController: UIViewController {
         
     }
     
-    @IBAction func dismissMapViewController(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func refreshMap(_ sender: UIBarButtonItem) {
+        //fetchNearbyPlaces(coordinate: mapView.reload())
     }
+
+    
     
     private func locationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {
@@ -42,7 +47,6 @@ class MapViewController: UIViewController {
         }
     }
 
-    
     private func getUserLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             activateLocationServices()
@@ -70,8 +74,22 @@ class MapViewController: UIViewController {
         let longitude = mapView.centerCoordinate.longitude
         return CLLocation(latitude: latitude, longitude: longitude)
     }
-
-  
+    
+//    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+//        placeDetailsServices.getNearPlacesCoordinates(coordinate, radius: searchRadius, types: searchedTypes) { places in
+//            places.forEach {
+//                let marker = PlaceMarker(place: $0)
+//                marker.map = self.mapView
+//            }
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.typesSegueIdentifier, let typesVC = segue.destination as? TypesViewController {
+            typesVC.selectedTypes = searchedTypes
+            typesVC.delegate = self as? TypesViewControllerDelegate
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -83,7 +101,7 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-       getUserLocationAuthorizationStatus()
+        getUserLocationAuthorizationStatus()
     }
 }
 
@@ -118,10 +136,13 @@ extension MapViewController: MKMapViewDelegate {
             let streetName = placemark.thoroughfare ?? ""
             
             DispatchQueue.main.async {
-                self.addressLabel.text = "\(streetNumber) + \(streetName)"
+                self.addressLabel.text = "\(streetNumber)" + " \(streetName)"
             }
         }
     }
+    
+    
+    
     
 }
     

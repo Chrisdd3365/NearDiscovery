@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		665127DA1C2EE4F3885A4852 /* Pods_NearDiscovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
 		9587403321C3FB2800489865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403121C3FB2800489865 /* Main.storyboard */; };
@@ -15,6 +16,10 @@
 		9587404321C3FB2900489865 /* NearDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587404221C3FB2900489865 /* NearDiscoveryTests.swift */; };
 		9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405121C3FE2500489865 /* HomePageViewController.swift */; };
 		9587405A21C404D600489865 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405921C404D600489865 /* MapViewController.swift */; };
+		9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F421C8F4820016A77F /* PlaceDetails.swift */; };
+		9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */; };
+		9590E5FA21C93C630016A77F /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F921C93C630016A77F /* TypesViewController.swift */; };
+		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20CBEEFAFA33DE8AEEB84325 /* Pods-NearDiscovery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.debug.xcconfig"; sourceTree = "<group>"; };
+		5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearDiscovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587402D21C3FB2800489865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +47,11 @@
 		9587404421C3FB2900489865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9587405121C3FE2500489865 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		9587405921C404D600489865 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9590E5F421C8F4820016A77F /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
+		9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServices.swift; sourceTree = "<group>"; };
+		9590E5F921C93C630016A77F /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
+		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665127DA1C2EE4F3885A4852 /* Pods_NearDiscovery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,13 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25A5C77638F801328A657E41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9587402121C3FB2800489865 = {
 			isa = PBXGroup;
 			children = (
 				9587402C21C3FB2800489865 /* NearDiscovery */,
+				9590E5FB21C9509D0016A77F /* Extensions */,
 				9587405021C3FC0F00489865 /* Supporting Files */,
 				9587404121C3FB2900489865 /* NearDiscoveryTests */,
 				9587402B21C3FB2800489865 /* Products */,
+				CE56B8537F9D214C03E8697D /* Pods */,
+				25A5C77638F801328A657E41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +126,7 @@
 		9587404D21C3FBF700489865 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9590E5F821C90BAB0016A77F /* PlacesDetailsStructures */,
 				9587405321C3FE4500489865 /* Services */,
 			);
 			path = Model;
@@ -112,6 +137,7 @@
 			children = (
 				9587405121C3FE2500489865 /* HomePageViewController.swift */,
 				9587405921C404D600489865 /* MapViewController.swift */,
+				9590E5F921C93C630016A77F /* TypesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +154,7 @@
 		9587405021C3FC0F00489865 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9552F07F21C7EE1D00BBBB03 /* Constants.swift */,
 				9587402D21C3FB2800489865 /* AppDelegate.swift */,
 				9587403921C3FB2900489865 /* Info.plist */,
 				9587403421C3FB2900489865 /* Assets.xcassets */,
@@ -138,16 +165,41 @@
 		9587405321C3FE4500489865 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9590E5F821C90BAB0016A77F /* PlacesDetailsStructures */ = {
+			isa = PBXGroup;
+			children = (
+				9590E5F421C8F4820016A77F /* PlaceDetails.swift */,
+			);
+			path = PlacesDetailsStructures;
+			sourceTree = "<group>";
+		};
+		9590E5FB21C9509D0016A77F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9590E5FC21C950B00016A77F /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		95E4575F21C54F99008BB555 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9552F07F21C7EE1D00BBBB03 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE56B8537F9D214C03E8697D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20CBEEFAFA33DE8AEEB84325 /* Pods-NearDiscovery.debug.xcconfig */,
+				9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9587404721C3FB2900489865 /* Build configuration list for PBXNativeTarget "NearDiscovery" */;
 			buildPhases = (
+				9A054A248CC5326032E26D39 /* [CP] Check Pods Manifest.lock */,
 				9587402621C3FB2800489865 /* Sources */,
 				9587402721C3FB2800489865 /* Frameworks */,
 				9587402821C3FB2800489865 /* Resources */,
+				3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,14 +300,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A054A248CC5326032E26D39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NearDiscovery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9587402621C3FB2800489865 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9590E5FA21C93C630016A77F /* TypesViewController.swift in Sources */,
+				9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */,
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
+				9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
+				9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */,
 				9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,13 +519,15 @@
 		};
 		9587404821C3FB2900489865 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20CBEEFAFA33DE8AEEB84325 /* Pods-NearDiscovery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HERE_iOS_SDK_Starter/framework",
+					"\"${PODS_ROOT}/GoogleMaps/Base/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleMaps/Maps/Frameworks\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -437,14 +544,11 @@
 		};
 		9587404921C3FB2900489865 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SYU76B2V84;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/HERE_iOS_SDK_Starter/framework",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

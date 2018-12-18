@@ -119,6 +119,35 @@
             </objects>
             <point key="canvasLocation" x="3274" y="456"/>
         </scene>
+        <!--Types Of Places-->
+        <scene sceneID="h2a-XK-USW">
+            <objects>
+                <tableViewController id="n8H-Ge-IOZ" customClass="TypesViewController" customModule="NearDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uJ8-ax-hT7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TypeCell" id="QCr-nn-GIV">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QCr-nn-GIV" id="oF2-cx-N2i">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n8H-Ge-IOZ" id="UQr-ZB-I6G"/>
+                            <outlet property="delegate" destination="n8H-Ge-IOZ" id="png-uH-kn0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Types Of Places" id="ZbG-Wg-bIY" customClass="ty"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljb-ZX-eno" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3403" y="-378"/>
+        </scene>
         <!--Favorites-->
         <scene sceneID="syD-73-41P">
             <objects>
@@ -164,7 +193,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-Rg-Ae5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-FC-16B">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-FC-16B">
                                 <rect key="frame" x="0.0" y="469" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -188,10 +217,20 @@
                         <viewLayoutGuide key="safeArea" id="JY5-XJ-E1r"/>
                     </view>
                     <navigationItem key="navigationItem" id="syV-jR-p8u">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="qAs-f8-KgO">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="refresh" id="r7T-Ml-QOT">
                             <connections>
-                                <action selector="dismissMapViewController:" destination="lUX-xS-mw4" id="sQP-RT-Hg3"/>
+                                <action selector="refreshMap:" destination="lUX-xS-mw4" id="5BJ-DL-Gho"/>
                             </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="1pU-vT-20e">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dKA-HK-ap1">
+                                <rect key="frame" x="233" y="7" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="filter"/>
+                                <connections>
+                                    <segue destination="n8H-Ge-IOZ" kind="show" identifier="typesSegue" id="AOV-98-9iJ"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -204,4 +243,7 @@
             <point key="canvasLocation" x="2396" y="-378.26086956521743"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filter" width="25" height="25"/>
+    </resources>
 </document>
