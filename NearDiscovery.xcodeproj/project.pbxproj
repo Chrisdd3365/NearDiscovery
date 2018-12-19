@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		665127DA1C2EE4F3885A4852 /* Pods_NearDiscovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */; };
+		9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
 		9587403321C3FB2800489865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403121C3FB2800489865 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		20CBEEFAFA33DE8AEEB84325 /* Pods-NearDiscovery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.debug.xcconfig"; sourceTree = "<group>"; };
 		5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearDiscovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587402D21C3FB2800489865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		9587404D21C3FBF700489865 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */,
 				9590E5F821C90BAB0016A77F /* PlacesDetailsStructures */,
 				9587405321C3FE4500489865 /* Services */,
 			);
@@ -358,6 +361,7 @@
 				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
 				9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
+				9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */,
 				9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */,
 				9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */,
 			);

@@ -13,13 +13,14 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     private let placeDetailsServices = PlaceDetailsServices()
-    private let searchRadius: Double = 1000
+    private let searchRadius: Double = 1000.0
     private var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     var locationManager = CLLocationManager()
     lazy var geocoder = CLGeocoder()
     let regionInMeters: Double = 200
     var previousLocation: CLLocation?
-  
+    
+ 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -34,8 +35,13 @@ class MapViewController: UIViewController {
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
         //fetchNearbyPlaces(coordinate: mapView.reload())
     }
-
     
+ 
+    func fetchGoogleData(location: CLLocationCoordinate2D) {
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: searchRadius, types: searchedTypes) { places in
+            
+        }
+    }
     
     private func locationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {

@@ -18,15 +18,16 @@ class PlaceDetailsServices {
         self.placeDetailsSession = placeDetailsSession
     }
     
-    func nearPlacesCoordinatesUrl(coordinate: CLLocationCoordinate2D, types: [String]) -> String {
+    func nearPlacesCoordinatesUrl(coordinate: CLLocationCoordinate2D, radius: Double, types: [String]) -> String {
         let baseURL = Constants.GooglePlacesURL.baseURL
         let locationString = Constants.GooglePlacesURL.locationURL + String(coordinate.latitude) + "," + String(coordinate.longitude)
+        let radius = Constants.GooglePlacesURL.radiusURL + "\(radius)"
         let rankby = Constants.GooglePlacesURL.rankByURL
         let sensor = Constants.GooglePlacesURL.sensorURL
         let key = Constants.GooglePlacesURL.apiKeyURL + Constants.GooglePlacesURL.apiKey
         let typesURL = Constants.GooglePlacesURL.typesURL
         let typesString = types.count > 0 ? types.joined(separator: "|") : "food"
-        var urlString = baseURL + locationString + rankby + sensor + key
+        var urlString = baseURL + locationString + radius + rankby + sensor + key
         urlString += typesURL + "\(typesString)"
         guard let urlStringConverted = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return ""}
         
@@ -34,7 +35,7 @@ class PlaceDetailsServices {
     }
     
     func getNearPlacesCoordinates(_ coordinate: CLLocationCoordinate2D, radius: Double, types:[String], callback: @escaping (PlaceDetails?) -> Void) {
-        guard let url = URL(string: nearPlacesCoordinatesUrl(coordinate: coordinate, types: types)) else { return }
+        guard let url = URL(string: nearPlacesCoordinatesUrl(coordinate: coordinate, radius: radius, types: types)) else { return }
         task?.cancel()
         task = placeDetailsSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {

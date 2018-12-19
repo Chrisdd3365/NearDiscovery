@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct GooglePlacesResponse: Decodable {
     let results : [PlaceDetails]
     enum CodingKeys : String, CodingKey {
@@ -16,20 +17,24 @@ struct GooglePlacesResponse: Decodable {
 }
 
 struct PlaceDetails: Decodable {
+    let placeId: String
     let geometry: Location
     let name: String
     let openingHours: OpenNow?
     let photos: [PhotoInfo]
     let types: [String]
     let address: String
+    let rating: Double
     
     enum CodingKeys: String, CodingKey {
+        case placeId = "place_id"
         case geometry = "geometry"
         case name = "name"
         case openingHours = "opening_hours"
         case photos = "photos"
         case types = "types"
         case address = "vicinity"
+        case rating = "rating"
     }
     
     struct Location: Decodable {
