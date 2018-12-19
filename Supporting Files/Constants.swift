@@ -22,8 +22,7 @@ struct Constants {
     
     struct SeguesIdentifiers {
         static let typesSegueIdentifier = "typesSegue"
-        
-        
+        static let detailsSegueIdentifier = "detailsSegue"
     }
 }
 

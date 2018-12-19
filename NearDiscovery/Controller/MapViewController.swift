@@ -13,14 +13,14 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     private let placeDetailsServices = PlaceDetailsServices()
+    var placesMarkers = [PlaceMarker]()
     private let searchRadius: Double = 1000.0
+    let regionInMeters: Double = 200
     private var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     var locationManager = CLLocationManager()
     lazy var geocoder = CLGeocoder()
-    let regionInMeters: Double = 200
     var previousLocation: CLLocation?
     
- 
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,14 +29,12 @@ class MapViewController: UIViewController {
         setupMapView()
         locationServicesIsEnabled()
         getUserLocationAuthorizationStatus()
-        
     }
     
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
         //fetchNearbyPlaces(coordinate: mapView.reload())
     }
     
- 
     func fetchGoogleData(location: CLLocationCoordinate2D) {
         placeDetailsServices.getNearPlacesCoordinates(location, radius: searchRadius, types: searchedTypes) { places in
             
@@ -81,14 +79,11 @@ class MapViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-//    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-//        placeDetailsServices.getNearPlacesCoordinates(coordinate, radius: searchRadius, types: searchedTypes) { places in
-//            places.forEach {
-//                let marker = PlaceMarker(place: $0)
-//                marker.map = self.mapView
-//            }
-//        }
-//    }
+    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+        placeDetailsServices.getNearPlacesCoordinates(coordinate, radius: searchRadius, types: searchedTypes) { places in
+                //mapView.addAnnotations(places)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.typesSegueIdentifier, let typesVC = segue.destination as? TypesViewController {
@@ -147,9 +142,22 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
-    
-    
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "") as? MKMarkerAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "")
+        } else {
+            annotationView?.annotation = annotation
+        }
+        annotationView?.glyphText = ""
+        annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
+        return annotationView
+    }
 }
     
     

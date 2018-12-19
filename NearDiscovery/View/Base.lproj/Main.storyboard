@@ -129,7 +129,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="g24-7m-2Z9" kind="show" identifier="details" id="lDb-Ac-BIO"/>
+                                    <segue destination="g24-7m-2Z9" kind="show" identifier="detailsSegue" id="lDb-Ac-BIO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -239,7 +239,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljb-ZX-eno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3403" y="-378"/>
+            <point key="canvasLocation" x="3274" y="-378"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="syD-73-41P">
