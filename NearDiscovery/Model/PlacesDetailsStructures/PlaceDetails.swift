@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct GooglePlacesResponse: Decodable {
     let results : [PlaceDetails]
     enum CodingKeys : String, CodingKey {

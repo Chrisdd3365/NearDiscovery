@@ -9,18 +9,22 @@
 /* Begin PBXBuildFile section */
 		665127DA1C2EE4F3885A4852 /* Pods_NearDiscovery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */; };
 		9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */; };
+		953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122EC21CA82EB007FCADC /* HomePageView.swift */; };
+		953122F221CA8EA7007FCADC /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F121CA8EA7007FCADC /* URLSessionFake.swift */; };
+		953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F321CA8ED3007FCADC /* FakeResponseData.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
 		9587403321C3FB2800489865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403121C3FB2800489865 /* Main.storyboard */; };
 		9587403521C3FB2900489865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9587403421C3FB2900489865 /* Assets.xcassets */; };
 		9587403821C3FB2900489865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403621C3FB2900489865 /* LaunchScreen.storyboard */; };
-		9587404321C3FB2900489865 /* NearDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587404221C3FB2900489865 /* NearDiscoveryTests.swift */; };
 		9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405121C3FE2500489865 /* HomePageViewController.swift */; };
 		9587405A21C404D600489865 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405921C404D600489865 /* MapViewController.swift */; };
 		9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F421C8F4820016A77F /* PlaceDetails.swift */; };
 		9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */; };
 		9590E5FA21C93C630016A77F /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F921C93C630016A77F /* TypesViewController.swift */; };
 		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
+		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
+		95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,9 @@
 		20CBEEFAFA33DE8AEEB84325 /* Pods-NearDiscovery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.debug.xcconfig"; sourceTree = "<group>"; };
 		5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearDiscovery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		953122EC21CA82EB007FCADC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		953122F121CA8EA7007FCADC /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		953122F321CA8ED3007FCADC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587402D21C3FB2800489865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +52,6 @@
 		9587403721C3FB2900489865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9587403921C3FB2900489865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9587403E21C3FB2900489865 /* NearDiscoveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearDiscoveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9587404221C3FB2900489865 /* NearDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearDiscoveryTests.swift; sourceTree = "<group>"; };
 		9587404421C3FB2900489865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9587405121C3FE2500489865 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		9587405921C404D600489865 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServices.swift; sourceTree = "<group>"; };
 		9590E5F921C93C630016A77F /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
+		95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServiceTests.swift; sourceTree = "<group>"; };
 		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +89,33 @@
 				5E59C1512F8A4D20250E92D0 /* Pods_NearDiscovery.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		953122EF21CA885F007FCADC /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				953122EC21CA82EB007FCADC /* HomePageView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		953122F021CA8E92007FCADC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				953122F121CA8EA7007FCADC /* URLSessionFake.swift */,
+				953122F321CA8ED3007FCADC /* FakeResponseData.swift */,
+				953122F521CA8F02007FCADC /* PlaceDetails */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		953122F521CA8F02007FCADC /* PlaceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */,
+				95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */,
+			);
+			path = PlaceDetails;
 			sourceTree = "<group>";
 		};
 		9587402121C3FB2800489865 = {
@@ -119,8 +154,8 @@
 		9587404121C3FB2900489865 /* NearDiscoveryTests */ = {
 			isa = PBXGroup;
 			children = (
-				9587404221C3FB2900489865 /* NearDiscoveryTests.swift */,
 				9587404421C3FB2900489865 /* Info.plist */,
+				953122F021CA8E92007FCADC /* Model */,
 			);
 			path = NearDiscoveryTests;
 			sourceTree = "<group>";
@@ -150,6 +185,7 @@
 			children = (
 				9587403121C3FB2800489865 /* Main.storyboard */,
 				9587403621C3FB2900489865 /* LaunchScreen.storyboard */,
+				953122EF21CA885F007FCADC /* UIView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +396,7 @@
 				9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */,
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
+				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
 				9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
 				9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */,
@@ -371,7 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9587404321C3FB2900489865 /* NearDiscoveryTests.swift in Sources */,
+				953122F221CA8EA7007FCADC /* URLSessionFake.swift in Sources */,
+				95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */,
+				953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

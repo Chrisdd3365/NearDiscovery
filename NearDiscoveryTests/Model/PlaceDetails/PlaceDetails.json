@@ -1,0 +1,947 @@
+{
+    "html_attributions": [],
+    "next_page_token": "CtQERAIAAPRlmX7hJcGstzod6XfLg1YDOCj_g5zhoZ90PRFNfjk75ScqTex5TyirWMZZqHqNkuAnS6rC_YzbIORmNRInk8a1W8HyEK9B2XaJeK88CZAYLUpV2x1RI1wugMFWOczNLwipnkERTlvV9Rj9t61LblgRTfkAFGQg3ehNGcbt50vxiZPabFD5WUT05TOzkiWQVLF5L9P5SnsCk7WdfyDnmMDXVihCUySo5r572coDwOPJRzXIXhph-wOKnEfu9rgirZw0xOS6rUJFxz8Yt64ao5Su2p1Y_6DNJawFxE9UnC3i1oTPF4pycl9Cv4EKen_TTaxyDeEHDRSiU53DhwpiDa4HH0SM8jByF9br4Dpr3jDh_TGj5mCTUFLIB1aVL4n6Q47YnZXPw32mcQDMiXfBA6ocSjQ8jGMg9ej6x-PcgQzl1aiT8xxvH00wCTdTjnD4Mc9SMByiYmacT0AXmY4ojTu5ZTTjOqupnifEXUoIkCqUOGLRPsQoql3UNuTfKXQFDmlb6eFt8kfpjz2kIKSyc1rBBGNff6rVK0FmXtL7Ri3fsoOuSo_Q2B14IT2W2RzD62gdtPS2z8S40yY6L2-3r_cpKKyzfk_RThxm27YSwxmrFSK4elZzeQNrRWgB6Ii_7s3HLfOp23sd6846La0bIFnqSS64iDyz8kZj9aQ0omzwwVUjQYNtAWn4SkSiUQ_ywzBKIqs1EBLCIwT6XCr_Ru6YwGcsikyOptabdNtmtcL-qZNjcTdatHSlkjE75tC2YK-gaMJbRY6ab3mrJeCVlPASEI9cvkT9-2JjyM5iKorasiIaFHEYNeOmtZ1oQS7Fw1vKvPzD21q6",
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.85661400000001,
+                    "lng": 2.3522219
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.9021449,
+                        "lng": 2.4699208
+                    },
+                    "southwest": {
+                        "lat": 48.815573,
+                        "lng": 2.224199
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "691b237b0322f28988f3ce03e321ff72a12167fd",
+            "name": "Paris",
+            "photos": [
+                {
+                    "height": 500,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111795667901170954602/photos\">Diego Suárez Magallanes</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAJYFNx46_2smvN0V6TpRv09VSNw3BWXyRnwbWDhSNi0N9CYRye03bq8kMzxchf9DdBcue__7JKLW6Hms8Zhm0JhKUI6C2eMYMBcKRJGqO62xHK4KKekU730sLd7WbejHoEhAttzLdfSBxkFcsqRSZQPmsGhRb3Jv3ZKJMj1xAoGQ_i1pRIsdcEA",
+                    "width": 760
+                }
+            ],
+            "place_id": "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+            "reference": "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+            "scope": "GOOGLE",
+            "types": [
+                "locality",
+                "political"
+            ],
+            "vicinity": "Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86658509999999,
+                    "lng": 2.3350168
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8679311302915,
+                        "lng": 2.336378930291502
+                    },
+                    "southwest": {
+                        "lat": 48.8652331697085,
+                        "lng": 2.333680969708499
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "330448c01a2ad6fa8b3b60cb042a4c765d9e93a9",
+            "name": "Best Western Hotel Paris Louvre Opera",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 350,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102517376554064393333/photos\">Best Western Hotel Paris Louvre Opera</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAOxn1csllMH3s3WICNS5oYGLCQzRnSvImD4kNnSRlpHkSAwNbvM7jC1JhhJZU47CgNSW50v0OHuF5ssNPPqJVM0beuQLkr_Xook-o3LKggr8kyHmUfqGFkoqsZ87oTX0LEhCZS0V8xekFjt_CKAdE65OrGhRGKXcSoc9OwauyAkzEMwxLPHWqBg",
+                    "width": 350
+                }
+            ],
+            "place_id": "ChIJw26gszpu5kcR5rCjDst6EbQ",
+            "plus_code": {
+                "compound_code": "V88P+J2 Paris, France",
+                "global_code": "8FW4V88P+J2"
+            },
+            "rating": 4.1,
+            "reference": "ChIJw26gszpu5kcR5rCjDst6EbQ",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "4 Rue des Moulins, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86830769999999,
+                    "lng": 2.3330826
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.86967763029149,
+                        "lng": 2.334541230291501
+                    },
+                    "southwest": {
+                        "lat": 48.86697966970849,
+                        "lng": 2.331843269708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "89fd8ce332d1f865621a6d157f1dcd79fb0d2658",
+            "name": "Hôtel Edouard 7",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107195589265260459328/photos\">Hôtel Edouard 7</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAMtFGpa0Z1Y8kk8ERNyqE1wKp_j9VNFcnDb2auzq9MH1IV-RixioQIr8uSttWOlwMvZqWg2ST0ukljBor5M7AD2O0p0qAfZg0utWIa-nuQjr5AHpVZZmTaJC2hD708gzCEhBm5TUw-HYrsQN7SVB73xP4GhQV4SzTD7Javcc7GXDPPyVvyrqUow",
+                    "width": 512
+                }
+            ],
+            "place_id": "ChIJ_Ze3ZjBu5kcRiCRPWLatnSg",
+            "plus_code": {
+                "compound_code": "V89M+86 Paris, France",
+                "global_code": "8FW4V89M+86"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ_Ze3ZjBu5kcRiCRPWLatnSg",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "39 Avenue de l'Opéra, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8644474,
+                    "lng": 2.3317603
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.86580883029149,
+                        "lng": 2.333063180291502
+                    },
+                    "southwest": {
+                        "lat": 48.86311086970849,
+                        "lng": 2.330365219708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "86a53831dc5fa75096c17a65c72f5a6116adb522",
+            "name": "Hôtel Louvre Montana",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2048,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115066701783144467239/photos\">Louvre Montana</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAGlODNbPWxcppJj56AiInDseKV0UDUZPniAZWCreci3vN0j-TNyPLpb6ER4nOn6POnBgT98N2oyBwA1oIUi0KvCf_4XNR0aVLo5Kjq99y1e0jPkbADJ2466XId3KiPFStEhDMPRfC2zI6soTlF95nXhu7GhSEEL7VZg_sFRXdVMBzGVirkjDupA",
+                    "width": 1363
+                }
+            ],
+            "place_id": "ChIJx_VEry9u5kcRCoi4Tu9NLms",
+            "plus_code": {
+                "compound_code": "V87J+QP Paris, France",
+                "global_code": "8FW4V87J+QP"
+            },
+            "rating": 4.5,
+            "reference": "ChIJx_VEry9u5kcRCoi4Tu9NLms",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "12 Rue Saint-Roch, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86914479999999,
+                    "lng": 2.3337554
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.87051418029149,
+                        "lng": 2.335068630291502
+                    },
+                    "southwest": {
+                        "lat": 48.86781621970849,
+                        "lng": 2.332370669708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "c2d8519109287be5d93e03e375e6b1825dbd93ea",
+            "name": "L’Horset Opéra",
+            "photos": [
+                {
+                    "height": 1366,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101132584569861312735/photos\">Sanjay Gangadharan</a>"
+                    ],
+                    "photo_reference": "CmRZAAAAZsN9oUSGLa_-xJlon2yTt_lp-OmuzAN8FAEzZ-3MlyBJgQ-Nvd8v50lEtHDudr8ykFJ9Bih-RZnNuCs8Z9X9h6117Q44DpkUiRji9a8nNizvAqG5d9qo6ezTyGs-IEZfEhCdqMBOvP0acxgqpZNObS3zGhTx7Beg-Ut5zYugbpgMF_nTe1vYuw",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJhWsKhjBu5kcRn37PRI2s1Wk",
+            "plus_code": {
+                "compound_code": "V89M+MG Paris, France",
+                "global_code": "8FW4V89M+MG"
+            },
+            "rating": 4.4,
+            "reference": "ChIJhWsKhjBu5kcRn37PRI2s1Wk",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "18 Rue d'Antin, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8640361,
+                    "lng": 2.3341528
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.86530768029149,
+                        "lng": 2.335537280291502
+                    },
+                    "southwest": {
+                        "lat": 48.86260971970849,
+                        "lng": 2.332839319708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "3681a822a267eec4d80431ea0bb9e394054fffaf",
+            "name": "Hôtel Normandy Métro Pyramides",
+            "photos": [
+                {
+                    "height": 3264,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111901136888290649147/photos\">まりえ</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAHFW-1xX995VbXNNsquqMVnsjtPpAWEdPJnblamrYKI56cSpzTfMA90eqcr54i4vOyzAOZ6w7NvIP9zFYFTxjqUt4kVSQD76txDdzZSDN2OYXeDktNz_7Ox_S9FfkwR3zEhAvhB8sAVr8r9Cu-Dnw9o9YGhSbu-eBl1kZDRn5Hp2EjdlXA6vURw",
+                    "width": 2448
+                }
+            ],
+            "place_id": "ChIJ0dT4gSVu5kcR_cBd44bpsN0",
+            "plus_code": {
+                "compound_code": "V87M+JM Paris, France",
+                "global_code": "8FW4V87M+JM"
+            },
+            "rating": 3.4,
+            "reference": "ChIJ0dT4gSVu5kcR_cBd44bpsN0",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "7 Rue de l'Échelle, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86386539999999,
+                    "lng": 2.3325488
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8650759802915,
+                        "lng": 2.333775730291502
+                    },
+                    "southwest": {
+                        "lat": 48.8623780197085,
+                        "lng": 2.331077769708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "20dd8ae8d6ad9bbbe4ea9c6caf623fa071be187f",
+            "name": "Hotel Regina",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2828,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109066439891801774697/photos\">Hotel Regina</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-JIMHXk-hvDY9xV00lQtyvbDJagmrE4MnjO-2V17gKDXLfLPav8ksmdDrCSpW90omGJlySQXGomaCEj_4b8-9XFIIINYkkWSkJUykXy1Cbkxu-QJiYU7o-gl4gfe_LVBEhDFw5BueE49zP9DHKREBT9_GhR4CWIPYWBT0nHkcc4sBzmj_lCmog",
+                    "width": 4242
+                }
+            ],
+            "place_id": "ChIJP_-HCS9u5kcRsj9b1x7Pl8w",
+            "plus_code": {
+                "compound_code": "V87M+G2 Paris, France",
+                "global_code": "8FW4V87M+G2"
+            },
+            "rating": 4.5,
+            "reference": "ChIJP_-HCS9u5kcRsj9b1x7Pl8w",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "2 Place des Pyramides, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86427329999999,
+                    "lng": 2.330789
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8655668802915,
+                        "lng": 2.332150480291502
+                    },
+                    "southwest": {
+                        "lat": 48.8628689197085,
+                        "lng": 2.329452519708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "50797fba20cc1e735c57820607b18b04abf162b9",
+            "name": "Saint James Albany Paris Hôtel Spa",
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108570400659068256718/photos\">Saint James Albany Paris Hotel Spa</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA5q_9yadBa7fGo_GSN9S1qi8pfuBY5wwA0aaIfRTxCzAbZrgetJbfTufWM_ZK1nodW1158UdR04L9d_viDgRj_41ruP16nxj0BQvW5LN780vRTyACnx9KNaubrNQ99Ob2EhCmldnqZxn1Cz9dLXqzRCyUGhQlURR3Jucjv6cRmdJ3pVqKqUyQjA",
+                    "width": 537
+                }
+            ],
+            "place_id": "ChIJ8znTVS5u5kcREq8TmzOICFs",
+            "plus_code": {
+                "compound_code": "V87J+P8 Paris, France",
+                "global_code": "8FW4V87J+P8"
+            },
+            "rating": 4,
+            "reference": "ChIJ8znTVS5u5kcREq8TmzOICFs",
+            "scope": "GOOGLE",
+            "types": [
+                "spa",
+                "bar",
+                "lodging",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "vicinity": "202 Rue de Rivoli, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8684614,
+                    "lng": 2.3297683
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8698644302915,
+                        "lng": 2.331194780291502
+                    },
+                    "southwest": {
+                        "lat": 48.86716646970851,
+                        "lng": 2.328496819708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "6ff37ba13d32782a56b8c23510409e4e781cc23d",
+            "name": "Hôtel Mansart - Esprit de France",
+            "photos": [
+                {
+                    "height": 683,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117295873455411085901/photos\">Hôtel Mansart - Esprit de France</a>"
+                    ],
+                    "photo_reference": "CmRaAAAASJPwQHBNUDLtEmH6QIQ7BEzzC9re8zYSpfcUx3LsmW9P7QKn4A7DnUUSrpOdhO45doVX-K3TDMd9ahTTN6EKewW0GqG1dUDIt9BDfYD4mm0ZK8FWMwenqToznQl29BqjEhBBcncMn1FIoDfiLAqQYK4ZGhQc4amkuh1PwVz1tFTk4yDIhHAbTw",
+                    "width": 1024
+                }
+            ],
+            "place_id": "ChIJRQs8mDFu5kcRPu-DaFT9yGk",
+            "plus_code": {
+                "compound_code": "V89H+9W Paris, France",
+                "global_code": "8FW4V89H+9W"
+            },
+            "rating": 4.5,
+            "reference": "ChIJRQs8mDFu5kcRPu-DaFT9yGk",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "5 Rue des Capucines, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.869606,
+                    "lng": 2.334555
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.87093873029151,
+                        "lng": 2.335985530291502
+                    },
+                    "southwest": {
+                        "lat": 48.86824076970851,
+                        "lng": 2.333287569708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "e8476ab45cfc3d0449231dde6211120c4014d043",
+            "name": "Hôtel Golden Tulip Opéra de Noailles",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2912,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113988484389952914504/photos\">Hôtel Golden Tulip Opéra de Noailles</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA7wahyYX-0dIveCnBi9J99AVS0X3ZPCu_Wy8BpBw40bgL2dc_yJ3cFsbdn4IQxwKvUl6qdNNcLeJkUDzor5hsxBc7JeXUxLG4II-VPCjJLR1E8bkouDG6H0JmMiD3YK6EEhAeiS0NsqxXh074PqWO11eXGhT329g9vh0H-WRTOag9703JZsruzg",
+                    "width": 4368
+                }
+            ],
+            "place_id": "ChIJ8znTVS5u5kcRg92vS_bnp74",
+            "plus_code": {
+                "compound_code": "V89M+RR Paris, France",
+                "global_code": "8FW4V89M+RR"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ8znTVS5u5kcRg92vS_bnp74",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "9 Rue de la Michodière, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8689056,
+                    "lng": 2.3301781
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8701726802915,
+                        "lng": 2.331780180291501
+                    },
+                    "southwest": {
+                        "lat": 48.8674747197085,
+                        "lng": 2.329082219708497
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "01edaff7a8364edac1f1cce60f6a4a9f76753171",
+            "name": "Park Hyatt Paris-Vendome",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2265,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102614434180656731369/photos\">Park Hyatt Paris-Vendome</a>"
+                    ],
+                    "photo_reference": "CmRaAAAASaa5aqXTRFz1IqLcug66RnWtdJfGDs6aV_RZmXBFZuhBZHK5u0O3Q1vjnQG662FhU0FLEBrtihYkoJwi8vcx4mL7Air7IdMk4ooA0PyWo3exEG9ljpbDNpezZyyN6dlFEhDKPkhphbuQHTf7XoG9QvkhGhQE0TA9cfyBvu9euShW73PK7CtZ5Q",
+                    "width": 2880
+                }
+            ],
+            "place_id": "ChIJ5-zMpTFu5kcRlbu1UHIhv74",
+            "plus_code": {
+                "compound_code": "V89J+H3 Paris, France",
+                "global_code": "8FW4V89J+H3"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ5-zMpTFu5kcRlbu1UHIhv74",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "5 Rue de la Paix, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86937279999999,
+                    "lng": 2.3310617
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.87068238029149,
+                        "lng": 2.332500830291502
+                    },
+                    "southwest": {
+                        "lat": 48.8679844197085,
+                        "lng": 2.329802869708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "e8a69e087decfe545df8bc79e6286eeb7a2d1774",
+            "name": "Hôtel Westminster",
+            "photos": [
+                {
+                    "height": 1803,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114293033536880913985/photos\">Hôtel Westminster</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAz8U3QRP9XCmGh54fu9mKjtcLdBFMLBq7JaNYGgJ6RMXXpzo031fvamvnUtcuBc0mINaZyBGj0fhyHqyzNw-EuDjGztl9K1buCBIwsV8BnD4nVfmrfNjW4UYmHTC3OxwpEhD_lnyhR8KGWprFjzoMBILQGhQqn323l0MEWknaDYOS_dgBT1A2lQ",
+                    "width": 1803
+                }
+            ],
+            "place_id": "ChIJCZB6ATFu5kcRfX9qYpEtQyE",
+            "plus_code": {
+                "compound_code": "V89J+PC Paris, France",
+                "global_code": "8FW4V89J+PC"
+            },
+            "rating": 4.1,
+            "reference": "ChIJCZB6ATFu5kcRfX9qYpEtQyE",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "vicinity": "13 Rue de la Paix, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.86681479999999,
+                    "lng": 2.3285134
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8681242302915,
+                        "lng": 2.329955430291502
+                    },
+                    "southwest": {
+                        "lat": 48.8654262697085,
+                        "lng": 2.327257469708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "3e4ec07b0cb21a62f71bc53d906c1308d629f4b5",
+            "name": "Hôtel de Vendôme",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 648,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110142658030585906782/photos\">Hôtel de Vendôme</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA6IT87Q2DR72Hs5azmlfERBX8T6ixvhFeEGjp-oFe0dZVuGErxmtyxPgkkHYYB6DgN8_6Uq-sTrNywq5YqS3nzzT7wxkGm6VgZhmlAtjXG4ElCWnfwYdC57VzNmz44pxpEhDmmCTRcHuyb-ohdPrkIoY6GhTSlg5n8KNDleuSF6aNOhPP66v8JQ",
+                    "width": 566
+                }
+            ],
+            "place_id": "ChIJGw-r-zFu5kcRm7M1FgKYiAU",
+            "plus_code": {
+                "compound_code": "V88H+PC Paris, France",
+                "global_code": "8FW4V88H+PC"
+            },
+            "price_level": 4,
+            "rating": 4.5,
+            "reference": "ChIJGw-r-zFu5kcRm7M1FgKYiAU",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "1 Place Vendôme, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8649347,
+                    "lng": 2.3290836
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.86619968029149,
+                        "lng": 2.330369480291501
+                    },
+                    "southwest": {
+                        "lat": 48.86350171970849,
+                        "lng": 2.327671519708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "29b9c119172fcc6d15317cd33094a2b0ac407140",
+            "name": "Hotel Brighton",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1573,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110857533185938704209/photos\">Hôtel Brighton - Esprit de France</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAopyvuRf2k809ecSy-efX3Vf7nWdVf84loyB9ByBQVWNVZh2cDIQvi3mLqXvPYb3VbLQNfQnN1r8IBDw7pITw3J74y1O137PIj6Rb7ZHYksDsIIYBzDryMQ0wyQ0-zg33EhA02qiAWW5UnUtFqgp5ev8iGhSA1n0Y1BNakIB0jTjM-bxpg6Z5MA",
+                    "width": 2500
+                }
+            ],
+            "place_id": "ChIJN1secC5u5kcRZAnz-dmUqjY",
+            "plus_code": {
+                "compound_code": "V87H+XJ Paris, France",
+                "global_code": "8FW4V87H+XJ"
+            },
+            "rating": 4.4,
+            "reference": "ChIJN1secC5u5kcRZAnz-dmUqjY",
+            "scope": "GOOGLE",
+            "types": [
+                "bar",
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "218 Rue de Rivoli, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8658958,
+                    "lng": 2.3269053
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.86699658029149,
+                        "lng": 2.328631130291502
+                    },
+                    "southwest": {
+                        "lat": 48.8642986197085,
+                        "lng": 2.325933169708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "751a05ec173f53ba581d8a32e047a69302c4886c",
+            "name": "The Westin Paris - Vendôme",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 500,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110604580348447711691/photos\">The Westin Paris - Vendôme</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAc0vaZxYAE3O1DXNzT3Jpql6fLQ6LCQvsz-rsU2vRdEf2tWf72UQa2_j5_VydvvT8KzoTTTZdtk0UA_o5U8RkONZDZq4LyxoVPhMuQimvMJzI53cnBl3pQpHDTJi8QdlpEhC47PjeJPpC8PJli4E1f1I1GhQycWcECkGgv_VoGwHD0Uu2n4aVtA",
+                    "width": 500
+                }
+            ],
+            "place_id": "ChIJt4LY5C1u5kcRvVeuJebPxHc",
+            "plus_code": {
+                "compound_code": "V88G+9Q Paris, France",
+                "global_code": "8FW4V88G+9Q"
+            },
+            "rating": 4.3,
+            "reference": "ChIJt4LY5C1u5kcRvVeuJebPxHc",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "3 Rue de Castiglione, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8664241,
+                    "lng": 2.3399002
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8677426302915,
+                        "lng": 2.341347430291502
+                    },
+                    "southwest": {
+                        "lat": 48.8650446697085,
+                        "lng": 2.338649469708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "3162b2d79aecab5735d6bbab4f6d46923c584922",
+            "name": "Timhotel Palais Royal",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5760,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111635743653279466052/photos\">Timhotel Palais Royal</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAwooUXUqge5rFW95bLw7IRlTmPueS1yf5F6Gi0N-JPyVnxz0D77QFveBRb-eLRjWX8guAtUJhY9pjREbu64f1o3WDhrApjEBccRiwFFdvKgWxE2ysY7gPsroQ0_85tAjJEhDYtl3QG1nUYeb5FtO-PPZiGhQJNhyfQiOgjYsdsqh5PIqAHSPiKw",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJ83jsrDxu5kcREhwuqQ4GI1k",
+            "plus_code": {
+                "compound_code": "V88Q+HX Paris, France",
+                "global_code": "8FW4V88Q+HX"
+            },
+            "rating": 3.8,
+            "reference": "ChIJ83jsrDxu5kcREhwuqQ4GI1k",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "3 Rue de la Banque, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.87056459999999,
+                    "lng": 2.329732
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8717600302915,
+                        "lng": 2.331226580291502
+                    },
+                    "southwest": {
+                        "lat": 48.86906206970851,
+                        "lng": 2.328528619708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "4685a8ea0443f8de2b935474f6824f1015063b96",
+            "name": "Hotel Scribe Paris Opera by Sofitel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 768,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111756809098022137449/photos\">Hotel Scribe Paris Opera by Sofitel</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAAeWxAOJMuvbkBFn0_sbsjP4wt8mXPotKbKvRuL0wz4Dk7r1xqtNAgw1hEgTY3Kd5IEtVkdlP9M29qsOJjJJvGZMh-5P75ShQ-lAH-CfyLAvcADIg6YMKL_BXqHTqaGeBEhCUPdBA7lSk_6KOW8OvPSfBGhT6OECqlNX8fsOTC6O0CMy-fvsRBA",
+                    "width": 769
+                }
+            ],
+            "place_id": "ChIJz7k5yzZu5kcRRdYVAr48Zv8",
+            "plus_code": {
+                "compound_code": "V8CH+6V Paris, France",
+                "global_code": "8FW4V8CH+6V"
+            },
+            "rating": 4.4,
+            "reference": "ChIJz7k5yzZu5kcRRdYVAr48Zv8",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "restaurant",
+                "point_of_interest",
+                "food",
+                "establishment"
+            ],
+            "vicinity": "1 Rue Scribe, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.8682694,
+                    "lng": 2.3268049
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8696101802915,
+                        "lng": 2.328176980291502
+                    },
+                    "southwest": {
+                        "lat": 48.8669122197085,
+                        "lng": 2.325479019708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "c928c172a4a874f5ace97bc6a1d047c72b16042e",
+            "name": "Castille Paris",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 800,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105219260034050413944/photos\">Castille Paris - Starhotels Collezione</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAXAMx6k9FFKzoSJm_GGKQdZ7Z8IsT34_TtkdXEqMz7bU6d_f14klBvuh9-HktZP6BjYgEejaYqVH-c-5S4URaBzUZVZ-dHpgix-f8yWKb9MWp5cMH1fAlJR1h4e1fIXTaEhDbY2uGDhXkZVu1oYbshtr4GhRxXDYMGEz1TbOicup2DAAl86AQiQ",
+                    "width": 1200
+                }
+            ],
+            "place_id": "ChIJyyyZRjJu5kcRiVEp4-OqivU",
+            "plus_code": {
+                "compound_code": "V89G+8P Paris, France",
+                "global_code": "8FW4V89G+8P"
+            },
+            "rating": 4.4,
+            "reference": "ChIJyyyZRjJu5kcRiVEp4-OqivU",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "33-37 Rue Cambon, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.870834,
+                    "lng": 2.330427
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.8722095802915,
+                        "lng": 2.331643980291501
+                    },
+                    "southwest": {
+                        "lat": 48.8695116197085,
+                        "lng": 2.328946019708498
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png",
+            "id": "d6ba3a2b30901ccace2218442b181313eb1b59cf",
+            "name": "InterContinental Paris - Le Grand",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1440,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107945298839607703601/photos\">InterContinental Paris - Le Grand</a>"
+                    ],
+                    "photo_reference": "CmRaAAAApXmvR4dvOAuGK-m3S2cS66CuTgBJlJue1D8VvFlCOnCegjr8zFn3jPdcXvL0cNeeX8yvYDLce7KPzq-RBF8afoDDXiRKqgOyNxvj5FKEnqYn2HkVXNcyvUdEmf8KuSi0EhDV4g16D_gwo4m7s4XWslzrGhS29DQUyR5da6ooMHjIHRXefZTHqg",
+                    "width": 2880
+                }
+            ],
+            "place_id": "ChIJt4LY5C1u5kcRZmZx4KyzhVM",
+            "plus_code": {
+                "compound_code": "V8CJ+85 Paris, France",
+                "global_code": "8FW4V8CJ+85"
+            },
+            "rating": 4.6,
+            "reference": "ChIJt4LY5C1u5kcRZmZx4KyzhVM",
+            "scope": "GOOGLE",
+            "types": [
+                "lodging",
+                "point_of_interest",
+                "establishment"
+            ],
+            "vicinity": "2 Rue Scribe, Paris"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 48.87187219999999,
+                    "lng": 2.3176432
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 48.883452,
+                        "lng": 2.3271459
+                    },
+                    "southwest": {
+                        "lat": 48.863017,
+                        "lng": 2.2950141
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+            "id": "1c7df4f0a4cd1909e6936eff0703d91844d9f5d7",
+            "name": "8th arrondissement of Paris",
+            "photos": [
+                {
+                    "height": 1920,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110124831392671065474/photos\">Cedric Bonnefoux</a>"
+                    ],
+                    "photo_reference": "CmRaAAAABBIef-PMVKHttpQeONw-AJa2ezE3OMeWUwSZAYGFdo8U0ViroZ-BCqLHNal4qBFX3fUvqcF6u05nwO1FGGJlyousCas2kMnY_QN94irWPQdJRIuqrYz7_fhpBZJRqjAKEhCV9-C476P4pbjlXzKZ1fnhGhQ8gc_Mlc1Sk-EUg2ooafz_D-zeEw",
+                    "width": 2560
+                }
+            ],
+            "place_id": "ChIJdWkEFsZv5kcRwBqUaMOCCwU",
+            "reference": "ChIJdWkEFsZv5kcRwBqUaMOCCwU",
+            "scope": "GOOGLE",
+            "types": [
+                "sublocality_level_1",
+                "sublocality",
+                "political"
+            ],
+            "vicinity": "8th arrondissement of Paris"
+        }
+    ],
+    "status": "OK"
+}

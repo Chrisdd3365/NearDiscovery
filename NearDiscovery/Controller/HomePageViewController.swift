@@ -15,21 +15,28 @@ extension Date {
 class HomePageViewController: UIViewController {
     var timer = Timer()
     
+    @IBOutlet var homePageView: HomePageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(scheduleTimer), name:  UIApplication.didBecomeActiveNotification, object: nil)
+        notificationScheduleTimer()
         changeBackground()
+    }
+    
+    private func notificationScheduleTimer() {
+        NotificationCenter.default.addObserver(self, selector: #selector(scheduleTimer), name:  UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     @objc func scheduleTimer() {
         timer = Timer(fireAt: Calendar.current.nextDate(after: Date(), matching: DateComponents(hour: 6..<21 ~= Date().hour ? 21 : 6), matchingPolicy: .nextTime)!, interval: 0, target: self, selector: #selector(changeBackground), userInfo: nil, repeats: false)
         print(timer.fireDate)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
-        print("new background change scheduled at:", timer.fireDate.description(with: .current))
     }
     
     @objc func changeBackground(){
-        self.view.backgroundColor =  6..<21 ~= Date().hour ? .yellow : .black
+        let dayBackgroundImage = UIImage(named: "landscapeday")
+        let nightBackgroundImage = UIImage(named: "landscapenight")
+        self.homePageView.backgroundImageView.image = 6..<21 ~= Date().hour ? dayBackgroundImage : nightBackgroundImage
         scheduleTimer()
     }
 }
