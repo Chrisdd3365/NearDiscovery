@@ -13,13 +13,13 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     private let placeDetailsServices = PlaceDetailsServices()
-    var placesMarkers = [PlaceMarker]()
+    var placesMarkers: [PlaceMarker] = []
     private let searchRadius: Double = 1000.0
     let regionInMeters: Double = 200
-    private var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
+    private var searchedTypes = ["bakery", "bar", "cafe", "supermarket", "restaurant"]
     var locationManager = CLLocationManager()
-    lazy var geocoder = CLGeocoder()
     var previousLocation: CLLocation?
+    lazy var geocoder = CLGeocoder()
     
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -29,16 +29,11 @@ class MapViewController: UIViewController {
         setupMapView()
         locationServicesIsEnabled()
         getUserLocationAuthorizationStatus()
+        fetchNearbyPlaces(location: mapView.camera.centerCoordinate)
     }
     
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
-        //fetchNearbyPlaces(coordinate: mapView.reload())
-    }
-    
-    func fetchGoogleData(location: CLLocationCoordinate2D) {
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: searchRadius, types: searchedTypes) { places in
-            
-        }
+      //TODO
     }
     
     private func locationServicesIsEnabled() {
@@ -47,7 +42,7 @@ class MapViewController: UIViewController {
             getUserLocationAuthorizationStatus()
             previousLocation = getUserAddress(for: mapView)
         } else {
-            //TODO: Show alert
+            showAlert(title: "Location Services not enabled", message: "We need your authorization!")
         }
     }
 
@@ -79,9 +74,9 @@ class MapViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    private func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        placeDetailsServices.getNearPlacesCoordinates(coordinate, radius: searchRadius, types: searchedTypes) { places in
-                //mapView.addAnnotations(places)
+    private func fetchNearbyPlaces(location: CLLocationCoordinate2D) {
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: searchRadius, types: searchedTypes) { places in
+            self.mapView.addAnnotations(self.placesMarkers)
         }
     }
     
@@ -147,14 +142,14 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "") as? MKMarkerAnnotationView
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceMarker") as? MKMarkerAnnotationView
         
         if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "")
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceMarker")
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.glyphText = ""
+        annotationView?.glyphText = "☝️"
         annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
         return annotationView
     }

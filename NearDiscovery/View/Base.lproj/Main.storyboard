@@ -23,7 +23,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-Wd-CKp">
                                 <rect key="frame" x="72" y="269" width="176" height="30"/>
                                 <state key="normal" title="Discover what's near you!">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="5fP-ig-zht" kind="presentation" id="QIU-yC-prf"/>
@@ -33,19 +33,19 @@
                                 <rect key="frame" x="103.5" y="60" width="113" height="21"/>
                                 <color key="tintColor" red="0.96507864343420169" green="0.96425988001595242" blue="0.99999195337295532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="bottom" secondItem="UFc-1V-NPa" secondAttribute="bottom" id="4xX-BH-ssn"/>
-                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="trailing" secondItem="UFc-1V-NPa" secondAttribute="trailing" id="Dbw-he-MyB"/>
                             <constraint firstItem="9mw-Wd-CKp" firstAttribute="centerY" secondItem="2xK-W5-OTr" secondAttribute="centerY" id="DjU-nl-SJ5"/>
-                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" id="HbH-U2-wWA"/>
-                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" id="Mdz-AT-Rl5"/>
+                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="trailing" secondItem="UFc-1V-NPa" secondAttribute="trailing" id="Fks-n9-CIy"/>
+                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="bottom" secondItem="UFc-1V-NPa" secondAttribute="bottom" id="SIT-4D-sc6"/>
                             <constraint firstItem="9mw-Wd-CKp" firstAttribute="centerX" secondItem="2xK-W5-OTr" secondAttribute="centerX" id="WbR-To-w3I"/>
                             <constraint firstItem="QX3-Vs-tpB" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" constant="40" id="aPa-aF-HNV"/>
+                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" id="bOU-Cp-A44"/>
+                            <constraint firstItem="KCE-cZ-b7C" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" id="s6S-Ht-NJ1"/>
                             <constraint firstItem="QX3-Vs-tpB" firstAttribute="centerX" secondItem="2xK-W5-OTr" secondAttribute="centerX" id="xrE-cX-ahT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UFc-1V-NPa"/>

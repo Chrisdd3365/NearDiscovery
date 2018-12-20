@@ -37,13 +37,13 @@ struct PlaceDetails: Decodable {
     }
     
     struct Location: Decodable {
-        let location : LatLong
+        let location : LatitudeLongitude
         
         enum CodingKeys: String, CodingKey {
             case location = "location"
         }
         
-        struct LatLong: Decodable {
+        struct LatitudeLongitude: Decodable {
             let latitude: Double
             let longitude: Double
             

@@ -16,7 +16,7 @@ class PlaceMarker: NSObject {
     var name: String
     var address: String
     var imageName: String
-    
+
     init(place: PlaceDetails) {
         self.place = place
         self.location = CLLocation(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude)
@@ -32,7 +32,7 @@ extension PlaceMarker: MKAnnotation {
             return location.coordinate
         }
     }
-    
+
     var title: String? {
         get {
             return name

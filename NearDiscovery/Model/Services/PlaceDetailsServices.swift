@@ -18,9 +18,9 @@ class PlaceDetailsServices {
         self.placeDetailsSession = placeDetailsSession
     }
     
-    func nearPlacesCoordinatesUrl(coordinate: CLLocationCoordinate2D, radius: Double, types: [String]) -> String {
+    func nearPlacesCoordinatesUrl(location: CLLocationCoordinate2D, radius: Double, types: [String]) -> String {
         let baseURL = Constants.GooglePlacesURL.baseURL
-        let locationString = Constants.GooglePlacesURL.locationURL + String(coordinate.latitude) + "," + String(coordinate.longitude)
+        let locationString = Constants.GooglePlacesURL.locationURL + String(location.latitude) + "," + String(location.longitude)
         let radius = Constants.GooglePlacesURL.radiusURL + "\(radius)"
         let rankby = Constants.GooglePlacesURL.rankByURL
         let sensor = Constants.GooglePlacesURL.sensorURL
@@ -34,8 +34,8 @@ class PlaceDetailsServices {
         return urlStringConverted
     }
     
-    func getNearPlacesCoordinates(_ coordinate: CLLocationCoordinate2D, radius: Double, types:[String], callback: @escaping (PlaceDetails?) -> Void) {
-        guard let url = URL(string: nearPlacesCoordinatesUrl(coordinate: coordinate, radius: radius, types: types)) else { return }
+    func getNearPlacesCoordinates(_ location: CLLocationCoordinate2D, radius: Double, types:[String], callback: @escaping (PlaceDetails?) -> Void) {
+        guard let url = URL(string: nearPlacesCoordinatesUrl(location: location, radius: radius, types: types)) else { return }
         task?.cancel()
         task = placeDetailsSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {

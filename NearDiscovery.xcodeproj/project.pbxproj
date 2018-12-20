@@ -25,6 +25,7 @@
 		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
 		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
 		95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */; };
+		95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C73BB521CC1559003564C9 /* UITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
 		95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServiceTests.swift; sourceTree = "<group>"; };
+		95C73BB521CC1559003564C9 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				9590E5FC21C950B00016A77F /* UIViewController.swift */,
+				95C73BB521CC1559003564C9 /* UITableViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
+				95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */,
 				9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
 				9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */,

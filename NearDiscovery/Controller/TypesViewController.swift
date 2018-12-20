@@ -14,7 +14,7 @@ protocol TypesViewControllerDelegate: class {
 
 class TypesViewController: UIViewController {
     
-    private let possibleTypesDictionary = ["bakery": "Bakery", "bar": "Bar", "cafe": "Cafe", "grocery_or_supermarket": "Supermarket", "restaurant": "Restaurant"]
+    private let possibleTypesDictionary = ["bakery": "Bakery", "bar": "Bar", "cafe": "Cafe", "supermarket": "Supermarket", "restaurant": "Restaurant"]
     private var sortedKeys: [String] {
         return possibleTypesDictionary.keys.sorted()
     }
@@ -22,7 +22,7 @@ class TypesViewController: UIViewController {
     weak var delegate: TypesViewControllerDelegate?
 
 }
-extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
+extension TypesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return possibleTypesDictionary.count
     }
@@ -36,7 +36,9 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.accessoryType = selectedTypes.contains(key) ? .checkmark : .none
         return cell
     }
-    
+}
+
+extension TypesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let key = sortedKeys[indexPath.row]
@@ -48,3 +50,5 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
 }
+
+
