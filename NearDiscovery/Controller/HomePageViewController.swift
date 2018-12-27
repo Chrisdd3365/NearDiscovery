@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 extension Date {
     var hour: Int { return Calendar.current.component(.hour, from: self) }
 }
 
 class HomePageViewController: UIViewController {
-    var timer = Timer()
     
+    var timer = Timer()
+ 
     @IBOutlet var homePageView: HomePageView!
     
     override func viewDidLoad() {

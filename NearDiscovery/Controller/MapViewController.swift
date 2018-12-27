@@ -11,26 +11,62 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
+    private let googlePlacesService = GooglePlacesService()
+    var currentLocation: CLLocation = CLLocation(latitude: 42.361145, longitude: -71.057083)
+    var searchRadius : Int = 2500
     
-    private let placeDetailsServices = PlaceDetailsServices()
+    
     var placesMarkers: [PlaceMarker] = []
-    private let searchRadius: Double = 1000.0
-    let regionInMeters: Double = 200
+    let regionInMeters: Double = 4000
     private var searchedTypes = ["bakery", "bar", "cafe", "supermarket", "restaurant"]
     var locationManager = CLLocationManager()
     var previousLocation: CLLocation?
     lazy var geocoder = CLGeocoder()
     
-    @IBOutlet weak var addressLabel: UILabel!
+  
     @IBOutlet weak var mapView: MKMapView!
+    
+   
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         locationServicesIsEnabled()
         getUserLocationAuthorizationStatus()
-        fetchNearbyPlaces(location: mapView.camera.centerCoordinate)
+        fetchGoogleData(forLocation: currentLocation)
+        
     }
+    
+    func fetchGoogleData(forLocation: CLLocation) {
+        //guard let location = currentLocation else { return }
+        googlePlacesService.getGooglePlacesData(forKeyword: "Starbucks", location: currentLocation, withinMeters: 2500) { (response) in
+
+            self.printFirstFive(places: response.results)
+
+        }
+    }
+    
+    func printFirstFive(places: [Place]) {
+        for place in places.prefix(20) {
+            print("*******NEW PLACE********")
+            let name = place.name
+            let address = place.address
+            let location = ("lat: \(place.geometry.location.latitude), lng: \(place.geometry.location.longitude)")
+            guard let open = place.openingHours?.isOpen else {
+                print("\(name) is located at \(address), \(location)")
+                return
+            }
+
+            if open {
+                print("\(name) is open, located at \(address), \(location)")
+            } else {
+                print("\(name) is closed, located at \(address), \(location)")
+            }
+        }
+    }
+    
+    
     
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
       //TODO
@@ -74,12 +110,16 @@ class MapViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    private func fetchNearbyPlaces(location: CLLocationCoordinate2D) {
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: searchRadius, types: searchedTypes) { places in
-            self.mapView.addAnnotations(self.placesMarkers)
-        }
-    }
-    
+//    func loadPlaces(place: Place) {
+//        let places = PlaceMarker(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude, name: place.name)
+//        placesMarkers.append(places)
+//    }
+//
+//    private func addPlacesLocations(place: Place) {
+//        loadPlaces(place: place)
+//        mapView.addAnnotations(placesMarkers)
+//    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.typesSegueIdentifier, let typesVC = segue.destination as? TypesViewController {
             typesVC.selectedTypes = searchedTypes
@@ -108,35 +148,7 @@ extension MapViewController: MKMapViewDelegate {
             mapView.setRegion(region, animated: false)
         }
     }
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let center = getUserAddress(for: mapView)
-        let geoCoder = CLGeocoder()
-        
-        guard let previousLocation = self.previousLocation else { return }
-        
-        guard center.distance(from: previousLocation) > 50 else { return }
-        self.previousLocation = center
-        
-        geoCoder.reverseGeocodeLocation(center) { [weak self] (placemarks, error) in
-            guard let self = self else { return }
-            if let _ = error {
-                //TODO: show alert
-                return
-            }
-            guard let placemark = placemarks?.first else {
-                //TODO: show alert
-                return }
-            
-            let streetNumber = placemark.subThoroughfare ?? ""
-            let streetName = placemark.thoroughfare ?? ""
-            
-            DispatchQueue.main.async {
-                self.addressLabel.text = "\(streetNumber)" + " \(streetName)"
-            }
-        }
-    }
-    
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -149,13 +161,15 @@ extension MapViewController: MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
+        
+        annotationView?.canShowCallout = true
         annotationView?.glyphText = "☝️"
         annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
         return annotationView
     }
 }
-    
-    
+
+
     
     
     

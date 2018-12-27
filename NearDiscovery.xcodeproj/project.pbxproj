@@ -12,6 +12,8 @@
 		953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122EC21CA82EB007FCADC /* HomePageView.swift */; };
 		953122F221CA8EA7007FCADC /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F121CA8EA7007FCADC /* URLSessionFake.swift */; };
 		953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F321CA8ED3007FCADC /* FakeResponseData.swift */; };
+		953269AE21D5101400DCE5C8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953269AD21D5101400DCE5C8 /* Place.swift */; };
+		953269B021D511A300DCE5C8 /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953269AF21D511A300DCE5C8 /* GooglePlacesService.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
 		9587403321C3FB2800489865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403121C3FB2800489865 /* Main.storyboard */; };
@@ -19,8 +21,6 @@
 		9587403821C3FB2900489865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403621C3FB2900489865 /* LaunchScreen.storyboard */; };
 		9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405121C3FE2500489865 /* HomePageViewController.swift */; };
 		9587405A21C404D600489865 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405921C404D600489865 /* MapViewController.swift */; };
-		9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F421C8F4820016A77F /* PlaceDetails.swift */; };
-		9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */; };
 		9590E5FA21C93C630016A77F /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5F921C93C630016A77F /* TypesViewController.swift */; };
 		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
 		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
@@ -45,6 +45,8 @@
 		953122EC21CA82EB007FCADC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		953122F121CA8EA7007FCADC /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		953122F321CA8ED3007FCADC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		953269AD21D5101400DCE5C8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		953269AF21D511A300DCE5C8 /* GooglePlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9587402D21C3FB2800489865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +58,6 @@
 		9587404421C3FB2900489865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9587405121C3FE2500489865 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		9587405921C404D600489865 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		9590E5F421C8F4820016A77F /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
-		9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServices.swift; sourceTree = "<group>"; };
 		9590E5F921C93C630016A77F /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */,
-				9590E5F821C90BAB0016A77F /* PlacesDetailsStructures */,
+				9590E5F821C90BAB0016A77F /* Structures */,
 				9587405321C3FE4500489865 /* Services */,
 			);
 			path = Model;
@@ -206,17 +206,17 @@
 		9587405321C3FE4500489865 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9590E5F621C8F6400016A77F /* PlaceDetailsServices.swift */,
+				953269AF21D511A300DCE5C8 /* GooglePlacesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		9590E5F821C90BAB0016A77F /* PlacesDetailsStructures */ = {
+		9590E5F821C90BAB0016A77F /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				9590E5F421C8F4820016A77F /* PlaceDetails.swift */,
+				953269AD21D5101400DCE5C8 /* Place.swift */,
 			);
-			path = PlacesDetailsStructures;
+			path = Structures;
 			sourceTree = "<group>";
 		};
 		9590E5FB21C9509D0016A77F /* Extensions */ = {
@@ -396,15 +396,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9590E5FA21C93C630016A77F /* TypesViewController.swift in Sources */,
-				9590E5F521C8F4820016A77F /* PlaceDetails.swift in Sources */,
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
+				953269AE21D5101400DCE5C8 /* Place.swift in Sources */,
 				9587405A21C404D600489865 /* MapViewController.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
 				95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */,
-				9590E5F721C8F6400016A77F /* PlaceDetailsServices.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
 				9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */,
 				9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */,
+				953269B021D511A300DCE5C8 /* GooglePlacesService.swift in Sources */,
 				9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

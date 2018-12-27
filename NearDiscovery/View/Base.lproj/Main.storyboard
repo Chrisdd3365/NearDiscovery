@@ -283,36 +283,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-Rg-Ae5">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8B-lj-Id6">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-FC-16B">
-                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NGm-OP-Ge1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EDG-Rg-Ae5" firstAttribute="leading" secondItem="JY5-XJ-E1r" secondAttribute="leading" id="Ouz-jh-Qb2"/>
-                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="trailing" secondItem="EDG-Rg-Ae5" secondAttribute="trailing" id="U9G-5B-Vpt"/>
-                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="trailing" secondItem="Rei-FC-16B" secondAttribute="trailing" id="dCT-a6-Irx"/>
-                            <constraint firstItem="EDG-Rg-Ae5" firstAttribute="top" secondItem="JY5-XJ-E1r" secondAttribute="top" id="iXN-UN-Bjf"/>
-                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="bottom" secondItem="EDG-Rg-Ae5" secondAttribute="bottom" id="ieI-w7-GO5"/>
-                            <constraint firstItem="Rei-FC-16B" firstAttribute="leading" secondItem="JY5-XJ-E1r" secondAttribute="leading" id="oBW-va-vPe"/>
-                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="bottom" secondItem="Rei-FC-16B" secondAttribute="bottom" id="tbO-UP-yEh"/>
+                            <constraint firstItem="Y8B-lj-Id6" firstAttribute="top" secondItem="JY5-XJ-E1r" secondAttribute="top" id="MRj-ed-8XF"/>
+                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="bottom" secondItem="Y8B-lj-Id6" secondAttribute="bottom" id="XbU-LB-Mhe"/>
+                            <constraint firstItem="JY5-XJ-E1r" firstAttribute="trailing" secondItem="Y8B-lj-Id6" secondAttribute="trailing" id="fvG-dc-lUp"/>
+                            <constraint firstItem="Y8B-lj-Id6" firstAttribute="leading" secondItem="JY5-XJ-E1r" secondAttribute="leading" id="w47-s5-mzZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JY5-XJ-E1r"/>
                     </view>
                     <navigationItem key="navigationItem" id="syV-jR-p8u">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="refresh" id="r7T-Ml-QOT">
                             <connections>
-                                <action selector="refreshMap:" destination="lUX-xS-mw4" id="5BJ-DL-Gho"/>
+                                <action selector="refreshMap:" destination="lUX-xS-mw4" id="G8j-iw-3hj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="1pU-vT-20e">
@@ -327,13 +314,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressLabel" destination="Rei-FC-16B" id="GJV-X5-CY4"/>
-                        <outlet property="mapView" destination="EDG-Rg-Ae5" id="53V-x1-i23"/>
+                        <outlet property="mapView" destination="Y8B-lj-Id6" id="aRN-Vb-JRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmX-gK-YAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="-378.26086956521743"/>
+            <point key="canvasLocation" x="2394.375" y="-379.22535211267603"/>
         </scene>
     </scenes>
     <resources>

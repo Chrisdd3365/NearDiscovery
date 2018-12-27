@@ -11,18 +11,12 @@ import MapKit
 import CoreLocation
 
 class PlaceMarker: NSObject {
-    let place: PlaceDetails
     var location: CLLocation
     var name: String
-    var address: String
-    var imageName: String
 
-    init(place: PlaceDetails) {
-        self.place = place
-        self.location = CLLocation(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude)
-        self.name = place.name
-        self.address = place.address
-        self.imageName = place.photos[0].photoReference
+    init(latitude: Double, longitude: Double, name: String) {
+        self.location = CLLocation(latitude: latitude, longitude: longitude)
+        self.name = name
     }
 }
 
@@ -36,11 +30,6 @@ extension PlaceMarker: MKAnnotation {
     var title: String? {
         get {
             return name
-        }
-    }
-    var subtitle: String? {
-        get {
-            return address
         }
     }
 }

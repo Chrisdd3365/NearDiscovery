@@ -13,11 +13,11 @@ struct Constants {
         static let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
         static let locationURL = "location="
         static let radiusURL = "&radius="
-        static let rankByURL = "&rankby=prominence"
-        static let sensorURL = "&sensor=true"
+        static let rankByURL = "&rankby=distance"
+        static let keywordURL = "&keyword="
         static let apiKeyURL = "&key="
         static let apiKey = "AIzaSyCUUCsTw3immuiortZmBUB3JEnUbtohjtQ"
-        static let typesURL = "&types="
+       
     }
     
     struct SeguesIdentifiers {

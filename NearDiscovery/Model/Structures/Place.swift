@@ -1,21 +1,21 @@
 //
-//  PlaceDetails.swift
+//  Place.swift
 //  NearDiscovery
 //
-//  Created by Christophe DURAND on 18/12/2018.
+//  Created by Christophe DURAND on 27/12/2018.
 //  Copyright © 2018 Christophe DURAND. All rights reserved.
 //
 
 import Foundation
 
-struct GooglePlacesResponse: Decodable {
-    let results : [PlaceDetails]
+struct GooglePlacesResponse: Codable {
+    let results : [Place]
     enum CodingKeys : String, CodingKey {
         case results = "results"
     }
 }
 
-struct PlaceDetails: Decodable {
+struct Place: Codable {
     let placeId: String
     let geometry: Location
     let name: String
@@ -36,14 +36,14 @@ struct PlaceDetails: Decodable {
         case rating = "rating"
     }
     
-    struct Location: Decodable {
+    struct Location: Codable {
         let location : LatitudeLongitude
         
         enum CodingKeys: String, CodingKey {
             case location = "location"
         }
         
-        struct LatitudeLongitude: Decodable {
+        struct LatitudeLongitude: Codable {
             let latitude: Double
             let longitude: Double
             
@@ -54,7 +54,7 @@ struct PlaceDetails: Decodable {
         }
     }
     
-    struct OpenNow: Decodable {
+    struct OpenNow: Codable {
         let isOpen: Bool
         
         enum CodingKeys: String, CodingKey {
@@ -62,7 +62,7 @@ struct PlaceDetails: Decodable {
         }
     }
     
-    struct PhotoInfo: Decodable {
+    struct PhotoInfo: Codable {
         let height: Int
         let width: Int
         let photoReference: String
@@ -74,4 +74,3 @@ struct PlaceDetails: Decodable {
         }
     }
 }
-

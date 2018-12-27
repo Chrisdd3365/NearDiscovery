@@ -19,12 +19,9 @@ class PlaceDetailsServicesTests: XCTestCase {
         // Given
         let placeDetailsServices = PlaceDetailsServices(
             placeDetailsSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
-        let types = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
-        let location = CLLocationCoordinate2D(latitude: 48.866667, longitude: 2.333333)
-        
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: 1000.0, types: types ) { places in
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: 1000.0, types: .bakery ) { places in
             // Then
             XCTAssertNil(places)
             expectation.fulfill()
@@ -38,7 +35,7 @@ class PlaceDetailsServicesTests: XCTestCase {
             placeDetailsSession: URLSessionFake(data: nil, response: nil, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: types) { places in
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: .bakery) { places in
             // Then
             XCTAssertNil(places)
             expectation.fulfill()
@@ -56,7 +53,7 @@ class PlaceDetailsServicesTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: types) { places in
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: .bakery) { places in
             // Then
             XCTAssertNil(places)
             expectation.fulfill()
@@ -74,7 +71,7 @@ class PlaceDetailsServicesTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: types) { places in
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: .bakery) { places in
             // Then
             XCTAssertNil(places)
             expectation.fulfill()
@@ -92,7 +89,7 @@ class PlaceDetailsServicesTests: XCTestCase {
         
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: types) { places in
+        placeDetailsServices.getNearPlacesCoordinates(location, radius: radius, types: .bakery) { places in
             // Then
             XCTAssertNil(places)
             expectation.fulfill()
