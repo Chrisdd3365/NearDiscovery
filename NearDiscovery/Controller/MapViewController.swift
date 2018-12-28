@@ -12,76 +12,71 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     private let googlePlacesService = GooglePlacesService()
-    var currentLocation: CLLocation = CLLocation(latitude: 42.361145, longitude: -71.057083)
-    var searchRadius : Int = 2500
-    
-    
-    var placesMarkers: [PlaceMarker] = []
-    let regionInMeters: Double = 4000
-    private var searchedTypes = ["bakery", "bar", "cafe", "supermarket", "restaurant"]
     var locationManager = CLLocationManager()
-    var previousLocation: CLLocation?
-    lazy var geocoder = CLGeocoder()
+    var placesMarkers: [PlaceMarker] = []
+    let regionInMeters: CLLocationDistance = 2000.0
     
+    //TBD
+    private var searchedTypes = ["bakery", "bar", "cafe", "supermarket", "restaurant"]
+    //TESTING LOCATION
+    //var appleParkLocation: CLLocation = CLLocation(latitude: 37.33182, longitude: -122.03118)
   
     @IBOutlet weak var mapView: MKMapView!
-    
-   
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         locationServicesIsEnabled()
         getUserLocationAuthorizationStatus()
-        fetchGoogleData(forLocation: currentLocation)
-        
     }
-    
-    func fetchGoogleData(forLocation: CLLocation) {
-        //guard let location = currentLocation else { return }
-        googlePlacesService.getGooglePlacesData(forKeyword: "Starbucks", location: currentLocation, withinMeters: 2500) { (response) in
 
-            self.printFirstFive(places: response.results)
-
-        }
-    }
-    
-    func printFirstFive(places: [Place]) {
-        for place in places.prefix(20) {
-            print("*******NEW PLACE********")
-            let name = place.name
-            let address = place.address
-            let location = ("lat: \(place.geometry.location.latitude), lng: \(place.geometry.location.longitude)")
-            guard let open = place.openingHours?.isOpen else {
-                print("\(name) is located at \(address), \(location)")
-                return
-            }
-
-            if open {
-                print("\(name) is open, located at \(address), \(location)")
-            } else {
-                print("\(name) is closed, located at \(address), \(location)")
-            }
-        }
-    }
-    
-    
-    
     @IBAction func refreshMap(_ sender: UIBarButtonItem) {
       //TODO
     }
+    
+    private func fetchGoogleData(forLocation: CLLocation) {
+        let searchRadius = 2500
+        googlePlacesService.getGooglePlacesData(forKeyword: "restaurant", location: forLocation, withinMeters: searchRadius) { (response) in
+            self.showAnnotations(places: response.results)
+        }
+    }
+    
+    private func showAnnotations(places: [Place]) {
+        for place in places {
+            let placeMarker = PlaceMarker(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude, name: place.name)
+            placesMarkers.append(placeMarker)
+            mapView.addAnnotations(placesMarkers)
+        }
+    }
+    
+    //    func printFirstFive(places: [Place]) {
+    //        for place in places.prefix(20) {
+    //            print("*******NEW PLACE********")
+    //            let name = place.name
+    //            let address = place.address
+    //            let location = ("lat: \(place.geometry.location.latitude), lng: \(place.geometry.location.longitude)")
+    //            guard let open = place.openingHours?.isOpen else {
+    //                print("\(name) is located at \(address), \(location)")
+    //                return
+    //            }
+    //
+    //            if open {
+    //                print("\(name) is open, located at \(address), \(location)")
+    //            } else {
+    //                print("\(name) is closed, located at \(address), \(location)")
+    //            }
+    //        }
+    //    }
     
     private func locationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             getUserLocationAuthorizationStatus()
-            previousLocation = getUserAddress(for: mapView)
         } else {
             showAlert(title: "Location Services not enabled", message: "We need your authorization!")
         }
     }
-
+//GET USER LOCATION AUTHORIZER STATUS
     private func getUserLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             activateLocationServices()
@@ -90,36 +85,21 @@ class MapViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-    
+    //ENABLE LOCATION SERVICES
     private func activateLocationServices() {
         locationManager.startUpdatingLocation()
     }
-    
+    //DELEGATE MAPKIT
     private func setupMapView() {
         mapView.delegate = self
     }
-    
+    //DELEGATE CORELOCATION
     private func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    private func getUserAddress(for mapView: MKMapView) -> CLLocation {
-        let latitude = mapView.centerCoordinate.latitude
-        let longitude = mapView.centerCoordinate.longitude
-        return CLLocation(latitude: latitude, longitude: longitude)
-    }
-    
-//    func loadPlaces(place: Place) {
-//        let places = PlaceMarker(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude, name: place.name)
-//        placesMarkers.append(places)
-//    }
-//
-//    private func addPlacesLocations(place: Place) {
-//        loadPlaces(place: place)
-//        mapView.addAnnotations(placesMarkers)
-//    }
-
+    //TBD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.typesSegueIdentifier, let typesVC = segue.destination as? TypesViewController {
             typesVC.selectedTypes = searchedTypes
@@ -131,24 +111,27 @@ class MapViewController: UIViewController {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
+        let userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: false)
+        fetchGoogleData(forLocation: userLocation)
     }
-    
+    //AUTHORIZER TO LOCATE USER
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         getUserLocationAuthorizationStatus()
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
+    //USER LOCATION
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         if let userLocation = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: false)
         }
     }
-
+    //ANNOTATIONS
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil

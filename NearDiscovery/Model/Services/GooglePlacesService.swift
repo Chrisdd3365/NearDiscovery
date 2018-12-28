@@ -50,33 +50,4 @@ class GooglePlacesService {
         }
         task?.resume()
     }
- 
-    
-    
-    
-    
-    
-    
-//    func getNearPlacesCoordinates(_ location: CLLocationCoordinate2D, radius: Double, types: String, callback: @escaping (Place?) -> Void) {
-//        guard let url = URL(string: nearPlacesCoordinatesUrl(location: location, radius: radius, types: types)) else { return }
-//        task?.cancel()
-//        task = googlePlacesSession.dataTask(with: url) { data, response, error in
-//            DispatchQueue.main.async {
-//                guard let data = data, error == nil else {
-//                    callback(nil)
-//                    return
-//                }
-//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//                    callback(nil)
-//                    return
-//                }
-//                guard let googlePlacesResponseJSON = try? JSONDecoder().decode(Place.self, from: data) else {
-//                    callback(nil)
-//                    return
-//                }
-//                callback(googlePlacesResponseJSON)
-//            }
-//        }
-//        task?.resume()
-//    }
 }
