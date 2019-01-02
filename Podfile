@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'NearDiscovery' do
   pod 'GoogleMaps'
+  pod 'SwiftGifOrigin'
 end

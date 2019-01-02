@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct GooglePlacesResponse: Codable {
+struct GooglePlacesResponse: Decodable {
     let results : [Place]
     enum CodingKeys : String, CodingKey {
         case results = "results"
     }
 }
 
-struct Place: Codable {
+struct Place: Decodable {
     let placeId: String
     let geometry: Location
     let name: String
     let openingHours: OpenNow?
     let photos: [PhotoInfo]
     let types: [String]
-    let address: String
+    let vicinity: String
     let rating: Double
     
     enum CodingKeys: String, CodingKey {
@@ -32,18 +32,18 @@ struct Place: Codable {
         case openingHours = "opening_hours"
         case photos = "photos"
         case types = "types"
-        case address = "vicinity"
+        case vicinity = "vicinity"
         case rating = "rating"
     }
     
-    struct Location: Codable {
+    struct Location: Decodable {
         let location : LatitudeLongitude
         
         enum CodingKeys: String, CodingKey {
             case location = "location"
         }
         
-        struct LatitudeLongitude: Codable {
+        struct LatitudeLongitude: Decodable {
             let latitude: Double
             let longitude: Double
             
@@ -54,15 +54,15 @@ struct Place: Codable {
         }
     }
     
-    struct OpenNow: Codable {
-        let isOpen: Bool
+    struct OpenNow: Decodable {
+        let openNow: Bool
         
         enum CodingKeys: String, CodingKey {
-            case isOpen = "open_now"
+            case openNow = "open_now"
         }
     }
     
-    struct PhotoInfo: Codable {
+    struct PhotoInfo: Decodable {
         let height: Int
         let width: Int
         let photoReference: String

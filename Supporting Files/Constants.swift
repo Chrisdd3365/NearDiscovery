@@ -17,12 +17,10 @@ struct Constants {
         static let keywordURL = "&keyword="
         static let apiKeyURL = "&key="
         static let apiKey = "AIzaSyCUUCsTw3immuiortZmBUB3JEnUbtohjtQ"
-       
     }
     
     struct SeguesIdentifiers {
-        static let typesSegueIdentifier = "typesSegue"
-        static let detailsSegueIdentifier = "detailsSegue"
+        static let showNearbySegueIdentifier = "showNearbySegue"
     }
 }
 
