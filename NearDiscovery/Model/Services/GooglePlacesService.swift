@@ -22,9 +22,18 @@ class GooglePlacesService {
         let locationURL = Constants.GooglePlacesURL.locationURL + String(location.coordinate.latitude) + "," + String(location.coordinate.longitude)
         let rankbyURL = Constants.GooglePlacesURL.rankByURL
         let keywordURL = Constants.GooglePlacesURL.keywordURL + keyword
-        let keyURL = Constants.GooglePlacesURL.apiKeyURL + Constants.GooglePlacesURL.apiKey
+        let keyURL = Constants.GoogleApiKey.apiKeyURL + Constants.GoogleApiKey.apiKey
     
         return baseURL + locationURL + rankbyURL + keywordURL + keyURL
+    }
+    
+    func googlePlacesPhotosURL(photoreference: String) -> String {
+        let baseURL = Constants.GooglePlacesPhotosURL.baseURL
+        let maxwidthURL = Constants.GooglePlacesPhotosURL.maxwidthURL
+        let photoreferenceURL = Constants.GooglePlacesPhotosURL.photoreferenceURL + photoreference
+        let keyURL = Constants.GoogleApiKey.apiKeyURL + Constants.GoogleApiKey.apiKey
+
+        return baseURL + maxwidthURL + photoreferenceURL + keyURL
     }
     
     func getGooglePlacesData(keyword: String, location: CLLocation, callback: @escaping (Bool, GooglePlacesResponse) -> Void) {

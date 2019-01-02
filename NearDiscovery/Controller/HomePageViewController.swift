@@ -39,7 +39,7 @@ class HomePageViewController: UIViewController {
         homePageView.nearbyDiscoveryButton.isEnabled = !shown
     }
     
-    private func fetchData(location: CLLocation) {
+    private func fetchGooglePlacesData(location: CLLocation) {
         GooglePlacesService.shared.getGooglePlacesData(keyword: "restaurant", location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
@@ -116,7 +116,7 @@ extension HomePageViewController: CLLocationManagerDelegate {
             didFindUserLocation = true
             locationManager.stopUpdatingLocation()
         }
-        fetchData(location: userLocation)
+        fetchGooglePlacesData(location: userLocation)
     }
     //AUTHORIZER TO LOCATE USER
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

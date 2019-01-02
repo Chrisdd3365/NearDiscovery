@@ -16,6 +16,7 @@
 		953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F321CA8ED3007FCADC /* FakeResponseData.swift */; };
 		953269AE21D5101400DCE5C8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953269AD21D5101400DCE5C8 /* Place.swift */; };
 		953269B021D511A300DCE5C8 /* GooglePlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953269AF21D511A300DCE5C8 /* GooglePlacesService.swift */; };
+		954A97FE21DCF17C00AE2D8B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A97FD21DCF17C00AE2D8B /* UIImageView.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		9578AD2B21D7BEF700D2FE18 /* EncodeSansExpanded-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		953122F321CA8ED3007FCADC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		953269AD21D5101400DCE5C8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		953269AF21D511A300DCE5C8 /* GooglePlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesService.swift; sourceTree = "<group>"; };
+		954A97FD21DCF17C00AE2D8B /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSansExpanded-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,7 @@
 			children = (
 				9590E5FC21C950B00016A77F /* UIViewController.swift */,
 				95C73BB521CC1559003564C9 /* UITableViewCell.swift */,
+				954A97FD21DCF17C00AE2D8B /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			files = (
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				953269AE21D5101400DCE5C8 /* Place.swift in Sources */,
+				954A97FE21DCF17C00AE2D8B /* UIImageView.swift in Sources */,
 				951AA04921DA25E000F2E4FC /* NearbyPlacesListViewController.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
 				95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */,

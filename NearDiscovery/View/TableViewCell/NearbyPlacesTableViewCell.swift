@@ -18,6 +18,6 @@ class NearbyPlacesTableViewCell: UITableViewCell {
         placeNameLabel.text = placeName
         placeAddressLabel.text = placeAddress
         ratingLabel.text = String(rating)
-        //placeBackgroundImageView.load(imageURL: backgroundRecipeImageURL)
+        placeBackgroundImageView.cacheImage(urlString: placeBackgroundImageURL)
     }
 }
