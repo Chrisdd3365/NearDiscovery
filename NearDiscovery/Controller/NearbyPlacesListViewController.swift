@@ -9,10 +9,9 @@
 import UIKit
 
 class NearbyPlacesListViewController: UIViewController {
-    var places: [Place] = []
-    private var nearbyPlaceCellExpanded = false
-    private var thereIsCellTapped = false
-    private var selectedRowIndex = -1
+    var places: [PlaceSearch] = []
+    var placeDetails: PlaceDetails!
+    
     
     @IBOutlet weak var nearbyPlacesTableView: UITableView!
     
@@ -24,6 +23,26 @@ class NearbyPlacesListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         nearbyPlacesTableView.reloadData()
+    }
+    
+    private func getPlaceDetails(placeId: String) {
+        GooglePlacesDetailsService.shared.getGooglePlacesDetailsData(placeId: placeId) { (success, placeDetails)  in
+            if success, let placeDetails = placeDetails {
+                self.placeDetails = placeDetails.result
+                self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
+            } else {
+                self.showAlert(title: "Error", message: "Google places API datas download failed!")
+            }
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showDetailsSegue,
+            let placeDetailsVC = segue.destination as? PlaceDetailsViewController,
+            let indexPath = self.nearbyPlacesTableView.indexPathForSelectedRow {
+            let selectedPlace = places[indexPath.row]
+            placeDetailsVC.placeDetails = placeDetails
+            placeDetailsVC.place = selectedPlace
+        }
     }
 }
 
@@ -44,7 +63,7 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
         let place = places[indexPath.row]
         
         cell.selectionStyle = .none
-        cell.nearbyPlaceCellConfigure(placeName: place.name, placeAddress: place.vicinity, rating: place.rating, placeBackgroundImageURL: GooglePlacesService.shared.googlePlacesPhotosURL(photoreference: place.photos[0].photoReference))
+        cell.nearbyPlaceCellConfigure(placeName: place.name, placeAddress: place.vicinity, rating: place.rating, placeBackgroundImageURL: GooglePlacesSearchService.shared.googlePlacesPhotosURL(photoreference: place.photos[0].photoReference))
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5
@@ -61,22 +80,11 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
 
 extension NearbyPlacesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == selectedRowIndex && thereIsCellTapped {
-            return 300
-        }
         return 135
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if selectedRowIndex != indexPath.row {
-            self.thereIsCellTapped = true
-            self.selectedRowIndex = indexPath.row
-        } else {
-            self.thereIsCellTapped = false
-            self.selectedRowIndex = -1
-        }
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        getPlaceDetails(placeId: places[indexPath.row].placeId)
     }
 }
 

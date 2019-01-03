@@ -18,7 +18,7 @@ class HomePageViewController: UIViewController {
     let locationManager = CLLocationManager()
     var timer = Timer()
     var didFindUserLocation = true
-    var places: [Place] = []
+    var places: [PlaceSearch] = []
  
     @IBOutlet var homePageView: HomePageView!
     
@@ -40,13 +40,13 @@ class HomePageViewController: UIViewController {
     }
     
     private func fetchGooglePlacesData(location: CLLocation) {
-        GooglePlacesService.shared.getGooglePlacesData(keyword: "restaurant", location: location) { (success, places) in
+        GooglePlacesSearchService.shared.getGooglePlacesSearchData(keyword: "restaurant", location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
                 self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: false)
                 self.places = places.results
             } else {
-                self.showAlert(title: "Error", message: "Google places api datas download failed!")
+                self.showAlert(title: "Error", message: "Google places API datas download failed!")
             }
         }
     }

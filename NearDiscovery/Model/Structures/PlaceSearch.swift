@@ -1,5 +1,5 @@
 //
-//  Place.swift
+//  PlaceSearch.swift
 //  NearDiscovery
 //
 //  Created by Christophe DURAND on 27/12/2018.
@@ -8,22 +8,23 @@
 
 import Foundation
 
-struct GooglePlacesResponse: Decodable {
-    let results : [Place]
-    enum CodingKeys : String, CodingKey {
+struct GooglePlacesSearchResponse: Decodable {
+    let results : [PlaceSearch]
+    
+    enum CodingKeys: String, CodingKey {
         case results = "results"
     }
 }
 
-struct Place: Decodable {
-    let placeId: String
+struct PlaceSearch: Decodable {
     let geometry: Location
     let name: String
     let openingHours: OpenNow?
     let photos: [PhotoInfo]
+    let placeId: String
+    let rating: Double
     let types: [String]
     let vicinity: String
-    let rating: Double
     
     enum CodingKeys: String, CodingKey {
         case placeId = "place_id"
@@ -37,7 +38,7 @@ struct Place: Decodable {
     }
     
     struct Location: Decodable {
-        let location : LatitudeLongitude
+        let location: LatitudeLongitude
         
         enum CodingKeys: String, CodingKey {
             case location = "location"
@@ -66,7 +67,7 @@ struct Place: Decodable {
         let height: Int
         let width: Int
         let photoReference: String
-
+        
         enum CodingKeys: String, CodingKey {
             case height = "height"
             case width = "width"
@@ -74,3 +75,5 @@ struct Place: Decodable {
         }
     }
 }
+
+

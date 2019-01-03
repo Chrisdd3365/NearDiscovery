@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearDiscovery/Model/Services/GooglePlacesService.swift"
-            timestampString = "568137695.557946"
+            filePath = "NearDiscovery/Model/Services/GooglePlacesDetailsService.swift"
+            timestampString = "568209721.656865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "getGooglePlacesData(keyword:location:callback:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getGooglePlacesDetailsData(placeId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearDiscovery/Model/Services/GooglePlacesService.swift"
-            timestampString = "568137695.558033"
+            filePath = "NearDiscovery/Model/Services/GooglePlacesDetailsService.swift"
+            timestampString = "568209721.657256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "getGooglePlacesData(keyword:location:callback:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getGooglePlacesDetailsData(placeId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearDiscovery/Model/Services/GooglePlacesService.swift"
-            timestampString = "568137695.558098"
+            filePath = "NearDiscovery/Model/Services/GooglePlacesDetailsService.swift"
+            timestampString = "568209721.657531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "getGooglePlacesData(keyword:location:callback:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getGooglePlacesDetailsData(placeId:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

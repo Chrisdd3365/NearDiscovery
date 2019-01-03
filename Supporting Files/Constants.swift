@@ -14,7 +14,7 @@ struct Constants {
         static let apiKey = "AIzaSyCUUCsTw3immuiortZmBUB3JEnUbtohjtQ"
     }
     
-    struct GooglePlacesURL {
+    struct GooglePlacesSearchURL {
         static let baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
         static let locationURL = "location="
         static let radiusURL = "&radius="
@@ -28,12 +28,18 @@ struct Constants {
         static let photoreferenceURL = "&photoreference="
     }
     
+    struct GooglePlacesDetailsURL {
+        static let baseURL = "https://maps.googleapis.com/maps/api/place/details/json?"
+        static let placeIdURL = "placeid="
+    }
+    
     struct CellIdentifiers {
         static let nearbyPlaceCell = "nearbyPlaceCell"
     }
     
     struct SeguesIdentifiers {
         static let showNearbySegueIdentifier = "showNearbySegue"
+        static let showDetailsSegue = "showDetailsSegue"
     }
 }
 
