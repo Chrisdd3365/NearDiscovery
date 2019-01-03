@@ -38,8 +38,9 @@ struct Constants {
     }
     
     struct SeguesIdentifiers {
-        static let showNearbySegueIdentifier = "showNearbySegue"
+        static let showNearbySegue = "showNearbySegue"
         static let showDetailsSegue = "showDetailsSegue"
+        static let showLocationOnMapSegue = "showLocationOnMapSegue"
     }
 }
 

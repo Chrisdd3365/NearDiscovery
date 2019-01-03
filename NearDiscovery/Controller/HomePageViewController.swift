@@ -9,10 +9,6 @@
 import UIKit
 import CoreLocation
 
-extension Date {
-    var hour: Int { return Calendar.current.component(.hour, from: self) }
-}
-
 class HomePageViewController: UIViewController {
     
     let locationManager = CLLocationManager()
@@ -29,11 +25,7 @@ class HomePageViewController: UIViewController {
         notificationScheduleTimer()
         changeSetup()
     }
-    
-    @IBAction func showNearbyPlaces(_ sender: UIButton) {
-        self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showNearbySegueIdentifier, sender: self)
-    }
-    
+
     private func toggleActivityIndicatorAndNearbyDiscoveryButton(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown
         homePageView.nearbyDiscoveryButton.isEnabled = !shown
@@ -102,7 +94,7 @@ class HomePageViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegueIdentifier, let nearbyPlacesListVC = segue.destination as? NearbyPlacesListViewController {
+        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let nearbyPlacesListVC = segue.destination as? NearbyPlacesListViewController {
             nearbyPlacesListVC.places = places
         }
     }
