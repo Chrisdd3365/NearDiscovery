@@ -14,13 +14,20 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
     var placeMarker: PlaceMarker?
-    let regionInMeters: CLLocationDistance = 100.0
-
+    let regionInMeters: CLLocationDistance = 400.0
+    var directionsArray: [MKDirections] = []
+    
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBAction func showDirections(_ sender: UIButton) {
+        getDirections(placeDetails: placeDetails)
+    }
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
@@ -35,6 +42,57 @@ class MapViewController: UIViewController {
             self.mapView.addAnnotation(placeMarker)
         }
     }
+    
+    private func getDestinationCoordinate(placeDetails: PlaceDetails) -> CLLocation {
+        let latitude = placeDetails.geometry.location.latitude
+        let longitude = placeDetails.geometry.location.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    private func getDirections(placeDetails: PlaceDetails) {
+        guard let location = locationManager.location?.coordinate else { return }
+        let request = createDirectionsRequest(from: location, placeDetails: placeDetails)
+        let directions = MKDirections(request: request)
+        resetMapView(directions: directions)
+        
+        directions.calculate { [unowned self] (response, error) in
+            guard let response = response else {
+                self.showAlert(title: "Error", message: "no routes available for now!")
+                return }
+            
+            for route in response.routes {
+                //TODO: get steps into tableview?
+                //let steps = route.steps
+                let distance = route.distance
+                self.distanceLabel.text = "\(distance) m."
+                
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+    }
+    
+    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails) -> MKDirections.Request {
+        let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
+        let startingLocation = MKPlacemark(coordinate: coordinate)
+        let destination = MKPlacemark(coordinate: destinationCoordinate)
+        
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: startingLocation)
+        request.destination = MKMapItem(placemark: destination)
+        request.transportType = .walking
+        request.requestsAlternateRoutes = true
+        
+        return request
+    }
+    
+    private func resetMapView(directions: MKDirections) {
+        mapView.removeOverlays(mapView.overlays)
+        directionsArray.append(directions)
+        let _ = directionsArray.map { $0.cancel()}
+    }
+    
     //DELEGATE MAPKIT
     private func setupMapView() {
         mapView.delegate = self
@@ -51,7 +109,7 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    //USER LOCATION
+    
     
 //    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 //        if let userLocation = locationManager.location?.coordinate {
@@ -60,6 +118,13 @@ extension MapViewController: MKMapViewDelegate {
 //            print("zoom")
 //        }
 //    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = .blue
+        
+        return renderer
+    }
+    //USER LOCATION
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         if let userLocation = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)

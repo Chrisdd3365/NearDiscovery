@@ -266,24 +266,46 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N30-pE-JK7">
                                 <rect key="frame" x="22" y="43" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="back:" destination="Gvv-Zz-Kwj" eventType="touchUpInside" id="s53-pC-jWA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fU-VV-HFs">
+                                <rect key="frame" x="127" y="617" width="121" height="30"/>
+                                <state key="normal" title="GET DIRECTIONS">
+                                    <color key="titleColor" red="1" green="0.12771455740000001" blue="0.11696253049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showDirections:" destination="Gvv-Zz-Kwj" eventType="touchUpInside" id="T1P-oE-njb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJT-Mq-yge">
+                                <rect key="frame" x="317" y="52" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3fU-VV-HFs" firstAttribute="centerX" secondItem="4c4-Pg-2lf" secondAttribute="centerX" id="7Qj-HD-2Pn"/>
+                            <constraint firstItem="gJT-Mq-yge" firstAttribute="top" secondItem="Siy-hg-n8c" secondAttribute="top" constant="32" id="Be0-gt-qkx"/>
                             <constraint firstItem="N30-pE-JK7" firstAttribute="top" secondItem="Siy-hg-n8c" secondAttribute="top" constant="23" id="E3E-yd-YuO"/>
                             <constraint firstItem="p1m-xt-yTW" firstAttribute="top" secondItem="Siy-hg-n8c" secondAttribute="top" id="Fbn-z3-FYL"/>
                             <constraint firstItem="Siy-hg-n8c" firstAttribute="bottom" secondItem="p1m-xt-yTW" secondAttribute="bottom" id="KSf-NY-EY3"/>
                             <constraint firstItem="N30-pE-JK7" firstAttribute="leading" secondItem="Siy-hg-n8c" secondAttribute="leading" constant="22" id="SDD-LM-W3k"/>
+                            <constraint firstItem="Siy-hg-n8c" firstAttribute="bottom" secondItem="3fU-VV-HFs" secondAttribute="bottom" constant="20" id="aXF-9t-xTb"/>
+                            <constraint firstItem="Siy-hg-n8c" firstAttribute="trailing" secondItem="gJT-Mq-yge" secondAttribute="trailing" constant="16" id="cko-59-ugM"/>
                             <constraint firstItem="p1m-xt-yTW" firstAttribute="leading" secondItem="Siy-hg-n8c" secondAttribute="leading" id="pol-l0-k25"/>
                             <constraint firstItem="Siy-hg-n8c" firstAttribute="trailing" secondItem="p1m-xt-yTW" secondAttribute="trailing" id="zCi-DZ-ZNq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Siy-hg-n8c"/>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="gJT-Mq-yge" id="zke-4E-HoJ"/>
                         <outlet property="mapView" destination="p1m-xt-yTW" id="uxa-fp-Yxh"/>
                     </connections>
                 </viewController>
