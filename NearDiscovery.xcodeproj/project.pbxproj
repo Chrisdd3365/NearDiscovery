@@ -288,7 +288,6 @@
 				9587402721C3FB2800489865 /* Frameworks */,
 				9587402821C3FB2800489865 /* Resources */,
 				3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */,
-				837E2A786152BE9BFD156C5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,28 +397,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		837E2A786152BE9BFD156C5B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A054A248CC5326032E26D39 /* [CP] Check Pods Manifest.lock */ = {

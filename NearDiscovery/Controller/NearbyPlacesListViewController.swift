@@ -56,14 +56,15 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifiers.nearbyPlaceCell, for: indexPath) as? NearbyPlacesTableViewCell else {
+        guard let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: NearbyPlacesTableViewCell.identifier, for: indexPath) as? NearbyPlacesTableViewCell else {
             return UITableViewCell()
         }
         
         let place = places[indexPath.row]
         
         cell.selectionStyle = .none
-        cell.nearbyPlaceCellConfigure(placeName: place.name, placeAddress: place.vicinity, rating: place.rating, placeBackgroundImageURL: GooglePlacesSearchService.shared.googlePlacesPhotosURL(photoreference: place.photos[0].photoReference))
+        cell.place = place
+        cell.nearbyPlaceImageConfigure(placeBackgroundImageURL: GooglePlacesSearchService.shared.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5

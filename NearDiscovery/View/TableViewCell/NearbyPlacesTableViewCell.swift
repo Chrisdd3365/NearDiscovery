@@ -9,15 +9,22 @@
 import UIKit
 
 class NearbyPlacesTableViewCell: UITableViewCell {
+    
+    var place: PlaceSearch! {
+        didSet {
+            placeNameLabel.text = place.name
+            placeAddressLabel.text = place.vicinity
+            ratingLabel.text = "\(String(describing: place.rating))"
+        }
+    }
+    
     @IBOutlet weak var placeBackgroundImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    func nearbyPlaceCellConfigure(placeName: String, placeAddress: String, rating: Double, placeBackgroundImageURL: String) {
-        placeNameLabel.text = placeName
-        placeAddressLabel.text = placeAddress
-        ratingLabel.text = String(rating)
+
+    func nearbyPlaceImageConfigure(placeBackgroundImageURL: String) {
         placeBackgroundImageView.cacheImage(urlString: placeBackgroundImageURL)
     }
 }

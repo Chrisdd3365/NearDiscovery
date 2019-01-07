@@ -19,15 +19,12 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var travelTimeLabel: UILabel!
     
     @IBAction func showDirections(_ sender: UIButton) {
         getDirections(placeDetails: placeDetails)
     }
-    
-    @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
@@ -64,6 +61,8 @@ class MapViewController: UIViewController {
             for route in response.routes {
                 //TODO: get steps into tableview?
                 //let steps = route.steps
+                let time = route.expectedTravelTime
+                self.travelTimeLabel.text = "\(time / 60) min."
                 let distance = route.distance
                 self.distanceLabel.text = "\(distance) m."
                 

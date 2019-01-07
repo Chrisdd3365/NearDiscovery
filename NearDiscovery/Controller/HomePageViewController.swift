@@ -32,7 +32,7 @@ class HomePageViewController: UIViewController {
     }
     
     private func fetchGooglePlacesData(location: CLLocation) {
-        GooglePlacesSearchService.shared.getGooglePlacesSearchData(keyword: "restaurant", location: location) { (success, places) in
+        GooglePlacesSearchService.shared.getGooglePlacesSearchData(keyword: "museum,monument", location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
                 self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: false)
@@ -94,7 +94,8 @@ class HomePageViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let nearbyPlacesListVC = segue.destination as? NearbyPlacesListViewController {
+        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let navigationController = segue.destination as? UINavigationController,
+            let nearbyPlacesListVC = navigationController.viewControllers[0] as? NearbyPlacesListViewController {
             nearbyPlacesListVC.places = places
         }
     }

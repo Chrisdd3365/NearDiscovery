@@ -9,6 +9,15 @@
 import UIKit
 
 class PlaceDetailsView: UIView {
+    
+    var placeDetailsConfigureUI: PlaceDetails! {
+        didSet {
+            placeDetailsNameLabel.text = placeDetailsConfigureUI.name
+            placeDetailsAddressLabel.text = placeDetailsConfigureUI.address
+            placeDetailsWebsiteLabel.text = placeDetailsConfigureUI.website
+//            ratingLabel.text = "\(String(describing: placeDetailsConfigureUI.rating))"
+        }
+    }
 
     @IBOutlet weak var placeDetailsImageView: UIImageView!
     @IBOutlet weak var placeDetailsNameLabel: UILabel!
@@ -16,13 +25,21 @@ class PlaceDetailsView: UIView {
     @IBOutlet weak var placeDetailsPhoneNumberLabel: UILabel!
     @IBOutlet weak var placeDetailsWebsiteLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var weekdayTextView: UITextView!
     
-    func placeDetailsConfigure(placeDetailsName: String, placeDetailsAddress: String, placeDetailsPhoneNumber: String, placeDetailsWebsite: String, rating: Double, backgroundPlaceDetailsImageURL: String) {
-        placeDetailsNameLabel.text = placeDetailsName
-        placeDetailsAddressLabel.text = placeDetailsAddress
-        placeDetailsPhoneNumberLabel.text = placeDetailsPhoneNumber
-        placeDetailsWebsiteLabel.text = placeDetailsWebsite
+    
+    private func convertIntoString(weekdayText: [String]) -> String {
+        var schedule = ""
+        for weekdayString in weekdayText {
+            schedule += "- " + weekdayString + "\n"
+        }
+        return schedule
+    }
+    
+    func placeDetailsConfigure(rating: Double, placeDetailsPhoneNumber: String, weekdayText: [String], backgroundPlaceDetailsImageURL: String) {
         ratingLabel.text = String(rating)
+        placeDetailsPhoneNumberLabel.text = placeDetailsPhoneNumber
+        weekdayTextView.text = convertIntoString(weekdayText: weekdayText)
         placeDetailsImageView.cacheImage(urlString: backgroundPlaceDetailsImageURL)
     }
 }

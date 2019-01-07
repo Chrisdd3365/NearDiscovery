@@ -33,10 +33,6 @@ struct Constants {
         static let placeIdURL = "placeid="
     }
     
-    struct CellIdentifiers {
-        static let nearbyPlaceCell = "nearbyPlaceCell"
-    }
-    
     struct SeguesIdentifiers {
         static let showNearbySegue = "showNearbySegue"
         static let showDetailsSegue = "showDetailsSegue"

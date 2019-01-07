@@ -20,10 +20,9 @@ struct PlaceSearch: Decodable {
     let geometry: Location
     let name: String
     let openingHours: OpenNow?
-    let photos: [PhotoInfo]
+    let photos: [PhotoInfo]?
     let placeId: String
     let rating: Double
-    let types: [String]
     let vicinity: String
     
     enum CodingKeys: String, CodingKey {
@@ -32,19 +31,18 @@ struct PlaceSearch: Decodable {
         case name = "name"
         case openingHours = "opening_hours"
         case photos = "photos"
-        case types = "types"
         case vicinity = "vicinity"
         case rating = "rating"
     }
     
     struct Location: Decodable {
-        let location: LatitudeLongitude
+        let location: Coordinates
         
         enum CodingKeys: String, CodingKey {
             case location = "location"
         }
         
-        struct LatitudeLongitude: Decodable {
+        struct Coordinates: Decodable {
             let latitude: Double
             let longitude: Double
             
@@ -67,13 +65,24 @@ struct PlaceSearch: Decodable {
         let height: Int
         let width: Int
         let photoReference: String
-        
+
         enum CodingKeys: String, CodingKey {
             case height = "height"
             case width = "width"
             case photoReference = "photo_reference"
         }
     }
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        self.placeId = try container.decode(String.self, forKey: .placeId)
+//        self.geometry = try container.decode(Location.self, forKey: .geometry)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.openingHours = try? container.decode(OpenNow.self, forKey: .openingHours)
+//        self.photos = try? container.decode([PhotoInfo].self, forKey: .photos)
+//        self.vicinity = try container.decode(String.self, forKey: .vicinity)
+//        self.rating = try container.decode(Double.self, forKey: .rating)
+//    }
 }
-
 
