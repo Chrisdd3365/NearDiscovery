@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class HomePageViewController: UIViewController {
-    
+    let googlePlacesSearchService = GooglePlacesSearchService()
     let locationManager = CLLocationManager()
     var timer = Timer()
     var didFindUserLocation = true
@@ -32,7 +32,8 @@ class HomePageViewController: UIViewController {
     }
     
     private func fetchGooglePlacesData(location: CLLocation) {
-        GooglePlacesSearchService.shared.getGooglePlacesSearchData(keyword: "museum,monument", location: location) { (success, places) in
+        let keyword = "museum,monument"
+        googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
                 self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: false)
@@ -94,8 +95,8 @@ class HomePageViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let navigationController = segue.destination as? UINavigationController,
-            let nearbyPlacesListVC = navigationController.viewControllers[0] as? NearbyPlacesListViewController {
+        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let tabBarController = segue.destination as? UITabBarController,
+            let navigationController = tabBarController.viewControllers?[0] as? UINavigationController, let nearbyPlacesListVC = navigationController.topViewController as? NearbyPlacesListViewController {
             nearbyPlacesListVC.places = places
         }
     }

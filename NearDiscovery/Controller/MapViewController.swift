@@ -14,25 +14,29 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
     var placeMarker: PlaceMarker?
-    let regionInMeters: CLLocationDistance = 400.0
+    var placesMarkers: [PlaceMarker] = []
+    let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var travelTimeLabel: UILabel!
     
-    @IBAction func showDirections(_ sender: UIButton) {
-        getDirections(placeDetails: placeDetails)
-    }
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        setupCoreLocation()
         showAnnotation(placeDetails: placeDetails)
     }
     
+    @IBAction func showDirections(_ sender: UIButton) {
+        getDirections(placeDetails: placeDetails)
+    }
+    
+    @IBAction func centerUserButton(_ sender: Any) {
+        self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
+    }
+        
     private func showAnnotation(placeDetails: PlaceDetails) {
         let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
         DispatchQueue.main.async {
@@ -92,6 +96,12 @@ class MapViewController: UIViewController {
         let _ = directionsArray.map { $0.cancel()}
     }
     
+    //DELEGATE CORE LOCATION
+    private func setupCoreLocation() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
     //DELEGATE MAPKIT
     private func setupMapView() {
         mapView.delegate = self
@@ -104,23 +114,15 @@ extension MapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: false)
+        locationManager.stopUpdatingLocation()
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
-    
-//    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-//        if let userLocation = locationManager.location?.coordinate {
-//            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-//            mapView.setRegion(region, animated: true)
-//            print("zoom")
-//        }
-//    }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
         renderer.strokeColor = .blue
-        
+        renderer.lineWidth = 5
         return renderer
     }
     //USER LOCATION

@@ -10,19 +10,26 @@ import UIKit
 
 class NearbyPlacesTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var placeBackgroundImageView: UIImageView!
+    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeAddressLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var openNowLabel: UILabel!
+    
     var place: PlaceSearch! {
         didSet {
             placeNameLabel.text = place.name
             placeAddressLabel.text = place.vicinity
             ratingLabel.text = "\(String(describing: place.rating))"
+            if place.openingHours?.openNow == true {
+                openNowLabel.text = "Open"
+                openNowLabel.textColor = .green
+            } else {
+                openNowLabel.text = "Close"
+                openNowLabel.textColor = .red
+            }
         }
     }
-    
-    @IBOutlet weak var placeBackgroundImageView: UIImageView!
-    @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var placeAddressLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    
 
     func nearbyPlaceImageConfigure(placeBackgroundImageURL: String) {
         placeBackgroundImageView.cacheImage(urlString: placeBackgroundImageURL)

@@ -72,17 +72,5 @@ struct PlaceSearch: Decodable {
             case photoReference = "photo_reference"
         }
     }
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        self.placeId = try container.decode(String.self, forKey: .placeId)
-//        self.geometry = try container.decode(Location.self, forKey: .geometry)
-//        self.name = try container.decode(String.self, forKey: .name)
-//        self.openingHours = try? container.decode(OpenNow.self, forKey: .openingHours)
-//        self.photos = try? container.decode([PhotoInfo].self, forKey: .photos)
-//        self.vicinity = try container.decode(String.self, forKey: .vicinity)
-//        self.rating = try container.decode(Double.self, forKey: .rating)
-//    }
 }
 

@@ -11,11 +11,11 @@ import CoreLocation
 
 class GooglePlacesSearchService {
     var task: URLSessionDataTask?
+    private var googlePlacesSearchSession: URLSession
     
-    static let shared = GooglePlacesSearchService()
-    private init() {}
-    
-    private var googlePlacesSession = URLSession(configuration: .default)
+    init(googlePlacesSearchSession: URLSession = URLSession(configuration: .default)) {
+        self.googlePlacesSearchSession = googlePlacesSearchSession
+    }
     
     func googlePlacesSearchURL(location: CLLocation, keyword: String) -> String {
         let baseURL = Constants.GooglePlacesSearchURL.baseURL
@@ -40,7 +40,7 @@ class GooglePlacesSearchService {
         guard let url = URL(string: googlePlacesSearchURL(location: location, keyword: keyword)) else { return }
         print(url)
         task?.cancel()
-        task = googlePlacesSession.dataTask(with: url) { data, response, error in
+        task = googlePlacesSearchSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 guard let data = data, error == nil else {
                     callback(false, GooglePlacesSearchResponse(results: []))

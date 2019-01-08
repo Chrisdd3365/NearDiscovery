@@ -9,9 +9,10 @@
 import UIKit
 
 class NearbyPlacesListViewController: UIViewController {
+    let googlePlacesSearchService = GooglePlacesSearchService()
+    let googlePlacesDetailsService = GooglePlacesDetailsService()
     var places: [PlaceSearch] = []
     var placeDetails: PlaceDetails!
-    
     
     @IBOutlet weak var nearbyPlacesTableView: UITableView!
     
@@ -24,9 +25,9 @@ class NearbyPlacesListViewController: UIViewController {
         super.viewWillAppear(true)
         nearbyPlacesTableView.reloadData()
     }
-    
+        
     private func getPlaceDetails(placeId: String) {
-        GooglePlacesDetailsService.shared.getGooglePlacesDetailsData(placeId: placeId) { (success, placeDetails)  in
+        googlePlacesDetailsService.getGooglePlacesDetailsData(placeId: placeId) { (success, placeDetails)  in
             if success, let placeDetails = placeDetails {
                 self.placeDetails = placeDetails.result
                 self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
@@ -64,7 +65,7 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
         
         cell.selectionStyle = .none
         cell.place = place
-        cell.nearbyPlaceImageConfigure(placeBackgroundImageURL: GooglePlacesSearchService.shared.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
+        cell.nearbyPlaceImageConfigure(placeBackgroundImageURL: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5

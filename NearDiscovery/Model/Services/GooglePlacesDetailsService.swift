@@ -10,12 +10,12 @@ import Foundation
 
 class GooglePlacesDetailsService {
     var task: URLSessionDataTask?
+    private var googlePlacesDetailsSession: URLSession
     
-    static let shared = GooglePlacesDetailsService()
-    private init() {}
-    
-    private var googlePlacesDetailsSession = URLSession(configuration: .default)
-    
+    init(googlePlacesDetailsSession: URLSession = URLSession(configuration: .default)) {
+        self.googlePlacesDetailsSession = googlePlacesDetailsSession
+    }
+        
     func googlePlacesDetailsURL(placeId: String) -> String {
         let baseURL = Constants.GooglePlacesDetailsURL.baseURL
         let placeIdURL = Constants.GooglePlacesDetailsURL.placeIdURL + placeId

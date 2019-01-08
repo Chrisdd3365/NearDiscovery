@@ -31,7 +31,7 @@ class PlaceDetailsView: UIView {
     private func convertIntoString(weekdayText: [String]) -> String {
         var schedule = ""
         for weekdayString in weekdayText {
-            schedule += "- " + weekdayString + "\n"
+            schedule += weekdayString + "\n"
         }
         return schedule
     }

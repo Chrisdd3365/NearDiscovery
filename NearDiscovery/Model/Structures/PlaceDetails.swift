@@ -64,18 +64,5 @@ struct PlaceDetails: Decodable {
             case weekdayText = "weekday_text"
         }
     }
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        
-//        self.address = try container.decode(String.self, forKey: .address)
-//        self.geometry = try container.decode(Location.self, forKey: .geometry)
-//        self.internationalPhoneNumber = try? container.decode(String.self, forKey: .internationalPhoneNumber)
-//        self.name = try container.decode(String.self, forKey: .openingHours)
-//        self.openingHours = try? container.decode(OpenNow.self, forKey: .openingHours)
-//        self.placeId = try container.decode(String.self, forKey: .placeId)
-//        self.rating = try container.decode(Double.self, forKey: .rating)
-//        self.website = try? container.decode(String.self, forKey: .website)
-//    }
 }
 

@@ -37,6 +37,7 @@ struct Constants {
         static let showNearbySegue = "showNearbySegue"
         static let showDetailsSegue = "showDetailsSegue"
         static let showLocationOnMapSegue = "showLocationOnMapSegue"
+        static let addLocationOnMapSegue = "addLocationOnMapSegue"
     }
 }
 
