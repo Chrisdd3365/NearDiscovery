@@ -27,6 +27,7 @@ class SecondMapViewController: UIViewController {
         setNavigationBarTitle()
         setupCoreLocation()
         setupMapView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +38,11 @@ class SecondMapViewController: UIViewController {
     }
     
     @IBAction func getDirections(_ sender: UIButton) {
-     
+        
+        convertLocationIntoCLLocation()
+        creationCorde()
+        allPathing()
+
     }
     
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
@@ -83,88 +88,139 @@ class SecondMapViewController: UIViewController {
     ////
     var nodes = [CLLocation]()
     var cordes = [tripletType]()
+    
+    
+    
+
+    
     //1
-    func convertLocationIntoCLLocation(locations: [Location]) -> CLLocation {
+    func convertLocationIntoCLLocation() {
         for location in locations {
             let latitude = location.latitude
             let longitude = location.longitude
             
-            return CLLocation(latitude: latitude, longitude: longitude)
+            nodes.append(CLLocation(latitude: latitude, longitude: longitude))
         }
-        return CLLocation(latitude: 0, longitude: 0)
     }
     //2
-    func addCLLocationsIntoNodesArray(locations: [Location]) -> [CLLocation] {
-        nodes.append(convertLocationIntoCLLocation(locations: locations))
-        
-        return nodes
-    }
-    //3
-    func creationCorde(locations: [Location]) {
-        for i in 0...addCLLocationsIntoNodesArray(locations: locations).count - 1 {
-            let node1 = addCLLocationsIntoNodesArray(locations: locations)[i]
-            let node1Coordinate = node1.coordinate
-            
+    func creationCorde() {
+        for i in 0...nodes.count - 2 {
+            let node1 = nodes[i]
+           
             let newStartIndex = i + 1
-            for j in newStartIndex...addCLLocationsIntoNodesArray(locations: locations).count {
-                let node2 = addCLLocationsIntoNodesArray(locations: locations)[j]
-                let node2Coordinate = node2.coordinate
-                
+            for j in newStartIndex...nodes.count - 1 {
+                let node2 = nodes[j]
+             
                 let distance = calculCout(node1: node1, node2: node2)
                 let triplet: tripletType = (first: node1, second: node2, third: distance)
                 cordes.append(triplet)
-                
-                getPathing(from: node1Coordinate, to: node2Coordinate, request: createDirectionsRequest(from: node1Coordinate, to: node2Coordinate))
             }
         }
     }
-    private func createDirectionsRequest(from startingNodeCoordinate: CLLocationCoordinate2D, to nextNodeCoordinate: CLLocationCoordinate2D) -> MKDirections.Request {
-        let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate))
-        let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate))
-        
-        let request = MKDirections.Request()
-        request.transportType = .walking
-        request.source = startingNodeMapItem
-        request.destination = nextNodeMapItem
-        request.requestsAlternateRoutes = true
-        
-        return request
-    }
+
     
     //Helper's methods
     func calculCout(node1: CLLocation, node2: CLLocation) -> Double {
         let distance = node1.distance(from: node2)
         return distance
     }
-//    func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
-//        for c in corde {
-//            
-//        }
-//        
-//        return nodes
-//    }
+    func getCout(node1: CLLocation, node2: CLLocation) -> Double{
+        for c in cordes {
+            if c.first == node1 && c.second == node2 {
+                return c.third
+            }
+            if c.second == node1 && c.first == node2 {
+                return c.third
+            }
+        }
+        return 0
+    }
+    func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
+        var nodeSons = [CLLocation]()
+        for c in cordes {
+            if c.first == currentNode && !path.contains(c.second) {
+                nodeSons.append(c.second)
+            }
+            if c.second == currentNode && !path.contains(c.first) {
+                nodeSons.append(c.first)
+            }
+        }
+        return nodeSons
+    }
     //4
-    func getPath(locations: [Location]) -> [CLLocation]? {
+    func getPath() -> [CLLocation] {
         var path = [CLLocation]()
-        var currentNode = addCLLocationsIntoNodesArray(locations: locations)[0]
-        while path.count < addCLLocationsIntoNodesArray(locations: locations).count {
-            var nodeSons = [CLLocation]()
+        var currentNode = nodes[0]
+    
+        path.append(currentNode)
+        print("début calcul path:")
+        var sumDistance: Double = 0
+        
+        while path.count < nodes.count  {
+            print(currentNode.coordinate)
+            var nodeSons = findSon(currentNode: currentNode, path: path)
             var bestSon = nodeSons[0]
-            var minCout = calculCout(node1: currentNode, node2: bestSon)
+            var minCout = getCout(node1: currentNode, node2: bestSon)
             for son in nodeSons {
-                let cout = calculCout(node1: currentNode, node2: son)
+                let cout = getCout(node1: currentNode, node2: son)
                 if cout < minCout {
                     minCout = cout
                     bestSon = son
                 }
-                path.append(bestSon)
-                currentNode = bestSon
             }
+            sumDistance += minCout
+            path.append(bestSon)
+            currentNode = bestSon
         }
-        return path
+        
+        
+        return checkBetterPath(firstPath: path, sumDistance: sumDistance)
     }
+    func checkBetterPath(firstPath: [CLLocation], sumDistance: Double) -> [CLLocation] {
+        
+        var path = [CLLocation]()
+        var currentNode = firstPath[2]
+        path.append(nodes[0])
+        path.append(currentNode)
+        var sumDistanceCurrentPath = 0.0
+        while path.count < nodes.count  {
+            print(currentNode.coordinate)
+            var nodeSons = findSon(currentNode: currentNode, path: path)
+            var bestSon = nodeSons[0]
+            var minCout = getCout(node1: currentNode, node2: bestSon)
+            for son in nodeSons {
+                let cout = getCout(node1: currentNode, node2: son)
+                if cout < minCout {
+                    minCout = cout
+                    bestSon = son
+                }
+            }
+            sumDistanceCurrentPath += minCout
+            path.append(bestSon)
+            currentNode = bestSon
+        }
+        if sumDistanceCurrentPath > sumDistance {
+            return firstPath
+        } else {
+            return path
+        }
+        
+        
+    }
+    
+    
+    
     ////
-    private func getPathing(from startingNodeCoordinate: CLLocationCoordinate2D, to nextNodeCoordinate: CLLocationCoordinate2D, request: MKDirections.Request) {
+    private func getPathing(from startingNodeCoordinate: CLLocation, to nextNodeCoordinate: CLLocation) {
+        let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate.coordinate))
+        let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate.coordinate))
+        
+        let request = MKDirections.Request()
+        request.transportType = .walking
+        request.source = startingNodeMapItem
+        request.destination = nextNodeMapItem
+        request.requestsAlternateRoutes = false
+        
         let directions = MKDirections(request: request)
         resetMapView(directions: directions)
         
@@ -175,11 +231,17 @@ class SecondMapViewController: UIViewController {
             for route in response.routes {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                let optimalPath = self.getPath(locations: self.locations)
-                if optimalPath != nil {
-                    self.getPathing(from: startingNodeCoordinate, to: nextNodeCoordinate, request: request)
-                }
             }
+        }
+    }
+    
+    private func allPathing() {
+        var path = getPath()
+        print(path.count)
+        print(nodes.count)
+        print(cordes.count)
+        for i in 0...path.count - 2 {
+            getPathing(from: path[i], to: path[i+1])
         }
     }
     
@@ -188,15 +250,9 @@ class SecondMapViewController: UIViewController {
         directionsArray.append(directions)
         let _ = directionsArray.map { $0.cancel()}
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    private func addUserLocationInLocationsArray(userLocation: CLLocation) {
+        nodes.append(userLocation)
+    }
 }
 
 extension SecondMapViewController: CLLocationManagerDelegate {
@@ -206,6 +262,11 @@ extension SecondMapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: false)
+        if nodes.isEmpty {
+            nodes.append(location)
+        } else {
+            nodes[0] = location
+        }
         locationManager.stopUpdatingLocation()
     }
 }
@@ -216,7 +277,6 @@ extension SecondMapViewController: MKMapViewDelegate {
         if let userLocation = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
-            print("zoom")
         }
     }
     //DRAW DIRECTIONS
