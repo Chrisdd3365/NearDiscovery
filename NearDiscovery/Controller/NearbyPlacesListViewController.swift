@@ -9,13 +9,16 @@
 import UIKit
 
 class NearbyPlacesListViewController: UIViewController {
+    //MARK: - Outlet
+    @IBOutlet weak var nearbyPlacesTableView: UITableView!
+    
+    //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
     let googlePlacesDetailsService = GooglePlacesDetailsService()
     var places: [PlaceSearch] = []
     var placeDetails: PlaceDetails!
     
-    @IBOutlet weak var nearbyPlacesTableView: UITableView!
-    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         nearbyPlacesTableView.tableFooterView = UIView()
@@ -25,17 +28,8 @@ class NearbyPlacesListViewController: UIViewController {
         super.viewWillAppear(true)
         nearbyPlacesTableView.reloadData()
     }
-        
-    private func getPlaceDetails(placeId: String) {
-        googlePlacesDetailsService.getGooglePlacesDetailsData(placeId: placeId) { (success, placeDetails)  in
-            if success, let placeDetails = placeDetails {
-                self.placeDetails = placeDetails.result
-                self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
-            } else {
-                self.showAlert(title: "Error", message: "Google places API datas download failed!")
-            }
-        }
-    }
+    
+    //MARK: - Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showDetailsSegue,
             let placeDetailsVC = segue.destination as? PlaceDetailsViewController,
@@ -47,6 +41,21 @@ class NearbyPlacesListViewController: UIViewController {
     }
 }
 
+//MARK: - API Fetch Google Places Details Data method
+extension NearbyPlacesListViewController {
+    private func getPlaceDetails(placeId: String) {
+        googlePlacesDetailsService.getGooglePlacesDetailsData(placeId: placeId) { (success, placeDetails)  in
+            if success, let placeDetails = placeDetails {
+                self.placeDetails = placeDetails.result
+                self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
+            } else {
+                self.showAlert(title: "Error", message: "Google places API datas download failed!")
+            }
+        }
+    }
+}
+
+//MARK: - TableViewDataSource's methods
 extension NearbyPlacesListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -80,6 +89,7 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - TableViewDelegate's methods
 extension NearbyPlacesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135

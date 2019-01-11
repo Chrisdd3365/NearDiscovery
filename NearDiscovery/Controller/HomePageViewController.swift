@@ -10,14 +10,17 @@ import UIKit
 import CoreLocation
 
 class HomePageViewController: UIViewController {
+    //MARK: - Outlet
+    @IBOutlet var homePageView: HomePageView!
+    
+    //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
     let locationManager = CLLocationManager()
     var timer = Timer()
-    var didFindUserLocation = true
     var places: [PlaceSearch] = []
- 
-    @IBOutlet var homePageView: HomePageView!
+    var didFindUserLocation = true
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         homePageView.nearbyDiscoveryButton.isEnabled = false
@@ -25,14 +28,25 @@ class HomePageViewController: UIViewController {
         notificationScheduleTimer()
         changeSetup()
     }
-
+    
+    //MARK: - Methods
     private func toggleActivityIndicatorAndNearbyDiscoveryButton(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown
         homePageView.nearbyDiscoveryButton.isEnabled = !shown
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let tabBarController = segue.destination as? UITabBarController,
+            let navigationController = tabBarController.viewControllers?[0] as? UINavigationController, let nearbyPlacesListVC = navigationController.topViewController as? NearbyPlacesListViewController {
+            nearbyPlacesListVC.places = places
+        }
+    }
+}
+
+//MARK: - API Fetch Google Places Search Data method
+extension HomePageViewController {
     private func fetchGooglePlacesData(location: CLLocation) {
-        let keyword = "museum,monument"
+        let keyword = "monument,museum"
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
@@ -43,37 +57,10 @@ class HomePageViewController: UIViewController {
             }
         }
     }
-    
-    private func locationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            setupLocationManager()
-        } else {
-            showAlert(title: "Error! Location Services not enabled!", message: "We need your authorization!")
-        }
-    }
-    //GET USER LOCATION AUTHORIZER STATUS
-    private func getUserLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            updateUserLocation()
-        } else {
-            locationManager.requestAlwaysAuthorization()
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    private func updateUserLocation() {
-        didFindUserLocation = false
-        if didFindUserLocation == false {
-            locationManager.startUpdatingLocation()
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        }
-    }
-    
-    //DELEGATE CORELOCATION
-    private func setupLocationManager() {
-        locationManager.delegate = self
-    }
-    
+}
+
+//MARK: - Timer's methods
+extension HomePageViewController {
     private func notificationScheduleTimer() {
         NotificationCenter.default.addObserver(self, selector: #selector(scheduleTimer), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
@@ -93,16 +80,43 @@ class HomePageViewController: UIViewController {
         self.homePageView.backgroundImageView.image = 6..<21 ~= Date().hour ? dayBackgroundImage : nightBackgroundImage
         scheduleTimer()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let tabBarController = segue.destination as? UITabBarController,
-            let navigationController = tabBarController.viewControllers?[0] as? UINavigationController, let nearbyPlacesListVC = navigationController.topViewController as? NearbyPlacesListViewController {
-            nearbyPlacesListVC.places = places
+}
+
+//MARK: - CoreLocation's methods
+extension HomePageViewController {
+    private func locationServicesIsEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+        } else {
+            showAlert(title: "Error! Location Services not enabled!", message: "We need your authorization!")
         }
+    }
+
+    private func getUserLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            updateUserLocation()
+        } else {
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    private func updateUserLocation() {
+        didFindUserLocation = false
+        if didFindUserLocation == false {
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        }
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
     }
 }
 
+//MARK: - CoreLocationManagerDelegate's methods
 extension HomePageViewController: CLLocationManagerDelegate {
+    //GET USER LOCATION
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -110,6 +124,7 @@ extension HomePageViewController: CLLocationManagerDelegate {
             didFindUserLocation = true
             locationManager.stopUpdatingLocation()
         }
+        //API CALL
         fetchGooglePlacesData(location: userLocation)
     }
     //AUTHORIZER TO LOCATE USER

@@ -10,12 +10,14 @@ import Foundation
 import CoreData
 
 public class Location: NSManagedObject {
+    //MARK: - Property
     static var all: [Location] {
         let request: NSFetchRequest<Location> = Location.fetchRequest()
         guard let locations = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return locations
     }
     
+    //MARK: - Methods
     static func deleteLocationFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
         fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)

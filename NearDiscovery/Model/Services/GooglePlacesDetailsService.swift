@@ -9,13 +9,16 @@
 import Foundation
 
 class GooglePlacesDetailsService {
+    //MARK: - Properties
     var task: URLSessionDataTask?
     private var googlePlacesDetailsSession: URLSession
     
     init(googlePlacesDetailsSession: URLSession = URLSession(configuration: .default)) {
         self.googlePlacesDetailsSession = googlePlacesDetailsSession
     }
-        
+    
+    //MARK: - Methods
+    //HELPER'S METHODS FOR API CALL
     func googlePlacesDetailsURL(placeId: String) -> String {
         let baseURL = Constants.GooglePlacesDetailsURL.baseURL
         let placeIdURL = Constants.GooglePlacesDetailsURL.placeIdURL + placeId
@@ -23,7 +26,7 @@ class GooglePlacesDetailsService {
         
         return baseURL + placeIdURL + keyURL
     }
-    
+    //API CALL
     func getGooglePlacesDetailsData(placeId: String, callback: @escaping (Bool, GooglePlacesDetailsResponse?) -> Void) {
         guard let url = URL(string: googlePlacesDetailsURL(placeId: placeId)) else { return }
         print(url)

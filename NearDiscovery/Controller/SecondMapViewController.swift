@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
 
 class SecondMapViewController: UIViewController {
     var locationManager = CLLocationManager()
@@ -17,7 +18,7 @@ class SecondMapViewController: UIViewController {
     var locations = Location.all
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsTableView: UITableView!
     
@@ -36,7 +37,7 @@ class SecondMapViewController: UIViewController {
     }
     
     @IBAction func getDirections(_ sender: UIButton) {
-        getDirections(locations: locations)
+     
     }
     
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
@@ -67,65 +68,7 @@ class SecondMapViewController: UIViewController {
             self.mapView.addAnnotation(placeMarker)
         }
     }
-    
-    private func getDestinationCoordinate(locations: [Location]) -> [CLLocation] {
-        var latitude: CLLocationDegrees = 0.0
-        var longitude: CLLocationDegrees = 0.0
-        
-        for location in locations {
-            latitude = location.latitude
-            longitude = location.longitude
-            return [CLLocation(latitude: latitude, longitude: longitude)]
-        }
-        return [CLLocation(latitude: latitude, longitude: longitude)]
-    }
-    
-    private func getDirections(locations: [Location]) {
-        guard let location = locationManager.location?.coordinate else { return }
-        let request = createDirectionsRequest(from: location, locations: locations)
-        let directions = MKDirections(request: request)
-        resetMapView(directions: directions)
-        
-        directions.calculate { [unowned self] (response, error) in
-            guard let response = response else {
-                self.showAlert(title: "Error", message: "no routes available for now!")
-                return }
-            
-            for route in response.routes {
-                //TODO: get steps into tableview?
-                //let steps = route.steps
-//                let time = route.expectedTravelTime
-//                self.travelTimeLabel.text = "\(time / 60) min."
-//                let distance = route.distance
-//                self.distanceLabel.text = "\(distance) m."
-                
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
-        }
-    }
-    
-    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, locations: [Location]) -> MKDirections.Request {
-        let destinationCoordinate = getDestinationCoordinate(locations: locations)[0].coordinate
-        let startingLocation = MKPlacemark(coordinate: coordinate)
-        let destination = MKPlacemark(coordinate: destinationCoordinate)
-        
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: startingLocation)
-        request.destination = MKMapItem(placemark: destination)
-        request.transportType = .walking
-        request.requestsAlternateRoutes = true
-        
-        return request
-    }
-    
-    private func resetMapView(directions: MKDirections) {
-        mapView.removeOverlays(mapView.overlays)
-        directionsArray.append(directions)
-        let _ = directionsArray.map { $0.cancel()}
-    }
-    
-    
+
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
         locationManager.delegate = self
@@ -136,6 +79,124 @@ class SecondMapViewController: UIViewController {
     private func setupMapView() {
         mapView.delegate = self
     }
+    
+    ////
+    var nodes = [CLLocation]()
+    var cordes = [tripletType]()
+    //1
+    func convertLocationIntoCLLocation(locations: [Location]) -> CLLocation {
+        for location in locations {
+            let latitude = location.latitude
+            let longitude = location.longitude
+            
+            return CLLocation(latitude: latitude, longitude: longitude)
+        }
+        return CLLocation(latitude: 0, longitude: 0)
+    }
+    //2
+    func addCLLocationsIntoNodesArray(locations: [Location]) -> [CLLocation] {
+        nodes.append(convertLocationIntoCLLocation(locations: locations))
+        
+        return nodes
+    }
+    //3
+    func creationCorde(locations: [Location]) {
+        for i in 0...addCLLocationsIntoNodesArray(locations: locations).count - 1 {
+            let node1 = addCLLocationsIntoNodesArray(locations: locations)[i]
+            let node1Coordinate = node1.coordinate
+            
+            let newStartIndex = i + 1
+            for j in newStartIndex...addCLLocationsIntoNodesArray(locations: locations).count {
+                let node2 = addCLLocationsIntoNodesArray(locations: locations)[j]
+                let node2Coordinate = node2.coordinate
+                
+                let distance = calculCout(node1: node1, node2: node2)
+                let triplet: tripletType = (first: node1, second: node2, third: distance)
+                cordes.append(triplet)
+                
+                getPathing(from: node1Coordinate, to: node2Coordinate, request: createDirectionsRequest(from: node1Coordinate, to: node2Coordinate))
+            }
+        }
+    }
+    private func createDirectionsRequest(from startingNodeCoordinate: CLLocationCoordinate2D, to nextNodeCoordinate: CLLocationCoordinate2D) -> MKDirections.Request {
+        let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate))
+        let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate))
+        
+        let request = MKDirections.Request()
+        request.transportType = .walking
+        request.source = startingNodeMapItem
+        request.destination = nextNodeMapItem
+        request.requestsAlternateRoutes = true
+        
+        return request
+    }
+    
+    //Helper's methods
+    func calculCout(node1: CLLocation, node2: CLLocation) -> Double {
+        let distance = node1.distance(from: node2)
+        return distance
+    }
+//    func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
+//        for c in corde {
+//            
+//        }
+//        
+//        return nodes
+//    }
+    //4
+    func getPath(locations: [Location]) -> [CLLocation]? {
+        var path = [CLLocation]()
+        var currentNode = addCLLocationsIntoNodesArray(locations: locations)[0]
+        while path.count < addCLLocationsIntoNodesArray(locations: locations).count {
+            var nodeSons = [CLLocation]()
+            var bestSon = nodeSons[0]
+            var minCout = calculCout(node1: currentNode, node2: bestSon)
+            for son in nodeSons {
+                let cout = calculCout(node1: currentNode, node2: son)
+                if cout < minCout {
+                    minCout = cout
+                    bestSon = son
+                }
+                path.append(bestSon)
+                currentNode = bestSon
+            }
+        }
+        return path
+    }
+    ////
+    private func getPathing(from startingNodeCoordinate: CLLocationCoordinate2D, to nextNodeCoordinate: CLLocationCoordinate2D, request: MKDirections.Request) {
+        let directions = MKDirections(request: request)
+        resetMapView(directions: directions)
+        
+        directions.calculate { [unowned self] (response, error) in
+            guard let response = response else {
+                self.showAlert(title: "Error", message: "no routes available for now!")
+                return }
+            for route in response.routes {
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                let optimalPath = self.getPath(locations: self.locations)
+                if optimalPath != nil {
+                    self.getPathing(from: startingNodeCoordinate, to: nextNodeCoordinate, request: request)
+                }
+            }
+        }
+    }
+    
+    private func resetMapView(directions: MKDirections) {
+        mapView.removeOverlays(mapView.overlays)
+        directionsArray.append(directions)
+        let _ = directionsArray.map { $0.cancel()}
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 extension SecondMapViewController: CLLocationManagerDelegate {
@@ -146,7 +207,6 @@ extension SecondMapViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: false)
         locationManager.stopUpdatingLocation()
-        
     }
 }
 
@@ -166,7 +226,7 @@ extension SecondMapViewController: MKMapViewDelegate {
         renderer.lineWidth = 5
         return renderer
     }
-
+    
     //ANNOTATIONS
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {

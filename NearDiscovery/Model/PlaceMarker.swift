@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 
 class PlaceMarker: NSObject {
+    //MARK: - Properties
     var location: CLLocation
     var name: String
 
@@ -21,6 +22,7 @@ class PlaceMarker: NSObject {
 }
 
 extension PlaceMarker: MKAnnotation {
+    //MARK: - Properties
     var coordinate: CLLocationCoordinate2D {
         get {
             return location.coordinate

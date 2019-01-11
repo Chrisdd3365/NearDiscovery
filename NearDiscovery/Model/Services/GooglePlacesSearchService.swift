@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 
 class GooglePlacesSearchService {
+    //MARK: - Properties
     var task: URLSessionDataTask?
     private var googlePlacesSearchSession: URLSession
     
@@ -17,6 +18,8 @@ class GooglePlacesSearchService {
         self.googlePlacesSearchSession = googlePlacesSearchSession
     }
     
+    //MARK: - Methods
+    //HELPER'S METHODS FOR API CALL
     func googlePlacesSearchURL(location: CLLocation, keyword: String) -> String {
         let baseURL = Constants.GooglePlacesSearchURL.baseURL
         let locationURL = Constants.GooglePlacesSearchURL.locationURL + String(location.coordinate.latitude) + "," + String(location.coordinate.longitude)
@@ -35,7 +38,7 @@ class GooglePlacesSearchService {
         
         return baseURL + maxwidthURL + photoreferenceURL + keyURL
     }
-    
+    //API CALL
     func getGooglePlacesSearchData(keyword: String, location: CLLocation, callback: @escaping (Bool, GooglePlacesSearchResponse) -> Void) {
         guard let url = URL(string: googlePlacesSearchURL(location: location, keyword: keyword)) else { return }
         print(url)

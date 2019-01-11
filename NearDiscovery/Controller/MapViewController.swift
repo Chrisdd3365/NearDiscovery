@@ -14,7 +14,6 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
     var placeMarker: PlaceMarker?
-    var placesMarkers: [PlaceMarker] = []
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     
@@ -43,14 +42,28 @@ class MapViewController: UIViewController {
             self.mapView.addAnnotation(placeMarker)
         }
     }
-    
+    //1
     private func getDestinationCoordinate(placeDetails: PlaceDetails) -> CLLocation {
         let latitude = placeDetails.geometry.location.latitude
         let longitude = placeDetails.geometry.location.longitude
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
-    
+    //2
+    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails) -> MKDirections.Request {
+        let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
+        let startingLocation = MKPlacemark(coordinate: coordinate)
+        let destination = MKPlacemark(coordinate: destinationCoordinate)
+        
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: startingLocation)
+        request.destination = MKMapItem(placemark: destination)
+        request.transportType = .walking
+        request.requestsAlternateRoutes = true
+        
+        return request
+    }
+    //3
     private func getDirections(placeDetails: PlaceDetails) {
         guard let location = locationManager.location?.coordinate else { return }
         let request = createDirectionsRequest(from: location, placeDetails: placeDetails)
@@ -75,21 +88,7 @@ class MapViewController: UIViewController {
             }
         }
     }
-    
-    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails) -> MKDirections.Request {
-        let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
-        let startingLocation = MKPlacemark(coordinate: coordinate)
-        let destination = MKPlacemark(coordinate: destinationCoordinate)
-        
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: startingLocation)
-        request.destination = MKMapItem(placemark: destination)
-        request.transportType = .walking
-        request.requestsAlternateRoutes = true
-        
-        return request
-    }
-    
+    //HELPER
     private func resetMapView(directions: MKDirections) {
         mapView.removeOverlays(mapView.overlays)
         directionsArray.append(directions)
