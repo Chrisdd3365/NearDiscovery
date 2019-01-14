@@ -78,8 +78,7 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
         let place = places[indexPath.row]
         
         cell.selectionStyle = .none
-        cell.place = place
-        cell.nearbyPlaceImageConfigure(placeBackgroundImageURL: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
+        cell.nearbyPlaceCellConfigure = place
         
         cell.layer.masksToBounds = true
         cell.layer.cornerRadius = 5

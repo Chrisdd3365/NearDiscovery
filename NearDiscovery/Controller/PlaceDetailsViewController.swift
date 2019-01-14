@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class PlaceDetailsViewController: UIViewController {
     //MARK: - Outlet
@@ -17,13 +16,14 @@ class PlaceDetailsViewController: UIViewController {
     let googlePlacesSearchService = GooglePlacesSearchService()
     var place: PlaceSearch!
     var placeDetails: PlaceDetails!
+    var location: Location?
     var locations = Location.all
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItemTitle()
-        setPlaceDetailsUI(placeDetails: placeDetails)
+        setPlaceDetailsUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,9 +61,9 @@ extension PlaceDetailsViewController {
         navigationItem.title = "Place's Details"
     }
     
-    private func setPlaceDetailsUI(placeDetails: PlaceDetails) {
-        placeDetailsView.placeDetailsConfigureUI = placeDetails
-        placeDetailsView.placeDetailsConfigure(rating: placeDetails.rating ?? 0.0, placeDetailsPhoneNumber: placeDetails.internationalPhoneNumber ?? "no phone number available", weekdayText: (placeDetails.openingHours?.weekdayText ?? ["no schedule available"]), backgroundPlaceDetailsImageURL: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
+    private func setPlaceDetailsUI() {
+        placeDetailsView.placeDetailsViewConfigure = placeDetails
+        placeDetailsView.placeDetailsImageConfigure(photoReference: place.photos?[0].photoReference ?? "")
     }
 }
 
@@ -74,7 +74,7 @@ extension PlaceDetailsViewController {
         let tabItem = tabItems[1]
         
         if checkLocationList() == false {
-            saveLocation()
+            CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
             tabItem.badgeValue = "New"
             locations = Location.all
         } else {
@@ -97,28 +97,3 @@ extension PlaceDetailsViewController {
     }
 }
 
-//MARK: - CoreData's methods
-extension PlaceDetailsViewController {
-    private func saveLocation() {
-        let location = Location(context: AppDelegate.viewContext)
-        location.placeId = placeDetails.placeId
-        location.photoReference = place.photos?[0].photoReference
-        location.name = placeDetails.name
-        location.address = placeDetails.address
-        location.phoneNumber = placeDetails.internationalPhoneNumber
-        location.rating = placeDetails.rating ?? 0.0
-        //location.openingHours = (place.openingHours?.openNow)!
-        location.latitude = placeDetails.geometry.location.latitude
-        location.longitude = placeDetails.geometry.location.longitude
-        
-        saveContext()
-    }
-    
-    private func saveContext() {
-        do {
-            try AppDelegate.viewContext.save()
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-}

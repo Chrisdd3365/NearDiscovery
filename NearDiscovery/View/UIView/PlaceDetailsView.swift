@@ -18,29 +18,29 @@ class PlaceDetailsView: UIView {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var weekdayTextView: UITextView!
     
-    //MARK: - Property
-    var placeDetailsConfigureUI: PlaceDetails! {
+    //MARK: - Properties
+    let googlePlacesSearchService = GooglePlacesSearchService()
+    var placeDetailsViewConfigure: PlaceDetails? {
         didSet {
-            placeDetailsNameLabel.text = placeDetailsConfigureUI.name
-            placeDetailsAddressLabel.text = placeDetailsConfigureUI.address
-            placeDetailsWebsiteLabel.text = placeDetailsConfigureUI.website
-            //            ratingLabel.text = "\(String(describing: placeDetailsConfigureUI.rating))"
+            placeDetailsNameLabel.text = placeDetailsViewConfigure?.name
+            placeDetailsAddressLabel.text = placeDetailsViewConfigure?.address
+            placeDetailsPhoneNumberLabel.text = placeDetailsViewConfigure?.internationalPhoneNumber
+            placeDetailsWebsiteLabel.text = placeDetailsViewConfigure?.website
+            ratingLabel.text = "\(String(describing: placeDetailsViewConfigure?.rating ?? 0.0))"
+            weekdayTextView.text = convertIntoString(weekdayText: placeDetailsViewConfigure?.openingHours?.weekdayText ?? [""])
         }
     }
+    //MARK: - Method
+    func placeDetailsImageConfigure(photoReference: String) {
+        placeDetailsImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReference)))
+    }
     
-    //MARK: - Methods
+    //MARK: - Helper's method
     private func convertIntoString(weekdayText: [String]) -> String {
         var schedule = ""
         for weekdayString in weekdayText {
             schedule += weekdayString + "\n"
         }
         return schedule
-    }
-    
-    func placeDetailsConfigure(rating: Double, placeDetailsPhoneNumber: String, weekdayText: [String], backgroundPlaceDetailsImageURL: String) {
-        ratingLabel.text = String(rating)
-        placeDetailsPhoneNumberLabel.text = placeDetailsPhoneNumber
-        weekdayTextView.text = convertIntoString(weekdayText: weekdayText)
-        placeDetailsImageView.cacheImage(urlString: backgroundPlaceDetailsImageURL)
     }
 }

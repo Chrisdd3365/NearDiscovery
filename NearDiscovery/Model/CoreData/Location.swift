@@ -16,25 +16,4 @@ public class Location: NSManagedObject {
         guard let locations = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return locations
     }
-    
-    //MARK: - Methods
-    static func deleteLocationFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
-        let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
-        fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)
-        
-        do {
-            let locations = try context.fetch(fetchRequest)
-            for location in locations {
-                context.delete(location)
-            }
-            try context.save()
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-    
-    static func deleteAll(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Location.fetchRequest())
-        let _ = try? viewContext.execute(deleteRequest)
-    }
 }

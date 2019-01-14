@@ -16,7 +16,6 @@
 		953122F221CA8EA7007FCADC /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F121CA8EA7007FCADC /* URLSessionFake.swift */; };
 		953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F321CA8ED3007FCADC /* FakeResponseData.swift */; };
 		953269AE21D5101400DCE5C8 /* PlaceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953269AD21D5101400DCE5C8 /* PlaceSearch.swift */; };
-		954A97FE21DCF17C00AE2D8B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A97FD21DCF17C00AE2D8B /* UIImageView.swift */; };
 		954A980421DE06B000AE2D8B /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980321DE06B000AE2D8B /* PlaceDetails.swift */; };
 		954A980621DE06C200AE2D8B /* GooglePlacesDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980521DE06C200AE2D8B /* GooglePlacesDetailsService.swift */; };
 		954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980721DE06FE00AE2D8B /* GooglePlacesSearchService.swift */; };
@@ -38,6 +37,7 @@
 		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
 		95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */; };
 		95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C73BB521CC1559003564C9 /* UITableViewCell.swift */; };
+		95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F30C7521ECA7BD00968588 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,6 @@
 		953122F121CA8EA7007FCADC /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		953122F321CA8ED3007FCADC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		953269AD21D5101400DCE5C8 /* PlaceSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
-		954A97FD21DCF17C00AE2D8B /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		954A980321DE06B000AE2D8B /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		954A980521DE06C200AE2D8B /* GooglePlacesDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesDetailsService.swift; sourceTree = "<group>"; };
 		954A980721DE06FE00AE2D8B /* GooglePlacesSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesSearchService.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
 		95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServiceTests.swift; sourceTree = "<group>"; };
 		95C73BB521CC1559003564C9 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		95F30C7521ECA7BD00968588 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,7 +265,6 @@
 			children = (
 				9590E5FC21C950B00016A77F /* UIViewController.swift */,
 				95C73BB521CC1559003564C9 /* UITableViewCell.swift */,
-				954A97FD21DCF17C00AE2D8B /* UIImageView.swift */,
 				954A980D21DE486700AE2D8B /* Date.swift */,
 			);
 			path = Extensions;
@@ -276,6 +275,7 @@
 			children = (
 				95A16B7F21E4F18F00C6B35D /* Location.xcdatamodeld */,
 				95A16B8321E4F3A800C6B35D /* Location.swift */,
+				95F30C7521ECA7BD00968588 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -308,6 +308,7 @@
 				9587402721C3FB2800489865 /* Frameworks */,
 				9587402821C3FB2800489865 /* Resources */,
 				3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */,
+				5D75FBC7F6FF8257A1FD3F87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,6 +420,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5D75FBC7F6FF8257A1FD3F87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9A054A248CC5326032E26D39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,7 +474,6 @@
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				953269AE21D5101400DCE5C8 /* PlaceSearch.swift in Sources */,
 				954A980621DE06C200AE2D8B /* GooglePlacesDetailsService.swift in Sources */,
-				954A97FE21DCF17C00AE2D8B /* UIImageView.swift in Sources */,
 				95A16B8121E4F18F00C6B35D /* Location.xcdatamodeld in Sources */,
 				951AA04921DA25E000F2E4FC /* NearbyPlacesListViewController.swift in Sources */,
 				954A980421DE06B000AE2D8B /* PlaceDetails.swift in Sources */,
@@ -459,6 +481,7 @@
 				954A980E21DE486700AE2D8B /* Date.swift in Sources */,
 				954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */,
 				954A980C21DE18E400AE2D8B /* PlaceDetailsView.swift in Sources */,
+				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
 				954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */,
 				95A16B8421E4F3A800C6B35D /* Location.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,

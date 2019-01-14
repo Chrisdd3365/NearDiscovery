@@ -364,7 +364,8 @@ extension SecondMapViewController: UITableViewDataSource {
         let location = locations[indexPath.row]
         
         cell.selectionStyle = .none
-        cell.locationCellConfigure(locationName: location.name ?? "no name", locationAddress: location.address ?? "no address available", rating: location.rating, imageURL: location.photoReference ?? "")
+        cell.location = location
+//        cell.locationCellConfigure(locationName: location.name ?? "no name", locationAddress: location.address ?? "no address available", rating: location.rating, imageURL: location.photoReference ?? "")
 
         return cell
     }
