@@ -17,17 +17,18 @@ class PlaceDetailsViewController: UIViewController {
     let googlePlacesSearchService = GooglePlacesSearchService()
     var place: PlaceSearch!
     var placeDetails: PlaceDetails!
-    var location = Location.all
+    var locations = Location.all
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationItemTitle()
         setPlaceDetailsUI(placeDetails: placeDetails)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        location = Location.all
+        locations = Location.all
     }
     
     //MARK: - Actions
@@ -46,6 +47,28 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     //MARK: - Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
+            let mapVC = segue.destination as? MapViewController {
+            mapVC.placeDetails = placeDetails
+        }
+    }
+}
+
+//MARK: - UI's setup methods
+extension PlaceDetailsViewController {
+    private func setNavigationItemTitle() {
+        navigationItem.title = "Place's Details"
+    }
+    
+    private func setPlaceDetailsUI(placeDetails: PlaceDetails) {
+        placeDetailsView.placeDetailsConfigureUI = placeDetails
+        placeDetailsView.placeDetailsConfigure(rating: placeDetails.rating ?? 0.0, placeDetailsPhoneNumber: placeDetails.internationalPhoneNumber ?? "no phone number available", weekdayText: (placeDetails.openingHours?.weekdayText ?? ["no schedule available"]), backgroundPlaceDetailsImageURL: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
+    }
+}
+
+//MARK: - List's updates setup methods
+extension PlaceDetailsViewController {
     private func addToLocationListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[1]
@@ -53,9 +76,9 @@ class PlaceDetailsViewController: UIViewController {
         if checkLocationList() == false {
             saveLocation()
             tabItem.badgeValue = "New"
-            location = Location.all
+            locations = Location.all
         } else {
-            location = Location.all
+            locations = Location.all
             showAlert(title: "Error", message: "You already add this location in your location list!")
             tabItem.badgeValue = nil
         }
@@ -63,26 +86,14 @@ class PlaceDetailsViewController: UIViewController {
     
     private func checkLocationList() -> Bool {
         var isAdded = false
-        guard location.count != 0 else { return false }
-        for loc in location {
-            if placeDetails.placeId == loc.placeId {
+        guard locations.count != 0 else { return false }
+        for location in locations {
+            if placeDetails.placeId == location.placeId {
                 isAdded = true
                 break
             }
         }
         return isAdded
-    }
-    
-    private func setPlaceDetailsUI(placeDetails: PlaceDetails) {
-        placeDetailsView.placeDetailsConfigureUI = placeDetails
-        placeDetailsView.placeDetailsConfigure(rating: placeDetails.rating ?? 0.0, placeDetailsPhoneNumber: placeDetails.internationalPhoneNumber ?? "no phone number available", weekdayText: (placeDetails.openingHours?.weekdayText ?? ["no schedule available"]), backgroundPlaceDetailsImageURL: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: (place.photos?[0].photoReference ?? "")))
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
-            let mapVC = segue.destination as? MapViewController {
-            mapVC.placeDetails = placeDetails
-        }
     }
 }
 

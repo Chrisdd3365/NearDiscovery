@@ -14,6 +14,7 @@ class GooglePlacesSearchService {
     var task: URLSessionDataTask?
     private var googlePlacesSearchSession: URLSession
     
+    //MARK: - Initializers
     init(googlePlacesSearchSession: URLSession = URLSession(configuration: .default)) {
         self.googlePlacesSearchSession = googlePlacesSearchSession
     }

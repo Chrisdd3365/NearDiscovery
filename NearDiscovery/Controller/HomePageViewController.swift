@@ -6,7 +6,7 @@
 //  Copyright © 2018 Christophe DURAND. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 import CoreLocation
 
 class HomePageViewController: UIViewController {
@@ -18,6 +18,7 @@ class HomePageViewController: UIViewController {
     let locationManager = CLLocationManager()
     var timer = Timer()
     var places: [PlaceSearch] = []
+    //Boolean to avoid API being called twice by stopping to update user location
     var didFindUserLocation = true
     
     //MARK: - View Life Cycle
@@ -60,6 +61,7 @@ extension HomePageViewController {
 }
 
 //MARK: - Timer's methods
+//To display different background's images, depends on the time of the day
 extension HomePageViewController {
     private func notificationScheduleTimer() {
         NotificationCenter.default.addObserver(self, selector: #selector(scheduleTimer), name: UIApplication.didBecomeActiveNotification, object: nil)

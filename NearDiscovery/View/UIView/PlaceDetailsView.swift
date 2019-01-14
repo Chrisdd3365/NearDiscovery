@@ -9,16 +9,7 @@
 import UIKit
 
 class PlaceDetailsView: UIView {
-    
-    var placeDetailsConfigureUI: PlaceDetails! {
-        didSet {
-            placeDetailsNameLabel.text = placeDetailsConfigureUI.name
-            placeDetailsAddressLabel.text = placeDetailsConfigureUI.address
-            placeDetailsWebsiteLabel.text = placeDetailsConfigureUI.website
-//            ratingLabel.text = "\(String(describing: placeDetailsConfigureUI.rating))"
-        }
-    }
-
+    //MARK: - Outlets
     @IBOutlet weak var placeDetailsImageView: UIImageView!
     @IBOutlet weak var placeDetailsNameLabel: UILabel!
     @IBOutlet weak var placeDetailsAddressLabel: UILabel!
@@ -27,7 +18,17 @@ class PlaceDetailsView: UIView {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var weekdayTextView: UITextView!
     
+    //MARK: - Property
+    var placeDetailsConfigureUI: PlaceDetails! {
+        didSet {
+            placeDetailsNameLabel.text = placeDetailsConfigureUI.name
+            placeDetailsAddressLabel.text = placeDetailsConfigureUI.address
+            placeDetailsWebsiteLabel.text = placeDetailsConfigureUI.website
+            //            ratingLabel.text = "\(String(describing: placeDetailsConfigureUI.rating))"
+        }
+    }
     
+    //MARK: - Methods
     private func convertIntoString(weekdayText: [String]) -> String {
         var schedule = ""
         for weekdayString in weekdayText {

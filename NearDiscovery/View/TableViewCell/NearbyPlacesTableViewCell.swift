@@ -9,19 +9,20 @@
 import UIKit
 
 class NearbyPlacesTableViewCell: UITableViewCell {
-    
+    //MARK : - Outlets
     @IBOutlet weak var placeBackgroundImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var openNowLabel: UILabel!
     
-    var place: PlaceSearch! {
+    //MARK: - Property
+    var place: PlaceSearch? {
         didSet {
-            placeNameLabel.text = place.name
-            placeAddressLabel.text = place.vicinity
-            ratingLabel.text = "\(String(describing: place.rating))"
-            if place.openingHours?.openNow == true {
+            placeNameLabel.text = place?.name
+            placeAddressLabel.text = place?.vicinity
+            ratingLabel.text = "\(String(describing: place?.rating ?? 0.0))"
+            if place?.openingHours?.openNow == true {
                 openNowLabel.text = "Open"
                 openNowLabel.textColor = .green
             } else {
@@ -30,7 +31,7 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             }
         }
     }
-
+    
     func nearbyPlaceImageConfigure(placeBackgroundImageURL: String) {
         placeBackgroundImageView.cacheImage(urlString: placeBackgroundImageURL)
     }

@@ -13,6 +13,7 @@ class GooglePlacesDetailsService {
     var task: URLSessionDataTask?
     private var googlePlacesDetailsSession: URLSession
     
+    //MARK: - Initializers
     init(googlePlacesDetailsSession: URLSession = URLSession(configuration: .default)) {
         self.googlePlacesDetailsSession = googlePlacesDetailsSession
     }

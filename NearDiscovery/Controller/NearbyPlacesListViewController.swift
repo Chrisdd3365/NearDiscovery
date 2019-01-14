@@ -21,6 +21,7 @@ class NearbyPlacesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationItemTitle()
         nearbyPlacesTableView.tableFooterView = UIView()
     }
     
@@ -29,7 +30,11 @@ class NearbyPlacesListViewController: UIViewController {
         nearbyPlacesTableView.reloadData()
     }
     
-    //MARK: - Method
+    //MARK: - Methods
+    private func setNavigationItemTitle() {
+        navigationItem.title = "List Of Nearby's Places"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showDetailsSegue,
             let placeDetailsVC = segue.destination as? PlaceDetailsViewController,

@@ -21,6 +21,7 @@ class PlaceMarker: NSObject {
     }
 }
 
+//MARK: MKAnnotation
 extension PlaceMarker: MKAnnotation {
     //MARK: - Properties
     var coordinate: CLLocationCoordinate2D {
@@ -28,7 +29,6 @@ extension PlaceMarker: MKAnnotation {
             return location.coordinate
         }
     }
-
     var title: String? {
         get {
             return name

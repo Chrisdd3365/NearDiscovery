@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
+
 
 class SecondMapViewController: UIViewController {
     var locationManager = CLLocationManager()
@@ -86,8 +86,9 @@ class SecondMapViewController: UIViewController {
     }
     
     ////
-    var nodes = [CLLocation]()
-    var cordes = [tripletType]()
+    private var nodes = [CLLocation]()
+    private typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
+    private var cordes = [tripletType]()
     
     
     
@@ -286,6 +287,29 @@ extension SecondMapViewController: MKMapViewDelegate {
         renderer.lineWidth = 5
         return renderer
     }
+//    func mapView(_ mapView: MKMapView,
+//                 rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//
+//        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+//        if (overlay is MKPolyline) {
+//            if mapView.overlays.count == 1 {
+//                polylineRenderer.strokeColor =
+//                    UIColor.blue.withAlphaComponent(0.75)
+//            } else if mapView.overlays.count == 2 {
+//                polylineRenderer.strokeColor =
+//                    UIColor.green.withAlphaComponent(0.75)
+//            } else if mapView.overlays.count == 3 {
+//                polylineRenderer.strokeColor =
+//                    UIColor.red.withAlphaComponent(0.75)
+//            }
+//            polylineRenderer.lineWidth = 5
+//        }
+//        return polylineRenderer
+//    }
+    
+    
+    
+    
     
     //ANNOTATIONS
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
