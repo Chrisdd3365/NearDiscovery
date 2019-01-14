@@ -9,7 +9,6 @@
 import UIKit
 import SDWebImage
 
-
 class NearbyPlacesTableViewCell: UITableViewCell {
     //MARK : - Outlets
     @IBOutlet weak var placeBackgroundImageView: UIImageView!

@@ -307,7 +307,6 @@
 				9587402621C3FB2800489865 /* Sources */,
 				9587402721C3FB2800489865 /* Frameworks */,
 				9587402821C3FB2800489865 /* Resources */,
-				3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */,
 				5D75FBC7F6FF8257A1FD3F87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -398,28 +397,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3934A1A8E099D26C1737A96F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5D75FBC7F6FF8257A1FD3F87 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,12 +406,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OverlayContainer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

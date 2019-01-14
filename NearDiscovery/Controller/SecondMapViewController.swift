@@ -10,8 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
-
 class SecondMapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeMarker: PlaceMarker?
@@ -27,7 +25,6 @@ class SecondMapViewController: UIViewController {
         setNavigationBarTitle()
         setupCoreLocation()
         setupMapView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -205,8 +202,6 @@ class SecondMapViewController: UIViewController {
         } else {
             return path
         }
-        
-        
     }
     
     

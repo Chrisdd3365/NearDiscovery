@@ -11,37 +11,58 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
+
+    //MARK - Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var travelTimeLabel: UILabel!
+    
+    //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
     var placeMarker: PlaceMarker?
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var travelTimeLabel: UILabel!
-    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
         showAnnotation(placeDetails: placeDetails)
     }
-    
+
+    //MARK: - Actions
     @IBAction func showDirections(_ sender: UIButton) {
         getDirections(placeDetails: placeDetails)
     }
     
-    @IBAction func centerUserButton(_ sender: Any) {
+    @IBAction func centerUserButton(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
-        
+    
+    //MARK: - Methods
     private func showAnnotation(placeDetails: PlaceDetails) {
         let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
         DispatchQueue.main.async {
             self.mapView.addAnnotation(placeMarker)
         }
     }
+    
+    //DELEGATE CORE LOCATION
+    private func setupCoreLocation() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
+    //DELEGATE MAPKIT
+    private func setupMapView() {
+        mapView.delegate = self
+    }
+}
+
+//MARK: - Display 'Directions' methods
+extension MapViewController  {
     //1
     private func getDestinationCoordinate(placeDetails: PlaceDetails) -> CLLocation {
         let latitude = placeDetails.geometry.location.latitude
@@ -49,6 +70,7 @@ class MapViewController: UIViewController {
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
+    
     //2
     private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails) -> MKDirections.Request {
         let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
@@ -63,6 +85,7 @@ class MapViewController: UIViewController {
         
         return request
     }
+    
     //3
     private func getDirections(placeDetails: PlaceDetails) {
         guard let location = locationManager.location?.coordinate else { return }
@@ -94,19 +117,9 @@ class MapViewController: UIViewController {
         directionsArray.append(directions)
         let _ = directionsArray.map { $0.cancel()}
     }
-    
-    //DELEGATE CORE LOCATION
-    private func setupCoreLocation() {
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-    }
-    
-    //DELEGATE MAPKIT
-    private func setupMapView() {
-        mapView.delegate = self
-    }
 }
 
+//MARK: - CoreLocationManagerDelegate's methods
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
@@ -117,20 +130,22 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
+//MARK: - MapViewDelegate's methods
 extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-        renderer.strokeColor = .blue
-        renderer.lineWidth = 5
-        return renderer
-    }
     //USER LOCATION
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         if let userLocation = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
-            print("zoom")
         }
+    }
+    
+    //POLYLINE
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = .blue
+        renderer.lineWidth = 5
+        return renderer
     }
     
     //ANNOTATIONS
@@ -140,7 +155,6 @@ extension MapViewController: MKMapViewDelegate {
         }
 
         if let placeAnnotation = annotation as? PlaceMarker {
-
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceMarker") as? MKMarkerAnnotationView
 
             if annotationView == nil {
