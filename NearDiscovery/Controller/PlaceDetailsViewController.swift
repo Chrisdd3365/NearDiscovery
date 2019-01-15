@@ -73,7 +73,7 @@ extension PlaceDetailsViewController {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[1]
         
-        if checkLocationList() == false {
+        if checkLocationsList() == false {
             CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
             tabItem.badgeValue = "New"
             locations = Location.all
@@ -84,7 +84,7 @@ extension PlaceDetailsViewController {
         }
     }
     
-    private func checkLocationList() -> Bool {
+    private func checkLocationsList() -> Bool {
         var isAdded = false
         guard locations.count != 0 else { return false }
         for location in locations {

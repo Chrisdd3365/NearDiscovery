@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f5x-zs-Lis">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f5x-zs-Lis">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -280,7 +280,7 @@
                                         <rect key="frame" x="0.0" y="68" width="114" height="30"/>
                                         <state key="normal" title="SHOW ON MAP"/>
                                         <connections>
-                                            <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showLocationOnMapSegue" id="BOM-aG-QIO"/>
+                                            <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showLocationOnMapSegue" id="596-Zb-jFF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -345,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2d-zL-xeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="465" y="-461"/>
+            <point key="canvasLocation" x="545" y="-461"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="NBO-9e-JfE">
@@ -407,6 +407,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Siy-hg-n8c"/>
                     </view>
+                    <navigationItem key="navigationItem" id="A3A-Wg-OlY"/>
                     <connections>
                         <outlet property="distanceLabel" destination="gJT-Mq-yge" id="zke-4E-HoJ"/>
                         <outlet property="mapView" destination="p1m-xt-yTW" id="uxa-fp-Yxh"/>
@@ -415,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRR-xH-YRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="-461"/>
+            <point key="canvasLocation" x="-287" y="409"/>
         </scene>
         <!--Locations-->
         <scene sceneID="Ajo-7j-Ndy">
@@ -427,12 +428,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bEq-d1-8I4" kind="relationship" relationship="rootViewController" id="cPz-PP-Ils"/>
+                        <segue destination="Gvv-Zz-Kwj" kind="relationship" relationship="rootViewController" id="jnq-aP-4Py"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KvY-tj-ZRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1063" y="197"/>
+            <point key="canvasLocation" x="-1063" y="409"/>
         </scene>
         <!--Second Map View Controller-->
         <scene sceneID="R7v-u8-5mq">
@@ -443,13 +444,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-4z-xHI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="330"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="330" id="cUe-hZ-s8z"/>
                                 </constraints>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7ur-Ag-38g">
-                                <rect key="frame" x="0.0" y="394" width="375" height="224"/>
+                                <rect key="frame" x="0.0" y="350" width="375" height="317"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" rowHeight="95" id="129-N8-jup" customClass="LocationTableViewCell" customModule="NearDiscovery" customModuleProvider="target">
@@ -536,20 +537,14 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcp-em-p9p">
-                                <rect key="frame" x="302" y="349" width="58" height="30"/>
+                                <rect key="frame" x="302" y="305" width="58" height="30"/>
                                 <state key="normal" title="CENTER"/>
-                                <connections>
-                                    <action selector="centerOnUserLocation:" destination="bEq-d1-8I4" eventType="touchUpInside" id="Ye3-H2-Z0C"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgW-yD-1RC">
-                                <rect key="frame" x="127" y="349" width="121" height="30"/>
+                                <rect key="frame" x="127" y="305" width="121" height="30"/>
                                 <state key="normal" title="GET DIRECTIONS">
                                     <color key="titleColor" red="1" green="0.12771455740000001" blue="0.11696253049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="getDirections:" destination="bEq-d1-8I4" eventType="touchUpInside" id="SY9-Zf-7gQ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -576,10 +571,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fD-re-pLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="197"/>
+            <point key="canvasLocation" x="545" y="409"/>
         </scene>
     </scenes>
     <resources>
         <image name="homebuttonimage" width="346" height="346"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="596-Zb-jFF"/>
+    </inferredMetricsTieBreakers>
 </document>

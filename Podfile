@@ -3,5 +3,4 @@ use_frameworks!
 
 target 'NearDiscovery' do
   pod 'SDWebImage', '~> 4.0'
-  pod 'OverlayContainer'
 end

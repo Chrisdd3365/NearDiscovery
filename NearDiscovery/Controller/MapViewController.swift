@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
-
     //MARK - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -21,6 +20,7 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
     var placeMarker: PlaceMarker?
+    var locations = Location.all
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     
@@ -29,9 +29,20 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
-        showAnnotation(placeDetails: placeDetails)
+        //showAnnotation(placeDetails: placeDetails)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setTabBarControllerItemBadgeValue()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addBottomSheetView()
+    }
+    
     //MARK: - Actions
     @IBAction func showDirections(_ sender: UIButton) {
         getDirections(placeDetails: placeDetails)
@@ -40,14 +51,29 @@ class MapViewController: UIViewController {
     @IBAction func centerUserButton(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
-    
+
     //MARK: - Methods
+    private func setTabBarControllerItemBadgeValue() {
+        guard let tabItems = tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[1]
+        tabItem.badgeValue = nil
+    }
+    
     private func showAnnotation(placeDetails: PlaceDetails) {
         let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
         DispatchQueue.main.async {
             self.mapView.addAnnotation(placeMarker)
         }
     }
+    
+    func addAnnotation(location: Location) {
+        let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
+        DispatchQueue.main.async {
+            self.mapView.addAnnotation(placeMarker)
+        }
+    }
+    
+    
     
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
@@ -169,6 +195,21 @@ extension MapViewController: MKMapViewDelegate {
             return annotationView
         }
         return nil
+    }
+}
+
+//MARK: - Setup ScrollableBottomSheetView's method
+extension MapViewController {
+    private func addBottomSheetView() {
+        let scrollableBottomSheetVC = ScrollableBottomSheetViewController()
+        
+        self.addChild(scrollableBottomSheetVC)
+        self.view.addSubview(scrollableBottomSheetVC.view)
+        scrollableBottomSheetVC.didMove(toParent: self)
+        
+        let height = view.frame.height
+        let width  = view.frame.width
+        scrollableBottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
 }
 

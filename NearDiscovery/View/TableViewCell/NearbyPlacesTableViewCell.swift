@@ -33,7 +33,13 @@ class NearbyPlacesTableViewCell: UITableViewCell {
                 openNowLabel.textColor = .red
             }
             
-            placeBackgroundImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: nearbyPlaceCellConfigure?.photos?[0].photoReference ?? "")))
+            if let photoReferenceURL = nearbyPlaceCellConfigure?.photos?[0].photoReference {
+                placeBackgroundImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
+            } else {
+                placeBackgroundImageView.image = UIImage(named: "giletjaune")
+            }
+            
+           // placeBackgroundImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: nearbyPlaceCellConfigure?.photos?[0].photoReference ?? "")))
         }
     }
 }

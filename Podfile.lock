@@ -1,22 +1,18 @@
 PODS:
-  - OverlayContainer (1.0.3)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
-  - OverlayContainer
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - OverlayContainer
     - SDWebImage
 
 SPEC CHECKSUMS:
-  OverlayContainer: f80bce3fb885c0cc13d72a585af14ebb01a30acc
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 4588c11a938dd9ab341da5d3ff7997327267b0c4
+PODFILE CHECKSUM: ab8e06379049208b5414c571dc63f378d7cdc641
 
 COCOAPODS: 1.5.3
