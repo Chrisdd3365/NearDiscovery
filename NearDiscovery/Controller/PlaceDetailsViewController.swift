@@ -156,19 +156,18 @@ extension PlaceDetailsViewController: UITableViewDelegate {
 }
 
 extension PlaceDetailsViewController: ButtonsActionsDelegate {
+    func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
+        let phoneNumber = String(describing: phoneNumber ?? "0000000000")
+        let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
+        return phoneNumberConverted
+    }
+    
     func didTapCallButton() {
-        let phoneNumber = placeDetails?.internationalPhoneNumber
-        if let phoneNumber = phoneNumber {
-            if let phoneURL = URL(string: ("tel://" + phoneNumber)) {
-                let alert = UIAlertController(title: ("Call " + phoneNumber + "?"), message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { (action) in
-                    UIApplication.shared.open(phoneURL)
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                
-                self.present(alert, animated: true, completion: nil)
-            }
+        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails.internationalPhoneNumber)
+        let phoneURL = URL(string: ("tel://\(phoneNumber)"))
+        if let phoneURL = phoneURL {
+            print(phoneURL)
+            UIApplication.shared.open(phoneURL)
         }
     }
     

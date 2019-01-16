@@ -163,8 +163,6 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate {
 }
 
 extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
-
-    // Solution
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         let gesture = (gestureRecognizer as! UIPanGestureRecognizer)
         let direction = gesture.velocity(in: view).y

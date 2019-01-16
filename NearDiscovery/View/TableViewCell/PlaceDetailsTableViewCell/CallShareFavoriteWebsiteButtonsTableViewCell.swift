@@ -9,12 +9,12 @@
 import UIKit
 
 protocol ButtonsActionsDelegate {
+    func cleanPhoneNumberConverted(phoneNumber: String?) -> String
     func didTapCallButton()
     func didTapShareButton()
     func didTapFavoriteButton()
     func didTapWebsiteButton()
 }
-
 
 class CallShareFavoriteWebsiteButtonsTableViewCell: UITableViewCell {
     //MARK: - Property
