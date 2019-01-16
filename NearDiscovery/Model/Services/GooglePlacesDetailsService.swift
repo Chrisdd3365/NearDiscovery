@@ -30,7 +30,6 @@ class GooglePlacesDetailsService {
     //API CALL
     func getGooglePlacesDetailsData(placeId: String, callback: @escaping (Bool, GooglePlacesDetailsResponse?) -> Void) {
         guard let url = URL(string: googlePlacesDetailsURL(placeId: placeId)) else { return }
-        print(url)
         task?.cancel()
         task = googlePlacesDetailsSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
@@ -38,7 +37,6 @@ class GooglePlacesDetailsService {
                     callback(false, nil)
                     return
                 }
-                print(data)
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false, nil)
                     return
@@ -48,7 +46,6 @@ class GooglePlacesDetailsService {
                     return
                 }
                 callback(true, responseJSON)
-                print(responseJSON)
             }
         }
         task?.resume()
