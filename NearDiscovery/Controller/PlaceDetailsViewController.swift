@@ -23,6 +23,7 @@ class PlaceDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItemTitle()
+        placeDetailsTableView.allowsSelection = false
         placeDetailsTableView.tableFooterView = UIView()
     }
     
@@ -32,15 +33,6 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func showWebsite(_ sender: UIButton) {
-        if let placeDetails = placeDetails {
-            guard let url = URL(string: placeDetails.website ?? "") else { return }
-            UIApplication.shared.open(url)
-        } else {
-            showAlert(title: "Error", message: "Failed to get you to the website. Try again!")
-        }
-    }
-    
     @IBAction func addLocationOnMap(_ sender: UIButton) {
         addToLocationListSetup()
         showAlert(title: "Success", message: "Location has been added successfully!")
@@ -123,6 +115,20 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             
             cell.selectionStyle = .none
             cell.scheduleOpenStateCellConfigure(placeDetails: placeDetails)
+        case 3:
+            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: DiscoverButtonTableViewCell.identifier, for: indexPath) as? DiscoverButtonTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.selectionStyle = .none
+            cell.discoverLabelConfigure()
+        case 4:
+            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: CallShareFavoriteWebsiteButtonsTableViewCell.identifier, for: indexPath) as? CallShareFavoriteWebsiteButtonsTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.selectionStyle = .none
+            cell.delegate = self
         default:
             return UITableViewCell()
         }
@@ -139,8 +145,53 @@ extension PlaceDetailsViewController: UITableViewDelegate {
             return 92
         case 2:
             return 110
+        case 3:
+            return 119
+        case 4:
+            return 91
         default:
             return 0
+        }
+    }
+}
+
+extension PlaceDetailsViewController: ButtonsActionsDelegate {
+    func didTapCallButton() {
+        let phoneNumber = placeDetails?.internationalPhoneNumber
+        if let phoneNumber = phoneNumber {
+            if let phoneURL = URL(string: ("tel://" + phoneNumber)) {
+                let alert = UIAlertController(title: ("Call " + phoneNumber + "?"), message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Call", style: .default, handler: { (action) in
+                    UIApplication.shared.open(phoneURL)
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func didTapShareButton() {
+        let websiteString =  placeDetails.website
+        if let websiteString = websiteString {
+        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", websiteString], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+        } else {
+            showAlert(title: "Sorry", message: "No website to share for this place!")
+        }
+    }
+    
+    func didTapFavoriteButton() {
+        
+    }
+    
+    func didTapWebsiteButton() {
+        if let placeDetails = placeDetails {
+            guard let url = URL(string: placeDetails.website ?? "") else { return }
+            UIApplication.shared.open(url)
+        } else {
+            showAlert(title: "Sorry", message: "No website available for this place!")
         }
     }
 }

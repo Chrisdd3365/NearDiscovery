@@ -8,21 +8,10 @@
 
 import UIKit
 
-protocol DiscoverButtonCellDelegate {
-    func didTapDiscover()
-}
-
 class DiscoverButtonTableViewCell: UITableViewCell {
 
     //MARK: - Outlet
     @IBOutlet weak var discoverLabel: UILabel!
-    
-    //MARK: - Properties
-    var delegate: DiscoverButtonCellDelegate?
-    
-    @IBAction func discoverTapped(_ sender: UIButton) {
-        delegate?.didTapDiscover()
-    }
     
     //MARK: - Method
     func discoverLabelConfigure() {
