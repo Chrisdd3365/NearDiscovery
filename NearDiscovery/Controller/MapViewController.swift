@@ -29,7 +29,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
-        //showAnnotation(placeDetails: placeDetails)
+        showAnnotation(placeDetails: placeDetails)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -213,3 +213,8 @@ extension MapViewController {
     }
 }
 
+extension MapViewController: AddAnnotationsDelegate {
+    func addAnnotations(location: Location) {
+         addAnnotation(location: location)
+    }
+}

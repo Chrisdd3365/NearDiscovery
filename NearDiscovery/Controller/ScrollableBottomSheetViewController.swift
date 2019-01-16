@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol AddAnnotationsDelegate {
+    func addAnnotations(location: Location)
+}
+
 class ScrollableBottomSheetViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var locationsMarkedTableView: UITableView!
     
     //MARK: - Properties
-    var mapVC = MapViewController()
+    var addAnnotationsDelegate: AddAnnotationsDelegate!
     var locations = Location.all
     let fullView: CGFloat = 100
     var partialView: CGFloat {
@@ -25,7 +29,7 @@ class ScrollableBottomSheetViewController: UIViewController {
         super.viewDidLoad()
 
        locationsMarkedTableView.register(UINib(nibName: "MarkedLocationTableViewCell", bundle: nil), forCellReuseIdentifier: MarkedLocationTableViewCell.identifier)
-
+        
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
@@ -154,7 +158,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        mapVC.addAnnotation(location: locations[indexPath.row])
+        addAnnotationsDelegate.addAnnotations(location: locations[indexPath.row])
     }
 }
 

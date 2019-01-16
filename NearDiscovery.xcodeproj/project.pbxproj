@@ -37,6 +37,10 @@
 		95A16B8421E4F3A800C6B35D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A16B8321E4F3A800C6B35D /* Location.swift */; };
 		95AC600E21ECE2030032020A /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AC600D21ECE2030032020A /* ScrollableBottomSheetViewController.swift */; };
 		95AC601021ECE43C0032020A /* ScrollableBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95AC600F21ECE43C0032020A /* ScrollableBottomSheetViewController.xib */; };
+		95B7FF1021EF3C7A00CED8B8 /* EurostileMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF0E21EF38D700CED8B8 /* EurostileMedium.ttf */; };
+		95B7FF1121EF3C7C00CED8B8 /* EurostileRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF0C21EF373F00CED8B8 /* EurostileRegular.ttf */; };
+		95B7FF1321EF3CE700CED8B8 /* EurostileBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF1221EF3CE700CED8B8 /* EurostileBlack.ttf */; };
+		95B7FF1921EF3DDD00CED8B8 /* EurostileBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF1821EF3DDD00CED8B8 /* EurostileBold.ttf */; };
 		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
 		95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */; };
 		95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C73BB521CC1559003564C9 /* UITableViewCell.swift */; };
@@ -89,6 +93,10 @@
 		95A16B8321E4F3A800C6B35D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		95AC600D21ECE2030032020A /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
 		95AC600F21ECE43C0032020A /* ScrollableBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollableBottomSheetViewController.xib; sourceTree = "<group>"; };
+		95B7FF0C21EF373F00CED8B8 /* EurostileRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileRegular.ttf; sourceTree = "<group>"; };
+		95B7FF0E21EF38D700CED8B8 /* EurostileMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileMedium.ttf; sourceTree = "<group>"; };
+		95B7FF1221EF3CE700CED8B8 /* EurostileBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileBlack.ttf; sourceTree = "<group>"; };
+		95B7FF1821EF3DDD00CED8B8 /* EurostileBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileBold.ttf; sourceTree = "<group>"; };
 		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
 		95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServiceTests.swift; sourceTree = "<group>"; };
 		95C73BB521CC1559003564C9 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
@@ -246,7 +254,7 @@
 				9587402D21C3FB2800489865 /* AppDelegate.swift */,
 				9587403921C3FB2900489865 /* Info.plist */,
 				9587403421C3FB2900489865 /* Assets.xcassets */,
-				9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */,
+				95B7FF1A21EF3E9000CED8B8 /* Ressources */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -287,6 +295,18 @@
 				95F30C7521ECA7BD00968588 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		95B7FF1A21EF3E9000CED8B8 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				95B7FF0C21EF373F00CED8B8 /* EurostileRegular.ttf */,
+				95B7FF0E21EF38D700CED8B8 /* EurostileMedium.ttf */,
+				95B7FF1821EF3DDD00CED8B8 /* EurostileBold.ttf */,
+				95B7FF1221EF3CE700CED8B8 /* EurostileBlack.ttf */,
+				9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */,
+			);
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 		95E4575F21C54F99008BB555 /* Helpers */ = {
@@ -388,9 +408,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B7FF1921EF3DDD00CED8B8 /* EurostileBold.ttf in Resources */,
+				95B7FF1321EF3CE700CED8B8 /* EurostileBlack.ttf in Resources */,
+				95B7FF1121EF3C7C00CED8B8 /* EurostileRegular.ttf in Resources */,
 				9578AD2B21D7BEF700D2FE18 /* EncodeSansExpanded-ExtraBold.ttf in Resources */,
 				95AC601021ECE43C0032020A /* ScrollableBottomSheetViewController.xib in Resources */,
 				9587403821C3FB2900489865 /* LaunchScreen.storyboard in Resources */,
+				95B7FF1021EF3C7A00CED8B8 /* EurostileMedium.ttf in Resources */,
 				95163B0021EDF64E00095614 /* MarkedLocationTableViewCell.xib in Resources */,
 				9587403521C3FB2900489865 /* Assets.xcassets in Resources */,
 				9587403321C3FB2800489865 /* Main.storyboard in Resources */,

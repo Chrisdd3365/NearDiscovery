@@ -13,8 +13,6 @@ class PlaceDetailsView: UIView {
     @IBOutlet weak var placeDetailsImageView: UIImageView!
     @IBOutlet weak var placeDetailsNameLabel: UILabel!
     @IBOutlet weak var placeDetailsAddressLabel: UILabel!
-    @IBOutlet weak var placeDetailsPhoneNumberLabel: UILabel!
-    @IBOutlet weak var placeDetailsWebsiteLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var weekdayTextView: UITextView!
     
@@ -24,17 +22,16 @@ class PlaceDetailsView: UIView {
         didSet {
             placeDetailsNameLabel.text = placeDetailsViewConfigure?.name
             placeDetailsAddressLabel.text = placeDetailsViewConfigure?.address
-            placeDetailsPhoneNumberLabel.text = placeDetailsViewConfigure?.internationalPhoneNumber
-            placeDetailsWebsiteLabel.text = placeDetailsViewConfigure?.website
             ratingLabel.text = "\(String(describing: placeDetailsViewConfigure?.rating ?? 0.0))"
             weekdayTextView.text = convertIntoString(weekdayText: placeDetailsViewConfigure?.openingHours?.weekdayText ?? [""])
         }
     }
+    
     //MARK: - Method
     func placeDetailsImageConfigure(photoReference: String) {
         placeDetailsImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReference)))
     }
-    
+
     //MARK: - Helper's method
     private func convertIntoString(weekdayText: [String]) -> String {
         var schedule = ""

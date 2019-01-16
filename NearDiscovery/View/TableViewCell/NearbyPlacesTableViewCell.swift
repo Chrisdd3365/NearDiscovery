@@ -22,15 +22,18 @@ class NearbyPlacesTableViewCell: UITableViewCell {
     var nearbyPlaceCellConfigure: PlaceSearch? {
         didSet {
             placeNameLabel.text = nearbyPlaceCellConfigure?.name
+            placeNameLabel.font = UIFont(name: "EurostileBold", size: 18)
+            
             placeAddressLabel.text = nearbyPlaceCellConfigure?.vicinity
-            ratingLabel.text = "\(String(describing: nearbyPlaceCellConfigure?.rating ?? 0.0))"
+            
+            ratingLabel.text = "\(String(describing: nearbyPlaceCellConfigure?.rating ?? 0.0))" + "/5"
             
             if nearbyPlaceCellConfigure?.openingHours?.openNow == true {
                 openNowLabel.text = "Open"
-                openNowLabel.textColor = .green
+                openNowLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
                 openNowLabel.text = "Close"
-                openNowLabel.textColor = .red
+                openNowLabel.backgroundColor = .red
             }
             
             if let photoReferenceURL = nearbyPlaceCellConfigure?.photos?[0].photoReference {
@@ -38,8 +41,6 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             } else {
                 placeBackgroundImageView.image = UIImage(named: "giletjaune")
             }
-            
-           // placeBackgroundImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: nearbyPlaceCellConfigure?.photos?[0].photoReference ?? "")))
         }
     }
 }

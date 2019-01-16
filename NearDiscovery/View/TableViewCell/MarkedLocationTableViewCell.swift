@@ -23,13 +23,13 @@ class MarkedLocationTableViewCell: UITableViewCell {
             markedLocationNameLabel.text = location?.name
             markedLocationAddressLabel.text = location?.address
             markedLocationRatingLabel.text = "\(String(describing: location?.rating ?? 0.0))"
-            
+    
             if location?.openingHours == true {
                 markedLocationOpenStateLabel.text = "Open"
-                markedLocationOpenStateLabel.textColor = .green
+                markedLocationOpenStateLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
                 markedLocationOpenStateLabel.text = "Close"
-                markedLocationOpenStateLabel.textColor = .red
+                markedLocationOpenStateLabel.backgroundColor = .red
             }
             
             markedLocationImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: location?.photoReference ?? "")))

@@ -5,6 +5,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>EncodeSansExpanded-ExtraBold.ttf</string>
+		<string>EurostileRegular.ttf</string>
+		<string>EurostileMedium.ttf</string>
+		<string>EurostileBlack.ttf</string>
+		<string>EurostileBold.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please, allow us to localize and guide you! :)</string>
