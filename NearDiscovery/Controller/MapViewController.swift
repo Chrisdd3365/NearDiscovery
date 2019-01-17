@@ -13,9 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController {
     //MARK - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var travelTimeLabel: UILabel!
-    
+    @IBOutlet weak var labelsView : UIView!
     //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
@@ -40,18 +38,21 @@ class MapViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addBottomSheetView()
     }
     
-    //MARK: - Actions
-    @IBAction func showDirections(_ sender: UIButton) {
-        getDirections(placeDetails: placeDetails)
-    }
-    
+    //MARK: - Actions    
     @IBAction func centerUserButton(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
-
+    
+    @IBAction func automobileDirections(_ sender: UIButton) {
+        getDirections(placeDetails: placeDetails, sender: sender)
+    }
+    
+    @IBAction func walkingDirections(_ sender: UIButton) {
+        getDirections(placeDetails: placeDetails, sender: sender)
+    }
+    
     //MARK: - Methods
     private func setTabBarControllerItemBadgeValue() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
@@ -72,8 +73,6 @@ class MapViewController: UIViewController {
             self.mapView.addAnnotation(placeMarker)
         }
     }
-    
-    
     
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
@@ -96,9 +95,22 @@ extension MapViewController  {
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
+    //HELPER
+    private func switchTransportType(request: MKDirections.Request, sender: UIButton) -> MKDirectionsTransportType {
+        var transportType = request.transportType
+        switch sender.tag {
+        case 1:
+            transportType = .automobile
+        case 2:
+            transportType = .walking
+        default:
+            break
+        }
+        return transportType
+    }
     
     //2
-    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails) -> MKDirections.Request {
+    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails, sender: UIButton) -> MKDirections.Request {
         let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
         let startingLocation = MKPlacemark(coordinate: coordinate)
         let destination = MKPlacemark(coordinate: destinationCoordinate)
@@ -106,16 +118,16 @@ extension MapViewController  {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: startingLocation)
         request.destination = MKMapItem(placemark: destination)
-        request.transportType = .walking
         request.requestsAlternateRoutes = true
-        
+        request.transportType = switchTransportType(request: request, sender: sender)
+    
         return request
     }
     
     //3
-    private func getDirections(placeDetails: PlaceDetails) {
+    private func getDirections(placeDetails: PlaceDetails, sender: UIButton) {
         guard let location = locationManager.location?.coordinate else { return }
-        let request = createDirectionsRequest(from: location, placeDetails: placeDetails)
+        let request = createDirectionsRequest(from: location, placeDetails: placeDetails, sender: sender)
         let directions = MKDirections(request: request)
         resetMapView(directions: directions)
         
@@ -125,12 +137,10 @@ extension MapViewController  {
                 return }
             
             for route in response.routes {
-                //TODO: get steps into tableview?
-                //let steps = route.steps
-                let time = route.expectedTravelTime
-                self.travelTimeLabel.text = "\(time / 60) min."
-                let distance = route.distance
-                self.distanceLabel.text = "\(distance) m."
+                let time = route.expectedTravelTime / 60
+                self.travelTimeLabel.text = String(format: "%2.f", time) + " min"
+                let distance = route.distance / 1000
+                self.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
@@ -154,17 +164,20 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: false)
         locationManager.stopUpdatingLocation()
     }
+
+    
+    
 }
 
 //MARK: - MapViewDelegate's methods
 extension MapViewController: MKMapViewDelegate {
-    //USER LOCATION
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        if let userLocation = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-            mapView.setRegion(region, animated: true)
-        }
-    }
+//    //USER LOCATION
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+//        if let userLocation = locationManager.location?.coordinate {
+//            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+//            mapView.setRegion(region, animated: true)
+//        }
+//    }
     
     //POLYLINE
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -195,26 +208,5 @@ extension MapViewController: MKMapViewDelegate {
             return annotationView
         }
         return nil
-    }
-}
-
-//MARK: - Setup ScrollableBottomSheetView's method
-extension MapViewController {
-    private func addBottomSheetView() {
-        let scrollableBottomSheetVC = ScrollableBottomSheetViewController()
-        
-        self.addChild(scrollableBottomSheetVC)
-        self.view.addSubview(scrollableBottomSheetVC.view)
-        scrollableBottomSheetVC.didMove(toParent: self)
-        
-        let height = view.frame.height
-        let width  = view.frame.width
-        scrollableBottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
-    }
-}
-
-extension MapViewController: AddAnnotationsDelegate {
-    func addAnnotations(location: Location) {
-         addAnnotation(location: location)
     }
 }

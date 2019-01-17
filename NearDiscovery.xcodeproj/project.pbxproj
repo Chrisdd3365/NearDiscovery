@@ -49,6 +49,7 @@
 		95B9A1E721CA8F5D00A2CDFB /* PlaceDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */; };
 		95B9A1E921CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */; };
 		95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C73BB521CC1559003564C9 /* UITableViewCell.swift */; };
+		95DB11C121F0A5B2008A99B0 /* LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB11C021F0A5B2008A99B0 /* LabelsView.swift */; };
 		95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F30C7521ECA7BD00968588 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		95B9A1E621CA8F5D00A2CDFB /* PlaceDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlaceDetails.json; sourceTree = "<group>"; };
 		95B9A1E821CA8FA900A2CDFB /* PlaceDetailsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsServiceTests.swift; sourceTree = "<group>"; };
 		95C73BB521CC1559003564C9 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		95DB11C021F0A5B2008A99B0 /* LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsView.swift; sourceTree = "<group>"; };
 		95F30C7521ECA7BD00968588 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 			children = (
 				953122EC21CA82EB007FCADC /* HomePageView.swift */,
 				954A980B21DE18E400AE2D8B /* PlaceDetailsView.swift */,
+				95DB11C021F0A5B2008A99B0 /* LabelsView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				959DFDCF21EF750500D1F57F /* ImageTableViewCell.swift in Sources */,
 				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
 				959DFDD821EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift in Sources */,
+				95DB11C121F0A5B2008A99B0 /* LabelsView.swift in Sources */,
 				954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */,
 				95A16B8421E4F3A800C6B35D /* Location.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
