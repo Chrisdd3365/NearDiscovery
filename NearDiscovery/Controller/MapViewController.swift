@@ -11,9 +11,12 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
-    //MARK - Outlets
+    //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var labelsView : UIView!
+    @IBOutlet weak var labelsView: LabelsView!
+    @IBOutlet weak var automobileDirectionsButton: UIButton!
+    @IBOutlet weak var walkingDirectionsButton: UIButton!
+    
     //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails!
@@ -30,15 +33,10 @@ class MapViewController: UIViewController {
         showAnnotation(placeDetails: placeDetails)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setTabBarControllerItemBadgeValue()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        setTabBarControllerItemBadgeValue()
+//    }
     
     //MARK: - Actions    
     @IBAction func centerUserButton(_ sender: UIButton) {
@@ -47,6 +45,7 @@ class MapViewController: UIViewController {
     
     @IBAction func automobileDirections(_ sender: UIButton) {
         getDirections(placeDetails: placeDetails, sender: sender)
+        sender.isSelected = true
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
@@ -54,11 +53,22 @@ class MapViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func setTabBarControllerItemBadgeValue() {
-        guard let tabItems = tabBarController?.tabBar.items else { return }
-        let tabItem = tabItems[1]
-        tabItem.badgeValue = nil
-    }
+//    private func setTabBarControllerItemBadgeValue() {
+//        guard let tabItems = tabBarController?.tabBar.items else { return }
+//        let tabItem = tabItems[1]
+//        tabItem.badgeValue = nil
+//    }
+    
+    //TODO: HANDLE SELECTED STATE
+//    func myButtonTapped(){
+//        if myButton.isSelected == true {
+//            myButton.isSelected = false
+//            myButton.setImage(UIImage(named : "unselectedImage"), forState: UIControlState.Normal)
+//        }else {
+//            myButton.isSelected = true
+//            myButton.setImage(UIImage(named : "selectedImage"), forState: UIControlState.Normal)
+//        }
+//    }
     
     private func showAnnotation(placeDetails: PlaceDetails) {
         let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
@@ -67,12 +77,12 @@ class MapViewController: UIViewController {
         }
     }
     
-    func addAnnotation(location: Location) {
-        let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
-        DispatchQueue.main.async {
-            self.mapView.addAnnotation(placeMarker)
-        }
-    }
+//    func addAnnotation(location: Location) {
+//        let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
+//        DispatchQueue.main.async {
+//            self.mapView.addAnnotation(placeMarker)
+//        }
+//    }
     
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
@@ -88,28 +98,13 @@ class MapViewController: UIViewController {
 
 //MARK: - Display 'Directions' methods
 extension MapViewController  {
-    //1
     private func getDestinationCoordinate(placeDetails: PlaceDetails) -> CLLocation {
         let latitude = placeDetails.geometry.location.latitude
         let longitude = placeDetails.geometry.location.longitude
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
-    //HELPER
-    private func switchTransportType(request: MKDirections.Request, sender: UIButton) -> MKDirectionsTransportType {
-        var transportType = request.transportType
-        switch sender.tag {
-        case 1:
-            transportType = .automobile
-        case 2:
-            transportType = .walking
-        default:
-            break
-        }
-        return transportType
-    }
-    
-    //2
+
     private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails, sender: UIButton) -> MKDirections.Request {
         let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
         let startingLocation = MKPlacemark(coordinate: coordinate)
@@ -124,7 +119,6 @@ extension MapViewController  {
         return request
     }
     
-    //3
     private func getDirections(placeDetails: PlaceDetails, sender: UIButton) {
         guard let location = locationManager.location?.coordinate else { return }
         let request = createDirectionsRequest(from: location, placeDetails: placeDetails, sender: sender)
@@ -133,21 +127,35 @@ extension MapViewController  {
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Error", message: "no routes available for now!")
+                self.showAlert(title: "Error", message: "No routes available for now!")
                 return }
             
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
-                self.travelTimeLabel.text = String(format: "%2.f", time) + " min"
+                self.labelsView.expectedTimeTravelLabel.text = String(format: "%2.f", time) + " Min"
+                
                 let distance = route.distance / 1000
-                self.distanceLabel.text = String(format: "%.2f", distance) + " km"
+                self.labelsView.distanceLabel.text = String(format: "%.2f", distance) + " Km"
                 
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
     }
-    //HELPER
+    //Helper's methods
+    private func switchTransportType(request: MKDirections.Request, sender: UIButton) -> MKDirectionsTransportType {
+        var transportType = request.transportType
+        switch sender.tag {
+        case 1:
+            transportType = .automobile
+        case 2:
+            transportType = .walking
+        default:
+            break
+        }
+        return transportType
+    }
+    
     private func resetMapView(directions: MKDirections) {
         mapView.removeOverlays(mapView.overlays)
         directionsArray.append(directions)
@@ -164,9 +172,6 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: false)
         locationManager.stopUpdatingLocation()
     }
-
-    
-    
 }
 
 //MARK: - MapViewDelegate's methods
@@ -203,7 +208,7 @@ extension MapViewController: MKMapViewDelegate {
             }
 
             annotationView?.canShowCallout = true
-            annotationView?.glyphText = "☝️"
+            annotationView?.glyphText = "↓"
             annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
             return annotationView
         }

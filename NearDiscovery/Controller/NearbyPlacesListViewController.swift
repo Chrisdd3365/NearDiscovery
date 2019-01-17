@@ -32,7 +32,8 @@ class NearbyPlacesListViewController: UIViewController {
     
     //MARK: - Methods
     private func setNavigationItemTitle() {
-        navigationItem.title = "List Of Nearby's Places"
+        navigationItem.title = "Nearby Places To Visit"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20)!]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
