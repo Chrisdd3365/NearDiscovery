@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6251EB4C96CA43403153F9D08F9D6E94"
+               BlueprintIdentifier = "886271BF01D292D2E4F280CAF4D9C73D"
                BuildableName = "Pods_NearDiscovery.framework"
                BlueprintName = "Pods-NearDiscovery"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6251EB4C96CA43403153F9D08F9D6E94"
+            BlueprintIdentifier = "886271BF01D292D2E4F280CAF4D9C73D"
             BuildableName = "Pods_NearDiscovery.framework"
             BlueprintName = "Pods-NearDiscovery"
             ReferencedContainer = "container:Pods.xcodeproj">

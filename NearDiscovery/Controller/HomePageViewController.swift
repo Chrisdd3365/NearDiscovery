@@ -47,7 +47,7 @@ class HomePageViewController: UIViewController {
 //MARK: - API Fetch Google Places Search Data method
 extension HomePageViewController {
     private func fetchGooglePlacesData(location: CLLocation) {
-        let keyword = "museum,monument"
+        let keyword = "museum"
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {

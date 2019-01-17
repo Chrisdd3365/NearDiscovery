@@ -22,7 +22,6 @@
 		954A980621DE06C200AE2D8B /* GooglePlacesDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980521DE06C200AE2D8B /* GooglePlacesDetailsService.swift */; };
 		954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980721DE06FE00AE2D8B /* GooglePlacesSearchService.swift */; };
 		954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */; };
-		954A980C21DE18E400AE2D8B /* PlaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980B21DE18E400AE2D8B /* PlaceDetailsView.swift */; };
 		954A980E21DE486700AE2D8B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980D21DE486700AE2D8B /* Date.swift */; };
 		954A981021DE496800AE2D8B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980F21DE496800AE2D8B /* MapViewController.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
@@ -80,7 +79,6 @@
 		954A980521DE06C200AE2D8B /* GooglePlacesDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesDetailsService.swift; sourceTree = "<group>"; };
 		954A980721DE06FE00AE2D8B /* GooglePlacesSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesSearchService.swift; sourceTree = "<group>"; };
 		954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
-		954A980B21DE18E400AE2D8B /* PlaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsView.swift; sourceTree = "<group>"; };
 		954A980D21DE486700AE2D8B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		954A980F21DE496800AE2D8B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				953122EC21CA82EB007FCADC /* HomePageView.swift */,
-				954A980B21DE18E400AE2D8B /* PlaceDetailsView.swift */,
 				95F7783F21F0D1A2008621DB /* MapView */,
 			);
 			path = UIView;
@@ -475,12 +472,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,7 +526,6 @@
 				959DFDD421EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift in Sources */,
 				954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */,
 				959DFDD121EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift in Sources */,
-				954A980C21DE18E400AE2D8B /* PlaceDetailsView.swift in Sources */,
 				959DFDCF21EF750500D1F57F /* ImageTableViewCell.swift in Sources */,
 				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
 				959DFDD821EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift in Sources */,

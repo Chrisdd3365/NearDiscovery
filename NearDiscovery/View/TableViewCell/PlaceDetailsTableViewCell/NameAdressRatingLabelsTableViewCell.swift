@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import Cosmos
 
 class NameAdressRatingLabelsTableViewCell: UITableViewCell {
     //MARK: - Outlets
     @IBOutlet weak var placeDetailsNameLabel: UILabel!
     @IBOutlet weak var placeDetailsAddressLabel: UILabel!
-    @IBOutlet weak var placeDetailsRatingLabel: UILabel!
-        
+    @IBOutlet weak var cosmosView: CosmosView!
+    
     //MARK: - Method
     func nameAddressRatingLabelsCellConfigure(placeDetails: PlaceDetails?) {
         placeDetailsNameLabel.text = placeDetails?.name
         placeDetailsAddressLabel.text = placeDetails?.address
-        placeDetailsRatingLabel.text = "\(String(describing: placeDetails?.rating ?? 0.0))" + "/5"
+        cosmosView.rating = placeDetails?.rating ?? 0.0
+        cosmosView.settings.updateOnTouch = false
     }
 }

@@ -97,7 +97,7 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
 //MARK: - TableViewDelegate's methods
 extension NearbyPlacesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 218
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

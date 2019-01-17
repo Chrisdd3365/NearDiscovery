@@ -8,14 +8,16 @@
 
 import UIKit
 import SDWebImage
+import Cosmos
 
 class NearbyPlacesTableViewCell: UITableViewCell {
     //MARK : - Outlets
     @IBOutlet weak var placeBackgroundImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var openNowLabel: UILabel!
+    @IBOutlet weak var cosmosView: CosmosView!
+    
     
     //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
@@ -26,7 +28,8 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             
             placeAddressLabel.text = nearbyPlaceCellConfigure?.vicinity
             
-            ratingLabel.text = "\(String(describing: nearbyPlaceCellConfigure?.rating ?? 0.0))" + "/5"
+            cosmosView.rating = nearbyPlaceCellConfigure?.rating ?? 0.0
+            cosmosView.settings.updateOnTouch = false
             
             if nearbyPlaceCellConfigure?.openingHours?.openNow == true {
                 openNowLabel.text = "Open"
