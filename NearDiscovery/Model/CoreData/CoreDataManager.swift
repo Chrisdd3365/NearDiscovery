@@ -19,7 +19,7 @@ class CoreDataManager {
         location.address = placeDetails.address
         location.phoneNumber = placeDetails.internationalPhoneNumber
         location.rating = placeDetails.rating ?? 0.0
-        location.openingHours = placeDetails.openingHours?.openNow ?? false
+        location.openNow = placeDetails.openingHours?.openNow ?? false
         location.latitude = placeDetails.geometry.location.latitude
         location.longitude = placeDetails.geometry.location.longitude
         

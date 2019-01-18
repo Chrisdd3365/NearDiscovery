@@ -9,7 +9,6 @@
 import UIKit
 
 class DiscoverButtonTableViewCell: UITableViewCell {
-
     //MARK: - Outlet
     @IBOutlet weak var discoverLabel: UILabel!
     

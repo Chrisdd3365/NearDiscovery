@@ -77,13 +77,6 @@ class MapViewController: UIViewController {
         }
     }
     
-//    func addAnnotation(location: Location) {
-//        let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
-//        DispatchQueue.main.async {
-//            self.mapView.addAnnotation(placeMarker)
-//        }
-//    }
-    
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
         locationManager.delegate = self
@@ -176,14 +169,6 @@ extension MapViewController: CLLocationManagerDelegate {
 
 //MARK: - MapViewDelegate's methods
 extension MapViewController: MKMapViewDelegate {
-//    //USER LOCATION
-//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-//        if let userLocation = locationManager.location?.coordinate {
-//            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-//            mapView.setRegion(region, animated: true)
-//        }
-//    }
-    
     //POLYLINE
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
@@ -215,3 +200,4 @@ extension MapViewController: MKMapViewDelegate {
         return nil
     }
 }
+

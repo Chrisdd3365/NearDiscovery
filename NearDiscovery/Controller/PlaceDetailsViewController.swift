@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class PlaceDetailsViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var placeDetailsTableView: UITableView!
@@ -32,10 +34,9 @@ class PlaceDetailsViewController: UIViewController {
         locations = Location.all
     }
     
-    //MARK: - Actions
-    @IBAction func addLocationOnMap(_ sender: UIButton) {
+    //MARK: - Action
+    @IBAction func addToLocationList(_ sender: UIButton) {
         addToLocationListSetup()
-        showAlert(title: "Success", message: "Location has been added successfully!")
     }
     
     //MARK: - Methods
@@ -60,18 +61,19 @@ extension PlaceDetailsViewController {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[1]
         
-        if checkLocationsList() == false {
-            CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
+        if checkMarkedLocation() == false {
+           CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
+            
             tabItem.badgeValue = "New"
             locations = Location.all
         } else {
             locations = Location.all
-            showAlert(title: "Error", message: "You already add this location in your location list!")
+            showAlert(title: "Sorry", message: "You already add this location into the list!")
             tabItem.badgeValue = nil
         }
     }
     
-    private func checkLocationsList() -> Bool {
+    private func checkMarkedLocation() -> Bool {
         var isAdded = false
         guard locations.count != 0 else { return false }
         for location in locations {
