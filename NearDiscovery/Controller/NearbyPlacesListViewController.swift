@@ -81,15 +81,6 @@ extension NearbyPlacesListViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.nearbyPlaceCellConfigure = place
         
-//        cell.layer.masksToBounds = true
-//        cell.layer.cornerRadius = 5
-//        cell.layer.borderWidth = 3
-//        cell.layer.shadowColor = UIColor.black.cgColor
-//        cell.layer.shadowOpacity = 1.0
-//        cell.layer.shadowRadius = 0.0
-//        cell.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        cell.layer.borderColor = tableView.backgroundColor?.cgColor
-    
         return cell
     }
 }

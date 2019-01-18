@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class PlaceDetailsViewController: UIViewController {
     //MARK: - Outlet
     @IBOutlet weak var placeDetailsTableView: UITableView!
@@ -37,6 +35,7 @@ class PlaceDetailsViewController: UIViewController {
     //MARK: - Action
     @IBAction func addToLocationList(_ sender: UIButton) {
         addToLocationListSetup()
+        print("marche pas")
     }
     
     //MARK: - Methods
@@ -59,20 +58,27 @@ extension PlaceDetailsViewController {
 extension PlaceDetailsViewController {
     private func addToLocationListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
+
         let tabItem = tabItems[1]
-        
+
+        guard let value = Int(tabItem.badgeValue ?? "0") else { return }
+
         if checkMarkedLocation() == false {
-           CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
-            
-            tabItem.badgeValue = "New"
+            if locations.count < 10 {
+            CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
+            tabItem.badgeValue = String(value + 1)
             locations = Location.all
+            } else {
+                showAlert(title: "Sorry", message: "Maximum reached!")
+                tabItem.badgeValue = nil
+            }
         } else {
             locations = Location.all
             showAlert(title: "Sorry", message: "You already add this location into the list!")
-            tabItem.badgeValue = nil
+            tabItem.badgeValue = String(value)
         }
     }
-    
+
     private func checkMarkedLocation() -> Bool {
         var isAdded = false
         guard locations.count != 0 else { return false }

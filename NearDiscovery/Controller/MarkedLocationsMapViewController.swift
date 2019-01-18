@@ -58,7 +58,7 @@ class MarkedLocationsMapViewController: UIViewController {
         let tabItem = tabItems[1]
         tabItem.badgeValue = nil
     }
-    
+
     private func addAnnotation(location: Location) {
         let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
         DispatchQueue.main.async {
@@ -91,7 +91,7 @@ class MarkedLocationsMapViewController: UIViewController {
         for location in locations {
             let latitude = location.latitude
             let longitude = location.longitude
-            
+
             nodes.append(CLLocation(latitude: latitude, longitude: longitude))
         }
     }
@@ -110,8 +110,7 @@ class MarkedLocationsMapViewController: UIViewController {
             }
         }
     }
-    
-    
+
     //Helper's methods
     func calculCout(node1: CLLocation, node2: CLLocation) -> Double {
         let distance = node1.distance(from: node2)
@@ -329,7 +328,7 @@ extension MarkedLocationsMapViewController: MKMapViewDelegate {
             }
 
             annotationView?.canShowCallout = true
-            annotationView?.glyphText = "☝️"
+            annotationView?.glyphText = "↓"
             annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
             return annotationView
         }
@@ -341,13 +340,13 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return locations.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = locationsCollectionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.identifier, for: indexPath) as? LocationCollectionViewCell else {
             return UICollectionViewCell() }
-        
+
         let location = locations[indexPath.row]
-        
+
         cell.locationConfigure = location
         return cell
     }
@@ -358,6 +357,4 @@ extension MarkedLocationsMapViewController: UICollectionViewDelegate {
         let location = locations[indexPath.row]
         addAnnotation(location: location)
     }
-    
-    
 }

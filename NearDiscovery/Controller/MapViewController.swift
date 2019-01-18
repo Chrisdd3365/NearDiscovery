@@ -33,11 +33,6 @@ class MapViewController: UIViewController {
         showAnnotation(placeDetails: placeDetails)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        setTabBarControllerItemBadgeValue()
-//    }
-    
     //MARK: - Actions    
     @IBAction func centerUserButton(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
@@ -53,12 +48,6 @@ class MapViewController: UIViewController {
     }
     
     //MARK: - Methods
-//    private func setTabBarControllerItemBadgeValue() {
-//        guard let tabItems = tabBarController?.tabBar.items else { return }
-//        let tabItem = tabItems[1]
-//        tabItem.badgeValue = nil
-//    }
-    
     //TODO: HANDLE SELECTED STATE
 //    func myButtonTapped(){
 //        if myButton.isSelected == true {
