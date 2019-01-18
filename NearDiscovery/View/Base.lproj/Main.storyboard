@@ -406,7 +406,7 @@
                                                     </constraints>
                                                     <state key="normal" image="locationMarked"/>
                                                     <connections>
-                                                        <action selector="addToLocationList:" destination="pmQ-At-YZi" eventType="touchUpInside" id="rfz-Fh-QGE"/>
+                                                        <action selector="addToLocationList:" destination="pmQ-At-YZi" eventType="touchUpInside" id="fG9-SD-DZg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

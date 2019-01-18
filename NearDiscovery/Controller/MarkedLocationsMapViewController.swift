@@ -18,6 +18,7 @@ class MarkedLocationsMapViewController: UIViewController {
     //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeMarker: PlaceMarker?
+    var placesMarkers: [PlaceMarker] = []
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     var locations = Location.all
@@ -25,7 +26,9 @@ class MarkedLocationsMapViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        showAnnotations(locations: locations)
         setNavigationBarTitle()
+        locationsCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +38,11 @@ class MarkedLocationsMapViewController: UIViewController {
         setTabBarControllerItemBadgeValue()
         locations = Location.all
         locationsCollectionView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        showAnnotations(locations: locations)
     }
     
     //MARK: - Actions
@@ -49,6 +57,16 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func showAnnotations(locations: [Location]) {
+        for location in locations {
+            let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "")
+            placesMarkers.append(placeMarker)
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(self.placesMarkers)
+            }
+        }
+    }
+    
     private func setNavigationBarTitle() {
         self.navigationItem.title = "Locations List"
     }
@@ -57,13 +75,6 @@ class MarkedLocationsMapViewController: UIViewController {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[1]
         tabItem.badgeValue = nil
-    }
-
-    private func addAnnotation(location: Location) {
-        let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "no name")
-        DispatchQueue.main.async {
-            self.mapView.addAnnotation(placeMarker)
-        }
     }
     
     //DELEGATE CORE LOCATION
@@ -277,40 +288,6 @@ extension MarkedLocationsMapViewController: MKMapViewDelegate {
         return renderer
     }
     
-//    func mapView(_ mapView: MKMapView,
-//                 rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//
-//        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-//        if (overlay is MKPolyline) {
-//            switch mapView.overlays.count {
-//            case 1:
-//                polylineRenderer.strokeColor = .blue
-//            case 2:
-//                polylineRenderer.strokeColor = .red
-//            case 3:
-//                polylineRenderer.strokeColor = .green
-//            case 4:
-//                polylineRenderer.strokeColor = .cyan
-//            case 5:
-//                polylineRenderer.strokeColor = .orange
-//            case 6:
-//                polylineRenderer.strokeColor = .yellow
-//            case 7:
-//                polylineRenderer.strokeColor = .magenta
-//            case 8:
-//                polylineRenderer.strokeColor = .purple
-//            case 9:
-//                polylineRenderer.strokeColor = .brown
-//            case 10:
-//                polylineRenderer.strokeColor = .black
-//            default:
-//                polylineRenderer.strokeColor = .blue
-//            }
-//            polylineRenderer.lineWidth = 5
-//        }
-//        return polylineRenderer
-//    }
-
     //ANNOTATIONS
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -352,9 +329,21 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
     }
 }
 
-extension MarkedLocationsMapViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let location = locations[indexPath.row]
-        addAnnotation(location: location)
-    }
-}
+//extension MarkedLocationsMapViewController: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        for annotation in mapView.annotations {
+//            let index = (self.mapView.annotations as NSArray).index(of: annotation)
+//            if let annotation = annotation as? PlaceMarker, index == indexPath.row {
+//                locationsCollectionView.reloadData()
+//                locationsCollectionView.reloadItems(at: [indexPath])
+//                mapView.reloadInputViews()
+//
+//                mapView.selectAnnotation(annotation, animated: true)
+//
+//
+//                print(indexPath.row)
+//                print(index)
+//            }
+//        }
+//    }
+//}

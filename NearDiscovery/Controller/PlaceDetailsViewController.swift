@@ -16,7 +16,6 @@ class PlaceDetailsViewController: UIViewController {
     let googlePlacesSearchService = GooglePlacesSearchService()
     var place: PlaceSearch!
     var placeDetails: PlaceDetails!
-    var location: Location?
     var locations = Location.all
     
     //MARK: - View Life Cycle
@@ -35,7 +34,6 @@ class PlaceDetailsViewController: UIViewController {
     //MARK: - Action
     @IBAction func addToLocationList(_ sender: UIButton) {
         addToLocationListSetup()
-        print("marche pas")
     }
     
     //MARK: - Methods

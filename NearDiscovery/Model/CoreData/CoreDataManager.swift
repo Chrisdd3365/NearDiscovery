@@ -13,6 +13,7 @@ class CoreDataManager {
     //MARK: - Methods
     static func saveLocation(placeDetails: PlaceDetails, place: PlaceSearch) {
         let location = Location(context: AppDelegate.viewContext)
+        
         location.placeId = placeDetails.placeId
         location.photoReference = place.photos?[0].photoReference
         location.name = placeDetails.name
