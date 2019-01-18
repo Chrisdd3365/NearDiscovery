@@ -175,20 +175,30 @@ class MarkedLocationsMapViewController: UIViewController {
             path.append(bestSon)
             currentNode = bestSon
         }
+        print(nodes.count)
+        if nodes.count > 2 {
+            return checkBetterPath(firstPath: path, sumDistance: sumDistance)
+            
+        } else {
+            return path
+        }
         
         
-        return checkBetterPath(firstPath: path, sumDistance: sumDistance)
+//        return checkBetterPath(firstPath: path, sumDistance: sumDistance)
     }
     func checkBetterPath(firstPath: [CLLocation], sumDistance: Double) -> [CLLocation] {
         
         var path = [CLLocation]()
         var currentNode = firstPath[2]
+        
         path.append(nodes[0])
         path.append(currentNode)
+
         var sumDistanceCurrentPath = 0.0
         while path.count < nodes.count  {
             print(currentNode.coordinate)
             var nodeSons = findSon(currentNode: currentNode, path: path)
+            print("check better path: \(nodeSons)")
             var bestSon = nodeSons[0]
             var minCout = getCout(node1: currentNode, node2: bestSon)
             for son in nodeSons {

@@ -142,13 +142,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-UT-eEd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="zyv-zh-rqu"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-G6-4ac">
-                                                    <rect key="frame" x="298" y="15" width="62" height="31"/>
+                                                    <rect key="frame" x="243" y="15" width="62" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="s8T-G6-4ac" secondAttribute="height" multiplier="2:1" id="dXz-Y0-dnx"/>
                                                         <constraint firstAttribute="height" constant="31" id="k5q-6w-hlL"/>
@@ -158,20 +158,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pz-P9-DmL">
-                                                    <rect key="frame" x="0.0" y="130" width="375" height="89.5"/>
+                                                    <rect key="frame" x="0.0" y="130" width="320" height="89.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22J-qp-j8Z">
-                                                            <rect key="frame" x="10" y="10" width="355" height="18"/>
+                                                            <rect key="frame" x="10" y="10" width="300" height="18"/>
                                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA0-Fh-UqC">
-                                                            <rect key="frame" x="10" y="38" width="355" height="15"/>
+                                                            <rect key="frame" x="10" y="38" width="300" height="15"/>
                                                             <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-eP-8k5" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="10" y="59.5" width="355" height="20"/>
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-eP-8k5" customClass="CosmosView" customModule="Cosmos">
+                                                            <rect key="frame" x="10" y="59.5" width="300" height="20"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -264,7 +264,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yuE-wh-kFl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -286,19 +286,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JII-b8-2cA">
-                                                    <rect key="frame" x="10" y="10" width="355" height="21"/>
+                                                    <rect key="frame" x="10" y="10" width="300" height="21"/>
                                                     <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-d6-M5F">
-                                                    <rect key="frame" x="10" y="41" width="355" height="15"/>
+                                                    <rect key="frame" x="10" y="41" width="300" height="15"/>
                                                     <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdo-it-kTM" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="10" y="61.5" width="355" height="20"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdo-it-kTM" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="10" y="61.5" width="300" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
@@ -342,14 +342,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-Xu-gqW">
-                                                    <rect key="frame" x="5" y="5" width="238" height="99.5"/>
+                                                    <rect key="frame" x="5" y="5" width="183" height="99.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuc-Qn-eeD">
-                                                    <rect key="frame" x="303" y="10" width="62" height="31"/>
+                                                    <rect key="frame" x="248" y="10" width="62" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31" id="VMw-ht-DbR"/>
                                                         <constraint firstAttribute="width" secondItem="vuc-Qn-eeD" secondAttribute="height" multiplier="2:1" id="tut-3v-8HB"/>
@@ -381,7 +381,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3SU-gj-FNx">
-                                                    <rect key="frame" x="147.5" y="22.5" width="80" height="74"/>
+                                                    <rect key="frame" x="120" y="22.5" width="80" height="74"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvn-cu-pDP">
                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="37"/>
@@ -429,20 +429,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xz2-C8-aoP">
-                                                    <rect key="frame" x="0.0" y="10" width="375" height="70.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="320" height="70.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="x2U-63-wlZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="94" height="70.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="70.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3c-rh-ILK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="35.5"/>
                                                                     <state key="normal" image="phone"/>
                                                                     <connections>
                                                                         <action selector="callButtonTapped:" destination="3o8-h6-Veg" eventType="touchUpInside" id="BmA-Ju-RXG"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cp-Ye-yfe">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="94" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="80" height="35"/>
                                                                     <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -450,17 +450,17 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-Ct-8wT">
-                                                            <rect key="frame" x="94" y="0.0" width="93.5" height="70.5"/>
+                                                            <rect key="frame" x="80" y="0.0" width="80" height="70.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbS-U3-2AB">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="35.5"/>
                                                                     <state key="normal" image="share"/>
                                                                     <connections>
                                                                         <action selector="shareButtonTapped:" destination="3o8-h6-Veg" eventType="touchUpInside" id="9wY-Bn-qd3"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Naz-ue-2st">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="93.5" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="80" height="35"/>
                                                                     <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -468,17 +468,17 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d4j-3y-big">
-                                                            <rect key="frame" x="187.5" y="0.0" width="94" height="70.5"/>
+                                                            <rect key="frame" x="160" y="0.0" width="80" height="70.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pk-BL-5Qd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="35.5"/>
                                                                     <state key="normal" image="favorite"/>
                                                                     <connections>
                                                                         <action selector="favoriteButtonTapped:" destination="3o8-h6-Veg" eventType="touchUpInside" id="y1Z-8V-9nO"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6e-vM-ofS">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="94" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="80" height="35"/>
                                                                     <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -486,17 +486,17 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-Fy-fkb">
-                                                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="70.5"/>
+                                                            <rect key="frame" x="240" y="0.0" width="80" height="70.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svD-MW-xlF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="35.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="35.5"/>
                                                                     <state key="normal" image="safari"/>
                                                                     <connections>
                                                                         <action selector="websiteButtonTapped:" destination="3o8-h6-Veg" eventType="touchUpInside" id="Njc-is-uAH"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W64-Vj-MoG">
-                                                                    <rect key="frame" x="0.0" y="35.5" width="93.5" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="35.5" width="80" height="35"/>
                                                                     <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
