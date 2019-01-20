@@ -10,7 +10,39 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
-    //MARK: - Methods
+    //MARK: - Favorite CoreDataManager's methods
+    static func saveFavorite(placeDetails: PlaceDetails, place: PlaceSearch) {
+        let favorite = Favorite(context: AppDelegate.viewContext)
+        
+        favorite.placeId = placeDetails.placeId
+        favorite.photoReference = place.photos?[0].photoReference
+        favorite.name = placeDetails.name
+        favorite.address = placeDetails.address
+        favorite.phoneNumber = placeDetails.internationalPhoneNumber
+        favorite.rating = placeDetails.rating ?? 0.0
+        favorite.openNow = placeDetails.openingHours?.openNow ?? false
+        favorite.latitude = placeDetails.geometry.location.latitude
+        favorite.longitude = placeDetails.geometry.location.longitude
+        
+        saveContext()
+    }
+    
+    static func deleteFavoriteFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)
+        
+        do {
+            let favorites = try context.fetch(fetchRequest)
+            for favorite in favorites {
+                context.delete(favorite)
+            }
+            try context.save()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    //MARK: - Location CoreDataManager's methods
     static func saveLocation(placeDetails: PlaceDetails, place: PlaceSearch) {
         let location = Location(context: AppDelegate.viewContext)
         
@@ -27,14 +59,6 @@ class CoreDataManager {
         saveContext()
     }
     
-    static func saveContext() {
-        do {
-            try AppDelegate.viewContext.save()
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-    
     static func deleteLocationFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
         fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)
@@ -45,6 +69,15 @@ class CoreDataManager {
                 context.delete(location)
             }
             try context.save()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
+    //MARK: - Helper's methods
+    static func saveContext() {
+        do {
+            try AppDelegate.viewContext.save()
         } catch let error as NSError {
             print(error)
         }

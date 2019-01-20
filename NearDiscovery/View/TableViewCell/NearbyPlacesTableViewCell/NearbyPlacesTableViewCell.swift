@@ -18,7 +18,6 @@ class NearbyPlacesTableViewCell: UITableViewCell {
     @IBOutlet weak var openNowLabel: UILabel!
     @IBOutlet weak var cosmosView: CosmosView!
     
-    
     //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
     var nearbyPlaceCellConfigure: PlaceSearch? {
