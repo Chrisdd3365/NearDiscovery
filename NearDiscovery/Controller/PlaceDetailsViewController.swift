@@ -17,6 +17,7 @@ class PlaceDetailsViewController: UIViewController {
     var place: PlaceSearch!
     var placeDetails: PlaceDetails!
     var locations = Location.all
+    var favorites = Favorite.all
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -54,6 +55,7 @@ extension PlaceDetailsViewController {
 
 //MARK: - List's updates setup methods
 extension PlaceDetailsViewController {
+    //MARK: - Location's List
     private func addToLocationListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
 
@@ -82,6 +84,37 @@ extension PlaceDetailsViewController {
         guard locations.count != 0 else { return false }
         for location in locations {
             if placeDetails.placeId == location.placeId {
+                isAdded = true
+                break
+            }
+        }
+        return isAdded
+    }
+    
+    //MARK: - Favorite's List
+    private func addToFavoriteListSetup() {
+        guard let tabItems = tabBarController?.tabBar.items else { return }
+        
+        let tabItem = tabItems[2]
+        
+        guard let value = Int(tabItem.badgeValue ?? "0") else { return }
+        
+        if checkFavoriteLocation() == false {
+                CoreDataManager.saveFavorite(placeDetails: placeDetails, place: place)
+                tabItem.badgeValue = String(value + 1)
+                favorites = Favorite.all
+        } else {
+            favorites = Favorite.all
+            showAlert(title: "Sorry", message: "You already add this location into the favorite list!")
+            tabItem.badgeValue = String(value)
+        }
+    }
+    
+    private func checkFavoriteLocation() -> Bool {
+        var isAdded = false
+        guard favorites.count != 0 else { return false }
+        for favorite in favorites {
+            if placeDetails.placeId == favorite.placeId {
                 isAdded = true
                 break
             }
@@ -188,7 +221,7 @@ extension PlaceDetailsViewController: ButtonsActionsDelegate {
     }
     
     func didTapFavoriteButton() {
-        
+        addToFavoriteListSetup()
     }
     
     func didTapWebsiteButton() {

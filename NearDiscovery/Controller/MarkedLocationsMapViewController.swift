@@ -342,16 +342,19 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
 //extension MarkedLocationsMapViewController: UICollectionViewDelegate {
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        for annotation in mapView.annotations {
+//            let cell = locationsCollectionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.identifier, for: indexPath) as? LocationCollectionViewCell
+//            
 //            let index = (self.mapView.annotations as NSArray).index(of: annotation)
-//            if let annotation = annotation as? PlaceMarker, index == indexPath.row {
+//            let indexPath = self.locationsCollectionView.indexPath(for: cell ?? UICollectionViewCell())
+//            if let annotation = annotation as? PlaceMarker, index == indexPath?.row {
 //                locationsCollectionView.reloadData()
-//                locationsCollectionView.reloadItems(at: [indexPath])
+////                locationsCollectionView.reloadItems(at: [indexPath ?? indexPath])
 //                mapView.reloadInputViews()
 //
 //                mapView.selectAnnotation(annotation, animated: true)
 //
 //
-//                print(indexPath.row)
+//                print(indexPath?.row)
 //                print(index)
 //            }
 //        }

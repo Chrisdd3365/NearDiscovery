@@ -19,12 +19,19 @@ class CoreDataManager {
         favorite.name = placeDetails.name
         favorite.address = placeDetails.address
         favorite.phoneNumber = placeDetails.internationalPhoneNumber
+        favorite.website = placeDetails.website
+        favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails.openingHours?.weekdayText ?? ["No Schedule Available"])
         favorite.rating = placeDetails.rating ?? 0.0
         favorite.openNow = placeDetails.openingHours?.openNow ?? false
         favorite.latitude = placeDetails.geometry.location.latitude
         favorite.longitude = placeDetails.geometry.location.longitude
         
         saveContext()
+    }
+    //Helper's method
+    static func convertIngredientsArrayIntoString(schedule: [String]) -> String {
+        let scheduleArray = schedule.map{ String($0) }
+        return scheduleArray.joined(separator: ", ")
     }
     
     static func deleteFavoriteFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
@@ -50,7 +57,6 @@ class CoreDataManager {
         location.photoReference = place.photos?[0].photoReference
         location.name = placeDetails.name
         location.address = placeDetails.address
-        location.phoneNumber = placeDetails.internationalPhoneNumber
         location.rating = placeDetails.rating ?? 0.0
         location.openNow = placeDetails.openingHours?.openNow ?? false
         location.latitude = placeDetails.geometry.location.latitude

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "pedestrian-walking.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "pedestrian-walking.png",
       "scale" : "2x"
     },
     {
