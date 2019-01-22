@@ -21,6 +21,7 @@
 		954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */; };
 		954A980E21DE486700AE2D8B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980D21DE486700AE2D8B /* Date.swift */; };
 		954A981021DE496800AE2D8B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954A980F21DE496800AE2D8B /* MapViewController.swift */; };
+		955197E121F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955197E021F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		956F420121F5DAA500B305CE /* FavoriteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */; };
 		956F420521F5DB7300B305CE /* FavoriteLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F420421F5DB7300B305CE /* FavoriteLabelsView.swift */; };
@@ -83,6 +84,7 @@
 		954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		954A980D21DE486700AE2D8B /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		954A980F21DE496800AE2D8B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		955197E021F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceDetailsScrollView.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMapViewController.swift; sourceTree = "<group>"; };
 		956F420421F5DB7300B305CE /* FavoriteLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLabelsView.swift; sourceTree = "<group>"; };
@@ -154,8 +156,8 @@
 		951AA04A21DA5A3100F2E4FC /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				95BE0DBA21F4B21C00C260E0 /* NearbyPlacesTableViewCell */,
-				95BE0DBB21F4B22A00C260E0 /* FavoriteTableViewCell */,
+				951AA04B21DA5A5F00F2E4FC /* NearbyPlacesTableViewCell.swift */,
+				95BE0DB821F4B0AC00C260E0 /* FavoriteTableViewCell.swift */,
 				95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */,
 			);
 			path = TableViewCell;
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				9582F51721F75FC5007E87B0 /* PlaceDetailsScrollView.swift */,
+				955197E021F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift */,
 			);
 			path = UIScrollView;
 			sourceTree = "<group>";
@@ -379,22 +382,6 @@
 				95BE0DAE21F4978100C260E0 /* Favorite.swift */,
 			);
 			path = Favorite;
-			sourceTree = "<group>";
-		};
-		95BE0DBA21F4B21C00C260E0 /* NearbyPlacesTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				951AA04B21DA5A5F00F2E4FC /* NearbyPlacesTableViewCell.swift */,
-			);
-			path = NearbyPlacesTableViewCell;
-			sourceTree = "<group>";
-		};
-		95BE0DBB21F4B22A00C260E0 /* FavoriteTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				95BE0DB821F4B0AC00C260E0 /* FavoriteTableViewCell.swift */,
-			);
-			path = FavoriteTableViewCell;
 			sourceTree = "<group>";
 		};
 		95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */ = {
@@ -629,6 +616,7 @@
 				9582F51821F75FC5007E87B0 /* PlaceDetailsScrollView.swift in Sources */,
 				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
 				95BE0DC721F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift in Sources */,
+				955197E121F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift in Sources */,
 				954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */,
 				95A16B8421E4F3A800C6B35D /* Location.swift in Sources */,
 				953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */,
