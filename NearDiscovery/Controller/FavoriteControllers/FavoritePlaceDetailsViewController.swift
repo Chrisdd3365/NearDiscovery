@@ -12,7 +12,7 @@ class FavoritePlaceDetailsViewController: UIViewController {
 
     @IBOutlet weak var favoritePlaceDetailsTableView: UITableView!
     
-    var detailedFavoritePlace: Favorite!
+    var detailedFavoritePlace: Favorite?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,6 @@ class FavoritePlaceDetailsViewController: UIViewController {
             favoriteMapVC.favoritePlace = detailedFavoritePlace
         }
     }
-    
-    
 }
 
 extension FavoritePlaceDetailsViewController: UITableViewDataSource {
@@ -109,7 +107,7 @@ extension FavoritePlaceDetailsViewController: FavoriteDetailsButtonsActionsDeleg
     }
     
     func didTapCallButton() {
-        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: detailedFavoritePlace.phoneNumber)
+        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: detailedFavoritePlace?.phoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
         if let phoneURL = phoneURL {
             print(phoneURL)
@@ -118,9 +116,9 @@ extension FavoritePlaceDetailsViewController: FavoriteDetailsButtonsActionsDeleg
     }
     
     func didTapShareButton() {
-        let websiteString =  detailedFavoritePlace.website
-        if let websiteString = websiteString {
-            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", websiteString], applicationActivities: nil)
+        let urlString =  detailedFavoritePlace?.url
+        if let urlString = urlString {
+            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         } else {
             showAlert(title: "Sorry", message: "No website to share for this place!")
@@ -128,7 +126,8 @@ extension FavoritePlaceDetailsViewController: FavoriteDetailsButtonsActionsDeleg
     }
     
     func didTapFavoriteButton() {
-        
+        CoreDataManager.deleteFavoriteFromList(placeId: detailedFavoritePlace?.placeId ?? "")
+        navigationController?.popViewController(animated: true)
     }
     
     func didTapWebsiteButton() {

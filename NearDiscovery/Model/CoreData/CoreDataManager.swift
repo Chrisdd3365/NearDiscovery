@@ -20,12 +20,13 @@ class CoreDataManager {
         favorite.address = placeDetails.address
         favorite.phoneNumber = placeDetails.internationalPhoneNumber
         favorite.website = placeDetails.website
+        favorite.url = placeDetails.url 
         favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails.openingHours?.weekdayText ?? ["No Schedule Available"])
         favorite.rating = placeDetails.rating ?? 0.0
         favorite.openNow = placeDetails.openingHours?.openNow ?? false
         favorite.latitude = placeDetails.geometry.location.latitude
         favorite.longitude = placeDetails.geometry.location.longitude
-        
+    
         saveContext()
     }
     //Helper's method
@@ -36,7 +37,7 @@ class CoreDataManager {
     
     static func deleteFavoriteFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)
+        fetchRequest.predicate = NSPredicate.init(format: "placeId == %@", placeId)
         
         do {
             let favorites = try context.fetch(fetchRequest)
@@ -67,7 +68,7 @@ class CoreDataManager {
     
     static func deleteLocationFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
-        fetchRequest.predicate = NSPredicate.init(format: "placeid == %@", placeId)
+        fetchRequest.predicate = NSPredicate.init(format: "placeId == %@", placeId)
 
         do {
             let locations = try context.fetch(fetchRequest)

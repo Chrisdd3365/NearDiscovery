@@ -19,7 +19,7 @@ class MapViewController: UIViewController {
     
     //MARK: - Properties
     var locationManager = CLLocationManager()
-    var placeDetails: PlaceDetails!
+    var placeDetails: PlaceDetails?
     var placeMarker: PlaceMarker?
     var locations = Location.all
     let regionInMeters: CLLocationDistance = 1000.0
@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
+        guard let placeDetails = placeDetails else { return }
         showAnnotation(placeDetails: placeDetails)
     }
     
@@ -39,11 +40,13 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func automobileDirections(_ sender: UIButton) {
+        guard let placeDetails = placeDetails else { return }
         getDirections(placeDetails: placeDetails, sender: sender)
         sender.isSelected = true
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
+        guard let placeDetails = placeDetails else { return }
         getDirections(placeDetails: placeDetails, sender: sender)
     }
     

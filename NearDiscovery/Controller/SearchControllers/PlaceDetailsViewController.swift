@@ -15,9 +15,10 @@ class PlaceDetailsViewController: UIViewController {
     //MARK - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
     var place: PlaceSearch!
-    var placeDetails: PlaceDetails!
+    var placeDetails: PlaceDetails?
     var locations = Location.all
     var favorites = Favorite.all
+    var favorite: Favorite?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -30,6 +31,7 @@ class PlaceDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         locations = Location.all
+        favorites = Favorite.all
     }
     
     //MARK: - Action
@@ -58,16 +60,18 @@ extension PlaceDetailsViewController {
     //MARK: - Location's List
     private func addToLocationListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
-
+        
         let tabItem = tabItems[1]
-
+        
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
-
+        
         if checkMarkedLocation() == false {
             if locations.count < 10 {
-            CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
-            tabItem.badgeValue = String(value + 1)
-            locations = Location.all
+                guard let placeDetails = placeDetails else { return }
+                CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
+                tabItem.badgeValue = String(value + 1)
+                locations = Location.all
+                
             } else {
                 showAlert(title: "Sorry", message: "Maximum reached!")
                 tabItem.badgeValue = nil
@@ -83,7 +87,7 @@ extension PlaceDetailsViewController {
         var isAdded = false
         guard locations.count != 0 else { return false }
         for location in locations {
-            if placeDetails.placeId == location.placeId {
+            if placeDetails?.placeId == location.placeId {
                 isAdded = true
                 break
             }
@@ -99,27 +103,38 @@ extension PlaceDetailsViewController {
         
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
         
-        if checkFavoriteLocation() == false {
-                CoreDataManager.saveFavorite(placeDetails: placeDetails, place: place)
-                tabItem.badgeValue = String(value + 1)
-                favorites = Favorite.all
+        if checkFavoritePlace() == false {
+            guard let placeDetails = placeDetails else { return }
+            CoreDataManager.saveFavorite(placeDetails: placeDetails, place: place)
+            tabItem.badgeValue = String(value + 1)
+            favorites = Favorite.all
         } else {
             favorites = Favorite.all
-            showAlert(title: "Sorry", message: "You already add this location into the favorite list!")
-            tabItem.badgeValue = String(value)
+            showAlert(title: "Sorry", message: "You already add this place into the favorite list!")
+            tabItem.badgeValue = nil
         }
     }
-    
-    private func checkFavoriteLocation() -> Bool {
+
+    private func checkFavoritePlace() -> Bool {
         var isAdded = false
         guard favorites.count != 0 else { return false }
         for favorite in favorites {
-            if placeDetails.placeId == favorite.placeId {
+            if placeDetails?.placeId == favorite.placeId {
                 isAdded = true
                 break
             }
         }
         return isAdded
+    }
+    //Method to update the favorite button image
+    private func updateFavoriteButtonImage() -> UIImage {
+        var image: UIImage!
+        if checkFavoritePlace() {
+            image = UIImage(named: "favorite")
+        } else {
+            image = UIImage(named: "noFavorite")
+        }
+        return image
     }
 }
 
@@ -140,6 +155,7 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             
             cell.selectionStyle = .none
             cell.placeDetailsImageCellConfigure(place: place)
+            
         case 1:
             guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: NameAdressRatingLabelsTableViewCell.identifier, for: indexPath) as? NameAdressRatingLabelsTableViewCell else {
                 return UITableViewCell()
@@ -147,13 +163,16 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             
             cell.selectionStyle = .none
             cell.nameAddressRatingLabelsCellConfigure(placeDetails: placeDetails)
+            
         case 2:
-            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: ScheduleTextViewOpenStateLabelTableViewCell.identifier, for: indexPath) as? ScheduleTextViewOpenStateLabelTableViewCell else {
+            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: CallShareFavoriteWebsiteButtonsTableViewCell.identifier, for: indexPath) as? CallShareFavoriteWebsiteButtonsTableViewCell else {
                 return UITableViewCell()
             }
             
             cell.selectionStyle = .none
-            cell.scheduleOpenStateCellConfigure(placeDetails: placeDetails)
+            cell.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
+            cell.delegate = self
+            
         case 3:
             guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: DiscoverButtonTableViewCell.identifier, for: indexPath) as? DiscoverButtonTableViewCell else {
                 return UITableViewCell()
@@ -161,13 +180,15 @@ extension PlaceDetailsViewController: UITableViewDataSource {
             
             cell.selectionStyle = .none
             cell.discoverLabelConfigure()
+            
         case 4:
-            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: CallShareFavoriteWebsiteButtonsTableViewCell.identifier, for: indexPath) as? CallShareFavoriteWebsiteButtonsTableViewCell else {
+            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: ScheduleTextTableViewCell.identifier, for: indexPath) as? ScheduleTextTableViewCell else {
                 return UITableViewCell()
             }
             
             cell.selectionStyle = .none
-            cell.delegate = self
+            cell.scheduleCellConfigure(placeDetails: placeDetails)
+            
         default:
             return UITableViewCell()
         }
@@ -183,11 +204,11 @@ extension PlaceDetailsViewController: UITableViewDelegate {
         case 1:
             return 92
         case 2:
-            return 110
-        case 3:
-            return 119
-        case 4:
             return 91
+        case 3:
+            return 120
+        case 4:
+            return 110
         default:
             return 0
         }
@@ -202,7 +223,7 @@ extension PlaceDetailsViewController: ButtonsActionsDelegate {
     }
     
     func didTapCallButton() {
-        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails.internationalPhoneNumber)
+        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails?.internationalPhoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
         if let phoneURL = phoneURL {
             print(phoneURL)
@@ -211,13 +232,17 @@ extension PlaceDetailsViewController: ButtonsActionsDelegate {
     }
     
     func didTapShareButton() {
-        let websiteString =  placeDetails.website
-        if let websiteString = websiteString {
-        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", websiteString], applicationActivities: nil)
+        let urlString =  placeDetails?.url
+        if let urlString = urlString {
+        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
         } else {
             showAlert(title: "Sorry", message: "No website to share for this place!")
         }
+    }
+    
+    func didUpdateFavoriteButtonImage() -> UIImage {
+        return updateFavoriteButtonImage()
     }
     
     func didTapFavoriteButton() {

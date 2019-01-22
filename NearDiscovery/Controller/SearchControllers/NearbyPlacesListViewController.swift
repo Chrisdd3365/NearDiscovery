@@ -16,7 +16,7 @@ class NearbyPlacesListViewController: UIViewController {
     let googlePlacesSearchService = GooglePlacesSearchService()
     let googlePlacesDetailsService = GooglePlacesDetailsService()
     var places: [PlaceSearch] = []
-    var placeDetails: PlaceDetails!
+    var placeDetails: PlaceDetails?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class NearbyPlacesListViewController: UIViewController {
     //MARK: - Methods
     private func setNavigationItemTitle() {
         navigationItem.title = "Nearby Places To Visit"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20) ?? UIFont(name: "", size: 0) as Any]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

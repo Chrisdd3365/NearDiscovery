@@ -33,7 +33,7 @@
 		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
 		959DFDCF21EF750500D1F57F /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDCE21EF750500D1F57F /* ImageTableViewCell.swift */; };
 		959DFDD121EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDD021EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift */; };
-		959DFDD421EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDD321EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift */; };
+		959DFDD421EF756B00D1F57F /* ScheduleTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDD321EF756B00D1F57F /* ScheduleTextTableViewCell.swift */; };
 		959DFDD621EF758700D1F57F /* DiscoverButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDD521EF758700D1F57F /* DiscoverButtonTableViewCell.swift */; };
 		959DFDD821EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959DFDD721EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift */; };
 		95A16B8121E4F18F00C6B35D /* CoreDataManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A16B7F21E4F18F00C6B35D /* CoreDataManager.xcdatamodeld */; };
@@ -103,7 +103,7 @@
 		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		959DFDCE21EF750500D1F57F /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		959DFDD021EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAdressRatingLabelsTableViewCell.swift; sourceTree = "<group>"; };
-		959DFDD321EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTextViewOpenStateLabelTableViewCell.swift; sourceTree = "<group>"; };
+		959DFDD321EF756B00D1F57F /* ScheduleTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTextTableViewCell.swift; sourceTree = "<group>"; };
 		959DFDD521EF758700D1F57F /* DiscoverButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverButtonTableViewCell.swift; sourceTree = "<group>"; };
 		959DFDD721EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallShareFavoriteWebsiteButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		95A16B8021E4F18F00C6B35D /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
@@ -162,10 +162,10 @@
 		951AA04A21DA5A3100F2E4FC /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				95BE0DBB21F4B22A00C260E0 /* FavoriteTableViewCell */,
-				95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */,
 				95BE0DBA21F4B21C00C260E0 /* NearbyPlacesTableViewCell */,
 				959DFDD221EF753100D1F57F /* PlaceDetailsTableViewCell */,
+				95BE0DBB21F4B22A00C260E0 /* FavoriteTableViewCell */,
+				95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -205,6 +205,23 @@
 				956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */,
 			);
 			path = MapControllers;
+			sourceTree = "<group>";
+		};
+		956F420621F601E300B305CE /* LocationController */ = {
+			isa = PBXGroup;
+			children = (
+				95F4E8D721F1D4240033DECB /* MarkedLocationsMapViewController.swift */,
+			);
+			path = LocationController;
+			sourceTree = "<group>";
+		};
+		956F420721F6022B00B305CE /* SearchControllers */ = {
+			isa = PBXGroup;
+			children = (
+				951AA04821DA25E000F2E4FC /* NearbyPlacesListViewController.swift */,
+				954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */,
+			);
+			path = SearchControllers;
 			sourceTree = "<group>";
 		};
 		9587402121C3FB2800489865 = {
@@ -264,9 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				9587405121C3FE2500489865 /* HomePageViewController.swift */,
-				951AA04821DA25E000F2E4FC /* NearbyPlacesListViewController.swift */,
-				954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */,
-				95F4E8D721F1D4240033DECB /* MarkedLocationsMapViewController.swift */,
+				956F420721F6022B00B305CE /* SearchControllers */,
+				956F420621F601E300B305CE /* LocationController */,
 				956F41FF21F5DA9200B305CE /* MapControllers */,
 				95BE0DC121F4F94700C260E0 /* FavoriteControllers */,
 			);
@@ -333,7 +349,7 @@
 				959DFDD021EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift */,
 				959DFDD721EF75B700D1F57F /* CallShareFavoriteWebsiteButtonsTableViewCell.swift */,
 				959DFDD521EF758700D1F57F /* DiscoverButtonTableViewCell.swift */,
-				959DFDD321EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift */,
+				959DFDD321EF756B00D1F57F /* ScheduleTextTableViewCell.swift */,
 			);
 			path = PlaceDetailsTableViewCell;
 			sourceTree = "<group>";
@@ -620,7 +636,7 @@
 				954A980E21DE486700AE2D8B /* Date.swift in Sources */,
 				956F420521F5DB7300B305CE /* FavoriteLabelsView.swift in Sources */,
 				95F4E8D821F1D4240033DECB /* MarkedLocationsMapViewController.swift in Sources */,
-				959DFDD421EF756B00D1F57F /* ScheduleTextViewOpenStateLabelTableViewCell.swift in Sources */,
+				959DFDD421EF756B00D1F57F /* ScheduleTextTableViewCell.swift in Sources */,
 				954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */,
 				959DFDD121EF752100D1F57F /* NameAdressRatingLabelsTableViewCell.swift in Sources */,
 				95BE0DB921F4B0AC00C260E0 /* FavoriteTableViewCell.swift in Sources */,

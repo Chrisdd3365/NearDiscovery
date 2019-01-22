@@ -13,10 +13,14 @@ protocol ButtonsActionsDelegate {
     func didTapCallButton()
     func didTapShareButton()
     func didTapFavoriteButton()
+    func didUpdateFavoriteButtonImage() -> UIImage
     func didTapWebsiteButton()
 }
 
 class CallShareFavoriteWebsiteButtonsTableViewCell: UITableViewCell {
+    //MARK: - Outlet
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     //MARK: - Property
     var delegate: ButtonsActionsDelegate?
     
@@ -31,6 +35,7 @@ class CallShareFavoriteWebsiteButtonsTableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         delegate?.didTapFavoriteButton()
+        favoriteButton.setImage(delegate?.didUpdateFavoriteButtonImage(), for: .normal)
     }
     
     @IBAction func websiteButtonTapped(_ sender: UIButton) {

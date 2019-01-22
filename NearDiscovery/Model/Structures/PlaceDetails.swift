@@ -25,6 +25,7 @@ struct PlaceDetails: Decodable {
     let placeId: String
     let rating: Double?
     let website: String?
+    let url: String?
     
     enum CodingKeys: String, CodingKey {
         case address = "formatted_address"
@@ -35,6 +36,7 @@ struct PlaceDetails: Decodable {
         case placeId = "place_id"
         case rating = "rating"
         case website = "website"
+        case url = "url"
     }
     
     struct Location: Decodable {

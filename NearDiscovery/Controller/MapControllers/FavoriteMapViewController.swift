@@ -20,13 +20,14 @@ class FavoriteMapViewController: UIViewController {
     var placeMarker: PlaceMarker?
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
-    var favoritePlace: Favorite!
+    var favoritePlace: Favorite?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
+        guard let favoritePlace = favoritePlace else { return }
         showFavoriteAnnotation(favoritePlace: favoritePlace)
     }
 
@@ -36,10 +37,12 @@ class FavoriteMapViewController: UIViewController {
     }
     
     @IBAction func automobileDirections(_ sender: UIButton) {
+        guard let favoritePlace = favoritePlace else { return }
         getDirections(favoritePlace: favoritePlace, sender: sender)
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
+        guard let favoritePlace = favoritePlace else { return }
         getDirections(favoritePlace: favoritePlace, sender: sender)
     }
     

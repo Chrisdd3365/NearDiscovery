@@ -22,7 +22,7 @@ class FavoritePlaceScheduleTableViewCell: UITableViewCell {
         var description = ""
         let detailedFavoritePlaceScheduleArray = schedule.components(separatedBy: ", ")
         for weekdayText in detailedFavoritePlaceScheduleArray {
-            description += "- " + weekdayText + "\n"
+            description += weekdayText + "\n"
         }
         return description
     }
