@@ -18,6 +18,7 @@ class FavoritePlaceDetailsViewController: UIViewController {
         super.viewDidLoad()
         favoritePlaceDetailsTableView.allowsSelection = false
         favoritePlaceDetailsTableView.tableFooterView = UIView()
+        setNavigationItemTitle(title: "Favorite Place's Details")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

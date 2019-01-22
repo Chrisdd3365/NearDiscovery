@@ -21,7 +21,7 @@ class NearbyPlacesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItemTitle()
+        setNavigationItemTitle(title: "List of Nearby Places to Visit")
         nearbyPlacesTableView.tableFooterView = UIView()
     }
     
@@ -31,11 +31,6 @@ class NearbyPlacesListViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func setNavigationItemTitle() {
-        navigationItem.title = "Nearby Places To Visit"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20) ?? UIFont(name: "", size: 0) as Any]
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showDetailsSegue,
             let placeDetailsVC = segue.destination as? PlaceDetailsViewController,

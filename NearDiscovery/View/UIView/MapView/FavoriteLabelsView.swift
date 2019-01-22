@@ -11,6 +11,5 @@ import UIKit
 class FavoriteLabelsView: UIView {
     @IBOutlet weak var travelTime: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    
 
 }

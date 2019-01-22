@@ -14,4 +14,9 @@ extension UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
+    
+    func setNavigationItemTitle(title: String) {
+        navigationItem.title = title
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20) ?? UIFont(name: "", size: 0) as Any]
+    }
 }

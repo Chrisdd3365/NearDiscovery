@@ -18,7 +18,7 @@ class FavoritesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarTitle()
+        setNavigationItemTitle(title: "List of Favorites Places")
         favoriteListTableView.tableFooterView = UIView()
     }
 
@@ -30,10 +30,6 @@ class FavoritesListViewController: UIViewController {
     }
 
     //MARK: - Methods
-    //Method to setup the navigation bar's title
-    private func setNavigationBarTitle() {
-        self.navigationItem.title = "List of Favorites Places"
-    }
     //Method to setup the tab bar controller item badge's value
     private func setTabBarControllerItemBadgeValue() {
         guard let tabItems = tabBarController?.tabBar.items else { return }

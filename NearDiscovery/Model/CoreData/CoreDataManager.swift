@@ -11,21 +11,21 @@ import CoreData
 
 class CoreDataManager {
     //MARK: - Favorite CoreDataManager's methods
-    static func saveFavorite(placeDetails: PlaceDetails, place: PlaceSearch) {
+    static func saveFavorite(placeDetails: PlaceDetails?, place: PlaceSearch?) {
         let favorite = Favorite(context: AppDelegate.viewContext)
         
-        favorite.placeId = placeDetails.placeId
-        favorite.photoReference = place.photos?[0].photoReference
-        favorite.name = placeDetails.name
-        favorite.address = placeDetails.address
-        favorite.phoneNumber = placeDetails.internationalPhoneNumber
-        favorite.website = placeDetails.website
-        favorite.url = placeDetails.url 
-        favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails.openingHours?.weekdayText ?? ["No Schedule Available"])
-        favorite.rating = placeDetails.rating ?? 0.0
-        favorite.openNow = placeDetails.openingHours?.openNow ?? false
-        favorite.latitude = placeDetails.geometry.location.latitude
-        favorite.longitude = placeDetails.geometry.location.longitude
+        favorite.placeId = placeDetails?.placeId
+        favorite.photoReference = place?.photos?[0].photoReference
+        favorite.name = placeDetails?.name
+        favorite.address = placeDetails?.address
+        favorite.phoneNumber = placeDetails?.internationalPhoneNumber
+        favorite.website = placeDetails?.website
+        favorite.url = placeDetails?.url
+        favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails?.openingHours?.weekdayText ?? ["No Schedule Available"])
+        favorite.rating = placeDetails?.rating ?? 0.0
+        favorite.openNow = placeDetails?.openingHours?.openNow ?? false
+        favorite.latitude = placeDetails?.geometry.location.latitude ?? 0.0
+        favorite.longitude = placeDetails?.geometry.location.longitude ?? 0.0
     
         saveContext()
     }
@@ -51,17 +51,17 @@ class CoreDataManager {
     }
     
     //MARK: - Location CoreDataManager's methods
-    static func saveLocation(placeDetails: PlaceDetails, place: PlaceSearch) {
+    static func saveLocation(placeDetails: PlaceDetails?, place: PlaceSearch?) {
         let location = Location(context: AppDelegate.viewContext)
         
-        location.placeId = placeDetails.placeId
-        location.photoReference = place.photos?[0].photoReference
-        location.name = placeDetails.name
-        location.address = placeDetails.address
-        location.rating = placeDetails.rating ?? 0.0
-        location.openNow = placeDetails.openingHours?.openNow ?? false
-        location.latitude = placeDetails.geometry.location.latitude
-        location.longitude = placeDetails.geometry.location.longitude
+        location.placeId = placeDetails?.placeId
+        location.photoReference = place?.photos?[0].photoReference
+        location.name = placeDetails?.name
+        location.address = placeDetails?.address
+        location.rating = placeDetails?.rating ?? 0.0
+        location.openNow = placeDetails?.openingHours?.openNow ?? false
+        location.latitude = placeDetails?.geometry.location.latitude ?? 0.0
+        location.longitude = placeDetails?.geometry.location.longitude ?? 0.0
         
         saveContext()
     }
