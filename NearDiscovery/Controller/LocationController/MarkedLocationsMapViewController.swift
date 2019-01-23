@@ -14,6 +14,7 @@ class MarkedLocationsMapViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsCollectionView: UICollectionView!
+    @IBOutlet var markedLocationView: MarkedLocationView!
     
     //MARK: - Properties
     var locationManager = CLLocationManager()
@@ -27,7 +28,7 @@ class MarkedLocationsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnnotations(locations: locations)
-        setNavigationBarTitle()
+        setNavigationItemTitle(title: "Marked Locations")
         locationsCollectionView.reloadData()
     }
     
@@ -35,7 +36,7 @@ class MarkedLocationsMapViewController: UIViewController {
         super.viewWillAppear(true)
         setupMapView()
         setupCoreLocation()
-        setTabBarControllerItemBadgeValue()
+        setTabBarControllerItemBadgeValue(index: 1)
         locations = Location.all
         locationsCollectionView.reloadData()
     }
@@ -46,10 +47,12 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func getDirections(_ sender: UIButton) {
-        convertLocationIntoCLLocation()
-        creationCorde()
-        allPathing()
+    @IBAction func getAutomobileDirections(_ sender: UIButton) {
+        directionsButtonState(sender: sender)
+    }
+    
+    @IBAction func getWalkingDirections(_ sender: UIButton) {
+        directionsButtonState(sender: sender)
     }
     
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
@@ -57,6 +60,40 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func directionsButtonState(sender: UIButton){
+        if markedLocationView.automobileDirections.isSelected == true || markedLocationView.walkingDirections.isSelected == false {
+            
+            convertLocationIntoCLLocation()
+            creationCorde()
+            allPathing(sender: sender)
+            
+            markedLocationView.automobileDirections.isSelected = false
+            markedLocationView.automobileDirections.setImage(UIImage(named : "noAutomobile"), for: .selected)
+            
+            markedLocationView.automobileLabel.textColor = .black
+            
+            markedLocationView.walkingDirections.isSelected = true
+            markedLocationView.walkingDirections.setImage(UIImage(named: "walking"), for: .selected)
+            
+            markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        } else if markedLocationView.automobileDirections.isSelected == false || markedLocationView.walkingDirections.isSelected == true {
+            
+            convertLocationIntoCLLocation()
+            creationCorde()
+            allPathing(sender: sender)
+            
+            markedLocationView.automobileDirections.isSelected = true
+            markedLocationView.automobileDirections.setImage(UIImage(named : "automobile"), for: .selected)
+            
+            markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+            
+            markedLocationView.walkingDirections.isSelected = false
+            markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+            
+            markedLocationView.walkingLabel.textColor = .black
+        }
+    }
+    
     private func showAnnotations(locations: [Location]) {
         for location in locations {
             let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "")
@@ -66,17 +103,7 @@ class MarkedLocationsMapViewController: UIViewController {
             }
         }
     }
-    
-    private func setNavigationBarTitle() {
-        self.navigationItem.title = "Locations List"
-    }
-    
-    private func setTabBarControllerItemBadgeValue() {
-        guard let tabItems = tabBarController?.tabBar.items else { return }
-        let tabItem = tabItems[1]
-        tabItem.badgeValue = nil
-    }
-    
+        
     //DELEGATE CORE LOCATION
     private func setupCoreLocation() {
         locationManager.delegate = self
@@ -182,9 +209,6 @@ class MarkedLocationsMapViewController: UIViewController {
         } else {
             return path
         }
-        
-        
-//        return checkBetterPath(firstPath: path, sumDistance: sumDistance)
     }
     func checkBetterPath(firstPath: [CLLocation], sumDistance: Double) -> [CLLocation] {
         
@@ -222,12 +246,12 @@ class MarkedLocationsMapViewController: UIViewController {
     
     
     ////
-    private func getPathing(from startingNodeCoordinate: CLLocation, to nextNodeCoordinate: CLLocation) {
+    private func getPathing(from startingNodeCoordinate: CLLocation, to nextNodeCoordinate: CLLocation, sender: UIButton) {
         let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate.coordinate))
         let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate.coordinate))
         
         let request = MKDirections.Request()
-        request.transportType = .walking
+        request.transportType = switchTransportType(request: request, sender: sender)
         request.source = startingNodeMapItem
         request.destination = nextNodeMapItem
         request.requestsAlternateRoutes = false
@@ -240,19 +264,38 @@ class MarkedLocationsMapViewController: UIViewController {
                 self.showAlert(title: "Error", message: "no routes available for now!")
                 return }
             for route in response.routes {
+                let time = route.expectedTravelTime / 60
+                self.markedLocationView.expectedTravelTimeLabel.text = String(format: "%2.f", time) + " min"
+                
+                let distance = route.distance / 1000
+                self.markedLocationView.distanceLabel.text = String(format: "%.2f", distance) + " km"
+                
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
     }
+    //Helper's methods
+    private func switchTransportType(request: MKDirections.Request, sender: UIButton) -> MKDirectionsTransportType {
+        var transportType = request.transportType
+        switch sender.tag {
+        case 1:
+            transportType = .automobile
+        case 2:
+            transportType = .walking
+        default:
+            break
+        }
+        return transportType
+    }
     
-    private func allPathing() {
+    private func allPathing(sender: UIButton) {
         var path = getPath()
         print(path.count)
         print(nodes.count)
         print(cordes.count)
         for i in 0...path.count - 2 {
-            getPathing(from: path[i], to: path[i+1])
+            getPathing(from: path[i], to: path[i+1], sender: sender)
         }
     }
     
@@ -333,30 +376,21 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
             return UICollectionViewCell() }
 
         let location = locations[indexPath.row]
-
         cell.locationConfigure = location
+        
         return cell
     }
 }
 
-//extension MarkedLocationsMapViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        for annotation in mapView.annotations {
-//            let cell = locationsCollectionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.identifier, for: indexPath) as? LocationCollectionViewCell
-//            
-//            let index = (self.mapView.annotations as NSArray).index(of: annotation)
-//            let indexPath = self.locationsCollectionView.indexPath(for: cell ?? UICollectionViewCell())
-//            if let annotation = annotation as? PlaceMarker, index == indexPath?.row {
-//                locationsCollectionView.reloadData()
-////                locationsCollectionView.reloadItems(at: [indexPath ?? indexPath])
-//                mapView.reloadInputViews()
-//
-//                mapView.selectAnnotation(annotation, animated: true)
-//
-//
-//                print(indexPath?.row)
-//                print(index)
-//            }
-//        }
-//    }
-//}
+extension MarkedLocationsMapViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let location = locations[indexPath.row]
+        for annotation in mapView.annotations {
+            if annotation.coordinate.latitude == location.latitude && annotation.coordinate.longitude == location.longitude {
+                locationsCollectionView.reloadData()
+                mapView.reloadInputViews()
+                mapView.selectAnnotation(annotation, animated: false)
+            }
+        }
+    }
+}

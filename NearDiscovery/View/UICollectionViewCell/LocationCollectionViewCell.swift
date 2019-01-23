@@ -9,7 +9,7 @@
 import UIKit
 
 class LocationCollectionViewCell: UICollectionViewCell {
-    //MARK: - Outlet
+    //MARK: - Outlets
     @IBOutlet weak var locationImageView: UIImageView!
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var locationAddressLabel: UILabel!
@@ -20,6 +20,8 @@ class LocationCollectionViewCell: UICollectionViewCell {
     var locationConfigure: Location? {
         didSet {
             locationNameLabel.text = locationConfigure?.name
+            locationNameLabel.font = UIFont(name: "EurostileBold", size: 18)
+            
             locationAddressLabel.text = locationConfigure?.address
             
             if locationConfigure?.openNow == true {

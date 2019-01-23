@@ -47,7 +47,7 @@ class HomePageViewController: UIViewController {
 //MARK: - API Fetch Google Places Search Data method
 extension HomePageViewController {
     private func fetchGooglePlacesData(location: CLLocation) {
-        let keyword = "museum,monument"
+        let keyword = "restaurant"
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: location) { (success, places) in
             self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
             if success {
@@ -122,7 +122,6 @@ extension HomePageViewController: CLLocationManagerDelegate {
    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         let userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        print(userLocation)
         if didFindUserLocation == false {
             didFindUserLocation = true
             locationManager.stopUpdatingLocation()

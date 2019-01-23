@@ -26,7 +26,6 @@ class PlaceDetailsViewController: UIViewController {
         placeDetailsScrollViewConfigure(placeDetails: placeDetails, place: place)
         placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
         placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +123,7 @@ extension PlaceDetailsViewController {
             if locations.count < 10 {
                 guard let placeDetails = placeDetails else { return }
                 placeDetailsScrollView.markedLocationButton.setImage(UIImage(named: "markedLocation"), for: .normal)
+
                 CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
                 tabItem.badgeValue = String(value + 1)
                 locations = Location.all
@@ -204,124 +204,3 @@ extension PlaceDetailsViewController {
         return image
     }
 }
-
-//extension PlaceDetailsViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 5
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch indexPath.row {
-//        case 0:
-//            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.identifier, for: indexPath) as? ImageTableViewCell else {
-//                return UITableViewCell() }
-//
-//            cell.selectionStyle = .none
-//            cell.placeDetailsImageCellConfigure(place: place)
-//
-//        case 1:
-//            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: NameAdressRatingLabelsTableViewCell.identifier, for: indexPath) as? NameAdressRatingLabelsTableViewCell else {
-//                return UITableViewCell()
-//            }
-//
-//            cell.selectionStyle = .none
-//            cell.nameAddressRatingLabelsCellConfigure(placeDetails: placeDetails)
-//
-//        case 2:
-//            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: CallShareFavoriteWebsiteButtonsTableViewCell.identifier, for: indexPath) as? CallShareFavoriteWebsiteButtonsTableViewCell else {
-//                return UITableViewCell()
-//            }
-//
-//            cell.selectionStyle = .none
-//            cell.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
-//            cell.delegate = self
-//
-//        case 3:
-//            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: DiscoverButtonTableViewCell.identifier, for: indexPath) as? DiscoverButtonTableViewCell else {
-//                return UITableViewCell()
-//            }
-//
-//            cell.selectionStyle = .none
-//            cell.discoverLabelConfigure()
-//
-//        case 4:
-//            guard let cell = placeDetailsTableView.dequeueReusableCell(withIdentifier: ScheduleTextTableViewCell.identifier, for: indexPath) as? ScheduleTextTableViewCell else {
-//                return UITableViewCell()
-//            }
-//
-//            cell.selectionStyle = .none
-//            cell.scheduleCellConfigure(placeDetails: placeDetails)
-//
-//        default:
-//            return UITableViewCell()
-//        }
-//        return UITableViewCell()
-//    }
-//}
-//
-//extension PlaceDetailsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.row {
-//        case 0 :
-//            return 130
-//        case 1:
-//            return 92
-//        case 2:
-//            return 91
-//        case 3:
-//            return 120
-//        case 4:
-//            return 110
-//        default:
-//            return 0
-//        }
-//    }
-//}
-
-//extension PlaceDetailsViewController: ButtonsActionsDelegate {
-//    func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
-//        let phoneNumber = String(describing: phoneNumber ?? "0000000000")
-//        let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
-//        return phoneNumberConverted
-//    }
-//
-//    func didTapCallButton() {
-//        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails?.internationalPhoneNumber)
-//        let phoneURL = URL(string: ("tel://\(phoneNumber)"))
-//        if let phoneURL = phoneURL {
-//            print(phoneURL)
-//            UIApplication.shared.open(phoneURL)
-//        }
-//    }
-    
-//    func didTapShareButton() {
-//        let urlString =  placeDetails?.url
-//        if let urlString = urlString {
-//        let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
-//        present(activityController, animated: true, completion: nil)
-//        } else {
-//            showAlert(title: "Sorry", message: "No website to share for this place!")
-//        }
-//    }
-//
-//    func didUpdateFavoriteButtonImage() -> UIImage {
-//        return updateFavoriteButtonImage()
-//    }
-//
-//    func didTapFavoriteButton() {
-//        addToFavoriteListSetup()
-//    }
-//
-//    func didTapWebsiteButton() {
-//        if let placeDetails = placeDetails {
-//            guard let url = URL(string: placeDetails.website ?? "") else { return }
-//            UIApplication.shared.open(url)
-//        } else {
-//            showAlert(title: "Sorry", message: "No website available for this place!")
-//        }
-//    }
-//}

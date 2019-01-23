@@ -66,6 +66,21 @@ class CoreDataManager {
         saveContext()
     }
     
+    static func saveLocationFromFavorite(favoritePlace: Favorite?) {
+        let location = Location(context: AppDelegate.viewContext)
+        
+        location.placeId = favoritePlace?.placeId
+        location.photoReference = favoritePlace?.photoReference
+        location.name = favoritePlace?.name
+        location.address = favoritePlace?.address
+        location.rating = favoritePlace?.rating ?? 0.0
+        location.openNow = favoritePlace?.openNow ?? false
+        location.latitude = favoritePlace?.latitude ?? 0.0
+        location.longitude = favoritePlace?.longitude ?? 0.0
+        
+        saveContext()
+    }
+    
     static func deleteLocationFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Location> = Location.fetchRequest()
         fetchRequest.predicate = NSPredicate.init(format: "placeId == %@", placeId)

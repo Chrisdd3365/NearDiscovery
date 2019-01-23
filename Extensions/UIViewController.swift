@@ -19,4 +19,10 @@ extension UIViewController {
         navigationItem.title = title
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "EurostileBold", size: 20) ?? UIFont(name: "", size: 0) as Any]
     }
+    
+    func setTabBarControllerItemBadgeValue(index: Int) {
+        guard let tabItems = tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[index]
+        tabItem.badgeValue = nil
+    }
 }

@@ -24,7 +24,6 @@
 		955197E121F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955197E021F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift */; };
 		9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552F07F21C7EE1D00BBBB03 /* Constants.swift */; };
 		956F420121F5DAA500B305CE /* FavoriteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */; };
-		956F420521F5DB7300B305CE /* FavoriteLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F420421F5DB7300B305CE /* FavoriteLabelsView.swift */; };
 		9578AD2B21D7BEF700D2FE18 /* EncodeSansExpanded-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */; };
 		9582F51821F75FC5007E87B0 /* PlaceDetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582F51721F75FC5007E87B0 /* PlaceDetailsScrollView.swift */; };
 		9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587402D21C3FB2800489865 /* AppDelegate.swift */; };
@@ -33,8 +32,11 @@
 		9587403821C3FB2900489865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9587403621C3FB2900489865 /* LaunchScreen.storyboard */; };
 		9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587405121C3FE2500489865 /* HomePageViewController.swift */; };
 		9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590E5FC21C950B00016A77F /* UIViewController.swift */; };
-		95A16B8121E4F18F00C6B35D /* CoreDataManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A16B7F21E4F18F00C6B35D /* CoreDataManager.xcdatamodeld */; };
+		95A16B8121E4F18F00C6B35D /* NearDiscovery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A16B7F21E4F18F00C6B35D /* NearDiscovery.xcdatamodeld */; };
 		95A16B8421E4F3A800C6B35D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A16B8321E4F3A800C6B35D /* Location.swift */; };
+		95A385CE21F86AAE00E86051 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A385CD21F86AAE00E86051 /* MapView.swift */; };
+		95A385D021F86B1400E86051 /* FavoriteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A385CF21F86B1400E86051 /* FavoriteMapView.swift */; };
+		95A385D421F8B6F400E86051 /* MarkedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A385D321F8B6F400E86051 /* MarkedLocationView.swift */; };
 		95B7FF1021EF3C7A00CED8B8 /* EurostileMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF0E21EF38D700CED8B8 /* EurostileMedium.ttf */; };
 		95B7FF1121EF3C7C00CED8B8 /* EurostileRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF0C21EF373F00CED8B8 /* EurostileRegular.ttf */; };
 		95B7FF1321EF3CE700CED8B8 /* EurostileBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B7FF1221EF3CE700CED8B8 /* EurostileBlack.ttf */; };
@@ -45,17 +47,11 @@
 		95BE0DB721F4B07900C260E0 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DB621F4B07900C260E0 /* FavoritesListViewController.swift */; };
 		95BE0DB921F4B0AC00C260E0 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DB821F4B0AC00C260E0 /* FavoriteTableViewCell.swift */; };
 		95BE0DBE21F4F66100C260E0 /* FavoritePlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DBD21F4F66100C260E0 /* FavoritePlaceDetailsViewController.swift */; };
-		95BE0DC321F4F99800C260E0 /* FavoritePlaceDetailsImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DC221F4F99800C260E0 /* FavoritePlaceDetailsImageTableViewCell.swift */; };
-		95BE0DC521F4FA6A00C260E0 /* FavoritePlaceNameAddressRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DC421F4FA6A00C260E0 /* FavoritePlaceNameAddressRatingTableViewCell.swift */; };
-		95BE0DC721F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DC621F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift */; };
-		95BE0DC921F4FE7400C260E0 /* FavoritePlaceDiscoverMarkedLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DC821F4FE7400C260E0 /* FavoritePlaceDiscoverMarkedLocationTableViewCell.swift */; };
-		95BE0DCB21F5004400C260E0 /* FavoritePlaceScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE0DCA21F5004400C260E0 /* FavoritePlaceScheduleTableViewCell.swift */; };
 		95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C73BB521CC1559003564C9 /* UITableViewCell.swift */; };
 		95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F30C7521ECA7BD00968588 /* CoreDataManager.swift */; };
 		95F4E8D821F1D4240033DECB /* MarkedLocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F4E8D721F1D4240033DECB /* MarkedLocationsMapViewController.swift */; };
 		95F4E8DD21F1DB020033DECB /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F4E8DC21F1DB020033DECB /* LocationCollectionViewCell.swift */; };
 		95F4E8E021F1DEA90033DECB /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F4E8DF21F1DEA90033DECB /* UICollectionViewCell.swift */; };
-		95F7783C21F0BF66008621DB /* LabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F7783B21F0BF66008621DB /* LabelsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +83,6 @@
 		955197E021F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceDetailsScrollView.swift; sourceTree = "<group>"; };
 		9552F07F21C7EE1D00BBBB03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMapViewController.swift; sourceTree = "<group>"; };
-		956F420421F5DB7300B305CE /* FavoriteLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteLabelsView.swift; sourceTree = "<group>"; };
 		9578AD2A21D7BBDF00D2FE18 /* EncodeSansExpanded-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSansExpanded-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9582F51721F75FC5007E87B0 /* PlaceDetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsScrollView.swift; sourceTree = "<group>"; };
 		9587402A21C3FB2800489865 /* NearDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +97,9 @@
 		9590E5FC21C950B00016A77F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		95A16B8021E4F18F00C6B35D /* Location.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Location.xcdatamodel; sourceTree = "<group>"; };
 		95A16B8321E4F3A800C6B35D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		95A385CD21F86AAE00E86051 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		95A385CF21F86B1400E86051 /* FavoriteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMapView.swift; sourceTree = "<group>"; };
+		95A385D321F8B6F400E86051 /* MarkedLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkedLocationView.swift; sourceTree = "<group>"; };
 		95B7FF0C21EF373F00CED8B8 /* EurostileRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileRegular.ttf; sourceTree = "<group>"; };
 		95B7FF0E21EF38D700CED8B8 /* EurostileMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileMedium.ttf; sourceTree = "<group>"; };
 		95B7FF1221EF3CE700CED8B8 /* EurostileBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EurostileBlack.ttf; sourceTree = "<group>"; };
@@ -112,17 +110,11 @@
 		95BE0DB621F4B07900C260E0 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 		95BE0DB821F4B0AC00C260E0 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		95BE0DBD21F4F66100C260E0 /* FavoritePlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceDetailsViewController.swift; sourceTree = "<group>"; };
-		95BE0DC221F4F99800C260E0 /* FavoritePlaceDetailsImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceDetailsImageTableViewCell.swift; sourceTree = "<group>"; };
-		95BE0DC421F4FA6A00C260E0 /* FavoritePlaceNameAddressRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceNameAddressRatingTableViewCell.swift; sourceTree = "<group>"; };
-		95BE0DC621F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift; sourceTree = "<group>"; };
-		95BE0DC821F4FE7400C260E0 /* FavoritePlaceDiscoverMarkedLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceDiscoverMarkedLocationTableViewCell.swift; sourceTree = "<group>"; };
-		95BE0DCA21F5004400C260E0 /* FavoritePlaceScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		95C73BB521CC1559003564C9 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		95F30C7521ECA7BD00968588 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		95F4E8D721F1D4240033DECB /* MarkedLocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkedLocationsMapViewController.swift; sourceTree = "<group>"; };
 		95F4E8DC21F1DB020033DECB /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		95F4E8DF21F1DEA90033DECB /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
-		95F7783B21F0BF66008621DB /* LabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsView.swift; sourceTree = "<group>"; };
 		9F3EEE89E711952FA97AC30B /* Pods-NearDiscovery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearDiscovery.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearDiscovery/Pods-NearDiscovery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +150,6 @@
 			children = (
 				951AA04B21DA5A5F00F2E4FC /* NearbyPlacesTableViewCell.swift */,
 				95BE0DB821F4B0AC00C260E0 /* FavoriteTableViewCell.swift */,
-				95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -167,7 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				953122EC21CA82EB007FCADC /* HomePageView.swift */,
-				95F7783F21F0D1A2008621DB /* MapView */,
+				95A385CD21F86AAE00E86051 /* MapView.swift */,
+				95A385D321F8B6F400E86051 /* MarkedLocationView.swift */,
+				95A385CF21F86B1400E86051 /* FavoriteMapView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -222,6 +215,7 @@
 			children = (
 				951AA04821DA25E000F2E4FC /* NearbyPlacesListViewController.swift */,
 				954A980921DE18B700AE2D8B /* PlaceDetailsViewController.swift */,
+				956F41FF21F5DA9200B305CE /* MapControllers */,
 			);
 			path = SearchControllers;
 			sourceTree = "<group>";
@@ -285,7 +279,6 @@
 				9587405121C3FE2500489865 /* HomePageViewController.swift */,
 				956F420721F6022B00B305CE /* SearchControllers */,
 				956F420621F601E300B305CE /* LocationController */,
-				956F41FF21F5DA9200B305CE /* MapControllers */,
 				95BE0DC121F4F94700C260E0 /* FavoriteControllers */,
 			);
 			path = Controller;
@@ -348,7 +341,7 @@
 		95A16B8221E4F19600C6B35D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				95A16B7F21E4F18F00C6B35D /* CoreDataManager.xcdatamodeld */,
+				95A16B7F21E4F18F00C6B35D /* NearDiscovery.xcdatamodeld */,
 				95F30C7521ECA7BD00968588 /* CoreDataManager.swift */,
 				95BE0DB221F4979D00C260E0 /* Favorite */,
 				95BE0DB021F4978D00C260E0 /* Location */,
@@ -384,18 +377,6 @@
 			path = Favorite;
 			sourceTree = "<group>";
 		};
-		95BE0DBC21F4F5FE00C260E0 /* FavoriteDetailsTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				95BE0DC221F4F99800C260E0 /* FavoritePlaceDetailsImageTableViewCell.swift */,
-				95BE0DC421F4FA6A00C260E0 /* FavoritePlaceNameAddressRatingTableViewCell.swift */,
-				95BE0DC621F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift */,
-				95BE0DC821F4FE7400C260E0 /* FavoritePlaceDiscoverMarkedLocationTableViewCell.swift */,
-				95BE0DCA21F5004400C260E0 /* FavoritePlaceScheduleTableViewCell.swift */,
-			);
-			path = FavoriteDetailsTableViewCell;
-			sourceTree = "<group>";
-		};
 		95BE0DC121F4F94700C260E0 /* FavoriteControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,15 +399,6 @@
 				95F4E8DC21F1DB020033DECB /* LocationCollectionViewCell.swift */,
 			);
 			path = UICollectionViewCell;
-			sourceTree = "<group>";
-		};
-		95F7783F21F0D1A2008621DB /* MapView */ = {
-			isa = PBXGroup;
-			children = (
-				95F7783B21F0BF66008621DB /* LabelsView.swift */,
-				956F420421F5DB7300B305CE /* FavoriteLabelsView.swift */,
-			);
-			path = MapView;
 			sourceTree = "<group>";
 		};
 		CE56B8537F9D214C03E8697D /* Pods */ = {
@@ -597,25 +569,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BE0DB721F4B07900C260E0 /* FavoritesListViewController.swift in Sources */,
-				95BE0DCB21F5004400C260E0 /* FavoritePlaceScheduleTableViewCell.swift in Sources */,
 				9587405221C3FE2500489865 /* HomePageViewController.swift in Sources */,
 				953269AE21D5101400DCE5C8 /* PlaceSearch.swift in Sources */,
 				95F4E8DD21F1DB020033DECB /* LocationCollectionViewCell.swift in Sources */,
 				954A980621DE06C200AE2D8B /* GooglePlacesDetailsService.swift in Sources */,
-				95BE0DC921F4FE7400C260E0 /* FavoritePlaceDiscoverMarkedLocationTableViewCell.swift in Sources */,
-				95BE0DC321F4F99800C260E0 /* FavoritePlaceDetailsImageTableViewCell.swift in Sources */,
-				95A16B8121E4F18F00C6B35D /* CoreDataManager.xcdatamodeld in Sources */,
+				95A385D021F86B1400E86051 /* FavoriteMapView.swift in Sources */,
+				95A16B8121E4F18F00C6B35D /* NearDiscovery.xcdatamodeld in Sources */,
 				951AA04921DA25E000F2E4FC /* NearbyPlacesListViewController.swift in Sources */,
+				95A385CE21F86AAE00E86051 /* MapView.swift in Sources */,
 				954A980421DE06B000AE2D8B /* PlaceDetails.swift in Sources */,
 				95F4E8E021F1DEA90033DECB /* UICollectionViewCell.swift in Sources */,
 				954A980E21DE486700AE2D8B /* Date.swift in Sources */,
-				956F420521F5DB7300B305CE /* FavoriteLabelsView.swift in Sources */,
 				95F4E8D821F1D4240033DECB /* MarkedLocationsMapViewController.swift in Sources */,
 				954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */,
 				95BE0DB921F4B0AC00C260E0 /* FavoriteTableViewCell.swift in Sources */,
 				9582F51821F75FC5007E87B0 /* PlaceDetailsScrollView.swift in Sources */,
 				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
-				95BE0DC721F4FB6900C260E0 /* FavoritePlaceCallShareFavoriteWebsiteTableViewCell.swift in Sources */,
 				955197E121F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift in Sources */,
 				954A980821DE06FE00AE2D8B /* GooglePlacesSearchService.swift in Sources */,
 				95A16B8421E4F3A800C6B35D /* Location.swift in Sources */,
@@ -624,13 +593,12 @@
 				95C73BB621CC155A003564C9 /* UITableViewCell.swift in Sources */,
 				9587402E21C3FB2800489865 /* AppDelegate.swift in Sources */,
 				954A981021DE496800AE2D8B /* MapViewController.swift in Sources */,
-				95BE0DC521F4FA6A00C260E0 /* FavoritePlaceNameAddressRatingTableViewCell.swift in Sources */,
 				9501E6CB21CA3F8A00B15629 /* PlaceMarker.swift in Sources */,
 				9590E5FD21C950B00016A77F /* UIViewController.swift in Sources */,
+				95A385D421F8B6F400E86051 /* MarkedLocationView.swift in Sources */,
 				95BE0DBE21F4F66100C260E0 /* FavoritePlaceDetailsViewController.swift in Sources */,
 				951AA04C21DA5A5F00F2E4FC /* NearbyPlacesTableViewCell.swift in Sources */,
 				9552F08021C7EE1D00BBBB03 /* Constants.swift in Sources */,
-				95F7783C21F0BF66008621DB /* LabelsView.swift in Sources */,
 				956F420121F5DAA500B305CE /* FavoriteMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,13 +875,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		95A16B7F21E4F18F00C6B35D /* CoreDataManager.xcdatamodeld */ = {
+		95A16B7F21E4F18F00C6B35D /* NearDiscovery.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				95A16B8021E4F18F00C6B35D /* Location.xcdatamodel */,
 			);
 			currentVersion = 95A16B8021E4F18F00C6B35D /* Location.xcdatamodel */;
-			path = CoreDataManager.xcdatamodeld;
+			path = NearDiscovery.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

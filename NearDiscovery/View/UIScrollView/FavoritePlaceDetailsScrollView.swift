@@ -45,8 +45,8 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
         }
     }
     //MARK: - Method
-    func placeDetailsImageCellConfigure(place: PlaceSearch?) {
-        if let photoReferenceURL = place?.photos?[0].photoReference {
+    func favoritePlaceImageCellConfigure(favoritePlace: Favorite?) {
+        if let photoReferenceURL = favoritePlace?.photoReference {
             favoritePlaceImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
         } else {
             favoritePlaceImageView.image = UIImage(named: "giletjaune")

@@ -24,19 +24,12 @@ class FavoritesListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        setTabBarControllerItemBadgeValue()
+        setTabBarControllerItemBadgeValue(index: 2)
         favorites = Favorite.all
         favoriteListTableView.reloadData()
     }
 
-    //MARK: - Methods
-    //Method to setup the tab bar controller item badge's value
-    private func setTabBarControllerItemBadgeValue() {
-        guard let tabItems = tabBarController?.tabBar.items else { return }
-        let tabItem = tabItems[2]
-        tabItem.badgeValue = nil
-    }
-
+    //MARK: - Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showFavoritePlaceDetailsSegue,
             let favoritePlaceDetailsVC = segue.destination as? FavoritePlaceDetailsViewController,
