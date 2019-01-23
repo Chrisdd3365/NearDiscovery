@@ -48,11 +48,25 @@ class MarkedLocationsMapViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func getAutomobileDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        convertLocationIntoCLLocation()
+        creationCorde()
+        allPathing(sender: sender)
+        
+        markedLocationView.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
+        markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+        markedLocationView.walkingLabel.textColor = .black
     }
     
     @IBAction func getWalkingDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        convertLocationIntoCLLocation()
+        creationCorde()
+        allPathing(sender: sender)
+        
+        markedLocationView.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
+        markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        markedLocationView.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
+        markedLocationView.automobileLabel.textColor = .black
     }
     
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
@@ -60,40 +74,6 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func directionsButtonState(sender: UIButton){
-        if markedLocationView.automobileDirections.isSelected == true || markedLocationView.walkingDirections.isSelected == false {
-            
-            convertLocationIntoCLLocation()
-            creationCorde()
-            allPathing(sender: sender)
-            
-            markedLocationView.automobileDirections.isSelected = false
-            markedLocationView.automobileDirections.setImage(UIImage(named : "noAutomobile"), for: .selected)
-            
-            markedLocationView.automobileLabel.textColor = .black
-            
-            markedLocationView.walkingDirections.isSelected = true
-            markedLocationView.walkingDirections.setImage(UIImage(named: "walking"), for: .selected)
-            
-            markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        } else if markedLocationView.automobileDirections.isSelected == false || markedLocationView.walkingDirections.isSelected == true {
-            
-            convertLocationIntoCLLocation()
-            creationCorde()
-            allPathing(sender: sender)
-            
-            markedLocationView.automobileDirections.isSelected = true
-            markedLocationView.automobileDirections.setImage(UIImage(named : "automobile"), for: .selected)
-            
-            markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-            
-            markedLocationView.walkingDirections.isSelected = false
-            markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-            
-            markedLocationView.walkingLabel.textColor = .black
-        }
-    }
-    
     private func showAnnotations(locations: [Location]) {
         for location in locations {
             let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "")

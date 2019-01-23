@@ -787,7 +787,7 @@
                                 <rect key="frame" x="0.0" y="304" width="320" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automobile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx2-c5-FWr">
-                                        <rect key="frame" x="69" y="55" width="128" height="10"/>
+                                        <rect key="frame" x="69" y="55" width="52.5" height="10"/>
                                         <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -828,13 +828,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.74970569349315064" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="3jp-7w-lMh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Zx2-c5-FWr" secondAttribute="trailing" constant="8" symbolic="YES" id="0b4-FM-2za"/>
                                     <constraint firstAttribute="height" constant="70" id="9IE-5C-JRN"/>
                                     <constraint firstItem="ijV-Vo-uM5" firstAttribute="leading" secondItem="9wE-Cl-xfU" secondAttribute="leading" constant="75" id="EXp-rJ-fUa"/>
                                     <constraint firstAttribute="bottom" secondItem="Zx2-c5-FWr" secondAttribute="bottom" constant="5" id="GK9-ew-9Gc"/>
                                     <constraint firstItem="Zx2-c5-FWr" firstAttribute="top" secondItem="ijV-Vo-uM5" secondAttribute="bottom" constant="5" id="QKR-o5-xSC"/>
                                     <constraint firstAttribute="trailing" secondItem="3jp-7w-lMh" secondAttribute="trailing" constant="75" id="Qjf-Oe-lA7"/>
                                     <constraint firstAttribute="bottom" secondItem="3jp-7w-lMh" secondAttribute="bottom" constant="3" id="WPx-2c-4eh"/>
+                                    <constraint firstItem="3jp-7w-lMh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zx2-c5-FWr" secondAttribute="trailing" constant="8" symbolic="YES" id="aas-gR-Cr3"/>
                                     <constraint firstItem="ijV-Vo-uM5" firstAttribute="top" secondItem="9wE-Cl-xfU" secondAttribute="top" constant="10" id="g9a-0v-w1u"/>
                                     <constraint firstItem="Zx2-c5-FWr" firstAttribute="leading" secondItem="9wE-Cl-xfU" secondAttribute="leading" constant="69" id="k0X-M9-D6q"/>
                                     <constraint firstItem="3jp-7w-lMh" firstAttribute="top" secondItem="9wE-Cl-xfU" secondAttribute="top" constant="10" id="uoq-p7-XW6"/>

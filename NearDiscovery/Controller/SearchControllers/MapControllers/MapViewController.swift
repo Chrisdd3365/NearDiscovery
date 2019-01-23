@@ -38,44 +38,26 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func automobileDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        guard let placeDetails = placeDetails else { return }
+        getDirections(placeDetails: placeDetails, sender: sender)
+        
+        viewMap.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
+        viewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        viewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+        viewMap.walkingLabel.textColor = .black
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        guard let placeDetails = placeDetails else { return }
+        getDirections(placeDetails: placeDetails, sender: sender)
+        
+        viewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
+        viewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        viewMap.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
+        viewMap.automobileLabel.textColor = .black
     }
     
     //MARK: - Methods
-    private func directionsButtonState(sender: UIButton){
-        guard let placeDetails = placeDetails else { return }
-        
-        if viewMap.automobileDirections.isSelected == true || viewMap.walkingDirections.isSelected == false {
-            getDirections(placeDetails: placeDetails, sender: sender)
-            
-            viewMap.automobileDirections.isSelected = false
-            viewMap.automobileDirections.setImage(UIImage(named : "noAutomobile"), for: .selected)
-            
-            viewMap.automobileLabel.textColor = .black
-            
-            viewMap.walkingDirections.isSelected = true
-            viewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .selected)
-            
-            viewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        } else {
-            getDirections(placeDetails: placeDetails, sender: sender)
-            
-            viewMap.automobileDirections.isSelected = true
-            viewMap.automobileDirections.setImage(UIImage(named : "automobile"), for: .selected)
-            
-            viewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-            
-            viewMap.walkingDirections.isSelected = false
-            viewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-            
-            viewMap.walkingLabel.textColor = .black
-        }
-    }
-    
     private func showAnnotation(placeDetails: PlaceDetails) {
         let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
         DispatchQueue.main.async {

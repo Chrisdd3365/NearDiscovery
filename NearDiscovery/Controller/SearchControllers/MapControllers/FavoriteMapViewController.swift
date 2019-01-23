@@ -37,44 +37,26 @@ class FavoriteMapViewController: UIViewController {
     }
     
     @IBAction func automobileDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        guard let favoritePlace = favoritePlace else { return }
+        getDirections(favoritePlace: favoritePlace, sender: sender)
+        
+        favoriteViewMap.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
+        favoriteViewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        favoriteViewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+        favoriteViewMap.walkingLabel.textColor = .black
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
-        directionsButtonState(sender: sender)
+        guard let favoritePlace = favoritePlace else { return }
+        getDirections(favoritePlace: favoritePlace, sender: sender)
+        
+        favoriteViewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
+        favoriteViewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        favoriteViewMap.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
+        favoriteViewMap.automobileLabel.textColor = .black
     }
     
     //MARK: - Methods
-    private func directionsButtonState(sender: UIButton){
-         guard let favoritePlace = favoritePlace else { return }
-        
-        if favoriteViewMap.automobileDirections.isSelected == true || favoriteViewMap.walkingDirections.isSelected == false        {
-            getDirections(favoritePlace: favoritePlace, sender: sender)
-            
-            favoriteViewMap.automobileDirections.isSelected = false
-            favoriteViewMap.automobileDirections.setImage(UIImage(named : "noAutomobile"), for: .selected)
-            
-            favoriteViewMap.automobileLabel.textColor = .black
-            
-            favoriteViewMap.walkingDirections.isSelected = true
-            favoriteViewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .selected)
-            
-            favoriteViewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        } else {
-            getDirections(favoritePlace: favoritePlace, sender: sender)
-            
-            favoriteViewMap.automobileDirections.isSelected = true
-            favoriteViewMap.automobileDirections.setImage(UIImage(named : "automobile"), for: .selected)
-            
-            favoriteViewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-            
-            favoriteViewMap.walkingDirections.isSelected = false
-            favoriteViewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-            
-            favoriteViewMap.walkingLabel.textColor = .black
-        }
-    }
-    
     private func showFavoriteAnnotation(favoritePlace: Favorite) {
         let placeMarker = PlaceMarker(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, name: favoritePlace.name ?? "No Name")
         DispatchQueue.main.async {
