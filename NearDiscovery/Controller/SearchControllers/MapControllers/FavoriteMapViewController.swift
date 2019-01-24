@@ -29,6 +29,7 @@ class FavoriteMapViewController: UIViewController {
         setupCoreLocation()
         guard let favoritePlace = favoritePlace else { return }
         showFavoriteAnnotation(favoritePlace: favoritePlace)
+        setNavigationItemTitle(title: "Discover")
     }
 
     //MARK: - Actions
@@ -157,6 +158,11 @@ extension FavoriteMapViewController: CLLocationManagerDelegate {
 
 //MARK: - MapViewDelegate's methods
 extension FavoriteMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        mapView.userTrackingMode = .followWithHeading
+    }
+    
+    
     //POLYLINE
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)

@@ -62,6 +62,9 @@ class PlaceDetailsViewController: UIViewController {
         if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
             let mapVC = segue.destination as? MapViewController {
             mapVC.placeDetails = placeDetails
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
         }
     }
     

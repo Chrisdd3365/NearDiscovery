@@ -14,7 +14,7 @@ class MapViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var viewMap: MapView!
-    
+        
     //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails?
@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
         setupCoreLocation()
         guard let placeDetails = placeDetails else { return }
         showAnnotation(placeDetails: placeDetails)
+        setNavigationItemTitle(title: "Discover")
     }
     
     //MARK: - Actions    
@@ -146,6 +147,7 @@ extension MapViewController  {
 
 //MARK: - CoreLocationManagerDelegate's methods
 extension MapViewController: CLLocationManagerDelegate {
+    //USER LOCATION
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -157,6 +159,11 @@ extension MapViewController: CLLocationManagerDelegate {
 
 //MARK: - MapViewDelegate's methods
 extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        mapView.userTrackingMode = .followWithHeading
+    }
+    
+    
     //POLYLINE
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)

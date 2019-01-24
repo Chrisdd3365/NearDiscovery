@@ -20,6 +20,7 @@ class MarkedLocationsMapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeMarker: PlaceMarker?
     var placesMarkers: [PlaceMarker] = []
+    var regionHasBeenCentered = false
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     var locations = Location.all
@@ -30,6 +31,7 @@ class MarkedLocationsMapViewController: UIViewController {
         showAnnotations(locations: locations)
         setNavigationItemTitle(title: "Marked Locations")
         locationsCollectionView.reloadData()
+        setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,7 @@ class MarkedLocationsMapViewController: UIViewController {
         setTabBarControllerItemBadgeValue(index: 1)
         locations = Location.all
         locationsCollectionView.reloadData()
+        secureDirectionsButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +54,7 @@ class MarkedLocationsMapViewController: UIViewController {
         convertLocationIntoCLLocation()
         creationCorde()
         allPathing(sender: sender)
+        secureDirectionsButtons()
         
         markedLocationView.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
         markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
@@ -62,6 +66,7 @@ class MarkedLocationsMapViewController: UIViewController {
         convertLocationIntoCLLocation()
         creationCorde()
         allPathing(sender: sender)
+        secureDirectionsButtons()
         
         markedLocationView.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
         markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
@@ -74,6 +79,20 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func secureDirectionsButtons() {
+        if locations.isEmpty == true  {
+            markedLocationView.automobileDirections.isEnabled = false
+            markedLocationView.walkingDirections.isEnabled = false
+            markedLocationView.automobileLabel.textColor = .gray
+            markedLocationView.walkingLabel.textColor = .gray
+        } else {
+            markedLocationView.automobileDirections.isEnabled = true
+            markedLocationView.walkingDirections.isEnabled = true
+            markedLocationView.automobileLabel.textColor = .black
+            markedLocationView.walkingLabel.textColor = .black
+        }
+    }
+    
     private func showAnnotations(locations: [Location]) {
         for location in locations {
             let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "")
@@ -287,12 +306,20 @@ class MarkedLocationsMapViewController: UIViewController {
     private func addUserLocationInLocationsArray(userLocation: CLLocation) {
         nodes.append(userLocation)
     }
+    
+    lazy var collectionView: UICollectionView = {
+        locationsCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
+        return locationsCollectionView
+    }()
+    
+    
 }
 
 extension MarkedLocationsMapViewController: CLLocationManagerDelegate {
     //USER LOCATION
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
+        if !regionHasBeenCentered {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: false)
@@ -301,11 +328,19 @@ extension MarkedLocationsMapViewController: CLLocationManagerDelegate {
         } else {
             nodes[0] = location
         }
-        locationManager.stopUpdatingLocation()
+            regionHasBeenCentered = true
+        }
+        //locationManager.stopUpdatingLocation()
     }
 }
 
 extension MarkedLocationsMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        mapView.userTrackingMode = .followWithHeading
+    }
+    
+    
+    
     //ZOOM ON USER LOCATION
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         if let userLocation = locationManager.location?.coordinate {
@@ -352,7 +387,7 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = locationsCollectionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.identifier, for: indexPath) as? LocationCollectionViewCell else {
+        guard let cell = locationsCollectionView.dequeueReusableCell(withReuseIdentifier: "LocationCollectionViewCell", for: indexPath) as? LocationCollectionViewCell else {
             return UICollectionViewCell() }
 
         let location = locations[indexPath.row]
@@ -369,8 +404,29 @@ extension MarkedLocationsMapViewController: UICollectionViewDelegate {
             if annotation.coordinate.latitude == location.latitude && annotation.coordinate.longitude == location.longitude {
                 locationsCollectionView.reloadData()
                 mapView.reloadInputViews()
-                mapView.selectAnnotation(annotation, animated: false)
+                mapView.selectAnnotation(annotation, animated: true)
             }
         }
+    }
+}
+
+extension MarkedLocationsMapViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (kind == UICollectionView.elementKindSectionFooter) {
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCollectionReusableView.identifier, for: indexPath) as! FooterCollectionReusableView
+            return footerView
+        }
+        fatalError()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return locations.isEmpty ? CGSize(width: view.frame.width, height: 100) : CGSize(width: 0, height: 0)
+    }
+}
+
+extension MarkedLocationsMapViewController {
+    private func setConstraints() {
+        view.addSubview(collectionView)
+        collectionView.setAnchors(top: locationsCollectionView.safeTopAnchor, leading: locationsCollectionView.safeLeadingAnchor, bottom: locationsCollectionView.bottomAnchor, trailing: locationsCollectionView.safeTrailingAnchor)
     }
 }

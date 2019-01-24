@@ -24,10 +24,12 @@
         <scene sceneID="FZ1-KY-EbL">
             <objects>
                 <navigationController id="K1i-gj-RQo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="tZN-UF-jGq"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="searchTabBarIcon" id="tZN-UF-jGq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="94c-Vi-UUo">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="a2z-XI-xj9" kind="relationship" relationship="rootViewController" id="rvj-IQ-QK0"/>
@@ -111,7 +113,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kZR-ZI-byA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="K1i-gj-RQo" kind="relationship" relationship="viewControllers" id="uwY-JT-HWW"/>
@@ -421,7 +426,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50.5" height="63"/>
                                                         <state key="normal" image="discover"/>
                                                         <connections>
-                                                            <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showLocationOnMapSegue" id="MIZ-lF-tq2"/>
+                                                            <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showLocationOnMapSegue" id="BtR-oO-7p0"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dut-nG-Xlx">
@@ -497,6 +502,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9uO-7q-f04" firstAttribute="top" secondItem="e5l-jV-5H0" secondAttribute="top" id="gIL-xZ-YPt"/>
                             <constraint firstItem="9uO-7q-f04" firstAttribute="leading" secondItem="e5l-jV-5H0" secondAttribute="leading" id="hOj-FE-5aj"/>
@@ -660,7 +666,7 @@
         <scene sceneID="Ajo-7j-Ndy">
             <objects>
                 <navigationController id="Ruc-cb-E2p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" id="tyW-Wf-h0f"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="noMarkedLocation" id="tyW-Wf-h0f"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwu-w1-y8l">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -687,7 +693,7 @@
                                     <constraint firstAttribute="height" constant="310" id="ARc-iA-UFq"/>
                                 </constraints>
                             </mapView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-81-ZEL">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-81-ZEL">
                                 <rect key="frame" x="0.0" y="375" width="320" height="144"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1481,10 +1487,12 @@
         <scene sceneID="rde-YH-X6h">
             <objects>
                 <navigationController id="XhC-nV-K7v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" id="5al-Az-SWS"/>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="favoriteTabBarIcon" id="5al-Az-SWS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qfv-HC-SzL">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="mcF-tB-qwI" kind="relationship" relationship="rootViewController" id="Nab-LX-Az7"/>
@@ -1499,6 +1507,7 @@
         <image name="center" width="44" height="44"/>
         <image name="discover" width="47" height="63"/>
         <image name="favorite" width="31" height="27"/>
+        <image name="favoriteTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="homebuttonimage" width="346" height="346"/>
         <image name="noAutomobile" width="48" height="48"/>
         <image name="noFavorite" width="31" height="27"/>
@@ -1506,6 +1515,7 @@
         <image name="noWalking" width="384" height="384"/>
         <image name="phone" width="27" height="27"/>
         <image name="safari" width="26" height="26"/>
+        <image name="searchTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="share" width="25" height="26"/>
     </resources>
 </document>
