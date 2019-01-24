@@ -85,7 +85,7 @@ extension FavoritesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Hit the favorite button to add a place in your favorite list!"
+        label.text = "Hit the 'Favorite' Button to add a place in your favorite list!"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 0
         label.textAlignment = .center

@@ -40,6 +40,10 @@ struct Constants {
         static let showFavoritePlaceDetailsSegue = "showFavoritePlaceDetailsSegue"
         static let showFavoriteLocationOnMapSegue = "showFavoriteLocationOnMapSegue"
     }
+    
+    struct AnnotationsIdentifiers {
+        static let placeMarkerIdentifier = "PlaceMarker"
+    }
 }
 
 

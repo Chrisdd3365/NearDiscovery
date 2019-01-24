@@ -94,7 +94,7 @@ class PlaceDetailsViewController: UIViewController {
             let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         } else {
-            showAlert(title: "Sorry", message: "No website to share for this place!")
+            showAlert(title: "Sorry!", message: "I have no Google Maps Link for you to share!")
         }
     }
     
@@ -107,7 +107,7 @@ class PlaceDetailsViewController: UIViewController {
             guard let url = URL(string: placeDetails.website ?? "") else { return }
             UIApplication.shared.open(url)
         } else {
-            showAlert(title: "Sorry", message: "No website available for this place!")
+            showAlert(title: "Sorry!", message: "I have no Website to show you!")
         }
     }
 }
@@ -132,12 +132,12 @@ extension PlaceDetailsViewController {
                 locations = Location.all
                 
             } else {
-                showAlert(title: "Sorry", message: "Maximum reached!")
+                showAlert(title: "Sorry!", message: "You've reached the maximum amount of Marked Locations!")
                 tabItem.badgeValue = nil
             }
         } else {
             locations = Location.all
-            showAlert(title: "Sorry", message: "You already add this location into the list!")
+            showAlert(title: "Sorry!", message: "You've already marked this location on the map!")
             tabItem.badgeValue = nil
         }
     }
@@ -180,7 +180,7 @@ extension PlaceDetailsViewController {
             favorites = Favorite.all
         } else {
             favorites = Favorite.all
-            showAlert(title: "Sorry", message: "You already add this place into the favorite list!")
+            showAlert(title: "Sorry!", message: "You've already added this place into the favorite list!")
             tabItem.badgeValue = nil
         }
     }

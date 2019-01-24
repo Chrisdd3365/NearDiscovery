@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  NearDiscovery
+
+  Created by Christophe DURAND on 24/01/2019.
+  Copyright © 2019 Christophe DURAND. All rights reserved.
+*/
+
+//MARK: - In Common
+"NearDiscovery" = "NearDiscovery";
+"Sorry!" = "Sorry!";
+"Back" = "Back";
+"Call" = "Call";
+"Share" = "Share";
+"Favorite" = "Favorite";
+"Website" = "Website";
+"Open" = "Open";
+"Close" = "Close";
+"Discover" = "Discover";
+"Automobile" = "Automobile";
+"Walking" = "Walking";
+"OK" = "OK";
+"No routes available!" = "No routes available!";
+"Hey! Check out this place!" = "Hey! Check out this place!";
+"I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";
+"I have no Website to show you!" = "I have no Website to show you!";
+"You've reached the maximum amount of Marked Locations!" = "You've reached the maximum amount of Marked Locations!";
+"You've already marked this location on the map!" = "You've already marked this location on the map!";
+"You've already added this place into the favorite list!" = "You've already added this place into the favorite list!";
+
+//MARK: - HomePageView
+"What do you want to discover?" = "What do you want to discover?";
+"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
+"Location Services not enabled!" = "Location Services not enabled!";
+"I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
+
+//MARK: - NearbyPlacesListView
+"List of Nearby Places to Visit" = "List of Nearby Places to Visit";
+"I'm not able to show you details for now! Try again!" = "I'm not able to show you details for now! Try again!";
+
+//MARK: - PlaceDetailsView
+"Place's Details" = "Place's Details";
+
+//MARK: MarkedLocationView
+"Marked Locations" = "Marked Locations";
+"Hit the 'Marked Location' Button to add the location into the list!" = "Hit the 'Marked Location' Button to add the location into the list!";
+
+//MARK: - FavoritesListView
+"List of Favorites Places" = "List of Favorites Places";
+"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hit the 'Favorite' Button to add a place in your favorite list!";
+
+//MARK: - FavoritePlaceDetailsView
+"Favorite Place's Details" = "Favorite Place's Details";
+"No Name" = "No Name";

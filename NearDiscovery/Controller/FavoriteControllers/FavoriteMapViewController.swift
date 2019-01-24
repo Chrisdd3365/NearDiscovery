@@ -1,8 +1,8 @@
 //
-//  MapViewController.swift
+//  FavoriteMapViewController.swift
 //  NearDiscovery
 //
-//  Created by Christophe DURAND on 03/01/2019.
+//  Created by Christophe DURAND on 21/01/2019.
 //  Copyright © 2019 Christophe DURAND. All rights reserved.
 //
 
@@ -10,57 +10,56 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class FavoriteMapViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet var viewMap: MapView!
-        
+    @IBOutlet var favoriteViewMap: FavoriteMapView!
+    
     //MARK: - Properties
     var locationManager = CLLocationManager()
-    var placeDetails: PlaceDetails?
     var placeMarker: PlaceMarker?
-    var locations = Location.all
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
+    var favoritePlace: Favorite?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
         setupCoreLocation()
-        guard let placeDetails = placeDetails else { return }
-        showAnnotation(placeDetails: placeDetails)
+        guard let favoritePlace = favoritePlace else { return }
+        showFavoriteAnnotation(favoritePlace: favoritePlace)
         setNavigationItemTitle(title: "Discover")
     }
-    
-    //MARK: - Actions    
-    @IBAction func centerUserButton(_ sender: UIButton) {
+
+    //MARK: - Actions
+    @IBAction func centerOnUserLocation(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
     
     @IBAction func automobileDirections(_ sender: UIButton) {
-        guard let placeDetails = placeDetails else { return }
-        getDirections(placeDetails: placeDetails, sender: sender)
+        guard let favoritePlace = favoritePlace else { return }
+        getDirections(favoritePlace: favoritePlace, sender: sender)
         
-        viewMap.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
-        viewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        viewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-        viewMap.walkingLabel.textColor = .black
+        favoriteViewMap.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
+        favoriteViewMap.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        favoriteViewMap.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+        favoriteViewMap.walkingLabel.textColor = .black
     }
     
     @IBAction func walkingDirections(_ sender: UIButton) {
-        guard let placeDetails = placeDetails else { return }
-        getDirections(placeDetails: placeDetails, sender: sender)
+        guard let favoritePlace = favoritePlace else { return }
+        getDirections(favoritePlace: favoritePlace, sender: sender)
         
-        viewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
-        viewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        viewMap.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
-        viewMap.automobileLabel.textColor = .black
+        favoriteViewMap.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
+        favoriteViewMap.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        favoriteViewMap.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
+        favoriteViewMap.automobileLabel.textColor = .black
     }
     
     //MARK: - Methods
-    private func showAnnotation(placeDetails: PlaceDetails) {
-        let placeMarker = PlaceMarker(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, name: placeDetails.name)
+    private func showFavoriteAnnotation(favoritePlace: Favorite) {
+        let placeMarker = PlaceMarker(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, name: favoritePlace.name ?? "No Name")
         DispatchQueue.main.async {
             self.mapView.addAnnotation(placeMarker)
         }
@@ -79,16 +78,16 @@ class MapViewController: UIViewController {
 }
 
 //MARK: - Display 'Directions' methods
-extension MapViewController  {
-    private func getDestinationCoordinate(placeDetails: PlaceDetails) -> CLLocation {
-        let latitude = placeDetails.geometry.location.latitude
-        let longitude = placeDetails.geometry.location.longitude
+extension FavoriteMapViewController  {
+    private func getDestinationCoordinate(favoritePlace: Favorite) -> CLLocation {
+        let latitude = favoritePlace.latitude
+        let longitude = favoritePlace.longitude
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
-
-    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, placeDetails: PlaceDetails, sender: UIButton) -> MKDirections.Request {
-        let destinationCoordinate = getDestinationCoordinate(placeDetails: placeDetails).coordinate
+    
+    private func createDirectionsRequest(from coordinate: CLLocationCoordinate2D, favoritePlace: Favorite, sender: UIButton) -> MKDirections.Request {
+        let destinationCoordinate = getDestinationCoordinate(favoritePlace: favoritePlace).coordinate
         let startingLocation = MKPlacemark(coordinate: coordinate)
         let destination = MKPlacemark(coordinate: destinationCoordinate)
         
@@ -97,27 +96,27 @@ extension MapViewController  {
         request.destination = MKMapItem(placemark: destination)
         request.requestsAlternateRoutes = true
         request.transportType = switchTransportType(request: request, sender: sender)
-    
+        
         return request
     }
     
-    private func getDirections(placeDetails: PlaceDetails, sender: UIButton) {
+    private func getDirections(favoritePlace: Favorite, sender: UIButton) {
         guard let location = locationManager.location?.coordinate else { return }
-        let request = createDirectionsRequest(from: location, placeDetails: placeDetails, sender: sender)
+        let request = createDirectionsRequest(from: location, favoritePlace: favoritePlace, sender: sender)
         let directions = MKDirections(request: request)
         resetMapView(directions: directions)
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Error", message: "No routes available for now!")
+                self.showAlert(title: "Sorry!", message: "No routes available!")
                 return }
             
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
-                self.viewMap.expectedTimeTravelLabel.text = String(format: "%2.f", time) + " min"
+                self.favoriteViewMap.expectedTimeTravelLabel.text = String(format: "%2.f", time) + " min"
                 
                 let distance = route.distance / 1000
-                self.viewMap.distanceLabel.text = String(format: "%.2f", distance) + " km"
+                self.favoriteViewMap.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
@@ -146,8 +145,8 @@ extension MapViewController  {
 }
 
 //MARK: - CoreLocationManagerDelegate's methods
-extension MapViewController: CLLocationManagerDelegate {
-    //USER LOCATION
+extension FavoriteMapViewController: CLLocationManagerDelegate {
+    //UPDATE USER LOCATION
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -158,7 +157,7 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 //MARK: - MapViewDelegate's methods
-extension MapViewController: MKMapViewDelegate {
+extension FavoriteMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         mapView.userTrackingMode = .followWithHeading
     }
@@ -177,16 +176,16 @@ extension MapViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         }
-
+        
         if let placeAnnotation = annotation as? PlaceMarker {
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceMarker") as? MKMarkerAnnotationView
-
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.AnnotationsIdentifiers.placeMarkerIdentifier) as? MKMarkerAnnotationView
+            
             if annotationView == nil {
-                annotationView = MKMarkerAnnotationView(annotation: placeAnnotation, reuseIdentifier: "PlaceMarker")
+                annotationView = MKMarkerAnnotationView(annotation: placeAnnotation, reuseIdentifier: Constants.AnnotationsIdentifiers.placeMarkerIdentifier)
             } else {
                 annotationView?.annotation = annotation
             }
-
+            
             annotationView?.canShowCallout = true
             annotationView?.glyphText = "↓"
             annotationView?.markerTintColor = UIColor(displayP3Red: 0.082, green: 0.518, blue: 0.263, alpha: 1.0)
@@ -195,4 +194,3 @@ extension MapViewController: MKMapViewDelegate {
         return nil
     }
 }
-

@@ -182,7 +182,6 @@ class MarkedLocationsMapViewController: UIViewController {
         var currentNode = nodes[0]
         
         path.append(currentNode)
-        print("début calcul path:")
         var sumDistance: Double = 0
         
         while path.count < nodes.count  {
@@ -221,7 +220,6 @@ class MarkedLocationsMapViewController: UIViewController {
         while path.count < nodes.count  {
             print(currentNode.coordinate)
             var nodeSons = findSon(currentNode: currentNode, path: path)
-            print("check better path: \(nodeSons)")
             var bestSon = nodeSons[0]
             var minCout = getCout(node1: currentNode, node2: bestSon)
             for son in nodeSons {
@@ -260,7 +258,7 @@ class MarkedLocationsMapViewController: UIViewController {
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Error", message: "no routes available for now!")
+                self.showAlert(title: "Sorry!", message: "No routes available!")
                 return }
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
@@ -290,9 +288,6 @@ class MarkedLocationsMapViewController: UIViewController {
     
     private func allPathing(sender: UIButton) {
         var path = getPath()
-        print(path.count)
-        print(nodes.count)
-        print(cordes.count)
         for i in 0...path.count - 2 {
             getPathing(from: path[i], to: path[i+1], sender: sender)
         }
@@ -330,7 +325,6 @@ extension MarkedLocationsMapViewController: CLLocationManagerDelegate {
         }
             regionHasBeenCentered = true
         }
-        //locationManager.stopUpdatingLocation()
     }
 }
 
@@ -364,10 +358,10 @@ extension MarkedLocationsMapViewController: MKMapViewDelegate {
 
         if let placeAnnotation = annotation as? PlaceMarker {
 
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceMarker") as? MKMarkerAnnotationView
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.AnnotationsIdentifiers.placeMarkerIdentifier) as? MKMarkerAnnotationView
 
             if annotationView == nil {
-                annotationView = MKMarkerAnnotationView(annotation: placeAnnotation, reuseIdentifier: "PlaceMarker")
+                annotationView = MKMarkerAnnotationView(annotation: placeAnnotation, reuseIdentifier: Constants.AnnotationsIdentifiers.placeMarkerIdentifier)
             } else {
                 annotationView?.annotation = annotation
             }

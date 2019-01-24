@@ -63,13 +63,12 @@ extension HomePageViewController {
         let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
         
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: userLocation) { (success, places) in
-            print(keyword)
             self.toggleActivityIndicator(shown: true)
             if success {
                 self.toggleActivityIndicator(shown: false)
                 self.places = places.results
             } else {
-                self.showAlert(title: "Error", message: "Google places API datas download failed!")
+                self.showAlert(title: "Sorry!", message: "I couldn't find what you want to discover for you!")
             }
         }
     }
@@ -105,7 +104,7 @@ extension HomePageViewController {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
         } else {
-            showAlert(title: "Error! Location Services not enabled!", message: "We need your authorization!")
+            showAlert(title: "Location Services not enabled!", message: "I need your authorization to show you cool places!")
         }
     }
 

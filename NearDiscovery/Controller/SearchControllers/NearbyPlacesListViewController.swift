@@ -50,7 +50,7 @@ extension NearbyPlacesListViewController {
                 self.placeDetails = placeDetails.result
                 self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
             } else {
-                self.showAlert(title: "Error", message: "Google places API datas download failed!")
+                self.showAlert(title: "Sorry!", message: "I'm not able to show you details for now! Try again!")
             }
         }
     }

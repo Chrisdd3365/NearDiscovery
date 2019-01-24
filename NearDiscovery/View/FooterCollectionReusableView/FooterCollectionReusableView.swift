@@ -11,7 +11,7 @@ import UIKit
 class FooterCollectionReusableView: UICollectionReusableView {
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Hit the 'Marked Location' Button to add the location into the list."
+        label.text = "Hit the 'Marked Location' Button to add the location into the list!"
         label.numberOfLines = 4
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .lightGray
