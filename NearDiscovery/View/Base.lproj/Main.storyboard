@@ -50,8 +50,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-cZ-b7C">
                                 <rect key="frame" x="0.0" y="-24" width="320" height="626"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NearDiscovery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7d-TD-oQC">
-                                <rect key="frame" x="48" y="73" width="143" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NearDiscovery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7d-TD-oQC">
+                                <rect key="frame" x="48" y="73" width="257" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RXY-Ym-HtK"/>
                                 </constraints>
@@ -73,18 +73,28 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-2N-ZGe">
                                 <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ztE-ox-Kxj">
+                                <rect key="frame" x="15" y="213" width="290" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3jw-2N-ZGe" firstAttribute="top" secondItem="ztE-ox-Kxj" secondAttribute="bottom" constant="22.5" id="6vH-uX-2VH"/>
                             <constraint firstItem="x7d-TD-oQC" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" constant="53" id="7It-qN-YoP"/>
                             <constraint firstItem="3jw-2N-ZGe" firstAttribute="centerX" secondItem="2xK-W5-OTr" secondAttribute="centerX" id="9H1-Xg-YJl"/>
+                            <constraint firstItem="ztE-ox-Kxj" firstAttribute="top" secondItem="x7d-TD-oQC" secondAttribute="bottom" constant="100" id="ERk-lk-qhe"/>
                             <constraint firstItem="KCE-cZ-b7C" firstAttribute="trailing" secondItem="UFc-1V-NPa" secondAttribute="trailing" id="Fks-n9-CIy"/>
                             <constraint firstItem="UFc-1V-NPa" firstAttribute="bottom" secondItem="wDb-sa-Qom" secondAttribute="bottom" constant="190" id="FxJ-Sw-uH9"/>
+                            <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="ztE-ox-Kxj" secondAttribute="trailing" constant="15" id="Ict-lx-RQy"/>
                             <constraint firstItem="KCE-cZ-b7C" firstAttribute="bottom" secondItem="UFc-1V-NPa" secondAttribute="bottom" constant="34" id="SIT-4D-sc6"/>
                             <constraint firstItem="x7d-TD-oQC" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" constant="48" id="XPs-GR-Als"/>
                             <constraint firstItem="KCE-cZ-b7C" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" constant="-44" id="bOU-Cp-A44"/>
                             <constraint firstItem="3jw-2N-ZGe" firstAttribute="centerY" secondItem="2xK-W5-OTr" secondAttribute="centerY" id="eNp-1y-ATP"/>
-                            <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="x7d-TD-oQC" secondAttribute="trailing" constant="129" id="eQl-wX-hAj"/>
+                            <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="x7d-TD-oQC" secondAttribute="trailing" constant="15" id="eQl-wX-hAj"/>
+                            <constraint firstItem="ztE-ox-Kxj" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" constant="15" id="f4F-fJ-irM"/>
                             <constraint firstItem="KCE-cZ-b7C" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" id="s6S-Ht-NJ1"/>
                             <constraint firstItem="wDb-sa-Qom" firstAttribute="centerX" secondItem="2xK-W5-OTr" secondAttribute="centerX" id="vaV-oQ-vp5"/>
                         </constraints>
@@ -94,6 +104,7 @@
                             <outlet property="backgroundImageView" destination="KCE-cZ-b7C" id="IXN-BA-Snb"/>
                             <outlet property="nearDiscoveryLabel" destination="x7d-TD-oQC" id="TDW-6V-slp"/>
                             <outlet property="nearbyDiscoveryButton" destination="wDb-sa-Qom" id="TT5-BQ-nOi"/>
+                            <outlet property="searchTextField" destination="ztE-ox-Kxj" id="wi0-IY-SBE"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="yeN-sA-71b"/>
@@ -103,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuu-gj-FIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2702" y="-137"/>
+            <point key="canvasLocation" x="-2703.75" y="-137.32394366197184"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RWJ-fy-T0V">

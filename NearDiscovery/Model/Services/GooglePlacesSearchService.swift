@@ -42,6 +42,7 @@ class GooglePlacesSearchService {
     //API CALL
     func getGooglePlacesSearchData(keyword: String, location: CLLocation, callback: @escaping (Bool, GooglePlacesSearchResponse) -> Void) {
         guard let url = URL(string: googlePlacesSearchURL(location: location, keyword: keyword)) else { return }
+        print(url)
         task?.cancel()
         task = googlePlacesSearchSession.dataTask(with: url) { data, response, error in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

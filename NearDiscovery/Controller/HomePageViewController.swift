@@ -31,9 +31,22 @@ class HomePageViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func toggleActivityIndicatorAndNearbyDiscoveryButton(shown: Bool) {
+    private func toggleActivityIndicator(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown
         homePageView.nearbyDiscoveryButton.isEnabled = !shown
+    }
+    
+    private func keywordTextField() -> String {
+        var keyword = ""
+        guard let inputs = homePageView.searchTextField.text else { return "" }
+        keyword = inputs
+        return keyword
+    }
+    
+    //Method to dismiss keyboard by tapping anywhere on the screen
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        fetchGooglePlacesData(keyword: keywordTextField())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,12 +59,14 @@ class HomePageViewController: UIViewController {
 
 //MARK: - API Fetch Google Places Search Data method
 extension HomePageViewController {
-    private func fetchGooglePlacesData(location: CLLocation) {
-        let keyword = "restaurant"
-        googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: location) { (success, places) in
-            self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: true)
+    private func fetchGooglePlacesData(keyword: String) {
+        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
+        
+        googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: userLocation) { (success, places) in
+            print(keyword)
+            self.toggleActivityIndicator(shown: true)
             if success {
-                self.toggleActivityIndicatorAndNearbyDiscoveryButton(shown: false)
+                self.toggleActivityIndicator(shown: false)
                 self.places = places.results
             } else {
                 self.showAlert(title: "Error", message: "Google places API datas download failed!")
@@ -118,24 +133,8 @@ extension HomePageViewController {
 
 //MARK: - CoreLocationManagerDelegate's methods
 extension HomePageViewController: CLLocationManagerDelegate {
-    //GET USER LOCATION
-   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        let userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        if didFindUserLocation == false {
-            didFindUserLocation = true
-            locationManager.stopUpdatingLocation()
-        }
-        //API CALL
-        fetchGooglePlacesData(location: userLocation)
-    }
     //AUTHORIZER TO LOCATE USER
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         getUserLocationAuthorizationStatus()
     }
 }
-    
-    
-    
-
-
