@@ -37,7 +37,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVI-d9-Glj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1063" y="-461"/>
+            <point key="canvasLocation" x="-1063" y="-463"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="7Qn-3P-2E8">
@@ -541,7 +541,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1m-xt-yTW">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p1m-xt-yTW">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OO-oA-DlP">
@@ -701,18 +701,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-4z-xHI">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-4z-xHI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="310"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="310" id="ARc-iA-UFq"/>
+                                    <constraint firstAttribute="height" constant="310" id="ZNw-NU-WxU"/>
                                 </constraints>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-81-ZEL">
                                 <rect key="frame" x="0.0" y="375" width="320" height="144"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="Hq5-Xp-ASg"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="10" id="VzA-IX-3qp">
                                     <size key="itemSize" width="166" height="142.5"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -733,8 +730,8 @@
                                                         <constraint firstAttribute="height" constant="80" id="oS5-32-LOL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHv-O9-Pi2">
-                                                    <rect key="frame" x="114" y="10" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHv-O9-Pi2">
+                                                    <rect key="frame" x="114" y="49" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="SHv-O9-Pi2" secondAttribute="height" multiplier="2:1" id="eG1-dh-cPh"/>
                                                         <constraint firstAttribute="height" constant="21" id="nYm-Zs-Akr"/>
@@ -746,13 +743,13 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Te-7y-sEa">
                                                     <rect key="frame" x="0.0" y="80" width="166" height="62.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TZ-YF-eqN">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TZ-YF-eqN">
                                                             <rect key="frame" x="5" y="37.5" width="156" height="15"/>
                                                             <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbK-bm-F4x">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbK-bm-F4x">
                                                             <rect key="frame" x="5" y="10" width="156" height="18"/>
                                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -769,18 +766,27 @@
                                                         <constraint firstItem="lbK-bm-F4x" firstAttribute="centerX" secondItem="6Te-7y-sEa" secondAttribute="centerX" id="ia0-SH-R1P"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="pSP-V7-q1i">
+                                                    <rect key="frame" x="136" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="pSP-V7-q1i" secondAttribute="height" multiplier="1:1" id="AF6-xc-Rpx"/>
+                                                        <constraint firstAttribute="width" constant="20" id="ksK-Rq-zcE"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="XKk-GD-iB0" firstAttribute="top" secondItem="vbl-RK-aEX" secondAttribute="top" id="2OW-k3-igp"/>
-                                            <constraint firstItem="SHv-O9-Pi2" firstAttribute="leading" secondItem="vbl-RK-aEX" secondAttribute="leading" constant="114" id="893-fd-yu4"/>
+                                            <constraint firstAttribute="trailing" secondItem="SHv-O9-Pi2" secondAttribute="trailing" constant="10" id="BoJ-Zh-YjU"/>
+                                            <constraint firstAttribute="trailing" secondItem="pSP-V7-q1i" secondAttribute="trailing" constant="10" id="FBd-sq-tat"/>
                                             <constraint firstItem="6Te-7y-sEa" firstAttribute="leading" secondItem="vbl-RK-aEX" secondAttribute="leading" id="GR0-79-tIe"/>
                                             <constraint firstItem="XKk-GD-iB0" firstAttribute="leading" secondItem="vbl-RK-aEX" secondAttribute="leading" id="O9j-Wc-44v"/>
-                                            <constraint firstAttribute="trailing" secondItem="SHv-O9-Pi2" secondAttribute="trailing" constant="10" id="W0g-JF-PnZ"/>
+                                            <constraint firstItem="SHv-O9-Pi2" firstAttribute="leading" secondItem="vbl-RK-aEX" secondAttribute="leading" constant="114" id="U1h-eP-MYa"/>
                                             <constraint firstAttribute="trailing" secondItem="XKk-GD-iB0" secondAttribute="trailing" id="Ytz-ku-UIc"/>
                                             <constraint firstAttribute="bottom" secondItem="6Te-7y-sEa" secondAttribute="bottom" id="ed4-E5-xlu"/>
+                                            <constraint firstItem="pSP-V7-q1i" firstAttribute="top" secondItem="vbl-RK-aEX" secondAttribute="top" constant="10" id="q5t-4U-I3N"/>
+                                            <constraint firstItem="6Te-7y-sEa" firstAttribute="top" secondItem="SHv-O9-Pi2" secondAttribute="bottom" constant="10" id="s5F-Yw-PsC"/>
                                             <constraint firstAttribute="trailing" secondItem="6Te-7y-sEa" secondAttribute="trailing" id="t0C-yB-Ff6"/>
-                                            <constraint firstItem="SHv-O9-Pi2" firstAttribute="top" secondItem="vbl-RK-aEX" secondAttribute="top" constant="10" id="vQJ-PD-7sR"/>
                                             <constraint firstItem="6Te-7y-sEa" firstAttribute="top" secondItem="XKk-GD-iB0" secondAttribute="bottom" id="z3z-KD-vcg"/>
                                         </constraints>
                                         <connections>
@@ -788,6 +794,7 @@
                                             <outlet property="locationImageView" destination="XKk-GD-iB0" id="Tvg-tT-yBG"/>
                                             <outlet property="locationNameLabel" destination="lbK-bm-F4x" id="Nbp-IN-phO"/>
                                             <outlet property="locationOpenStateLabel" destination="SHv-O9-Pi2" id="mXy-ZI-XF9"/>
+                                            <outlet property="selectionImage" destination="pSP-V7-q1i" id="aBL-eo-U2a"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -933,11 +940,23 @@
                             <outlet property="walkingLabel" destination="1Rv-sQ-cKo" id="W1d-vn-mGl"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="87l-Ye-WxW"/>
+                    <navigationItem key="navigationItem" id="87l-Ye-WxW">
+                        <barButtonItem key="rightBarButtonItem" id="Wgj-6G-Nd5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="s8H-HI-g28">
+                                <rect key="frame" x="256" y="0.0" width="48" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="clearAllLocation"/>
+                                <connections>
+                                    <action selector="removeAllLocations:" destination="bEq-d1-8I4" eventType="touchUpInside" id="bYI-qV-G44"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="locationsCollectionView" destination="iJw-81-ZEL" id="pqA-G1-pXY"/>
                         <outlet property="mapView" destination="5b3-4z-xHI" id="jc7-tW-33A"/>
                         <outlet property="markedLocationView" destination="x85-lP-yMW" id="xRo-TH-Vf5"/>
+                        <outlet property="removeAllLocationsButton" destination="s8H-HI-g28" id="exb-vH-4gA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fD-re-pLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1361,7 +1380,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Pc-Oe-K2C">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Pc-Oe-K2C">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yH-b5-EV4">
@@ -1518,7 +1537,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Unchecked" width="22" height="22"/>
         <image name="center" width="44" height="44"/>
+        <image name="clearAllLocation" width="48" height="48"/>
         <image name="discover" width="47" height="63"/>
         <image name="favorite" width="31" height="27"/>
         <image name="favoriteTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>

@@ -16,4 +16,9 @@ class MarkedLocationView: UIView {
     @IBOutlet weak var walkingDirections: UIButton!
     @IBOutlet weak var automobileLabel: UILabel!
     @IBOutlet weak var walkingLabel: UILabel!
+    
+    @IBAction func removeLocation(_ sender: UIButton) {
+        
+        
+    }
 }

@@ -41,7 +41,7 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
             
             discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
             
-            scheduleTextView.text = convertDetailedFavoritePlaceSchedule(schedule: favoritePlaceScrollViewConfigure?.schedule ?? "No Schedule Available")
+            scheduleTextView.text = convertDetailedFavoritePlaceSchedule(schedule: favoritePlaceScrollViewConfigure?.schedule ?? "No Schedule Available.")
         }
     }
     //MARK: - Method

@@ -16,6 +16,8 @@ class MarkedLocationsMapViewController: UIViewController {
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet var markedLocationView: MarkedLocationView!
     
+    @IBOutlet weak var removeAllLocationsButton: UIButton!
+    
     //MARK: - Properties
     var locationManager = CLLocationManager()
     var placeMarker: PlaceMarker?
@@ -32,6 +34,8 @@ class MarkedLocationsMapViewController: UIViewController {
         setNavigationItemTitle(title: "Marked Locations")
         locationsCollectionView.reloadData()
         setConstraints()
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +51,19 @@ class MarkedLocationsMapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         showAnnotations(locations: locations)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        removeAllLocationsButton.isEnabled = !editing
+        locationsCollectionView.allowsMultipleSelection = editing
+        let indexPaths = locationsCollectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = locationsCollectionView.cellForItem(at: indexPath) as! LocationCollectionViewCell
+            
+            cell.isEditing = editing
+        }
+        
     }
     
     //MARK: - Actions
@@ -77,6 +94,29 @@ class MarkedLocationsMapViewController: UIViewController {
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
+    
+    @IBAction func removeAllLocations(_ sender: UIButton) {
+        locations.removeAll()
+        CoreDataManager.deleteAllLocations()
+        CoreDataManager.saveContext()
+        
+        mapView.removeAnnotations(placesMarkers)
+        mapView.removeOverlays(mapView.overlays)
+
+        mapView.reloadInputViews()
+        locationsCollectionView.reloadData()
+        
+        markedLocationView.automobileDirections.isEnabled = false
+        markedLocationView.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
+        markedLocationView.automobileLabel.textColor = .black
+        
+        markedLocationView.walkingDirections.isEnabled = false
+        markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
+        markedLocationView.walkingLabel.textColor = .black
+    }
+    
+
+    
     
     //MARK: - Methods
     private func secureDirectionsButtons() {
@@ -298,6 +338,7 @@ class MarkedLocationsMapViewController: UIViewController {
         directionsArray.append(directions)
         let _ = directionsArray.map { $0.cancel()}
     }
+    
     private func addUserLocationInLocationsArray(userLocation: CLLocation) {
         nodes.append(userLocation)
     }
@@ -386,6 +427,7 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
 
         let location = locations[indexPath.row]
         cell.locationConfigure = location
+        cell.isEditing = isEditing
         
         return cell
     }
@@ -393,12 +435,14 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
 
 extension MarkedLocationsMapViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let location = locations[indexPath.row]
-        for annotation in mapView.annotations {
-            if annotation.coordinate.latitude == location.latitude && annotation.coordinate.longitude == location.longitude {
-                locationsCollectionView.reloadData()
-                mapView.reloadInputViews()
-                mapView.selectAnnotation(annotation, animated: true)
+        if !isEditing {
+            let location = locations[indexPath.row]
+            for annotation in mapView.annotations {
+                if annotation.coordinate.latitude == location.latitude && annotation.coordinate.longitude == location.longitude {
+                    locationsCollectionView.reloadData()
+                    mapView.reloadInputViews()
+                    mapView.selectAnnotation(annotation, animated: true)
+                }
             }
         }
     }

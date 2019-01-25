@@ -14,6 +14,7 @@ class LocationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var locationAddressLabel: UILabel!
     @IBOutlet weak var locationOpenStateLabel: UILabel!
+    @IBOutlet weak var selectionImage: UIImageView!
     
     //MARK - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
@@ -35,4 +36,19 @@ class LocationCollectionViewCell: UICollectionViewCell {
             locationImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: locationConfigure?.photoReference ?? "")))
         }
     }
+    
+    var isEditing: Bool = false {
+        didSet {
+            selectionImage.isHidden = !isEditing
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isEditing {
+                selectionImage.image = isSelected ? UIImage(named: "Checked") : UIImage(named: "Unchecked")
+            }
+        }
+    }
+    
 }

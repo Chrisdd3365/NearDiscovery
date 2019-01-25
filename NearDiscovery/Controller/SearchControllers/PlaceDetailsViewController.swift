@@ -123,7 +123,7 @@ extension PlaceDetailsViewController {
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
         
         if checkMarkedLocation() == false {
-            if locations.count < 10 {
+            if locations.count < 5 {
                 guard let placeDetails = placeDetails else { return }
                 placeDetailsScrollView.markedLocationButton.setImage(UIImage(named: "markedLocation"), for: .normal)
 

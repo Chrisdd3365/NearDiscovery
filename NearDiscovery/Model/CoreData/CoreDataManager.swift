@@ -21,7 +21,7 @@ class CoreDataManager {
         favorite.phoneNumber = placeDetails?.internationalPhoneNumber
         favorite.website = placeDetails?.website
         favorite.url = placeDetails?.url
-        favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails?.openingHours?.weekdayText ?? ["No Schedule Available"])
+        favorite.schedule = convertIngredientsArrayIntoString(schedule: placeDetails?.openingHours?.weekdayText ?? ["No Schedule Available."])
         favorite.rating = placeDetails?.rating ?? 0.0
         favorite.openNow = placeDetails?.openingHours?.openNow ?? false
         favorite.latitude = placeDetails?.geometry.location.latitude ?? 0.0
@@ -105,8 +105,13 @@ class CoreDataManager {
         }
     }
     
-    static func deleteAll(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+    static func deleteAllLocations(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: Location.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
+    }
+    
+    static func deleteAllFavorites(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Favorite.fetchRequest())
         let _ = try? viewContext.execute(deleteRequest)
     }
 }
