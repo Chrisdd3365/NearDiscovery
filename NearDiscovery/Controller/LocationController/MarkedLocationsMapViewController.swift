@@ -15,12 +15,11 @@ class MarkedLocationsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet var markedLocationView: MarkedLocationView!
-    
+    @IBOutlet weak var deleteLocationButton: UIBarButtonItem!
     @IBOutlet weak var removeAllLocationsButton: UIButton!
     
     //MARK: - Properties
     var locationManager = CLLocationManager()
-    var placeMarker: PlaceMarker?
     var placesMarkers: [PlaceMarker] = []
     var regionHasBeenCentered = false
     let regionInMeters: CLLocationDistance = 1000.0
@@ -34,8 +33,8 @@ class MarkedLocationsMapViewController: UIViewController {
         setNavigationItemTitle(title: "Marked Locations")
         locationsCollectionView.reloadData()
         setConstraints()
-        
         navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +54,7 @@ class MarkedLocationsMapViewController: UIViewController {
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        removeAllLocationsButton.isEnabled = !editing
+        removeAllLocationsButton.isEnabled = editing
         locationsCollectionView.allowsMultipleSelection = editing
         let indexPaths = locationsCollectionView.indexPathsForVisibleItems
         for indexPath in indexPaths {
@@ -63,7 +62,7 @@ class MarkedLocationsMapViewController: UIViewController {
             
             cell.isEditing = editing
         }
-        
+        deleteLocationButton.isEnabled = isEditing
     }
     
     //MARK: - Actions
@@ -100,12 +99,14 @@ class MarkedLocationsMapViewController: UIViewController {
         CoreDataManager.deleteAllLocations()
         CoreDataManager.saveContext()
         
-        mapView.removeAnnotations(placesMarkers)
-        mapView.removeOverlays(mapView.overlays)
-
-        mapView.reloadInputViews()
-        locationsCollectionView.reloadData()
+      
+        placesMarkers.removeAll()
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.removeOverlays(mapView.overlays)
         
+        locationsCollectionView.reloadData()
+
+
         markedLocationView.automobileDirections.isEnabled = false
         markedLocationView.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
         markedLocationView.automobileLabel.textColor = .black
@@ -115,8 +116,30 @@ class MarkedLocationsMapViewController: UIViewController {
         markedLocationView.walkingLabel.textColor = .black
     }
     
-
+    @IBAction func deleteSelectedLocation() {
+        if let selected = locationsCollectionView.indexPathsForSelectedItems {
+            let items = selected.map { $0.item }.sorted().reversed()
+            for item in items {
+                locations.remove(at: item)
+                removeSpecificAnnotation()
+            }
+            locationsCollectionView.deleteItems(at: selected)
+        }
+    }
     
+    private func removeSpecificAnnotation() {
+        for annotation in mapView.annotations {
+            if let title = annotation.title {
+                for location in locations {
+                    if location.latitude == annotation.coordinate.latitude,
+                        location.longitude == annotation.coordinate.longitude,
+                        location.name == title {
+                        mapView.removeAnnotation(annotation)
+                    }
+                }
+            }
+        }
+    }
     
     //MARK: - Methods
     private func secureDirectionsButtons() {

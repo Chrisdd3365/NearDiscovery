@@ -174,6 +174,7 @@
                                                         <constraint firstAttribute="height" constant="31" id="k5q-6w-hlL"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pz-P9-DmL">
@@ -297,7 +298,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="gfA-Sj-hxe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxq-fO-YK7" customClass="CosmosView" customModule="Cosmos">
@@ -703,13 +704,13 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5b3-4z-xHI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="310"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="310" id="ZNw-NU-WxU"/>
-                                </constraints>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-81-ZEL">
                                 <rect key="frame" x="0.0" y="375" width="320" height="144"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="tSM-t3-oCK"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="10" id="VzA-IX-3qp">
                                     <size key="itemSize" width="166" height="142.5"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -737,7 +738,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="nYm-Zs-Akr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Te-7y-sEa">
@@ -941,18 +942,27 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="87l-Ye-WxW">
-                        <barButtonItem key="rightBarButtonItem" id="Wgj-6G-Nd5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="s8H-HI-g28">
-                                <rect key="frame" x="256" y="0.0" width="48" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="clearAllLocation"/>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" id="Wgj-6G-Nd5">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="s8H-HI-g28">
+                                    <rect key="frame" x="256" y="0.0" width="48" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="clearAllLocation"/>
+                                    <connections>
+                                        <action selector="removeAllLocations:" destination="bEq-d1-8I4" eventType="touchUpInside" id="bYI-qV-G44"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="trash" id="Bcy-7X-5GN">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="removeAllLocations:" destination="bEq-d1-8I4" eventType="touchUpInside" id="bYI-qV-G44"/>
+                                    <action selector="deleteSelectedLocation" destination="bEq-d1-8I4" id="Qu6-9V-qjG"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteLocationButton" destination="Bcy-7X-5GN" id="6aN-lb-5Rc"/>
                         <outlet property="locationsCollectionView" destination="iJw-81-ZEL" id="pqA-G1-pXY"/>
                         <outlet property="mapView" destination="5b3-4z-xHI" id="jc7-tW-33A"/>
                         <outlet property="markedLocationView" destination="x85-lP-yMW" id="xRo-TH-Vf5"/>
@@ -1025,6 +1035,7 @@
                                                                 <constraint firstAttribute="height" constant="25" id="Xdm-yZ-qJv"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1151,7 +1162,7 @@
                                                     <constraint firstAttribute="width" secondItem="09H-N9-Sa4" secondAttribute="height" multiplier="2:1" id="hib-0f-59i"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1544,13 +1555,13 @@
         <image name="favorite" width="31" height="27"/>
         <image name="favoriteTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="homebuttonimage" width="346" height="346"/>
-        <image name="noAutomobile" width="48" height="48"/>
+        <image name="noAutomobile" width="63" height="48"/>
         <image name="noFavorite" width="31" height="27"/>
         <image name="noMarkedLocation" width="48" height="48"/>
         <image name="noWalking" width="384" height="384"/>
         <image name="phone" width="27" height="27"/>
         <image name="safari" width="26" height="26"/>
-        <image name="searchTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="searchTabBarIcon" width="48" height="48"/>
         <image name="share" width="25" height="26"/>
     </resources>
 </document>

@@ -44,7 +44,7 @@ class GooglePlacesSearchService {
         guard let url = URL(string: googlePlacesSearchURL(location: location, keyword: keyword)) else { return }
         task?.cancel()
         task = googlePlacesSearchSession.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, GooglePlacesSearchResponse(results: []))
                     return
