@@ -1,0 +1,952 @@
+{
+    "html_attributions": [],
+    "next_page_token": "CoQFewIAADLwOIUPvFzfmx533Q0aZarYbT9wP0oWE3BCfzp0UfzJPYSskB98f93ETiy-_MoUJvJpC6qgQCmOSRw8EK0VEMaH-52jmmXytMXDKBUh6ARB-NkMMxH4OkgnXQ_ZzV-X6ESMZgHZRrN30m479Vee9iGQTj3IFF-gb7Jf0QxDCqnMrqXqd9AxxZFwjjA9LGWOpGusAB6JAwWSmMo3PfG7fh1416kDXXJ8vQ89trUQaM9dFXDNG54WuTeiOihYrCqN650lgygzE_rktwjdwio-5ESd7Wz5jlbCBmrbgs2U9hJzOe8Yo-vjb7hVBkBsjdxkbumFzVMX1U2f4Lxw6Ri3ISs_7EOCc3RcCS6VFnM3dA3ZdiMd7FBBEQ8jQKGLHWHe-s2Kggbb_1aBN4LS26I6WGgaQmbpwl7wQaiCLQBZk2THewka2cMHuxhVbmCMGT1Wa9heRIuyxPvdMhc4CHHGj70MFV_4LHO4JQNyloMUuQRYFy68AwXThAMXWD819LuBxUPdDUbK5vUZMM7iEKozzl1sgoMjq8J-U3-bWBhu6jNPfphePvRwhCHi0zIAcF9VOmE7xOvsD2wf1Fi8Fd-bTfD_Gg37KinjyDkP0tC47mFyObDn2EiyopCHiY_9hp8YkBHobAfYeE3ewhYNpIGi6-GP2EqLMGio4W-867d7OZfscC3W_N5-lyJX-vFrrbTUjMBLiRuPMyCHjzz7NOMSDZGN_DHjxxbgmfFAq9h8IQgDIaiFlux9nOrQ3fzEIaz6WVW1hiOnDbW3_47rJStZHdsGIl6arlAtBdZ4cw7hZoqGDEfoQxqVwpJrDo633PYVD7-fyqQ9ORPGVien_kQJwP8SEBtFSAdixaaiGNNwZ6XGpVkaFOqJQ0_yQkH4Xsy87C5zHw2j2WsC",
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5105027,
+                    "lng": -0.1312475
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.51187397989273,
+                        "lng": -0.1299135201072778
+                    },
+                    "southwest": {
+                        "lat": 51.50917432010728,
+                        "lng": -0.1326131798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "4e999bed5a2c1a5e034ebdcdd1404aad19e22f24",
+            "name": "Swiss Glockenspiel",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4128,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112460773680699759584/photos\">Florian Müller</a>"
+                    ],
+                    "photo_reference": "CmRZAAAAokJS4CRNtGKPu0XoSOKsdukV-3SS9f1jRgCmXjNyoojHOnwJqcqNbd5OCvIrSN9l1uJsNUAIGc-PUlrfU3mBBq_G3uGdqfgHkG5cfakvyV-DfWuvFVhbu-G7twauI7uHEhCmki1CDrQplrB6ax-i36kOGhSzcUgRNWjAM6nmRYjDl6c6idLkyA",
+                    "width": 2322
+                }
+            ],
+            "place_id": "ChIJUUj2OtIEdkgRbNmNisTEtQw",
+            "plus_code": {
+                "compound_code": "GV69+6G St. James's, London, UK",
+                "global_code": "9C3XGV69+6G"
+            },
+            "rating": 4.2,
+            "reference": "ChIJUUj2OtIEdkgRbNmNisTEtQw",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 59,
+            "vicinity": "Swiss Ct, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.50731949999999,
+                    "lng": -0.1325648
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50868077989273,
+                        "lng": -0.1311810701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50598112010728,
+                        "lng": -0.1338807298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "338b3500164fefeda1043cf744507f808286ca23",
+            "name": "Sidney Herbert",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110175263085663438221/photos\">Infoexpert X</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAaIQ8BFEtsbKWT99ZKN3i4ufBqzc7ZMfeLUkfay9GRzxSkgph_6OSvv3VDQS7JsTmjuR5wV4NIS71aglRPjuwRLIt7fc0JLXkS7STsGaWUz1Wn7d14CXWrTxEpO4NuXGnEhCM5N53dv1CGJ_UQp22RVAuGhSLM6yQoI05PlqhuisDI1EDrT14Ig",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJy7DsA9EEdkgR50zegn0ncrY",
+            "plus_code": {
+                "compound_code": "GV48+WX St. James's, London, UK",
+                "global_code": "9C3XGV48+WX"
+            },
+            "rating": 4,
+            "reference": "ChIJy7DsA9EEdkgR50zegn0ncrY",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1,
+            "vicinity": "London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5118059,
+                    "lng": -0.1273931
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.51312397989272,
+                        "lng": -0.1260158701072778
+                    },
+                    "southwest": {
+                        "lat": 51.51042432010728,
+                        "lng": -0.1287155298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "eac21e7e75e214d04d099f50682389cbacd22e2b",
+            "name": "Agatha Christie memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5984,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101852913493050853003/photos\">DT Chan</a>"
+                    ],
+                    "photo_reference": "CmRaAAAACL4_1Gxpl44tYeYbp1cqCsdK_Zh41R-Q2LKvps20k8347l47FR_zVMg-hVbfMGorocJCyfdnXhIxNRZF0OecsozL-afemuDOLz4pYhv0RrrC18-2xZa84xgoWIRFDtMdEhCCCgY3SnGwlZgU3_OsFc4xGhQ5gEI1GxOBk9BBK31zLay71dMqpg",
+                    "width": 3366
+                }
+            ],
+            "place_id": "ChIJSYx-o80EdkgR15tyZmtnmJw",
+            "plus_code": {
+                "compound_code": "GV6F+P2 Soho, London, UK",
+                "global_code": "9C3XGV6F+P2"
+            },
+            "rating": 4.4,
+            "reference": "ChIJSYx-o80EdkgR15tyZmtnmJw",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 36,
+            "vicinity": "Cranbourn St, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5057786,
+                    "lng": -0.1300462
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50727367989273,
+                        "lng": -0.1288543201072778
+                    },
+                    "southwest": {
+                        "lat": 51.50457402010728,
+                        "lng": -0.1315539798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "0be2c9fdc0e8273279288919d04308da6726f0a7",
+            "name": "National Police Memorial",
+            "photos": [
+                {
+                    "height": 2429,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111024663449924355878/photos\">Phil J</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAworRYlsIyc4ISFsxQM9pbwZOjYqAoUxWe7zOEnNJOCmyk-YleYiY8U-nY7VX5HAgGfzDFQ8SwHF8wKSM-g-wSjCVYtru9IqQdA-g2vpVr_sgUAlgrk0divvc84qdxMItEhAg_7tX3sXbVDec7AYoczk-GhT4_3fQ9rxEdxgnaDGH3hzNZ6Rflw",
+                    "width": 3239
+                }
+            ],
+            "place_id": "ChIJ_3BHPdAEdkgRombIEzf0Y4c",
+            "plus_code": {
+                "compound_code": "GV49+8X Westminster, London, UK",
+                "global_code": "9C3XGV49+8X"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ_3BHPdAEdkgRombIEzf0Y4c",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "The Mall, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5061331,
+                    "lng": -0.124434
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50747452989271,
+                        "lng": -0.1230286701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50477487010727,
+                        "lng": -0.1257283298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "c233a2daffc524f7a4d51d2889e9fe5f480bada6",
+            "name": "Royal Tank Regiment Memorial Statue",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4743,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105866895867160002944/photos\">Russtafa B</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAT3z8c9X0uGEp2yFY1wed7B1GPd4yd4jJFZOtJDwwvr5Z1qR3qunh_1Gt5EmZHknvoLzerFMpP_I71mV0QI2mTCxva_4EwPWHLHlnNDzPa6Sj5u-MSK0k-MhDfXGuBIvXEhBYjsZT--81CyK3inNIGfZDGhQVVEZYAjOPkFN9m0QVKDs9Cs0OIw",
+                    "width": 5539
+                }
+            ],
+            "place_id": "ChIJsyisPs8EdkgRVJ1azbky3-Y",
+            "plus_code": {
+                "compound_code": "GV4G+F6 Westminster, London, UK",
+                "global_code": "9C3XGV4G+F6"
+            },
+            "rating": 4.8,
+            "reference": "ChIJsyisPs8EdkgRVJ1azbky3-Y",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 10,
+            "vicinity": "Whitehall Ct, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5035604,
+                    "lng": -0.12615
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50472267989272,
+                        "lng": -0.1248366701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50202302010728,
+                        "lng": -0.1275363298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "a72d3f33bdbb71296df5f438899e2689b62b010c",
+            "name": "The Women of World War II",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3456,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100326035528531802509/photos\">Ева Къчева</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAtq6vX9hAcZkfLEimuNj_bw5-5ZnpZbnLGtQx918M4G6ydNFmjil1_AUFC1OukxKtEjd3JJxeBrJfwMMc1BXIPtcs9hfKbkw5c5Tsm_RV1wTcDeky2gBO5c4q9CIE_eaNEhBh7Pkl401bQ7ARjMkAxL9XGhT2a51mKygI4IeclG9MwAHc88ZSNQ",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJy6KBncUEdkgRKsgRkUZnCyw",
+            "plus_code": {
+                "compound_code": "GV3F+CG Westminster, London, UK",
+                "global_code": "9C3XGV3F+CG"
+            },
+            "rating": 4.7,
+            "reference": "ChIJy6KBncUEdkgRKsgRkUZnCyw",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 79,
+            "vicinity": "11 Downing St, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.50300679999999,
+                    "lng": -0.1234191
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50436832989272,
+                        "lng": -0.1221865701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50166867010728,
+                        "lng": -0.1248862298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "529c2d4b93cdb002f499e68f321273cde5db030a",
+            "name": "Monument to the RAF",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1920,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112106562999949851667/photos\">A Google User</a>"
+                    ],
+                    "photo_reference": "CmRZAAAA8VfqPkb87HOYr2-ZFyBNJ6YDlCv42yvO1AWyH6A8TPpgLAeuaUC9fhxGcc1f1WyHvfYdHkK_aWVk54qRTh6WGlwweDVrzngQy_R5i2ZApRvP3p2ENPmvzd1yBjWjiB1GEhB_82ocAvO7nnmWvLRkxnC7GhQFiOfDdJ01ahnuesvVgk6SxrQSyQ",
+                    "width": 2560
+                }
+            ],
+            "place_id": "ChIJb2Mpz8UEdkgR6dpyR4XJgwE",
+            "plus_code": {
+                "compound_code": "GV3G+6J Westminster, London, UK",
+                "global_code": "9C3XGV3G+6J"
+            },
+            "rating": 4.7,
+            "reference": "ChIJb2Mpz8UEdkgR6dpyR4XJgwE",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 53,
+            "vicinity": "79 Whitehall, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5194133,
+                    "lng": -0.1269566
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.52145429999999,
+                        "lng": -0.12477735
+                    },
+                    "southwest": {
+                        "lat": 51.51732029999999,
+                        "lng": -0.12914235
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "ad6aaec7b7b0fa2c97a127c24845d76135e760ae",
+            "name": "The British Museum",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2988,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108122226792049672653/photos\">Daniel Serratos</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-Fpy5k2eEoKygGCpw_NY_RhpZlkTnqEqVRzripR2NPTZiqjKh19meVpupi1T2KW-MiGnh1c-PlrBS7Gu-Zz07TmUxFPZnCA-c1wcqRM4ew-jr6B-n_GGf7upVy_yr1n1EhD0eisM5Lfxgso_RGrkH5B_GhS-ap03T8i2SHCCBkIs82mqk2D2kw",
+                    "width": 5312
+                }
+            ],
+            "place_id": "ChIJB9OTMDIbdkgRp0JWbQGZsS8",
+            "plus_code": {
+                "compound_code": "GV9F+Q6 Bloomsbury, London, UK",
+                "global_code": "9C3XGV9F+Q6"
+            },
+            "rating": 4.7,
+            "reference": "ChIJB9OTMDIbdkgRp0JWbQGZsS8",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 60414,
+            "vicinity": "Great Russell St, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5033026,
+                    "lng": -0.1489432
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50465242989272,
+                        "lng": -0.1475933701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50195277010728,
+                        "lng": -0.1502930298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "d64c6fe359174c4ef5aef1a1700a3128dfb15e45",
+            "name": "Bomber Command Memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1080,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103163661457701434321/photos\">Brandon Himoff</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAZ6mDRTIq9HV5yERp9pgwALfcoMnJYSKpt4_b52yIAOaehUhjNib44qwrLTaPTRWFO0ZwlsSTx234Ra6Q4jJMbcuA-34Ah73hjNl6ZrHxg1NVpP5pMEO1gNWU4b9XyO4UEhBo0OqJWcXpY49Ck-3k4aAaGhS6ACXL1NOuEObAgYxq22lh3zqfRA",
+                    "width": 1620
+                }
+            ],
+            "place_id": "ChIJh6xGlCUFdkgRp6BbivF2ipM",
+            "plus_code": {
+                "compound_code": "GV32+8C Mayfair, London, UK",
+                "global_code": "9C3XGV32+8C"
+            },
+            "rating": 4.7,
+            "reference": "ChIJh6xGlCUFdkgRp6BbivF2ipM",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 210,
+            "vicinity": "Green Park along Piccadilly, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.50211580000001,
+                    "lng": -0.1514647
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50340577989272,
+                        "lng": -0.1502643201072778
+                    },
+                    "southwest": {
+                        "lat": 51.50070612010728,
+                        "lng": -0.1529639798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "d7ae2ec8dd3c1d23ad24a909f623c1fcfc215f65",
+            "name": "Australian War Memorial",
+            "photos": [
+                {
+                    "height": 1366,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115459113799200679565/photos\">w b</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAFDB5GpW6hINtW3BtrBxFobEE2GS2K1SqCe_ZR5txqrfcBgfz5uiI524FtLSm96g-YRx2Z85AqDbtI5d6EiK7tPLp6RdHExUI01M-HVDR8602mNRkF-zaYsZDpO2hEmLJEhApFn7ayyxRirZCY_i0d_iCGhSNYUafvGY8EUrC1hdw5iKRpjFFIQ",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJO_FjJCUFdkgR3WXKR_DrjbU",
+            "plus_code": {
+                "compound_code": "GR2X+RC Belgravia, London, UK",
+                "global_code": "9C3XGR2X+RC"
+            },
+            "rating": 4.5,
+            "reference": "ChIJO_FjJCUFdkgR3WXKR_DrjbU",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 64,
+            "vicinity": "4-5 Grosvenor Pl, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5108898,
+                    "lng": -0.1108268
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.51231547989273,
+                        "lng": -0.1094752701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50961582010729,
+                        "lng": -0.1121749298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "13ef2d019cfcc00a1f9887be604a38567dc6647e",
+            "name": "National Submarine War Memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100598149017263800349/photos\">david cocking</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAv3myVPsq1V3UiJs0JLqHBFBElW7ykVRG16uK0wwfrZFR7FikWU8SaSR5dBdNJ40j625tIjI-Qt6THZNpxkfQZPujB2HlAPYOfc2q4-kgYII_IamwkHMmyNg6icRFTYqbEhAH7ErK58VemErlnmHo7N7CGhSkU9TfsemTt33BeyLCbJYtbXy4RA",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJvyyD8rMEdkgRa7_w4A1acxk",
+            "plus_code": {
+                "compound_code": "GV6Q+9M City of London, London, UK",
+                "global_code": "9C3XGV6Q+9M"
+            },
+            "rating": 3.8,
+            "reference": "ChIJvyyD8rMEdkgRa7_w4A1acxk",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4,
+            "vicinity": "8 Victoria Embankment, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5239116,
+                    "lng": -0.1446246
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.52530872989272,
+                        "lng": -0.1432893701072778
+                    },
+                    "southwest": {
+                        "lat": 51.52260907010728,
+                        "lng": -0.1459890298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "4385d906af2960d0ba967ae588676f300f6002de",
+            "name": "John F. Kennedy Memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2322,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100258810318179659567/photos\">Marcin Kisielewski</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAIqOBqVKNORC5jSdiFYpjjWIL2C7lOlp6h9xh2G2082fd997gtG8jreQxORPh0naQ-L6sg13hLL9lB7YrLtjc1I892ThdnjAYb4MlFcDuoGUNlMHojpI9OJ_kf4525SANEhDo45Q-XmbkLwXGCEJCpgZrGhTf2tda4-M2e4IfIu2tXh7AstFyPw",
+                    "width": 4128
+                }
+            ],
+            "place_id": "ChIJ09SJU84adkgR9_7sJA7z4-4",
+            "plus_code": {
+                "compound_code": "GVF4+H5 Marylebone, London, UK",
+                "global_code": "9C3XGVF4+H5"
+            },
+            "rating": 4.9,
+            "reference": "ChIJ09SJU84adkgR9_7sJA7z4-4",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8,
+            "vicinity": "Marylebone Rd, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.50421770000001,
+                    "lng": -0.1586552
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50554182989271,
+                        "lng": -0.1574842201072778
+                    },
+                    "southwest": {
+                        "lat": 51.50284217010727,
+                        "lng": -0.1601838798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "d717074def5ebce68f8e1c500deecd72dda36d62",
+            "name": "Holocaust Memorial Gardens",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116213489793002236111/photos\">Jonatan K</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAjQx7ae_IsfrJlxqBqGG-JSib2oPUZLKOwnNEVzrWUyJPMqx5XwvBLPt7Ea-AIDQiUkkHM1FbqQZK7u_UgZe7_GEl-8MXoObeMdKlXxrD76dwmm7GyYATc6CVTxTOAR9xEhCDihjh7NCRSdCcAQpATZ2tGhSSiRjK5bId2wcAM_S72jPYzYZTyw",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJG1Lf_TkFdkgR_JrzH1x8inA",
+            "plus_code": {
+                "compound_code": "GR3R+MG Knightsbridge, London, UK",
+                "global_code": "9C3XGR3R+MG"
+            },
+            "rating": 4.2,
+            "reference": "ChIJG1Lf_TkFdkgR_JrzH1x8inA",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 25,
+            "vicinity": "London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5225308,
+                    "lng": -0.1566423
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.52384617989272,
+                        "lng": -0.1552761201072778
+                    },
+                    "southwest": {
+                        "lat": 51.52114652010728,
+                        "lng": -0.1579757798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "ea0dc73d1cbb4824adec1d514ce89a9b1b7d066f",
+            "name": "Sherlock Holmes Statue",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1156,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107794659888903068753/photos\">A Google User</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAJMrih54hW-DCzGqJOrJ3BqJtuuB4ejDz2tPWwMY4odlCyrLMxCGe9Q4e4tfPuaLzKlS92wGCab-Et2-HzMccRBMq0pTsxRIQ1Wu-d7LoE5iO6tgR5hx3CqniFGKpbf4jEhCUp1hH_DRRPJSfNPdPudE8GhRHnQEkYylkyLT8IdZaRmAJ1HRBuQ",
+                    "width": 1535
+                }
+            ],
+            "place_id": "ChIJ4dPNntUEdkgRoZfkQu0WDJA",
+            "plus_code": {
+                "compound_code": "GRFV+28 Marylebone, London, UK",
+                "global_code": "9C3XGRFV+28"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ4dPNntUEdkgRoZfkQu0WDJA",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 287,
+            "vicinity": "4 Marylebone Rd, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5229739,
+                    "lng": -0.1056922
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.52428167989272,
+                        "lng": -0.1042924701072778
+                    },
+                    "southwest": {
+                        "lat": 51.52158202010727,
+                        "lng": -0.1069921298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/library-71.png",
+            "id": "51cb2c0b5cc9c9f6d51a526003a1f3525934d419",
+            "name": "Marx Memorial Library & Workers' School",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101149186978699400869/photos\">Felipe Tofani</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAyGYmzZN8P03yzTMdlILNWxgH_s3Iuuz2KL55ud8G_KGBkW4IG0EYd1LBHLeyos3-8ARv4RBDP3RQ-WEPeUY0Xjzxt7bylZRHrK79l3gAyPt24sRR7Czyt9qkXr0lV6XKEhCgp3Ut8dAlTW2--4CnJ1uUGhTR058xKg6CgW8ZTE30KMykUssV5A",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJMTyfKlAbdkgRZRagTgoPjsg",
+            "plus_code": {
+                "compound_code": "GVFV+5P Clerkenwell, London, UK",
+                "global_code": "9C3XGVFV+5P"
+            },
+            "rating": 4.3,
+            "reference": "ChIJMTyfKlAbdkgRZRagTgoPjsg",
+            "scope": "GOOGLE",
+            "types": [
+                "library",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 11,
+            "vicinity": "37A Clerkenwell Green, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5182474,
+                    "lng": -0.1003601
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.51963692989272,
+                        "lng": -0.09911917010727778
+                    },
+                    "southwest": {
+                        "lat": 51.51693727010728,
+                        "lng": -0.1018188298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "5e9e4831db90f432aafb27d5338646ef4e7ae069",
+            "name": "William Wallace Memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 960,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114974463274907162016/photos\">Kawah LO</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAV7fT-QN_InSeb7vMqsMFBgTYzTf8WZS9GEeQVsa7Z7a0p5Zhi0FTTEcVMdckub-IkYPquy89Ku7I1sTnH0n0rBq5JAy1jm-OqiFVK26qfIHZM4fu61rnS_k4w_WUnMxyEhDXLX6RY6Ifr0tVAhIrymCaGhRWbg7cxmWV6GiJzSEEF6vwzaJgwA",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJoWKAhVMbdkgRpbhnNvhu5z8",
+            "plus_code": {
+                "compound_code": "GV9X+7V City of London, London, UK",
+                "global_code": "9C3XGV9X+7V"
+            },
+            "rating": 4.4,
+            "reference": "ChIJoWKAhVMbdkgRpbhnNvhu5z8",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 44,
+            "vicinity": "W Smithfield, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5353974,
+                    "lng": -0.1308459
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.53674722989273,
+                        "lng": -0.1294960701072778
+                    },
+                    "southwest": {
+                        "lat": 51.53404757010728,
+                        "lng": -0.1321957298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "479adbe6b69340eed93874ccc1a69dda6eeffb60",
+            "name": "The Burdett-Coutts Memorial Sundial",
+            "place_id": "ChIJhQ5rmCIbdkgRQdTJWs5liYg",
+            "plus_code": {
+                "compound_code": "GVP9+5M Kings Cross, London, UK",
+                "global_code": "9C3XGVP9+5M"
+            },
+            "rating": 0,
+            "reference": "ChIJhQ5rmCIbdkgRQdTJWs5liYg",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 0,
+            "vicinity": "London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5086243,
+                    "lng": -0.1759248
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50997982989273,
+                        "lng": -0.1745133701072778
+                    },
+                    "southwest": {
+                        "lat": 51.50728017010729,
+                        "lng": -0.1772130298927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "bb02688893d19b41da197a738860ebeedb3d16b3",
+            "name": "Peter Pan Statue",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1371,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116135272724374611371/photos\">Enrique Fernandez Marcote</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAKg0wJM1xutfhy0hyG0ySpUyYz8ZSlHSxBqA9q7OJWPP9-rpnpLZsUqL2JcneR-4K0bC2EHzw-_0Bv9Z4r_UI5jvQzSILkL_DnJgRosf-t3vr3qSGNSItXXhJ-qvbVfFNEhAWCc5XyCapyRHYB5CmjC6VGhScXfIs01knEoz3QQiDKeYtr3Q2DA",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJN8jmHU4FdkgRn7f0JIus4Gg",
+            "plus_code": {
+                "compound_code": "GR5F+CJ Paddington, London, UK",
+                "global_code": "9C3XGR5F+CJ"
+            },
+            "rating": 4.5,
+            "reference": "ChIJN8jmHU4FdkgRn7f0JIus4Gg",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 515,
+            "vicinity": "London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.5042489,
+                    "lng": -0.09089029999999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.50560517989273,
+                        "lng": -0.08957942010727778
+                    },
+                    "southwest": {
+                        "lat": 51.50290552010728,
+                        "lng": -0.09227907989272222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "064a449445833542fed89ac51d7b69e92b805766",
+            "name": "Southwark War Memorial",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4898,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105586336547409676096/photos\">Michael Walsh</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA_wRc22NCJDiZ35O-5QXsDO0KLeCh3zror_cGxLuj8MZSqzxWfugJExwOb4u6lYykJpYG2id42U_-tKqwI08OsetFgI_bYo5XCPR41IUNLbaceKxBRknV82G-wuqk0ou-EhCbXsHL4gRR8f8p5UZWuXjDGhSNswkzVGtW9BISNxAOh_VkxAL9fA",
+                    "width": 3265
+                }
+            ],
+            "place_id": "ChIJC57E1FkDdkgRU3753CYcLbs",
+            "plus_code": {
+                "compound_code": "GW35+MJ Southwark, London, UK",
+                "global_code": "9C3XGW35+MJ"
+            },
+            "rating": 4.8,
+            "reference": "ChIJC57E1FkDdkgRU3753CYcLbs",
+            "scope": "GOOGLE",
+            "types": [
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4,
+            "vicinity": "91-, 97-99 Borough High St, London"
+        },
+        {
+            "geometry": {
+                "location": {
+                    "lat": 51.4972493,
+                    "lng": -0.1737394
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 51.49859192989272,
+                        "lng": -0.1724731201072778
+                    },
+                    "southwest": {
+                        "lat": 51.49589227010728,
+                        "lng": -0.1751727798927222
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "8cb8a24af22bb7ac191b13c953abf4fce3c45b7b",
+            "name": "Victoria & Albert Museum Henry Cole Wing",
+            "photos": [
+                {
+                    "height": 2974,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112550990630897521132/photos\">Graham Miller</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAfBbbYsAANLgTd8bZzBUZV03dN8D6T7XWMnba9xs6VJ1CQTqKkp9P9Yas9kIB0mJq3yDVpBsPgbWDhKOlP7Z5tTPoJ4AAOpp1-xVrZPlZHlghrCMsK2OnwNg1XKL5D2y2EhB71yyFV-PfQArwO47vqCnNGhT0VRWKFsDZCSrJaCJqSk0XazfpnQ",
+                    "width": 5288
+                }
+            ],
+            "place_id": "ChIJvfIOD0MFdkgRE92--7y2uIQ",
+            "plus_code": {
+                "compound_code": "FRWG+VG Knightsbridge, London, UK",
+                "global_code": "9C3XFRWG+VG"
+            },
+            "rating": 4.7,
+            "reference": "ChIJvfIOD0MFdkgRE92--7y2uIQ",
+            "scope": "GOOGLE",
+            "types": [
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3,
+            "vicinity": "London"
+        }
+    ],
+    "status": "OK"
+}

@@ -249,7 +249,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Ke-Ex-EbF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9Xs-AV-Rfl"/>
+                    <navigationItem key="navigationItem" id="9Xs-AV-Rfl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="vBg-ZD-heH">
+                            <connections>
+                                <action selector="backToHomePageView:" destination="a2z-XI-xj9" id="MMV-yR-Ib8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nearbyPlacesTableView" destination="sz7-ke-z5O" id="zO0-3I-7kn"/>
                         <segue destination="6RG-GJ-6kM" kind="show" identifier="showDetailsSegue" id="Oic-cx-wRo"/>

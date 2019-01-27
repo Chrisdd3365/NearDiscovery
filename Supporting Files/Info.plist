@@ -11,9 +11,9 @@
 		<string>EurostileBold.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please, allow us to localize and guide you! :)</string>
+	<string>Please give me permission to locate you.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please, allow us to localize and guide you! :)</string>
+	<string>Please give me permission to locate you.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

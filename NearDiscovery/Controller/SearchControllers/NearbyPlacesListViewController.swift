@@ -30,6 +30,10 @@ class NearbyPlacesListViewController: UIViewController {
         nearbyPlacesTableView.reloadData()
     }
     
+    @IBAction func backToHomePageView(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showDetailsSegue,

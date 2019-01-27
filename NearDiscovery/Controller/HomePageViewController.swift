@@ -30,6 +30,16 @@ class HomePageViewController: UIViewController {
         changeSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        homePageView.nearbyDiscoveryButton.isEnabled = false
+        homePageView.searchTextField.text = nil
+        locationServicesIsEnabled()
+        notificationScheduleTimer()
+        changeSetup()
+        toggleActivityIndicator(shown: true)
+    }
+    
     //MARK: - Methods
     private func toggleActivityIndicator(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown

@@ -24,10 +24,18 @@ class FakeResponseData {
     static let error = AllTypeOfError()
 }
 
-class FakePlaceDetailsResponseData: FakeResponseData {
-    static var placeDetailsCorrectData: Data? {
+class FakeGooglePlacesSearchResponseData: FakeResponseData {
+    static var googlePlacesSearchCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "PlaceDetails", withExtension: "json")!
+        let url = bundle.url(forResource: "GooglePlacesSearchService", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+}
+
+class FakeGooglePlacesDetailsResponseData: FakeResponseData {
+    static var googlePlacesDetailsCorrectData: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "GooglePlacesDetailsService", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
 }

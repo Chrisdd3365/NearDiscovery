@@ -41,7 +41,7 @@ class PlaceDetailsScrollView: UIScrollView {
             
             discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
             
-            scheduleTextView.text = convertIntoString(weekdayText: placeDetailsScrollViewConfigure?.openingHours?.weekdayText ?? ["No Schedule Available."])
+            scheduleTextView.text = convertIntoString(weekdayText: placeDetailsScrollViewConfigure?.openingHours?.weekdayText ?? ["No opening hours available."])
         }
     }
     //MARK: - Method
