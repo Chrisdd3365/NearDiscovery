@@ -19,7 +19,7 @@ class FavoritePlaceDetailsViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItemTitle(title: "Favorite Place's Details")
+        setNavigationItemTitle(title: "Favorite Place's Details".localized())
         favoritePlaceDetailsScrollViewConfigure(favoritePlace: detailedFavoritePlace)
         favoritePlaceDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
     }
@@ -69,12 +69,12 @@ class FavoritePlaceDetailsViewController: UIViewController {
                 locations = Location.all
                 
             } else {
-                showAlert(title: "Sorry!", message: "You've reached the maximum amount of Marked Locations!")
+                showAlert(title: "Sorry!".localized(), message: "You've reached the maximum amount of Marked Locations!".localized())
                 tabItem.badgeValue = nil
             }
         } else {
             locations = Location.all
-            showAlert(title: "Sorry", message: "You've already marked this location on the map!")
+            showAlert(title: "Sorry".localized(), message: "You've already marked this location on the map!".localized())
             tabItem.badgeValue = nil
         }
     }
@@ -121,10 +121,10 @@ class FavoritePlaceDetailsViewController: UIViewController {
     func didTapShareButton() {
         let urlString =  detailedFavoritePlace?.url
         if let urlString = urlString {
-            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
+            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!".localized(), urlString], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         } else {
-            showAlert(title: "Sorry!", message: "I have no Google Maps Link for you to share!")
+            showAlert(title: "Sorry!".localized(), message: "I have no Google Maps Link for you to share!".localized())
         }
     }
     
@@ -138,7 +138,7 @@ class FavoritePlaceDetailsViewController: UIViewController {
             guard let url = URL(string: detailedFavoritePlace.website ?? "") else { return }
             UIApplication.shared.open(url)
         } else {
-            showAlert(title: "Sorry!", message: "I have no Website to show you!")
+            showAlert(title: "Sorry!".localized(), message: "I have no Website to show you!".localized())
         }
     }
     

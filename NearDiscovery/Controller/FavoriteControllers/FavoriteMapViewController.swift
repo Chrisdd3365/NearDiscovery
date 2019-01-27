@@ -29,7 +29,7 @@ class FavoriteMapViewController: UIViewController {
         setupCoreLocation()
         guard let favoritePlace = favoritePlace else { return }
         showFavoriteAnnotation(favoritePlace: favoritePlace)
-        setNavigationItemTitle(title: "Discover")
+        setNavigationItemTitle(title: "Discover".localized())
     }
 
     //MARK: - Actions
@@ -59,7 +59,7 @@ class FavoriteMapViewController: UIViewController {
     
     //MARK: - Methods
     private func showFavoriteAnnotation(favoritePlace: Favorite) {
-        let placeMarker = PlaceMarker(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, name: favoritePlace.name ?? "No Name")
+        let placeMarker = PlaceMarker(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, name: favoritePlace.name ?? "No Name".localized())
         DispatchQueue.main.async {
             self.mapView.addAnnotation(placeMarker)
         }
@@ -108,7 +108,7 @@ extension FavoriteMapViewController  {
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Sorry!", message: "No routes available!")
+                self.showAlert(title: "Sorry!".localized(), message: "No routes available!".localized())
                 return }
             
             for route in response.routes {

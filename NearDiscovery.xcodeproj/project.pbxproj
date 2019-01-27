@@ -17,6 +17,7 @@
 		951D356921FDE1240056A29E /* GooglePlacesDetailsService.json in Resources */ = {isa = PBXBuildFile; fileRef = 951D356821FDE1240056A29E /* GooglePlacesDetailsService.json */; };
 		951D356C21FDE7D80056A29E /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D356B21FDE7D80056A29E /* CoreDataTests.swift */; };
 		951D356E21FE0E740056A29E /* PlaceMarkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D356D21FE0E740056A29E /* PlaceMarkerTests.swift */; };
+		951D357221FE2A6D0056A29E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951D357121FE2A6D0056A29E /* String.swift */; };
 		953122ED21CA82EB007FCADC /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122EC21CA82EB007FCADC /* HomePageView.swift */; };
 		953122F221CA8EA7007FCADC /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F121CA8EA7007FCADC /* URLSessionFake.swift */; };
 		953122F421CA8ED3007FCADC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953122F321CA8ED3007FCADC /* FakeResponseData.swift */; };
@@ -82,6 +83,7 @@
 		951D356821FDE1240056A29E /* GooglePlacesDetailsService.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GooglePlacesDetailsService.json; sourceTree = "<group>"; };
 		951D356B21FDE7D80056A29E /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		951D356D21FE0E740056A29E /* PlaceMarkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerTests.swift; sourceTree = "<group>"; };
+		951D357121FE2A6D0056A29E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		953122EC21CA82EB007FCADC /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		953122F121CA8EA7007FCADC /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		953122F321CA8ED3007FCADC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				95C73BB521CC1559003564C9 /* UITableViewCell.swift */,
 				9554391C21F9C80B00DE712B /* UIView.swift */,
 				9590E5FC21C950B00016A77F /* UIViewController.swift */,
+				951D357121FE2A6D0056A29E /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				95F4E8D821F1D4240033DECB /* MarkedLocationsMapViewController.swift in Sources */,
 				954A980A21DE18B700AE2D8B /* PlaceDetailsViewController.swift in Sources */,
 				95BE0DB921F4B0AC00C260E0 /* FavoriteTableViewCell.swift in Sources */,
+				951D357221FE2A6D0056A29E /* String.swift in Sources */,
 				9582F51821F75FC5007E87B0 /* PlaceDetailsScrollView.swift in Sources */,
 				95F30C7621ECA7BD00968588 /* CoreDataManager.swift in Sources */,
 				955197E121F79E3600A1A735 /* FavoritePlaceDetailsScrollView.swift in Sources */,

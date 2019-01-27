@@ -21,7 +21,7 @@ class NearbyPlacesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItemTitle(title: "List of Nearby Places to Visit")
+        setNavigationItemTitle(title: "List of Nearby Places to Visit".localized())
         nearbyPlacesTableView.tableFooterView = UIView()
     }
     
@@ -54,7 +54,7 @@ extension NearbyPlacesListViewController {
                 self.placeDetails = placeDetails.result
                 self.performSegue(withIdentifier: Constants.SeguesIdentifiers.showDetailsSegue, sender: self)
             } else {
-                self.showAlert(title: "Sorry!", message: "I'm not able to show you details for now! Try again!")
+                self.showAlert(title: "Sorry!".localized(), message: "I'm not able to show you details for now! Try again!".localized())
             }
         }
     }

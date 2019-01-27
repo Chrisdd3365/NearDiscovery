@@ -1,63 +1,63 @@
 
 /* Class = "UILabel"; text = "Favorite"; ObjectID = "04s-0b-7k5"; */
-"04s-0b-7k5.text" = "Favorite";
+"04s-0b-7k5.text" = "Favoritos";
 
 /* Class = "UILabel"; text = "Open"; ObjectID = "09H-N9-Sa4"; */
-"09H-N9-Sa4.text" = "Open";
+"09H-N9-Sa4.text" = "Abrir";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "0ec-6A-VxY"; */
 "0ec-6A-VxY.text" = "Address";
 
 /* Class = "UILabel"; text = "Call"; ObjectID = "171-1C-w7T"; */
-"171-1C-w7T.text" = "Call";
+"171-1C-w7T.text" = "Llamar";
 
 /* Class = "UILabel"; text = "Favorite"; ObjectID = "1ND-R9-03T"; */
-"1ND-R9-03T.text" = "Favorite";
+"1ND-R9-03T.text" = "Favoritos";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "1Rv-sQ-cKo"; */
-"1Rv-sQ-cKo.text" = "Walking";
+"1Rv-sQ-cKo.text" = "Caminando";
 
 /* Class = "UILabel"; text = "Open"; ObjectID = "1e3-ts-OX8"; */
-"1e3-ts-OX8.text" = "Open";
+"1e3-ts-OX8.text" = "Abrir";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "22J-qp-j8Z"; */
-"22J-qp-j8Z.text" = "Name";
+"22J-qp-j8Z.text" = "Nombre";
 
 /* Class = "UILabel"; text = "Automobile"; ObjectID = "2b6-CT-foq"; */
-"2b6-CT-foq.text" = "Automobile";
+"2b6-CT-foq.text" = "Automóvil";
 
 /* Class = "UILabel"; text = "Share"; ObjectID = "2jO-9S-Dpm"; */
-"2jO-9S-Dpm.text" = "Share";
+"2jO-9S-Dpm.text" = "Compartir";
 
 /* Class = "UITabBarItem"; title = "Favorite"; ObjectID = "5al-Az-SWS"; */
-"5al-Az-SWS.title" = "Favorite";
+"5al-Az-SWS.title" = "Favoritos";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "7TZ-YF-eqN"; */
 "7TZ-YF-eqN.text" = "Label";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "7s6-VB-eTJ"; */
-"7s6-VB-eTJ.text" = "Name";
+"7s6-VB-eTJ.text" = "Nombre";
 
 /* Class = "UILabel"; text = "Share"; ObjectID = "Apc-Ij-XRK"; */
-"Apc-Ij-XRK.text" = "Share";
+"Apc-Ij-XRK.text" = "Compartir";
 
 /* Class = "UILabel"; text = "0 km"; ObjectID = "BRY-X6-ZMV"; */
 "BRY-X6-ZMV.text" = "0 km";
 
 /* Class = "UILabel"; text = "Automobile"; ObjectID = "Dwu-Kd-rQb"; */
-"Dwu-Kd-rQb.text" = "Automobile";
+"Dwu-Kd-rQb.text" = "Automóvil";
 
 /* Class = "UILabel"; text = "Website"; ObjectID = "Jvn-Ym-Ww2"; */
-"Jvn-Ym-Ww2.text" = "Website";
+"Jvn-Ym-Ww2.text" = "Página Web";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "KM1-c6-KJr"; */
-"KM1-c6-KJr.text" = "Walking";
+"KM1-c6-KJr.text" = "Caminando";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "KS7-F1-TJi"; */
 "KS7-F1-TJi.text" = "Address";
 
 /* Class = "UILabel"; text = "Call"; ObjectID = "LAs-e3-CuB"; */
-"LAs-e3-CuB.text" = "Call";
+"LAs-e3-CuB.text" = "Llamar";
 
 /* Class = "UILabel"; text = "0 km"; ObjectID = "RCr-tM-Dqn"; */
 "RCr-tM-Dqn.text" = "0 km";
@@ -66,25 +66,25 @@
 "SHv-O9-Pi2.text" = "Label";
 
 /* Class = "UILabel"; text = "Discover"; ObjectID = "TD9-jY-UfC"; */
-"TD9-jY-UfC.text" = "Discover";
+"TD9-jY-UfC.text" = "Descubrir";
 
 /* Class = "UILabel"; text = "0 min"; ObjectID = "TfO-Xb-W4j"; */
 "TfO-Xb-W4j.text" = "0 min";
 
 /* Class = "UILabel"; text = "Open"; ObjectID = "Vkx-Gd-WlZ"; */
-"Vkx-Gd-WlZ.text" = "Open";
+"Vkx-Gd-WlZ.text" = "Abrir";
 
 /* Class = "UILabel"; text = "Automobile"; ObjectID = "Zx2-c5-FWr"; */
-"Zx2-c5-FWr.text" = "Automobile";
+"Zx2-c5-FWr.text" = "Automóvil";
 
 /* Class = "UILabel"; text = "Website"; ObjectID = "bNv-Ty-u4g"; */
-"bNv-Ty-u4g.text" = "Website";
+"bNv-Ty-u4g.text" = "Página Web";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "dWJ-Kq-Qf1"; */
-"dWJ-Kq-Qf1.text" = "Walking";
+"dWJ-Kq-Qf1.text" = "Caminando";
 
 /* Class = "UILabel"; text = "Discover"; ObjectID = "dut-nG-Xlx"; */
-"dut-nG-Xlx.text" = "Discover";
+"dut-nG-Xlx.text" = "Descubrir";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "iA0-Fh-UqC"; */
 "iA0-Fh-UqC.text" = "Address";
@@ -99,25 +99,25 @@
 "roa-Zh-xac.text" = "0 km";
 
 /* Class = "UILabel"; text = "Open"; ObjectID = "s8T-G6-4ac"; */
-"s8T-G6-4ac.text" = "Open";
+"s8T-G6-4ac.text" = "Abrir";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "shE-dG-cNj"; */
-"shE-dG-cNj.text" = "Name";
+"shE-dG-cNj.text" = "Nombre";
 
 /* Class = "UITabBarItem"; title = "Search"; ObjectID = "tZN-UF-jGq"; */
-"tZN-UF-jGq.title" = "Search";
+"tZN-UF-jGq.title" = "Búsqueda";
 
 /* Class = "UITabBarItem"; title = "Locations"; ObjectID = "tyW-Wf-h0f"; */
-"tyW-Wf-h0f.title" = "Locations";
+"tyW-Wf-h0f.title" = "Localizaciones";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "v6l-ID-iZR"; */
 "v6l-ID-iZR.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "vG8-h0-GH6"; */
-"vG8-h0-GH6.text" = "Name";
+"vG8-h0-GH6.text" = "Nombre";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "wDb-sa-Qom"; */
-"wDb-sa-Qom.normalTitle" = "Button";
+"wDb-sa-Qom.normalTitle" = "Botón";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "wdX-JX-kCL"; */
 "wdX-JX-kCL.text" = "Address";
@@ -132,4 +132,4 @@
 "xcy-o9-bq5.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UITextField"; placeholder = "What do you want to discover?"; ObjectID = "ztE-ox-Kxj"; */
-"ztE-ox-Kxj.placeholder" = "What do you want to discover?";
+"ztE-ox-Kxj.placeholder" = "¿Que quieres descubrir?";

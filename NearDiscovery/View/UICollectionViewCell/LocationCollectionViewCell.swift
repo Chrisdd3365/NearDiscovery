@@ -26,10 +26,10 @@ class LocationCollectionViewCell: UICollectionViewCell {
             locationAddressLabel.text = locationConfigure?.address
             
             if locationConfigure?.openNow == true {
-                locationOpenStateLabel.text = "Open"
+                locationOpenStateLabel.text = "Open".localized()
                 locationOpenStateLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
-                locationOpenStateLabel.text = "Close"
+                locationOpenStateLabel.text = "Close".localized()
                 locationOpenStateLabel.backgroundColor = .red
             }
             

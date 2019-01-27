@@ -31,17 +31,17 @@ class NearbyPlacesTableViewCell: UITableViewCell {
             cosmosView.settings.updateOnTouch = false
             
             if nearbyPlaceCellConfigure?.openingHours?.openNow == true {
-                openNowLabel.text = "Open"
+                openNowLabel.text = "Open".localized()
                 openNowLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
-                openNowLabel.text = "Close"
+                openNowLabel.text = "Close".localized()
                 openNowLabel.backgroundColor = .red
             }
             
             if let photoReferenceURL = nearbyPlaceCellConfigure?.photos?[0].photoReference {
                 placeBackgroundImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
             } else {
-                placeBackgroundImageView.image = UIImage(named: "giletjaune")
+                placeBackgroundImageView.image = UIImage(named: "defaultImage")
             }
         }
     }

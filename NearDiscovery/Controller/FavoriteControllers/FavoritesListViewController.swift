@@ -18,7 +18,7 @@ class FavoritesListViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItemTitle(title: "List of Favorites Places")
+        setNavigationItemTitle(title: "List of Favorites Places".localized())
         favoriteListTableView.tableFooterView = UIView()
     }
 
@@ -85,7 +85,7 @@ extension FavoritesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = "Hit the 'Favorite' Button to add a place in your favorite list!"
+        label.text = "Hit the 'Favorite' Button to add a place in your favorite list!".localized()
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.numberOfLines = 0
         label.textAlignment = .center

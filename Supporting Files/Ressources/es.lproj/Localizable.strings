@@ -7,48 +7,49 @@
 */
 
 //MARK: - In Common
+"Please give me permission to locate you." = "Porfavor dejame localizarte";
 "NearDiscovery" = "NearDiscovery";
-"Sorry!" = "Sorry!";
-"Back" = "Back";
-"Call" = "Call";
-"Share" = "Share";
-"Favorite" = "Favorite";
-"Website" = "Website";
-"Open" = "Open";
-"Close" = "Close";
-"Discover" = "Discover";
-"Automobile" = "Automobile";
-"Walking" = "Walking";
+"Sorry!" = "Lo siento!";
+"Back" = "Atrás";
+"Call" = "Llamar";
+"Share" = "Compartir";
+"Favorite" = "Favoritos";
+"Website" = "Página Web";
+"Open" = "Abrir";
+"Close" = "Cerrar";
+"Discover" = "Descubrir";
+"Automobile" = "Automóvil";
+"Walking" = "Caminando";
 "OK" = "OK";
-"No routes available!" = "No routes available!";
-"Hey! Check out this place!" = "Hey! Check out this place!";
-"I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";
-"I have no Website to show you!" = "I have no Website to show you!";
-"You've reached the maximum amount of Marked Locations!" = "You've reached the maximum amount of Marked Locations!";
-"You've already marked this location on the map!" = "You've already marked this location on the map!";
-"You've already added this place into the favorite list!" = "You've already added this place into the favorite list!";
+"No routes found!" = "No se encontraron rutas !";
+"Hey! Check out this place!" = "Hola! Echale un vistazo a este lugar!";
+"I have no Google Maps Link for you to share!" = "No tengo ninguno enlace de Google Maps para compartir!";
+"I have no Website to show you!" = "No tengo ningún Web a enseñarte!";
+"You've reached the maximum amount of Marked Locations!" = "Has alcanzado la cantidad máxima de lugares marcados!";
+"You've already marked this location on the map!" = "Has marcado esta ubicación en el mapa ya!";
+"You've already added this place into the favorite list!" = "Has agregado este lugar en tu lista de favoritos ya!";
 
 //MARK: - HomePageView
-"What do you want to discover?" = "What do you want to discover?";
-"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
+"What do you want to discover?" = "¿Que quieres descubrir? ";
+"I couldn't find what you want to discover for you" = "No podía encontrar lo que querías descubrir!";
 "Location Services not enabled!" = "Location Services not enabled!";
-"I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
+"I need your authorization to show you cool places!" = "Necesito tu autorización para enseñarte lugares guapos.";
 
 //MARK: - NearbyPlacesListView
-"List of Nearby Places to Visit" = "List of Nearby Places to Visit";
-"I'm not able to show you details for now! Try again!" = "I'm not able to show you details for now! Try again!";
+"List of Nearby Places to Visit" = "Lista de lugares cerca a visitar";
+"I'm not able to show you details for now! Try again!" = "No soy capaz de de enseñarte más detalles ahora! Porfavor Inténtalo de nuevo!";
 
 //MARK: - PlaceDetailsView
-"Place's Details" = "Place's Details";
+"Place's Details" = "Detalles del sitio";
 
 //MARK: MarkedLocationView
-"Marked Locations" = "Marked Locations";
-"Hit the 'Marked Location' Button to add the location into the list!" = "Hit the 'Marked Location' Button to add the location into the list!";
+"Marked Locations" = "Ubicaciones Marcadas";
+"Hit the 'Marked Location' Button to add the location into the list!" = "Pulsa el 'Ubicación Marcada' botón para agregar la ubicación a la lista!";
 
 //MARK: - FavoritesListView
-"List of Favorites Places" = "List of Favorites Places";
-"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hit the 'Favorite' Button to add a place in your favorite list!";
+"List of Favorites Places" = "Lista de sitios favoritos";
+"Hit the 'Favorite' Button to add a place in your favorite list!" = "Pulsa el 'Favorito' botón para agregar un sitio a tus favoritos!";
 
 //MARK: - FavoritePlaceDetailsView
-"Favorite Place's Details" = "Favorite Place's Details";
-"No Name" = "No Name";
+"Favorite Place's Details" = "Detalles de tu lugar favorito";
+"No Name" = "No Nombre";

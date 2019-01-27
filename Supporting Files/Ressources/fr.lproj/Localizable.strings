@@ -7,48 +7,49 @@
 */
 
 //MARK: - In Common
+"Please give me permission to locate you." = "Donne moi la permission de te localiser.";
 "NearDiscovery" = "NearDiscovery";
-"Sorry!" = "Sorry!";
-"Back" = "Back";
-"Call" = "Call";
-"Share" = "Share";
-"Favorite" = "Favorite";
-"Website" = "Website";
-"Open" = "Open";
-"Close" = "Close";
-"Discover" = "Discover";
-"Automobile" = "Automobile";
-"Walking" = "Walking";
+"Sorry!" = "Désolé!";
+"Back" = "Retour";
+"Call" = "Appeler";
+"Share" = "Partager";
+"Favorite" = "Favoris";
+"Website" = "Site Web";
+"Open" = "Ouvert";
+"Close" = "Fermé";
+"Discover" = "Découvrir";
+"Automobile" = "Voiture";
+"Walking" = "A pied";
 "OK" = "OK";
-"No routes available!" = "No routes available!";
-"Hey! Check out this place!" = "Hey! Check out this place!";
-"I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";
-"I have no Website to show you!" = "I have no Website to show you!";
-"You've reached the maximum amount of Marked Locations!" = "You've reached the maximum amount of Marked Locations!";
-"You've already marked this location on the map!" = "You've already marked this location on the map!";
-"You've already added this place into the favorite list!" = "You've already added this place into the favorite list!";
+"No routes available!" = "Aucun itinéraire disponible!";
+"Hey! Check out this place!" = "Salut! Jette un coup d'oeil à cet emplacement!";
+"I have no Google Maps Link for you to share!" = "Pas de lien Google Maps à partager!";
+"I have no Website to show you!" = "Pas de Site Web disponible!";
+"You've reached the maximum amount of Marked Locations!" = "Nombre maximum d'emplacements marqués atteint!";
+"You've already marked this location on the map!" = "Tu as déjà marqué cet emplacement sur la carte!";
+"You've already added this place into the favorite list!" = "Tu as déjà ajouté cet emplacement dans ta liste de favoris!";
 
 //MARK: - HomePageView
-"What do you want to discover?" = "What do you want to discover?";
-"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
-"Location Services not enabled!" = "Location Services not enabled!";
-"I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
+"What do you want to discover?" = "Que souhaites-tu visiter?";
+"I couldn't find what you want to discover for you" = "Je n'ai pas pu trouver ce que tu souhaitais découvrir!";
+"Location Services not enabled!" = "Service de localisation désactivé!";
+"I need your authorization to show you cool places!" = "J'ai besoin de ton autorisation pour te montrer des emplacements!";
 
 //MARK: - NearbyPlacesListView
-"List of Nearby Places to Visit" = "List of Nearby Places to Visit";
-"I'm not able to show you details for now! Try again!" = "I'm not able to show you details for now! Try again!";
+"List of Nearby Places to Visit" = "Liste des lieux proches à visiter";
+"I'm not able to show you details for now! Try again!" = "Je ne suis pas en mesure de te montrer les détails concernant cet emplacement! Réessaye ultérieurement!";
 
 //MARK: - PlaceDetailsView
-"Place's Details" = "Place's Details";
+"Place's Details" = "Description de l'emplacement";
 
 //MARK: MarkedLocationView
-"Marked Locations" = "Marked Locations";
-"Hit the 'Marked Location' Button to add the location into the list!" = "Hit the 'Marked Location' Button to add the location into the list!";
+"Marked Locations" = "Emplacements marqués";
+"Hit the 'Marked Location' Button to add the location into the list!" = "Appuie sur le bouton 'Marquer Emplacement' pour ajouter l'emplacement dans la liste!";
 
 //MARK: - FavoritesListView
-"List of Favorites Places" = "List of Favorites Places";
-"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hit the 'Favorite' Button to add a place in your favorite list!";
+"List of Favorites Places" = "Liste des emplacements favoris";
+"Hit the 'Favorite' Button to add a place in your favorite list!" = "Appuie sur le bouton 'Favoris' pour ajouter un emplacement dans ta liste de favoris!";
 
 //MARK: - FavoritePlaceDetailsView
-"Favorite Place's Details" = "Favorite Place's Details";
-"No Name" = "No Name";
+"Favorite Place's Details" = " Description de l'emplacements favoris";
+"No Name" = "Aucun nom";

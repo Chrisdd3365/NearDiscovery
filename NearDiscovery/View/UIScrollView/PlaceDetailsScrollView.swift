@@ -29,10 +29,10 @@ class PlaceDetailsScrollView: UIScrollView {
             placeDetailsAddressLabel?.text = placeDetailsScrollViewConfigure?.address
             
             if placeDetailsScrollViewConfigure?.openingHours?.openNow == true {
-                placeDetailsOpenStateLabel.text = "Open"
+                placeDetailsOpenStateLabel.text = "Open".localized()
                 placeDetailsOpenStateLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
-                placeDetailsOpenStateLabel.text = "Close"
+                placeDetailsOpenStateLabel.text = "Close".localized()
                 placeDetailsOpenStateLabel.backgroundColor = .red
             }
             
@@ -41,7 +41,7 @@ class PlaceDetailsScrollView: UIScrollView {
             
             discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
             
-            scheduleTextView.text = convertIntoString(weekdayText: placeDetailsScrollViewConfigure?.openingHours?.weekdayText ?? ["No opening hours available."])
+            scheduleTextView.text = convertIntoString(weekdayText: placeDetailsScrollViewConfigure?.openingHours?.weekdayText ?? ["No opening hours available.".localized()])
         }
     }
     //MARK: - Method
@@ -49,7 +49,7 @@ class PlaceDetailsScrollView: UIScrollView {
         if let photoReferenceURL = place?.photos?[0].photoReference {
             placeDetailsImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
         } else {
-            placeDetailsImageView.image = UIImage(named: "giletjaune")
+            placeDetailsImageView.image = UIImage(named: "defaultImage")
         }
     }
 

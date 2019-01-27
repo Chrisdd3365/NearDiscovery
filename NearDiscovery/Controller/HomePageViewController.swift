@@ -25,6 +25,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homePageView.nearbyDiscoveryButton.isEnabled = false
+        homePageView.discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
+        homePageView.discoverLabel.textColor = .white
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
@@ -33,6 +35,8 @@ class HomePageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         homePageView.nearbyDiscoveryButton.isEnabled = false
+        homePageView.discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
+        homePageView.discoverLabel.textColor = .white
         homePageView.searchTextField.text = nil
         locationServicesIsEnabled()
         notificationScheduleTimer()
@@ -78,7 +82,7 @@ extension HomePageViewController {
                 self.toggleActivityIndicator(shown: false)
                 self.places = places.results
             } else {
-                self.showAlert(title: "Sorry!", message: "I couldn't find what you want to discover for you!")
+                self.showAlert(title: "Sorry!".localized(), message: "I couldn't find what you want to discover for you!".localized())
             }
         }
     }
@@ -97,13 +101,10 @@ extension HomePageViewController {
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
-    @objc func changeSetup(){
-        let dayBackgroundImage = UIImage(named: "daybackgroundimage")
-        let nightBackgroundImage = UIImage(named: "nightbackgroundimage")
-        
+    @objc func changeSetup(){        
         self.homePageView.nearDiscoveryLabel.textColor = 6..<21 ~= Date().hour ?
             .black : .white
-        self.homePageView.backgroundImageView.image = 6..<21 ~= Date().hour ? dayBackgroundImage : nightBackgroundImage
+        self.homePageView.backgroundColor = 6..<21 ~= Date().hour ? UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
         scheduleTimer()
     }
 }
@@ -114,7 +115,7 @@ extension HomePageViewController {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
         } else {
-            showAlert(title: "Location Services not enabled!", message: "I need your authorization to show you cool places!")
+            showAlert(title: "Location Services not enabled!".localized(), message: "I need your authorization to show you cool places!".localized())
         }
     }
 

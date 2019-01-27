@@ -30,17 +30,17 @@ class FavoriteTableViewCell: UITableViewCell {
             cosmosView.settings.updateOnTouch = false
             
             if favoritePlaceCellConfigure?.openNow == true {
-                favoritePlaceOpenState.text = "Open"
+                favoritePlaceOpenState.text = "Open".localized()
                 favoritePlaceOpenState.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
-                favoritePlaceOpenState.text = "Close"
+                favoritePlaceOpenState.text = "Close".localized()
                 favoritePlaceOpenState.backgroundColor = .red
             }
             
             if let photoReferenceURL = favoritePlaceCellConfigure?.photoReference {
                 favoritePlaceImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
             } else {
-                favoritePlaceImageView.image = UIImage(named: "giletjaune")
+                favoritePlaceImageView.image = UIImage(named: "defaultImage")
             }
         }
     }

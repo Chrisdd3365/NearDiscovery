@@ -7,48 +7,49 @@
 */
 
 //MARK: - In Common
+"Please give me permission to locate you." = "당신이 어디에 있는지 알기위해서 당신의 승인이 필요합니다";
 "NearDiscovery" = "NearDiscovery";
-"Sorry!" = "Sorry!";
-"Back" = "Back";
-"Call" = "Call";
-"Share" = "Share";
-"Favorite" = "Favorite";
-"Website" = "Website";
-"Open" = "Open";
-"Close" = "Close";
-"Discover" = "Discover";
-"Automobile" = "Automobile";
-"Walking" = "Walking";
-"OK" = "OK";
-"No routes available!" = "No routes available!";
-"Hey! Check out this place!" = "Hey! Check out this place!";
-"I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";
-"I have no Website to show you!" = "I have no Website to show you!";
-"You've reached the maximum amount of Marked Locations!" = "You've reached the maximum amount of Marked Locations!";
-"You've already marked this location on the map!" = "You've already marked this location on the map!";
-"You've already added this place into the favorite list!" = "You've already added this place into the favorite list!";
+"Sorry!" = "죄송합니다!";
+"Back" = "돌아가기";
+"Call" = "전화";
+"Share" = "공유";
+"Favorite" = "좋아하는";
+"Website" = "웹사이트";
+"Open" = "열기";
+"Close" = "닫기";
+"Discover" = "탐색";
+"Automobile" = "자동차";
+"Walking" = "도보";
+"OK" = "그래요";
+"No routes available!" = "이 경로는 이용할 수 없어요!";
+"Hey! Check out this place!" = "저기요 ! 이 장소 좀 보세요 !";
+"I have no Google Maps Link for you to share!" = "당신과 공유할 구글맵 링크가 존재하지 않아요!";
+"I have no Website to show you!" = "당신에게 보여줄 웹사이트가 존재하지 않아요!";
+"You've reached the maximum amount of Marked Locations!" = "표시된 장소들이 최대치에 도달했어요!";
+"You've already marked this location on the map!" = "당신은 이미 지도에 그 장소를 표시했어요!";
+"You've already added this place into the favorite list!" = "당신은  좋아하는 목록에 그 장소를 이미 추가했어요!";
 
 //MARK: - HomePageView
-"What do you want to discover?" = "What do you want to discover?";
-"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
+"What do you want to discover?" = "무슨 장소를 찾길 원하세요 ?";
+"I couldn't find what you want to discover for you" = "당신이 원하는 장소를 찾을 수가 없어요!";
 "Location Services not enabled!" = "Location Services not enabled!";
-"I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
+"I need your authorization to show you cool places!" = "당신에게 적합한 장소를 보여주기 위해서는 당신의 승인이 필요해요!";
 
 //MARK: - NearbyPlacesListView
-"List of Nearby Places to Visit" = "List of Nearby Places to Visit";
-"I'm not able to show you details for now! Try again!" = "I'm not able to show you details for now! Try again!";
+"List of Nearby Places to Visit" = "방문 가능한 근처장소 리스트";
+"I'm not able to show you details for now! Try again!" = "당신에게 세부사항을 보여드릴 수가 없어요! 다시 시도해주세요!";
 
 //MARK: - PlaceDetailsView
-"Place's Details" = "Place's Details";
+"Place's Details" = "위치의 세부사항";
 
 //MARK: MarkedLocationView
-"Marked Locations" = "Marked Locations";
-"Hit the 'Marked Location' Button to add the location into the list!" = "Hit the 'Marked Location' Button to add the location into the list!";
+"Marked Locations" = "표시된 위치";
+"Hit the 'Marked Location' Button to add the location into the list!" = "목록에 위치를 추가하기 위해 ‘표시된 위치’ 버튼을 눌러주세요!";
 
 //MARK: - FavoritesListView
-"List of Favorites Places" = "List of Favorites Places";
-"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hit the 'Favorite' Button to add a place in your favorite list!";
+"List of Favorites Places" = " 좋아하는 위치들 리스트";
+"Hit the 'Favorite' Button to add a place in your favorite list!" = "좋아하는 목록에 위치를 추가하기 위해 ‘좋아하는’버튼을 눌러주세요!";
 
 //MARK: - FavoritePlaceDetailsView
-"Favorite Place's Details" = "Favorite Place's Details";
-"No Name" = "No Name";
+"Favorite Place's Details" = "좋아하는 위치의 세부사항";
+"No Name" = "이름 없음";

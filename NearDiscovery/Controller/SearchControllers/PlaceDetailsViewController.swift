@@ -22,7 +22,7 @@ class PlaceDetailsViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItemTitle(title: "Place's Details")
+        setNavigationItemTitle(title: "Place's Details".localized())
         placeDetailsScrollViewConfigure(placeDetails: placeDetails, place: place)
         placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
         placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
@@ -63,7 +63,7 @@ class PlaceDetailsViewController: UIViewController {
             let mapVC = segue.destination as? MapViewController {
             mapVC.placeDetails = placeDetails
             let backItem = UIBarButtonItem()
-            backItem.title = "Back"
+            backItem.title = "Back".localized()
             navigationItem.backBarButtonItem = backItem
         }
     }
@@ -91,10 +91,10 @@ class PlaceDetailsViewController: UIViewController {
     func didTapShareButton() {
         let urlString =  placeDetails?.url
         if let urlString = urlString {
-            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!", urlString], applicationActivities: nil)
+            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!".localized(), urlString], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         } else {
-            showAlert(title: "Sorry!", message: "I have no Google Maps Link for you to share!")
+            showAlert(title: "Sorry!".localized(), message: "I have no Google Maps Link for you to share!".localized())
         }
     }
     
@@ -107,7 +107,7 @@ class PlaceDetailsViewController: UIViewController {
             guard let url = URL(string: placeDetails.website ?? "") else { return }
             UIApplication.shared.open(url)
         } else {
-            showAlert(title: "Sorry!", message: "I have no Website to show you!")
+            showAlert(title: "Sorry!".localized(), message: "I have no Website to show you!".localized())
         }
     }
 }
@@ -132,12 +132,12 @@ extension PlaceDetailsViewController {
                 locations = Location.all
                 
             } else {
-                showAlert(title: "Sorry!", message: "You've reached the maximum amount of Marked Locations!")
+                showAlert(title: "Sorry!".localized(), message: "You've reached the maximum amount of Marked Locations!".localized())
                 tabItem.badgeValue = nil
             }
         } else {
             locations = Location.all
-            showAlert(title: "Sorry!", message: "You've already marked this location on the map!")
+            showAlert(title: "Sorry!".localized(), message: "You've already marked this location on the map!".localized())
             tabItem.badgeValue = nil
         }
     }
@@ -180,7 +180,7 @@ extension PlaceDetailsViewController {
             favorites = Favorite.all
         } else {
             favorites = Favorite.all
-            showAlert(title: "Sorry!", message: "You've already added this place into the favorite list!")
+            showAlert(title: "Sorry!".localized(), message: "You've already added this place into the favorite list!".localized())
             tabItem.badgeValue = nil
         }
     }

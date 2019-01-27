@@ -30,7 +30,7 @@ class MarkedLocationsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnnotations(locations: locations)
-        setNavigationItemTitle(title: "Marked Locations")
+        setNavigationItemTitle(title: "Marked Locations".localized())
         locationsCollectionView.reloadData()
         setConstraints()
         navigationItem.leftBarButtonItem = editButtonItem
@@ -325,7 +325,7 @@ class MarkedLocationsMapViewController: UIViewController {
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Sorry!", message: "No routes available!")
+                self.showAlert(title: "Sorry!".localized(), message: "No routes available!".localized())
                 return }
             for route in response.routes {
                 let time = route.expectedTravelTime / 60

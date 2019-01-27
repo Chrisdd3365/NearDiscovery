@@ -29,10 +29,10 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
             favoritePlaceAddressLabel?.text = favoritePlaceScrollViewConfigure?.address
             
             if favoritePlaceScrollViewConfigure?.openNow == true {
-                favoritePlaceOpenStateLabel.text = "Open"
+                favoritePlaceOpenStateLabel.text = "Open".localized()
                 favoritePlaceOpenStateLabel.backgroundColor = UIColor.init(red: 0/255, green: 144/255, blue: 81/255, alpha: 1)
             } else {
-                favoritePlaceOpenStateLabel.text = "Close"
+                favoritePlaceOpenStateLabel.text = "Close".localized()
                 favoritePlaceOpenStateLabel.backgroundColor = .red
             }
             
@@ -41,7 +41,7 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
             
             discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
             
-            scheduleTextView.text = convertDetailedFavoritePlaceSchedule(schedule: favoritePlaceScrollViewConfigure?.schedule ?? "No opening hours available.")
+            scheduleTextView.text = convertDetailedFavoritePlaceSchedule(schedule: favoritePlaceScrollViewConfigure?.schedule ?? "No opening hours available.".localized())
         }
     }
     //MARK: - Method
@@ -49,7 +49,7 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
         if let photoReferenceURL = favoritePlace?.photoReference {
             favoritePlaceImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
         } else {
-            favoritePlaceImageView.image = UIImage(named: "giletjaune")
+            favoritePlaceImageView.image = UIImage(named: "defaultImage")
         }
     }
     
