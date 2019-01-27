@@ -32,7 +32,7 @@
 
 //MARK: - HomePageView
 "What do you want to discover?" = "What do you want to discover?";
-"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
+"I couldn't find what you want to discover for you!" = "I couldn't find what you want to discover for you!";
 "Location Services not enabled!" = "Location Services not enabled!";
 "I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
 

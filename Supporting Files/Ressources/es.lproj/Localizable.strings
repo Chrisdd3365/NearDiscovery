@@ -31,7 +31,7 @@
 
 //MARK: - HomePageView
 "What do you want to discover?" = "¿Que quieres descubrir? ";
-"I couldn't find what you want to discover for you" = "No podía encontrar lo que querías descubrir!";
+"I couldn't find what you want to discover for you!" = "No podía encontrar lo que querías descubrir!";
 "Location Services not enabled!" = "Location Services not enabled!";
 "I need your authorization to show you cool places!" = "Necesito tu autorización para enseñarte lugares guapos.";
 

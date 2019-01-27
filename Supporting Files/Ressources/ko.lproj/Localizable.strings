@@ -31,7 +31,7 @@
 
 //MARK: - HomePageView
 "What do you want to discover?" = "무슨 장소를 찾길 원하세요 ?";
-"I couldn't find what you want to discover for you" = "당신이 원하는 장소를 찾을 수가 없어요!";
+"I couldn't find what you want to discover for you!" = "당신이 원하는 장소를 찾을 수가 없어요!";
 "Location Services not enabled!" = "Location Services not enabled!";
 "I need your authorization to show you cool places!" = "당신에게 적합한 장소를 보여주기 위해서는 당신의 승인이 필요해요!";
 
