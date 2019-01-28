@@ -30,6 +30,7 @@ class FavoritesListViewController: UIViewController {
     }
 
     //MARK: - Method
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showFavoritePlaceDetailsSegue,
             let favoritePlaceDetailsVC = segue.destination as? FavoritePlaceDetailsViewController,
@@ -40,6 +41,7 @@ class FavoritesListViewController: UIViewController {
     }
 }
 
+//MARK: - TableViewDataSource's methods
 extension FavoritesListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -74,6 +76,7 @@ extension FavoritesListViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - TableViewDelegate's methods
 extension FavoritesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220

@@ -52,7 +52,24 @@ class FavoritePlaceDetailsViewController: UIViewController {
         addToLocationListSetup()
     }
     
-    //MARK: - Location's List
+    //MARK: - Methods
+    //Setup ScrollView
+    private func favoritePlaceDetailsScrollViewConfigure(favoritePlace: Favorite?) {
+        favoritePlaceDetailsScrollView.favoritePlaceScrollViewConfigure = favoritePlace
+        favoritePlaceDetailsScrollView.favoritePlaceImageCellConfigure(favoritePlace: favoritePlace)
+    }
+    
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
+            let favoriteMapVC = segue.destination as? FavoriteMapViewController {
+            favoriteMapVC.favoritePlace = detailedFavoritePlace
+        }
+    }
+}
+
+//MARK: - Location's List methods
+extension FavoritePlaceDetailsViewController {
     private func addToLocationListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
         
@@ -100,15 +117,18 @@ class FavoritePlaceDetailsViewController: UIViewController {
         }
         return image
     }
-    
-    
-    //MARK: - Methods
+}
+
+//MARK: - Call/Share/Favorite/Website methods
+extension FavoritePlaceDetailsViewController {
+    //Helper's method for call
     func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
         let phoneNumber = String(describing: phoneNumber ?? "0000000000")
         let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
         return phoneNumberConverted
     }
     
+    //Call
     func didTapCallButton() {
         let phoneNumber = cleanPhoneNumberConverted(phoneNumber: detailedFavoritePlace?.phoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
@@ -118,6 +138,7 @@ class FavoritePlaceDetailsViewController: UIViewController {
         }
     }
     
+    //Share
     func didTapShareButton() {
         let urlString =  detailedFavoritePlace?.url
         if let urlString = urlString {
@@ -128,11 +149,13 @@ class FavoritePlaceDetailsViewController: UIViewController {
         }
     }
     
+    //Favorite
     func didTapFavoriteButton() {
         CoreDataManager.deleteFavoriteFromList(placeId: detailedFavoritePlace?.placeId ?? "")
         navigationController?.popViewController(animated: true)
     }
     
+    //Website
     func didTapWebsiteButton() {
         if let detailedFavoritePlace = detailedFavoritePlace {
             guard let url = URL(string: detailedFavoritePlace.website ?? "") else { return }
@@ -141,19 +164,4 @@ class FavoritePlaceDetailsViewController: UIViewController {
             showAlert(title: "Sorry!".localized(), message: "I have no Website to show you!".localized())
         }
     }
-    
-    private func favoritePlaceDetailsScrollViewConfigure(favoritePlace: Favorite?) {
-        favoritePlaceDetailsScrollView.favoritePlaceScrollViewConfigure = favoritePlace
-        favoritePlaceDetailsScrollView.favoritePlaceImageCellConfigure(favoritePlace: favoritePlace)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
-            let favoriteMapVC = segue.destination as? FavoriteMapViewController {
-            favoriteMapVC.favoritePlace = detailedFavoritePlace
-        }
-    }
 }
-
-
-

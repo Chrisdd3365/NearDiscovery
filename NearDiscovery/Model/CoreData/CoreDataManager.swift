@@ -29,11 +29,6 @@ class CoreDataManager {
     
         saveContext()
     }
-    //Helper's method
-    static func convertIngredientsArrayIntoString(schedule: [String]) -> String {
-        let scheduleArray = schedule.map{ String($0) }
-        return scheduleArray.joined(separator: ", ")
-    }
     
     static func deleteFavoriteFromList(placeId: String, context: NSManagedObjectContext = AppDelegate.viewContext) {
         let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
@@ -48,6 +43,11 @@ class CoreDataManager {
         } catch let error as NSError {
             print(error)
         }
+    }
+    
+    static func deleteAllFavorites(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Favorite.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
     }
     
     //MARK: - Location CoreDataManager's methods
@@ -96,6 +96,11 @@ class CoreDataManager {
         }
     }
     
+    static func deleteAllLocations(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Location.fetchRequest())
+        let _ = try? viewContext.execute(deleteRequest)
+    }
+    
     //MARK: - Helper's methods
     static func saveContext() {
         do {
@@ -105,13 +110,8 @@ class CoreDataManager {
         }
     }
     
-    static func deleteAllLocations(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Location.fetchRequest())
-        let _ = try? viewContext.execute(deleteRequest)
-    }
-    
-    static func deleteAllFavorites(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Favorite.fetchRequest())
-        let _ = try? viewContext.execute(deleteRequest)
+    static func convertIngredientsArrayIntoString(schedule: [String]) -> String {
+        let scheduleArray = schedule.map{ String($0) }
+        return scheduleArray.joined(separator: ", ")
     }
 }

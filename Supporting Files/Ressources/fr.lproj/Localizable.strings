@@ -19,9 +19,9 @@
 "Close" = "Fermé";
 "Discover" = "Découvrir";
 "Automobile" = "Voiture";
-"Walking" = "A pied";
+"Walking" = "À pied";
 "OK" = "OK";
-"No routes available!" = "Aucun itinéraire disponible!";
+"No routes found!" = "Aucun itinéraire disponible!";
 "Hey! Check out this place!" = "Salut! Jette un coup d'oeil à cet emplacement!";
 "I have no Google Maps Link for you to share!" = "Pas de lien Google Maps à partager!";
 "I have no Website to show you!" = "Pas de Site Web disponible!";

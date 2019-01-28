@@ -340,7 +340,7 @@
 		9587404E21C3FBFF00489865 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9587405121C3FE2500489865 /* HomePageViewController.swift */,
+				95E0168C21FF15A0000806F4 /* HomePageController */,
 				956F420721F6022B00B305CE /* SearchControllers */,
 				956F420621F601E300B305CE /* LocationController */,
 				95BE0DC121F4F94700C260E0 /* FavoriteControllers */,
@@ -448,6 +448,14 @@
 				956F420021F5DAA500B305CE /* FavoriteMapViewController.swift */,
 			);
 			path = FavoriteControllers;
+			sourceTree = "<group>";
+		};
+		95E0168C21FF15A0000806F4 /* HomePageController */ = {
+			isa = PBXGroup;
+			children = (
+				9587405121C3FE2500489865 /* HomePageViewController.swift */,
+			);
+			path = HomePageController;
 			sourceTree = "<group>";
 		};
 		95F4E8DE21F1DB0E0033DECB /* UICollectionViewCell */ = {
@@ -866,7 +874,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.NearDiscovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -886,7 +894,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophedurand.NearDiscovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

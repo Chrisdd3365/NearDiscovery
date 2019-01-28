@@ -21,7 +21,7 @@
 "Automobile" = "자동차";
 "Walking" = "도보";
 "OK" = "그래요";
-"No routes available!" = "이 경로는 이용할 수 없어요!";
+"No routes found!" = "이 경로는 이용할 수 없어요!";
 "Hey! Check out this place!" = "저기요 ! 이 장소 좀 보세요 !";
 "I have no Google Maps Link for you to share!" = "당신과 공유할 구글맵 링크가 존재하지 않아요!";
 "I have no Website to show you!" = "당신에게 보여줄 웹사이트가 존재하지 않아요!";

@@ -15,7 +15,6 @@ class MarkedLocationsMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsCollectionView: UICollectionView!
     @IBOutlet var markedLocationView: MarkedLocationView!
-    @IBOutlet weak var deleteLocationButton: UIBarButtonItem!
     @IBOutlet weak var removeAllLocationsButton: UIButton!
     
     //MARK: - Properties
@@ -25,6 +24,13 @@ class MarkedLocationsMapViewController: UIViewController {
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     var locations = Location.all
+    lazy var collectionView: UICollectionView = {
+        locationsCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
+        return locationsCollectionView
+    }()
+    private var nodes = [CLLocation]()
+    private typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
+    private var cordes = [tripletType]()
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -55,14 +61,6 @@ class MarkedLocationsMapViewController: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         removeAllLocationsButton.isEnabled = editing
-        locationsCollectionView.allowsMultipleSelection = editing
-        let indexPaths = locationsCollectionView.indexPathsForVisibleItems
-        for indexPath in indexPaths {
-            let cell = locationsCollectionView.cellForItem(at: indexPath) as! LocationCollectionViewCell
-            
-            cell.isEditing = editing
-        }
-        deleteLocationButton.isEnabled = isEditing
     }
     
     //MARK: - Actions
@@ -71,11 +69,8 @@ class MarkedLocationsMapViewController: UIViewController {
         creationCorde()
         allPathing(sender: sender)
         secureDirectionsButtons()
-        
-        markedLocationView.automobileDirections.setImage(UIImage(named: "automobile"), for: .normal)
-        markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-        markedLocationView.walkingLabel.textColor = .black
+        setupButtonSetImage(automobileImage: "automobile", walkingImage: "noWalking")
+        setupLabelColor(automobileLabelColor: UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1), walkingLabelColor: .black)
     }
     
     @IBAction func getWalkingDirections(_ sender: UIButton) {
@@ -83,11 +78,8 @@ class MarkedLocationsMapViewController: UIViewController {
         creationCorde()
         allPathing(sender: sender)
         secureDirectionsButtons()
-        
-        markedLocationView.walkingDirections.setImage(UIImage(named: "walking"), for: .normal)
-        markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        markedLocationView.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
-        markedLocationView.automobileLabel.textColor = .black
+        setupButtonSetImage(automobileImage: "noAutomobile", walkingImage: "walking")
+        setupLabelColor(automobileLabelColor: .black, walkingLabelColor: UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1))
     }
     
     @IBAction func centerOnUserLocation(_ sender: UIButton) {
@@ -95,57 +87,35 @@ class MarkedLocationsMapViewController: UIViewController {
     }
     
     @IBAction func removeAllLocations(_ sender: UIButton) {
-        locations.removeAll()
-        CoreDataManager.deleteAllLocations()
-        CoreDataManager.saveContext()
-        
-        nodes.removeAll()
-        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
-        nodes.append(userLocation)
-
-        placesMarkers.removeAll()
-        
-        self.mapView.removeAnnotations(mapView.annotations)
-        self.mapView.removeOverlays(mapView.overlays)
-        
+        deleteAllFromCoreData()
+        deleteAllFromNodesArray()
+        deleteAllAnnotationsAndOverlays()
         locationsCollectionView.reloadData()
-
-
-        markedLocationView.automobileDirections.isEnabled = false
-        markedLocationView.automobileDirections.setImage(UIImage(named: "noAutomobile"), for: .normal)
-        markedLocationView.automobileLabel.textColor = .black
-        
-        markedLocationView.walkingDirections.isEnabled = false
-        markedLocationView.walkingDirections.setImage(UIImage(named: "noWalking"), for: .normal)
-        markedLocationView.walkingLabel.textColor = .black
+        setupButtonSetImage(automobileImage: "noAutomobile", walkingImage: "noWalking")
+        setupLabelColor(automobileLabelColor: .black, walkingLabelColor: .black)
+        buttonIsEnabledStateSetup(isEnabled: false)
     }
-    
-    @IBAction func deleteSelectedLocation() {
-        if let selected = locationsCollectionView.indexPathsForSelectedItems {
-            let items = selected.map { $0.item }.sorted().reversed()
-            for item in items {
-                locations.remove(at: item)
-                removeSpecificAnnotation()
-            }
-            locationsCollectionView.deleteItems(at: selected)
-        }
-    }
-    
-    private func removeSpecificAnnotation() {
-        for annotation in mapView.annotations {
-            if let title = annotation.title {
-                for location in locations {
-                    if location.latitude == annotation.coordinate.latitude,
-                        location.longitude == annotation.coordinate.longitude,
-                        location.name == title {
-                        mapView.removeAnnotation(annotation)
-                    }
-                }
-            }
-        }
-    }
-    
+            
     //MARK: - Methods
+    //Setup SetImage's Buttons
+    private func setupButtonSetImage(automobileImage: String, walkingImage: String) {
+        markedLocationView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
+        markedLocationView.walkingDirections.setImage(UIImage(named: walkingImage), for: .normal)
+    }
+    
+    //Setup Label's Color
+    private func setupLabelColor(automobileLabelColor: UIColor, walkingLabelColor: UIColor) {
+        markedLocationView.automobileLabel.textColor = automobileLabelColor
+        markedLocationView.walkingLabel.textColor = walkingLabelColor
+    }
+    
+    //Setup isEnabled buttons state
+    private func buttonIsEnabledStateSetup(isEnabled: Bool) {
+        markedLocationView.automobileDirections.isEnabled = isEnabled
+        markedLocationView.walkingDirections.isEnabled = isEnabled
+    }
+    
+    //Avoid useless inputs from the user
     private func secureDirectionsButtons() {
         if locations.isEmpty == true  {
             markedLocationView.automobileDirections.isEnabled = false
@@ -160,6 +130,28 @@ class MarkedLocationsMapViewController: UIViewController {
         }
     }
     
+    //Delete All Locations from CoreData
+    private func deleteAllFromCoreData() {
+        locations.removeAll()
+        CoreDataManager.deleteAllLocations()
+        CoreDataManager.saveContext()
+    }
+    
+    //Delete All Nodes
+    private func deleteAllFromNodesArray() {
+        nodes.removeAll()
+        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
+        nodes.append(userLocation)
+    }
+    
+    //Delete All Annotations and Overlays
+    private func deleteAllAnnotationsAndOverlays() {
+        placesMarkers.removeAll()
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.removeOverlays(mapView.overlays)
+    }
+    
+    //Show annotations
     private func showAnnotations(locations: [Location]) {
         for location in locations {
             let placeMarker = PlaceMarker(latitude: location.latitude, longitude: location.longitude, name: location.name ?? "")
@@ -170,35 +162,30 @@ class MarkedLocationsMapViewController: UIViewController {
         }
     }
         
-    //DELEGATE CORE LOCATION
+    //Delegate CoreLocation
     private func setupCoreLocation() {
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
     }
     
-    //DELEGATE MAPKIT
+    //Delegate MapKit
     private func setupMapView() {
         mapView.delegate = self
     }
-    
-    ////
-    private var nodes = [CLLocation]()
-    private typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
-    private var cordes = [tripletType]()
-    
-    
-    
-    
-    
+}
+
+//MARK: - TSP methods
+extension MarkedLocationsMapViewController {
+    //MARK: - Methods
     //1
     func convertLocationIntoCLLocation() {
         for location in locations {
             let latitude = location.latitude
             let longitude = location.longitude
-
             nodes.append(CLLocation(latitude: latitude, longitude: longitude))
         }
     }
+    
     //2
     func creationCorde() {
         for i in 0...nodes.count - 2 {
@@ -214,7 +201,7 @@ class MarkedLocationsMapViewController: UIViewController {
             }
         }
     }
-
+    
     //Helper's methods
     func calculCout(node1: CLLocation, node2: CLLocation) -> Double {
         let distance = node1.distance(from: node2)
@@ -282,7 +269,7 @@ class MarkedLocationsMapViewController: UIViewController {
         
         path.append(nodes[0])
         path.append(currentNode)
-
+        
         var sumDistanceCurrentPath = 0.0
         while path.count < nodes.count  {
             print(currentNode.coordinate)
@@ -325,7 +312,7 @@ class MarkedLocationsMapViewController: UIViewController {
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
-                self.showAlert(title: "Sorry!".localized(), message: "No routes available!".localized())
+                self.showAlert(title: "Sorry!".localized(), message: "No routes found!".localized())
                 return }
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
@@ -334,8 +321,12 @@ class MarkedLocationsMapViewController: UIViewController {
                 let distance = route.distance / 1000
                 self.markedLocationView.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                if distance < 10000/100 {
+                    self.mapView.addOverlay(route.polyline)
+                    self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                } else {
+                    self.showAlert(title: "Sorry!".localized(), message: "No routes found!".localized())
+                }
             }
         }
     }
@@ -369,48 +360,35 @@ class MarkedLocationsMapViewController: UIViewController {
     private func addUserLocationInLocationsArray(userLocation: CLLocation) {
         nodes.append(userLocation)
     }
-    
-    lazy var collectionView: UICollectionView = {
-        locationsCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
-        return locationsCollectionView
-    }()
-    
-    
 }
 
+//MARK: - CoreLocationManagerDelegate's method
 extension MarkedLocationsMapViewController: CLLocationManagerDelegate {
-    //USER LOCATION
+    //User Location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         if !regionHasBeenCentered {
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        mapView.setRegion(region, animated: false)
-        if nodes.isEmpty {
-            nodes.append(location)
-        } else {
-            nodes[0] = location
-        }
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: false)
+            if nodes.isEmpty {
+                nodes.append(location)
+            } else {
+                nodes[0] = location
+            }
             regionHasBeenCentered = true
         }
     }
 }
 
+//MARK: - MapViewDelegate's methods
 extension MarkedLocationsMapViewController: MKMapViewDelegate {
+    //Tracking User Location when he is moving on mapView
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         mapView.userTrackingMode = .followWithHeading
     }
     
-    
-    
-    //ZOOM ON USER LOCATION
-    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        if let userLocation = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    //DRAW DIRECTIONS
+    //Draw Polyline on mapView
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
         renderer.strokeColor = .blue
@@ -418,7 +396,7 @@ extension MarkedLocationsMapViewController: MKMapViewDelegate {
         return renderer
     }
     
-    //ANNOTATIONS
+    //Show annotations on mapView
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -443,6 +421,7 @@ extension MarkedLocationsMapViewController: MKMapViewDelegate {
     }
 }
 
+//MARK: - CollectionViewDataSource's methods
 extension MarkedLocationsMapViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return locations.count
@@ -454,12 +433,12 @@ extension MarkedLocationsMapViewController: UICollectionViewDataSource {
 
         let location = locations[indexPath.row]
         cell.locationConfigure = location
-        cell.isEditing = isEditing
         
         return cell
     }
 }
 
+//MARK: - CollectionViewDelegate's method
 extension MarkedLocationsMapViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !isEditing {
@@ -475,6 +454,7 @@ extension MarkedLocationsMapViewController: UICollectionViewDelegate {
     }
 }
 
+//MARK: - CollectionViewDelegateFlowLayout's methods
 extension MarkedLocationsMapViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if (kind == UICollectionView.elementKindSectionFooter) {
@@ -489,6 +469,7 @@ extension MarkedLocationsMapViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: - SetConstraints method
 extension MarkedLocationsMapViewController {
     private func setConstraints() {
         view.addSubview(collectionView)

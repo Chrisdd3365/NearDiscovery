@@ -20,7 +20,7 @@ class GooglePlacesSearchService {
     }
     
     //MARK: - Methods
-    //HELPER'S METHODS FOR API CALL
+    //Helper's methods URL
     func googlePlacesSearchURL(location: CLLocation, keyword: String) -> String {
         let baseURL = Constants.GooglePlacesSearchURL.baseURL
         let locationURL = Constants.GooglePlacesSearchURL.locationURL + String(location.coordinate.latitude) + "," + String(location.coordinate.longitude)
@@ -39,7 +39,8 @@ class GooglePlacesSearchService {
         
         return baseURL + maxwidthURL + photoreferenceURL + keyURL
     }
-    //API CALL
+    
+    //API method
     func getGooglePlacesSearchData(keyword: String, location: CLLocation, callback: @escaping (Bool, GooglePlacesSearchResponse) -> Void) {
         guard let url = URL(string: googlePlacesSearchURL(location: location, keyword: keyword)) else { return }
         task?.cancel()

@@ -21,7 +21,7 @@
 "Automobile" = "Automobile";
 "Walking" = "Walking";
 "OK" = "OK";
-"No routes available!" = "No routes available!";
+"No routes found!" = "No routes found!";
 "No Schedule available." = "No Schedule available.";
 "Hey! Check out this place!" = "Hey! Check out this place!";
 "I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";

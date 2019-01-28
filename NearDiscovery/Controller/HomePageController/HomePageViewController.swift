@@ -24,9 +24,7 @@ class HomePageViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        homePageView.nearbyDiscoveryButton.isEnabled = false
-        homePageView.discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
-        homePageView.discoverLabel.textColor = .white
+        nearbyDiscoveryButtonIsNotEnabled()
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
@@ -34,10 +32,8 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        homePageView.nearbyDiscoveryButton.isEnabled = false
-        homePageView.discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
-        homePageView.discoverLabel.textColor = .white
-        homePageView.searchTextField.text = nil
+        nearbyDiscoveryButtonIsNotEnabled()
+        searchTextFieldTextIsNil()
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
@@ -45,11 +41,23 @@ class HomePageViewController: UIViewController {
     }
     
     //MARK: - Methods
+    //Setup NearbyDiscoveryButton
+    private func nearbyDiscoveryButtonIsNotEnabled() {
+        homePageView.nearbyDiscoveryButton.isEnabled = false
+    }
+    
+    //Setup TextField
+    private func searchTextFieldTextIsNil() {
+        homePageView.searchTextField.text = nil
+    }
+    
+    //Activity Indicator
     private func toggleActivityIndicator(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown
         homePageView.nearbyDiscoveryButton.isEnabled = !shown
     }
     
+    //Helper's method
     private func keywordTextField() -> String {
         var keyword = ""
         guard let inputs = homePageView.searchTextField.text else { return "" }
@@ -63,6 +71,7 @@ class HomePageViewController: UIViewController {
         fetchGooglePlacesData(keyword: keywordTextField())
     }
     
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showNearbySegue, let tabBarController = segue.destination as? UITabBarController,
             let navigationController = tabBarController.viewControllers?[0] as? UINavigationController, let nearbyPlacesListVC = navigationController.topViewController as? NearbyPlacesListViewController {
@@ -110,6 +119,7 @@ extension HomePageViewController {
 }
 
 //MARK: - CoreLocation's methods
+//To get authorization from the user to be located
 extension HomePageViewController {
     private func locationServicesIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {

@@ -19,7 +19,7 @@ class GooglePlacesDetailsService {
     }
     
     //MARK: - Methods
-    //HELPER'S METHODS FOR API CALL
+    //Helper's methods URL
     func googlePlacesDetailsURL(placeId: String) -> String {
         let baseURL = Constants.GooglePlacesDetailsURL.baseURL
         let placeIdURL = Constants.GooglePlacesDetailsURL.placeIdURL + placeId
@@ -27,7 +27,8 @@ class GooglePlacesDetailsService {
         
         return baseURL + placeIdURL + keyURL
     }
-    //API CALL
+    
+    //API method
     func getGooglePlacesDetailsData(placeId: String, callback: @escaping (Bool, GooglePlacesDetailsResponse?) -> Void) {
         guard let url = URL(string: googlePlacesDetailsURL(placeId: placeId)) else { return }
         task?.cancel()

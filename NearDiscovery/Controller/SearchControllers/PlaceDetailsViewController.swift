@@ -12,7 +12,7 @@ class PlaceDetailsViewController: UIViewController {
     //MARK: - Outlet:
     @IBOutlet weak var placeDetailsScrollView: PlaceDetailsScrollView!
     
-    //MARK - Properties
+    //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()
     var place: PlaceSearch?
     var placeDetails: PlaceDetails?
@@ -24,16 +24,14 @@ class PlaceDetailsViewController: UIViewController {
         super.viewDidLoad()
         setNavigationItemTitle(title: "Place's Details".localized())
         placeDetailsScrollViewConfigure(placeDetails: placeDetails, place: place)
-        placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
-        placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+        buttonSetImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         locations = Location.all
         favorites = Favorite.all
-        placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
-        placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+        buttonSetImage()
     }
     
     //MARK: - Actions
@@ -58,6 +56,18 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     //MARK: - Methods
+    private func buttonSetImage() {
+        placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
+        placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+    }
+    
+    //Setup ScrollView
+    private func placeDetailsScrollViewConfigure(placeDetails: PlaceDetails?, place: PlaceSearch?) {
+        placeDetailsScrollView.placeDetailsScrollViewConfigure = placeDetails
+        placeDetailsScrollView.placeDetailsImageCellConfigure(place: place)
+    }
+    
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
             let mapVC = segue.destination as? MapViewController {
@@ -67,18 +77,18 @@ class PlaceDetailsViewController: UIViewController {
             navigationItem.backBarButtonItem = backItem
         }
     }
-    
-    private func placeDetailsScrollViewConfigure(placeDetails: PlaceDetails?, place: PlaceSearch?) {
-        placeDetailsScrollView.placeDetailsScrollViewConfigure = placeDetails
-        placeDetailsScrollView.placeDetailsImageCellConfigure(place: place)
-    }
-    
+}
+
+//MARK: - Call/Share/Favorite/Website methods
+extension PlaceDetailsViewController {
+    //Helper's method for Call
     func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
         let phoneNumber = String(describing: phoneNumber ?? "0000000000")
         let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
         return phoneNumberConverted
     }
     
+    //Call
     func didTapCallButton() {
         let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails?.internationalPhoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
@@ -88,6 +98,7 @@ class PlaceDetailsViewController: UIViewController {
         }
     }
     
+    //Share
     func didTapShareButton() {
         let urlString =  placeDetails?.url
         if let urlString = urlString {
@@ -98,10 +109,12 @@ class PlaceDetailsViewController: UIViewController {
         }
     }
     
+    //Favorite
     func didUpdateFavoriteButtonImage() -> UIImage {
         return updateFavoriteButtonImage()
     }
     
+    //Website
     func didTapWebsiteButton() {
         if let placeDetails = placeDetails {
             guard let url = URL(string: placeDetails.website ?? "") else { return }

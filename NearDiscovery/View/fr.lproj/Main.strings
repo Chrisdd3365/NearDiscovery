@@ -15,7 +15,7 @@
 "1ND-R9-03T.text" = "Favoris";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "1Rv-sQ-cKo"; */
-"1Rv-sQ-cKo.text" = "A pied";
+"1Rv-sQ-cKo.text" = "À pied";
 
 /* Class = "UILabel"; text = "Open"; ObjectID = "1e3-ts-OX8"; */
 "1e3-ts-OX8.text" = "Ouvert";
@@ -51,7 +51,7 @@
 "Jvn-Ym-Ww2.text" = "Site Web";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "KM1-c6-KJr"; */
-"KM1-c6-KJr.text" = "A pied";
+"KM1-c6-KJr.text" = "À pied";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "KS7-F1-TJi"; */
 "KS7-F1-TJi.text" = "Addresse";
@@ -81,7 +81,7 @@
 "bNv-Ty-u4g.text" = "Site Web";
 
 /* Class = "UILabel"; text = "Walking"; ObjectID = "dWJ-Kq-Qf1"; */
-"dWJ-Kq-Qf1.text" = "A pied";
+"dWJ-Kq-Qf1.text" = "À pied";
 
 /* Class = "UILabel"; text = "Discover"; ObjectID = "dut-nG-Xlx"; */
 "dut-nG-Xlx.text" = "Découvrir";

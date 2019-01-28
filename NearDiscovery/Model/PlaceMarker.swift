@@ -10,11 +10,13 @@ import Foundation
 import MapKit
 import CoreLocation
 
+//To add annotations on map with coordinates and name of the location
 class PlaceMarker: NSObject {
     //MARK: - Properties
     var location: CLLocation
     var name: String
-
+    
+    //MARK: - Initializers
     init(latitude: Double, longitude: Double, name: String) {
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.name = name
