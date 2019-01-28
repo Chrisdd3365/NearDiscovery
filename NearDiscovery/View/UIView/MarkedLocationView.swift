@@ -10,8 +10,6 @@ import UIKit
 
 class MarkedLocationView: UIView {
     //MARK: - Outlets
-    @IBOutlet weak var expectedTravelTimeLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var automobileDirections: UIButton!
     @IBOutlet weak var walkingDirections: UIButton!
     @IBOutlet weak var automobileLabel: UILabel!

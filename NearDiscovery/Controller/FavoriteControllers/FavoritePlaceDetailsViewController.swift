@@ -133,7 +133,6 @@ extension FavoritePlaceDetailsViewController {
         let phoneNumber = cleanPhoneNumberConverted(phoneNumber: detailedFavoritePlace?.phoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
         if let phoneURL = phoneURL {
-            print(phoneURL)
             UIApplication.shared.open(phoneURL)
         }
     }

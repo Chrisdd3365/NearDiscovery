@@ -32,8 +32,11 @@ class LocationCollectionViewCell: UICollectionViewCell {
                 locationOpenStateLabel.backgroundColor = .red
             }
             
-            locationImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: locationConfigure?.photoReference ?? "")))
+            if let photoReferenceURL = locationConfigure?.photoReference {
+                locationImageView.sd_setImage(with: URL(string: googlePlacesSearchService.googlePlacesPhotosURL(photoreference: photoReferenceURL)))
+            } else {
+                locationImageView.image = UIImage(named: "defaultImage")
+            }
         }
     }
-
 }

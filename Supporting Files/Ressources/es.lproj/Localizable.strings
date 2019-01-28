@@ -21,7 +21,8 @@
 "Automobile" = "Automóvil";
 "Walking" = "Caminando";
 "OK" = "OK";
-"No routes found!" = "No se encontraron rutas !";
+"No routes found!" = "No se encontraron rutas!";
+"No opening hours available." = "No podía encontrar los horarios.";
 "Hey! Check out this place!" = "Hola! Echale un vistazo a este lugar!";
 "I have no Google Maps Link for you to share!" = "No tengo ninguno enlace de Google Maps para compartir!";
 "I have no Website to show you!" = "No tengo ningún Web a enseñarte!";

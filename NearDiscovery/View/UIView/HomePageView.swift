@@ -14,4 +14,5 @@ class HomePageView: UIView {
     @IBOutlet weak var nearbyDiscoveryButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var buttonActivityIndicatorView: UIView!
 }

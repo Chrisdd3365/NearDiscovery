@@ -8,47 +8,48 @@
 
 //MARK: - In Common
 "NearDiscovery" = "NearDiscovery";
-"Sorry!" = "Sorry!";
-"Back" = "Back";
-"Call" = "Call";
-"Share" = "Share";
-"Favorite" = "Favorite";
-"Website" = "Website";
-"Open" = "Open";
-"Close" = "Close";
-"Discover" = "Discover";
-"Automobile" = "Automobile";
-"Walking" = "Walking";
+"Sorry!" = "Xin lỗi!";
+"Back" = "Quay lại";
+"Call" = "Gọi điện";
+"Share" = "Chia sẽ";
+"Favorite" = "Yêu thích";
+"Website" = "Trang Web";
+"Open" = "Mở";
+"Close" = "Dóng";
+"Discover" = "Khám phá ";
+"Automobile" = "Xe hơi";
+"Walking" = "đi bộ";
 "OK" = "OK";
-"No routes found!" = "No routes available!";
-"Hey! Check out this place!" = "Hey! Check out this place!";
-"I have no Google Maps Link for you to share!" = "I have no Google Maps Link for you to share!";
-"I have no Website to show you!" = "I have no Website to show you!";
-"You've reached the maximum amount of Marked Locations!" = "You've reached the maximum amount of Marked Locations!";
-"You've already marked this location on the map!" = "You've already marked this location on the map!";
-"You've already added this place into the favorite list!" = "You've already added this place into the favorite list!";
+"No routes found!" = "Không có lộ trình!";
+"No opening hours available." = "Không có giờ mở cửa.";
+"Hey! Check out this place!" = " Chào! Kiểm tra nơi này!";
+"I have no Google Maps Link for you to share!" = "Tôi không kết nối với Google Maps để bạn chia sẽ!";
+"I have no Website to show you!" = "Tôi không có trang web để chỉ cho bạn!";
+"You've reached the maximum amount of Marked Locations!" = "Bạn đã đạt đến chữ số tối đa về đánh dấu các địa điểm!";
+"You've already marked this location on the map!" = "Bạn đã đánh dấu địa điểm này trên bản đồ!";
+"You've already added this place into the favorite list!" = "Bạn đã thêm địa điểm này vào danh sách yêu thích!";
 
 //MARK: - HomePageView
-"What do you want to discover?" = "What do you want to discover?";
-"I couldn't find what you want to discover for you" = "I couldn't find what you want to discover for you!";
+"What do you want to discover?" = "Bạn muốn khám phá điều gì?";
+"I couldn't find what you want to discover for you!" = "Tôi không tìm thấy những gì bạn muốn khám phá!";
 "Location Services not enabled!" = "Location Services not enabled!";
-"I need your authorization to show you cool places!" = "I need your authorization to show you cool places!";
+"I need your authorization to show you cool places!" = "Tôi xin phép để chỉ cho bạn những nơi thú vị!";
 
 //MARK: - NearbyPlacesListView
-"List of Nearby Places to Visit" = "List of Nearby Places to Visit";
-"I'm not able to show you details for now! Try again!" = "I'm not able to show you details for now! Try again!";
+"List of Nearby Places to Visit" = "Danh sách các địa điểm vùng lân cận để tham quan";
+"I'm not able to show you details for now! Try again!" = "Tôi không thể chỉ bạn chi tiết bây giờ! Hãy thử lại!";
 
 //MARK: - PlaceDetailsView
-"Place's Details" = "Place's Details";
+"Place's Details" = "Chi tiết địa điểm";
 
 //MARK: MarkedLocationView
-"Marked Locations" = "Marked Locations";
-"Hit the 'Marked Location' Button to add the location into the list!" = "Hit the 'Marked Location' Button to add the location into the list!";
+"Marked Locations" = "Đánh dấu địa điểm";
+"Hit the 'Marked Location' Button to add the location into the list!" = "Hãy nhấn nút 'Đánh dấu địa điểm ' để thêm địa điểm vào danh sách!";
 
 //MARK: - FavoritesListView
-"List of Favorites Places" = "List of Favorites Places";
-"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hit the 'Favorite' Button to add a place in your favorite list!";
+"List of Favorites Places" = "Danh sách địa điểm yêu thích ";
+"Hit the 'Favorite' Button to add a place in your favorite list!" = "Hãy nhấn nút 'Yêu thích' để ghi thêm một địa điểm vào danh sách bạn yêu thích!";
 
 //MARK: - FavoritePlaceDetailsView
-"Favorite Place's Details" = "Favorite Place's Details";
-"No Name" = "No Name";
+"Favorite Place's Details" = "Chi tiết địa điểm yêu thích";
+"No Name" = "Không danh tánh";

@@ -55,10 +55,11 @@ class MapViewController: UIViewController {
         mapUIView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
         mapUIView.walkingDirections.setImage(UIImage(named: walkingImage), for: .normal)
     }
+    
     //Setup Label's Color
     private func setupLabelColor(automobileLabelColor: UIColor, walkingLabelColor: UIColor) {
-        mapUIView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
-        mapUIView.walkingLabel.textColor = .black
+        mapUIView.automobileLabel.textColor = automobileLabelColor
+        mapUIView.walkingLabel.textColor = walkingLabelColor
     }
     
     //Annotation

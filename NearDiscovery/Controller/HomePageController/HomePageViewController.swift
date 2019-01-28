@@ -114,6 +114,9 @@ extension HomePageViewController {
         self.homePageView.nearDiscoveryLabel.textColor = 6..<21 ~= Date().hour ?
             .black : .white
         self.homePageView.backgroundColor = 6..<21 ~= Date().hour ? UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
+        self.homePageView.buttonActivityIndicatorView.backgroundColor = 6..<21 ~= Date().hour ?
+            UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
+            
         scheduleTimer()
     }
 }

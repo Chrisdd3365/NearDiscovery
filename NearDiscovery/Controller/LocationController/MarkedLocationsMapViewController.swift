@@ -334,11 +334,7 @@ extension MarkedLocationsMapViewController {
                 return }
             
             for route in response.routes {
-                let time = route.expectedTravelTime / 60
-                self.markedLocationView.expectedTravelTimeLabel.text = String(format: "%2.f", time) + " min"
-                
                 let distance = route.distance / 1000
-                self.markedLocationView.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
                 if distance < 5000/100 {
                     self.mapView.addOverlay(route.polyline)

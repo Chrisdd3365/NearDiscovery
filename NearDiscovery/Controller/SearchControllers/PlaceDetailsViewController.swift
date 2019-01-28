@@ -93,7 +93,6 @@ extension PlaceDetailsViewController {
         let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails?.internationalPhoneNumber)
         let phoneURL = URL(string: ("tel://\(phoneNumber)"))
         if let phoneURL = phoneURL {
-            print(phoneURL)
             UIApplication.shared.open(phoneURL)
         }
     }
