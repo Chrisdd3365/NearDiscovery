@@ -24,13 +24,17 @@ class MarkedLocationsMapViewController: UIViewController {
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     var locations = Location.all
+    
+    //CollectionView's property
     lazy var collectionView: UICollectionView = {
         locationsCollectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
         return locationsCollectionView
     }()
+    
+    //TSP's properties
     private var nodes = [CLLocation]()
-    private typealias tripletType = (first: CLLocation, second: CLLocation, third: Double)
-    private var cordes = [tripletType]()
+    private typealias LocationsDistance = (firstLocation: CLLocation, secondLocation: CLLocation, distance: Double)
+    private var lines = [LocationsDistance]()
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -66,8 +70,8 @@ class MarkedLocationsMapViewController: UIViewController {
     //MARK: - Actions
     @IBAction func getAutomobileDirections(_ sender: UIButton) {
         convertLocationIntoCLLocation()
-        creationCorde()
-        allPathing(sender: sender)
+        createLine()
+        getAllPaths(sender: sender)
         secureDirectionsButtons()
         setupButtonSetImage(automobileImage: "automobile", walkingImage: "noWalking")
         setupLabelColor(automobileLabelColor: UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1), walkingLabelColor: .black)
@@ -75,8 +79,8 @@ class MarkedLocationsMapViewController: UIViewController {
     
     @IBAction func getWalkingDirections(_ sender: UIButton) {
         convertLocationIntoCLLocation()
-        creationCorde()
-        allPathing(sender: sender)
+        createLine()
+        getAllPaths(sender: sender)
         secureDirectionsButtons()
         setupButtonSetImage(automobileImage: "noAutomobile", walkingImage: "walking")
         setupLabelColor(automobileLabelColor: .black, walkingLabelColor: UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1))
@@ -174,9 +178,9 @@ class MarkedLocationsMapViewController: UIViewController {
     }
 }
 
-//MARK: - TSP methods
+//MARK: - Travelling Salesman Problem's (TSP) methods
 extension MarkedLocationsMapViewController {
-    //MARK: - Methods
+    //MARK: - TSP Algorithm's methods
     //1
     func convertLocationIntoCLLocation() {
         for location in locations {
@@ -187,133 +191,148 @@ extension MarkedLocationsMapViewController {
     }
     
     //2
-    func creationCorde() {
+    func createLine() {
         for i in 0...nodes.count - 2 {
-            let node1 = nodes[i]
-            
+            let firstNode = nodes[i]
             let newStartIndex = i + 1
+            
             for j in newStartIndex...nodes.count - 1 {
-                let node2 = nodes[j]
-                
-                let distance = calculCout(node1: node1, node2: node2)
-                let triplet: tripletType = (first: node1, second: node2, third: distance)
-                cordes.append(triplet)
+                let secondNode = nodes[j]
+                let distance = calculateDistance(firstNode: firstNode, secondNode: secondNode)
+                let locationDistance: LocationsDistance = (firstLocation: firstNode, secondLocation: secondNode, distance: distance)
+                lines.append(locationDistance)
             }
         }
     }
     
-    //Helper's methods
-    func calculCout(node1: CLLocation, node2: CLLocation) -> Double {
-        let distance = node1.distance(from: node2)
-        return distance
-    }
-    func getCout(node1: CLLocation, node2: CLLocation) -> Double{
-        for c in cordes {
-            if c.first == node1 && c.second == node2 {
-                return c.third
-            }
-            if c.second == node1 && c.first == node2 {
-                return c.third
-            }
-        }
-        return 0
-    }
+    //3
     func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
         var nodeSons = [CLLocation]()
-        for c in cordes {
-            if c.first == currentNode && !path.contains(c.second) {
-                nodeSons.append(c.second)
+        for line in lines {
+            if line.firstLocation == currentNode && !path.contains(line.secondLocation) {
+                nodeSons.append(line.secondLocation)
             }
-            if c.second == currentNode && !path.contains(c.first) {
-                nodeSons.append(c.first)
+            if line.secondLocation == currentNode && !path.contains(line.firstLocation) {
+                nodeSons.append(line.firstLocation)
             }
         }
         return nodeSons
     }
+    
     //4
     func getPath() -> [CLLocation] {
         var path = [CLLocation]()
+        var distanceSum: Double = 0
         var currentNode = nodes[0]
         
         path.append(currentNode)
-        var sumDistance: Double = 0
         
         while path.count < nodes.count  {
-            print(currentNode.coordinate)
             var nodeSons = findSon(currentNode: currentNode, path: path)
             var bestSon = nodeSons[0]
-            var minCout = getCout(node1: currentNode, node2: bestSon)
-            for son in nodeSons {
-                let cout = getCout(node1: currentNode, node2: son)
-                if cout < minCout {
-                    minCout = cout
-                    bestSon = son
+            var distanceMin = getDistance(firstNode: currentNode, secondNode: bestSon)
+            
+            for nodeSon in nodeSons {
+                let distance = getDistance(firstNode: currentNode, secondNode: nodeSon)
+                if distance < distanceMin {
+                    distanceMin = distance
+                    bestSon = nodeSon
                 }
             }
-            sumDistance += minCout
+            distanceSum += distanceMin
             path.append(bestSon)
             currentNode = bestSon
         }
-        print(nodes.count)
+        
         if nodes.count > 2 {
-            return checkBetterPath(firstPath: path, sumDistance: sumDistance)
+            return checkBetterPath(firstPath: path, distanceSum: distanceSum)
             
         } else {
             return path
         }
     }
-    func checkBetterPath(firstPath: [CLLocation], sumDistance: Double) -> [CLLocation] {
-        
+    
+    //5
+    func checkBetterPath(firstPath: [CLLocation], distanceSum: Double) -> [CLLocation] {
         var path = [CLLocation]()
         var currentNode = firstPath[2]
+        var distanceSumCurrentPath = 0.0
         
         path.append(nodes[0])
         path.append(currentNode)
         
-        var sumDistanceCurrentPath = 0.0
         while path.count < nodes.count  {
-            print(currentNode.coordinate)
             var nodeSons = findSon(currentNode: currentNode, path: path)
             var bestSon = nodeSons[0]
-            var minCout = getCout(node1: currentNode, node2: bestSon)
+            var distanceMin = getDistance(firstNode: currentNode, secondNode: bestSon)
+            
             for son in nodeSons {
-                let cout = getCout(node1: currentNode, node2: son)
-                if cout < minCout {
-                    minCout = cout
+                let distance = getDistance(firstNode: currentNode, secondNode: son)
+                if distance < distanceMin {
+                    distanceMin = distance
                     bestSon = son
                 }
             }
-            sumDistanceCurrentPath += minCout
+            distanceSumCurrentPath += distanceMin
             path.append(bestSon)
             currentNode = bestSon
         }
-        if sumDistanceCurrentPath > sumDistance {
+        if distanceSumCurrentPath > distanceSum {
             return firstPath
         } else {
             return path
         }
     }
     
+    //6
+    private func getAllPaths(sender: UIButton) {
+        var path = getPath()
+        for i in 0...path.count - 2 {
+            getDirections(from: path[i], to: path[i+1], sender: sender)
+        }
+    }
     
+    //Helper's methods
+    func calculateDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double {
+        let distance = firstNode.distance(from: secondNode)
+        return distance
+    }
     
-    ////
-    private func getPathing(from startingNodeCoordinate: CLLocation, to nextNodeCoordinate: CLLocation, sender: UIButton) {
-        let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate.coordinate))
-        let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate.coordinate))
-        
+    func getDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double{
+        for line in lines {
+            if line.firstLocation == firstNode && line.secondLocation == secondNode {
+                return line.distance
+            }
+            if line.secondLocation == firstNode && line.firstLocation == secondNode {
+                return line.distance
+            }
+        }
+        return 0
+    }
+    
+    //MARK: - Request/Directions to display on mapView
+    private func createDirectionsRequest(from startingNodeMapItem: MKMapItem, to nextNodeMapItem: MKMapItem, sender: UIButton ) -> MKDirections.Request {
         let request = MKDirections.Request()
         request.transportType = switchTransportType(request: request, sender: sender)
         request.source = startingNodeMapItem
         request.destination = nextNodeMapItem
         request.requestsAlternateRoutes = false
         
-        let directions = MKDirections(request: request)
+        return request
+    }
+    
+    private func getDirections(from startingNodeCoordinate: CLLocation, to nextNodeCoordinate: CLLocation, sender: UIButton) {
+        let startingNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: startingNodeCoordinate.coordinate))
+        let nextNodeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: nextNodeCoordinate.coordinate))
+        let directions = MKDirections(request: createDirectionsRequest(from: startingNodeMapItem, to: nextNodeMapItem, sender: sender))
+        
         resetMapView(directions: directions)
         
         directions.calculate { [unowned self] (response, error) in
             guard let response = response else {
                 self.showAlert(title: "Sorry!".localized(), message: "No routes found!".localized())
                 return }
+            
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
                 self.markedLocationView.expectedTravelTimeLabel.text = String(format: "%2.f", time) + " min"
@@ -321,7 +340,7 @@ extension MarkedLocationsMapViewController {
                 let distance = route.distance / 1000
                 self.markedLocationView.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
-                if distance < 10000/100 {
+                if distance < 5000/100 {
                     self.mapView.addOverlay(route.polyline)
                     self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
                 } else {
@@ -330,6 +349,7 @@ extension MarkedLocationsMapViewController {
             }
         }
     }
+    
     //Helper's methods
     private func switchTransportType(request: MKDirections.Request, sender: UIButton) -> MKDirectionsTransportType {
         var transportType = request.transportType
@@ -344,21 +364,10 @@ extension MarkedLocationsMapViewController {
         return transportType
     }
     
-    private func allPathing(sender: UIButton) {
-        var path = getPath()
-        for i in 0...path.count - 2 {
-            getPathing(from: path[i], to: path[i+1], sender: sender)
-        }
-    }
-    
     private func resetMapView(directions: MKDirections) {
         mapView.removeOverlays(mapView.overlays)
         directionsArray.append(directions)
         let _ = directionsArray.map { $0.cancel()}
-    }
-    
-    private func addUserLocationInLocationsArray(userLocation: CLLocation) {
-        nodes.append(userLocation)
     }
 }
 

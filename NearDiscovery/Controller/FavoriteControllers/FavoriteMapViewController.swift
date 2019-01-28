@@ -126,7 +126,7 @@ extension FavoriteMapViewController  {
                 let distance = route.distance / 1000
                 self.favoriteViewMap.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
-                if distance < 10000/100 {
+                if distance < 5000/100 {
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
                 } else {

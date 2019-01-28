@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Setup Layouts for FooterView into CollectionView
 extension UIView {
     /**
      * Set anchors on each directions

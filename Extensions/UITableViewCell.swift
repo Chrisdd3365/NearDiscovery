@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Setup UITableViewCell identifier
 extension UITableViewCell {
     static var identifier: String {
         return String(describing: self)

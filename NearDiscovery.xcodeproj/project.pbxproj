@@ -224,7 +224,7 @@
 				953122F321CA8ED3007FCADC /* FakeResponseData.swift */,
 				951D356A21FDE7B90056A29E /* CoreDataTests */,
 				953122F521CA8F02007FCADC /* GooglePlacesServicesTests */,
-				951D356D21FE0E740056A29E /* PlaceMarkerTests.swift */,
+				95EEB9D521FF4235000ACD49 /* PlaceMarkerTests */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +456,14 @@
 				9587405121C3FE2500489865 /* HomePageViewController.swift */,
 			);
 			path = HomePageController;
+			sourceTree = "<group>";
+		};
+		95EEB9D521FF4235000ACD49 /* PlaceMarkerTests */ = {
+			isa = PBXGroup;
+			children = (
+				951D356D21FE0E740056A29E /* PlaceMarkerTests.swift */,
+			);
+			path = PlaceMarkerTests;
 			sourceTree = "<group>";
 		};
 		95F4E8DE21F1DB0E0033DECB /* UICollectionViewCell */ = {
