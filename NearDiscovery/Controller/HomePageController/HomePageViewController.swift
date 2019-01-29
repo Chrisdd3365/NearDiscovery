@@ -24,7 +24,7 @@ class HomePageViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nearbyDiscoveryButtonIsNotEnabled()
+        nearbyDiscoveryButtonIsHidden()
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
@@ -32,7 +32,7 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        nearbyDiscoveryButtonIsNotEnabled()
+        nearbyDiscoveryButtonIsHidden()
         searchTextFieldTextIsNil()
         locationServicesIsEnabled()
         notificationScheduleTimer()
@@ -42,8 +42,8 @@ class HomePageViewController: UIViewController {
     
     //MARK: - Methods
     //Setup NearbyDiscoveryButton
-    private func nearbyDiscoveryButtonIsNotEnabled() {
-        homePageView.nearbyDiscoveryButton.isEnabled = false
+    private func nearbyDiscoveryButtonIsHidden() {
+        homePageView.nearbyDiscoveryButton.isHidden = true
     }
     
     //Setup TextField
@@ -54,7 +54,7 @@ class HomePageViewController: UIViewController {
     //Activity Indicator
     private func toggleActivityIndicator(shown: Bool) {
         homePageView.activityIndicator.isHidden = !shown
-        homePageView.nearbyDiscoveryButton.isEnabled = !shown
+        homePageView.nearbyDiscoveryButton.isHidden = shown
     }
     
     //Helper's method
