@@ -19,7 +19,6 @@ class MapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var placeDetails: PlaceDetails?
     var placeMarker: PlaceMarker?
-    var locations = Location.all
     let regionInMeters: CLLocationDistance = 1000.0
     var directionsArray: [MKDirections] = []
     

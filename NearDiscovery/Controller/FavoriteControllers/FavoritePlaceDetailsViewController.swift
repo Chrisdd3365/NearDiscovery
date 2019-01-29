@@ -21,31 +21,30 @@ class FavoritePlaceDetailsViewController: UIViewController {
         super.viewDidLoad()
         setNavigationItemTitle(title: "Favorite Place's Details".localized())
         favoritePlaceDetailsScrollViewConfigure(favoritePlace: detailedFavoritePlace)
-        favoritePlaceDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+        markedLocationButtonSetImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         locations = Location.all
-        favoritePlaceDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+        markedLocationButtonSetImage()
     }
     
     //MARK: - Actions
     @IBAction func phoneCall(_ sender: UIButton) {
-        didTapCallButton()
+        didTapCallButton(phoneNumber: detailedFavoritePlace?.phoneNumber ?? "0000000000")
     }
     
     @IBAction func share(_ sender: UIButton) {
-        didTapShareButton()
+        didTapShareButton(url: detailedFavoritePlace?.url)
     }
     
     @IBAction func removeFromFavorite(_ sender: UIButton) {
-        didTapFavoriteButton()
+        didTapFavoriteButton(placeId: detailedFavoritePlace?.placeId)
     }
     
     @IBAction func showWebsite(_ sender: UIButton) {
-        didTapWebsiteButton()
+        didTapWebsiteButton(website: detailedFavoritePlace?.website)
     }
     
     @IBAction func markedLocation(_ sender: UIButton) {
@@ -53,6 +52,11 @@ class FavoritePlaceDetailsViewController: UIViewController {
     }
     
     //MARK: - Methods
+    //Set Marked Location Image
+    private func markedLocationButtonSetImage() {
+        favoritePlaceDetailsScrollView.markedLocationButton.setImage(updateButtonImage(check: checkMarkedLocation(locations: locations, placeDetailsPlaceId: detailedFavoritePlace?.placeId ?? "") , checkedImage: "markedLocation", uncheckedImage: "noMarkedLocation"), for: .normal)
+    }
+    
     //Setup ScrollView
     private func favoritePlaceDetailsScrollViewConfigure(favoritePlace: Favorite?) {
         favoritePlaceDetailsScrollView.favoritePlaceScrollViewConfigure = favoritePlace
@@ -77,8 +81,8 @@ extension FavoritePlaceDetailsViewController {
         
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
         
-        if checkMarkedLocation() == false {
-            if locations.count < 10 {
+        if checkMarkedLocation(locations: locations, placeDetailsPlaceId: detailedFavoritePlace?.placeId ?? "") == false {
+            if locations.count < 5 {
                 guard let detailedFavoritePlace = detailedFavoritePlace else { return }
                 favoritePlaceDetailsScrollView.markedLocationButton.setImage(UIImage(named: "markedLocation"), for: .normal)
                 CoreDataManager.saveLocationFromFavorite(favoritePlace: detailedFavoritePlace)
@@ -95,72 +99,5 @@ extension FavoritePlaceDetailsViewController {
             tabItem.badgeValue = nil
         }
     }
-    
-    private func checkMarkedLocation() -> Bool {
-        var isAdded = false
-        guard locations.count != 0 else { return false }
-        for location in locations {
-            if detailedFavoritePlace?.placeId == location.placeId {
-                isAdded = true
-                break
-            }
-        }
-        return isAdded
-    }
-    
-    private func updateMarkedLocationImage() -> UIImage {
-        var image: UIImage!
-        if checkMarkedLocation() {
-            image = UIImage(named: "markedLocation")
-        } else {
-            image = UIImage(named: "noMarkedLocation")
-        }
-        return image
-    }
 }
 
-//MARK: - Call/Share/Favorite/Website methods
-extension FavoritePlaceDetailsViewController {
-    //Helper's method for call
-    func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
-        let phoneNumber = String(describing: phoneNumber ?? "0000000000")
-        let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
-        return phoneNumberConverted
-    }
-    
-    //Call
-    func didTapCallButton() {
-        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: detailedFavoritePlace?.phoneNumber)
-        let phoneURL = URL(string: ("tel://\(phoneNumber)"))
-        if let phoneURL = phoneURL {
-            UIApplication.shared.open(phoneURL)
-        }
-    }
-    
-    //Share
-    func didTapShareButton() {
-        let urlString =  detailedFavoritePlace?.url
-        if let urlString = urlString {
-            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!".localized(), urlString], applicationActivities: nil)
-            present(activityController, animated: true, completion: nil)
-        } else {
-            showAlert(title: "Sorry!".localized(), message: "I have no Google Maps Link for you to share!".localized())
-        }
-    }
-    
-    //Favorite
-    func didTapFavoriteButton() {
-        CoreDataManager.deleteFavoriteFromList(placeId: detailedFavoritePlace?.placeId ?? "")
-        navigationController?.popViewController(animated: true)
-    }
-    
-    //Website
-    func didTapWebsiteButton() {
-        if let detailedFavoritePlace = detailedFavoritePlace {
-            guard let url = URL(string: detailedFavoritePlace.website ?? "") else { return }
-            UIApplication.shared.open(url)
-        } else {
-            showAlert(title: "Sorry!".localized(), message: "I have no Website to show you!".localized())
-        }
-    }
-}

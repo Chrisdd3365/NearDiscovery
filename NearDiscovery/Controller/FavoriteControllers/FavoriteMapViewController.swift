@@ -13,7 +13,7 @@ import CoreLocation
 class FavoriteMapViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet var favoriteViewMap: FavoriteMapView!
+    @IBOutlet var favoriteMapUIView: FavoriteMapView!
     
     //MARK: - Properties
     var locationManager = CLLocationManager()
@@ -53,13 +53,13 @@ class FavoriteMapViewController: UIViewController {
     //MARK: - Methods
     //Setup SetImage's Buttons
     private func setupButtonSetImage(automobileImage: String, walkingImage: String) {
-        favoriteViewMap.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
-        favoriteViewMap.walkingDirections.setImage(UIImage(named: walkingImage), for: .normal)
+        favoriteMapUIView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
+        favoriteMapUIView.walkingDirections.setImage(UIImage(named: walkingImage), for: .normal)
     }
     //Setup Label's Color
     private func setupLabelColor(automobileLabelColor: UIColor, walkingLabelColor: UIColor) {
-        favoriteViewMap.automobileLabel.textColor = automobileLabelColor
-        favoriteViewMap.walkingLabel.textColor = walkingLabelColor
+        favoriteMapUIView.automobileLabel.textColor = automobileLabelColor
+        favoriteMapUIView.walkingLabel.textColor = walkingLabelColor
     }
     
     //Show Annotation
@@ -121,10 +121,10 @@ extension FavoriteMapViewController  {
             
             for route in response.routes {
                 let time = route.expectedTravelTime / 60
-                self.favoriteViewMap.expectedTimeTravelLabel.text = String(format: "%2.f", time) + " min"
+                self.favoriteMapUIView.expectedTimeTravelLabel.text = String(format: "%2.f", time) + " min"
                 
                 let distance = route.distance / 1000
-                self.favoriteViewMap.distanceLabel.text = String(format: "%.2f", distance) + " km"
+                self.favoriteMapUIView.distanceLabel.text = String(format: "%.2f", distance) + " km"
                 
                 if distance < 5000/100 {
                 self.mapView.addOverlay(route.polyline)

@@ -1484,7 +1484,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="favoriteViewMap" destination="Q9L-Yc-cL6" id="5af-6B-UIi"/>
+                        <outlet property="favoriteMapUIView" destination="Q9L-Yc-cL6" id="Bwo-1s-Qnx"/>
                         <outlet property="mapView" destination="3Pc-Oe-K2C" id="w3e-32-EuP"/>
                     </connections>
                 </viewController>

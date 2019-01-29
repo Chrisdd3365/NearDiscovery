@@ -98,7 +98,7 @@ extension HomePageViewController {
 }
 
 //MARK: - Timer's methods
-//To display different background's images, depends on the time of the day
+//To display different background's colors, depends on the time of the day
 extension HomePageViewController {
     private func notificationScheduleTimer() {
         NotificationCenter.default.addObserver(self, selector: #selector(scheduleTimer), name: UIApplication.didBecomeActiveNotification, object: nil)

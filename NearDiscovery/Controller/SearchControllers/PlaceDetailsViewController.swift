@@ -24,23 +24,23 @@ class PlaceDetailsViewController: UIViewController {
         super.viewDidLoad()
         setNavigationItemTitle(title: "Place's Details".localized())
         placeDetailsScrollViewConfigure(placeDetails: placeDetails, place: place)
-        buttonSetImage()
+        buttonsSetImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         locations = Location.all
         favorites = Favorite.all
-        buttonSetImage()
+        buttonsSetImage()
     }
     
     //MARK: - Actions
     @IBAction func phoneCall(_ sender: UIButton) {
-        didTapCallButton()
+        didTapCallButton(phoneNumber: placeDetails?.internationalPhoneNumber ?? "0000000000")
     }
     
     @IBAction func share(_ sender: UIButton) {
-        didTapShareButton()
+        didTapShareButton(url: placeDetails?.url)
     }
     
     @IBAction func addToFavoriteList(_ sender: UIButton) {
@@ -48,7 +48,7 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     @IBAction func showWebsite(_ sender: UIButton) {
-        didTapWebsiteButton()
+        didTapWebsiteButton(website: placeDetails?.website)
     }
     
     @IBAction func addToLocationList(_ sender: UIButton) {
@@ -56,9 +56,9 @@ class PlaceDetailsViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func buttonSetImage() {
-        placeDetailsScrollView.favoriteButton.setImage(updateFavoriteButtonImage(), for: .normal)
-        placeDetailsScrollView.markedLocationButton.setImage(updateMarkedLocationImage(), for: .normal)
+    private func buttonsSetImage() {
+        placeDetailsScrollView.favoriteButton.setImage(updateButtonImage(check: checkFavoritePlace(favorites: favorites, placeDetailsPlaceId: placeDetails?.placeId ?? ""), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
+        placeDetailsScrollView.markedLocationButton.setImage(updateButtonImage(check: checkMarkedLocation(locations: locations, placeDetailsPlaceId: placeDetails?.placeId ?? ""), checkedImage: "markedLocation", uncheckedImage: "noMarkedLocation"), for: .normal)
     }
     
     //Setup ScrollView
@@ -79,51 +79,6 @@ class PlaceDetailsViewController: UIViewController {
     }
 }
 
-//MARK: - Call/Share/Favorite/Website methods
-extension PlaceDetailsViewController {
-    //Helper's method for Call
-    func cleanPhoneNumberConverted(phoneNumber: String?) -> String {
-        let phoneNumber = String(describing: phoneNumber ?? "0000000000")
-        let phoneNumberConverted = phoneNumber.replacingOccurrences(of: " ", with: "")
-        return phoneNumberConverted
-    }
-    
-    //Call
-    func didTapCallButton() {
-        let phoneNumber = cleanPhoneNumberConverted(phoneNumber: placeDetails?.internationalPhoneNumber)
-        let phoneURL = URL(string: ("tel://\(phoneNumber)"))
-        if let phoneURL = phoneURL {
-            UIApplication.shared.open(phoneURL)
-        }
-    }
-    
-    //Share
-    func didTapShareButton() {
-        let urlString =  placeDetails?.url
-        if let urlString = urlString {
-            let activityController = UIActivityViewController(activityItems: ["Hey! Check out this place!".localized(), urlString], applicationActivities: nil)
-            present(activityController, animated: true, completion: nil)
-        } else {
-            showAlert(title: "Sorry!".localized(), message: "I have no Google Maps Link for you to share!".localized())
-        }
-    }
-    
-    //Favorite
-    func didUpdateFavoriteButtonImage() -> UIImage {
-        return updateFavoriteButtonImage()
-    }
-    
-    //Website
-    func didTapWebsiteButton() {
-        if let placeDetails = placeDetails {
-            guard let url = URL(string: placeDetails.website ?? "") else { return }
-            UIApplication.shared.open(url)
-        } else {
-            showAlert(title: "Sorry!".localized(), message: "I have no Website to show you!".localized())
-        }
-    }
-}
-
 //MARK: - List's updates setup methods
 extension PlaceDetailsViewController {
     //MARK: - Location's List
@@ -134,7 +89,7 @@ extension PlaceDetailsViewController {
         
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
         
-        if checkMarkedLocation() == false {
+        if checkMarkedLocation(locations: locations, placeDetailsPlaceId: placeDetails?.placeId ?? "") == false {
             if locations.count < 5 {
                 guard let placeDetails = placeDetails else { return }
                 placeDetailsScrollView.markedLocationButton.setImage(UIImage(named: "markedLocation"), for: .normal)
@@ -154,28 +109,6 @@ extension PlaceDetailsViewController {
         }
     }
 
-    private func checkMarkedLocation() -> Bool {
-        var isAdded = false
-        guard locations.count != 0 else { return false }
-        for location in locations {
-            if placeDetails?.placeId == location.placeId {
-                isAdded = true
-                break
-            }
-        }
-        return isAdded
-    }
-    
-    private func updateMarkedLocationImage() -> UIImage {
-        var image: UIImage!
-        if checkMarkedLocation() {
-            image = UIImage(named: "markedLocation")
-        } else {
-            image = UIImage(named: "noMarkedLocation")
-        }
-        return image
-    }
-    
     //MARK: - Favorite's List
     private func addToFavoriteListSetup() {
         guard let tabItems = tabBarController?.tabBar.items else { return }
@@ -184,7 +117,7 @@ extension PlaceDetailsViewController {
         
         guard let value = Int(tabItem.badgeValue ?? "0") else { return }
         
-        if checkFavoritePlace() == false {
+        if checkFavoritePlace(favorites: favorites, placeDetailsPlaceId: placeDetails?.placeId ?? "") == false {
             guard let placeDetails = placeDetails else { return }
             placeDetailsScrollView.favoriteButton.setImage(UIImage(named: "favorite"), for: .normal)
             CoreDataManager.saveFavorite(placeDetails: placeDetails, place: place)
@@ -195,27 +128,5 @@ extension PlaceDetailsViewController {
             showAlert(title: "Sorry!".localized(), message: "You've already added this place into the favorite list!".localized())
             tabItem.badgeValue = nil
         }
-    }
-
-    private func checkFavoritePlace() -> Bool {
-        var isAdded = false
-        guard favorites.count != 0 else { return false }
-        for favorite in favorites {
-            if placeDetails?.placeId == favorite.placeId {
-                isAdded = true
-                break
-            }
-        }
-        return isAdded
-    }
-    //Method to update the favorite button image
-    private func updateFavoriteButtonImage() -> UIImage {
-        var image: UIImage!
-        if checkFavoritePlace() {
-            image = UIImage(named: "favorite")
-        } else {
-            image = UIImage(named: "noFavorite")
-        }
-        return image
     }
 }
