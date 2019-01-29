@@ -61,6 +61,13 @@ class PlaceDetailsViewController: UIViewController {
         placeDetailsScrollView.markedLocationButton.setImage(updateButtonImage(check: checkMarkedLocation(locations: locations, placeDetailsPlaceId: placeDetails?.placeId ?? ""), checkedImage: "markedLocation", uncheckedImage: "noMarkedLocation"), for: .normal)
     }
     
+    //Setup BackBarButtonItem
+    private func setupBackBarButtonItem() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back".localized()
+        navigationItem.backBarButtonItem = backItem
+    }
+    
     //Setup ScrollView
     private func placeDetailsScrollViewConfigure(placeDetails: PlaceDetails?, place: PlaceSearch?) {
         placeDetailsScrollView.placeDetailsScrollViewConfigure = placeDetails
@@ -72,9 +79,7 @@ class PlaceDetailsViewController: UIViewController {
         if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
             let mapVC = segue.destination as? MapViewController {
             mapVC.placeDetails = placeDetails
-            let backItem = UIBarButtonItem()
-            backItem.title = "Back".localized()
-            navigationItem.backBarButtonItem = backItem
+            setupBackBarButtonItem()
         }
     }
 }

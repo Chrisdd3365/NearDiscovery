@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Setup the footerView to display label into CollectionView when it's empty
 class FooterCollectionReusableView: UICollectionReusableView {
     let label: UILabel = {
         let label = UILabel()

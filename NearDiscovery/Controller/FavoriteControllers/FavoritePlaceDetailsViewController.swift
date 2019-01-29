@@ -64,10 +64,16 @@ class FavoritePlaceDetailsViewController: UIViewController {
     }
     
     //Segue
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
+//            let favoriteMapVC = segue.destination as? FavoriteMapViewController {
+//            favoriteMapVC.favoritePlace = detailedFavoritePlace
+//        }
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
-            let favoriteMapVC = segue.destination as? FavoriteMapViewController {
-            favoriteMapVC.favoritePlace = detailedFavoritePlace
+            let mapVC = segue.destination as? MapViewController {
+            mapVC.favoritePlace = detailedFavoritePlace
         }
     }
 }
