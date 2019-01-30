@@ -1376,7 +1376,7 @@
         <image name="noFavorite" width="31" height="27"/>
         <image name="noMarkedLocation" width="48" height="48"/>
         <image name="noWalking" width="384" height="384"/>
-        <image name="phone" width="27" height="27"/>
+        <image name="phone" width="48" height="48"/>
         <image name="safari" width="26" height="26"/>
         <image name="searchTabBarIcon" width="48" height="48"/>
         <image name="share" width="25" height="26"/>

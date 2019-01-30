@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iconfinder_upload_172619.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "share-arrow.png",
       "scale" : "2x"
     },
     {
