@@ -13,7 +13,7 @@ His main purpose is to find and suggest places, based on the types of locations 
 
 - Locations: To allow the user to mark differents types of locations on a map and to get directions to these locations with user location as the starting point.
 
-- Favorites: to allow the user to add or to remove a selected place from the list of the favorites places.
+- Favorites: To allow the user to add or to remove a selected place from the list of the favorites places.
 
 ## Others functionnalities:
 
