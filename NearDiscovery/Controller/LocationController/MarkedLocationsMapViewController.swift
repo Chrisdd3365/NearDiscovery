@@ -122,15 +122,11 @@ class MarkedLocationsMapViewController: UIViewController {
     //Avoid useless inputs from the user
     private func secureDirectionsButtons() {
         if locations.isEmpty == true  {
-            markedLocationView.automobileDirections.isEnabled = false
-            markedLocationView.walkingDirections.isEnabled = false
-            markedLocationView.automobileLabel.textColor = .gray
-            markedLocationView.walkingLabel.textColor = .gray
+            buttonIsEnabledStateSetup(isEnabled: false)
+            setupLabelColor(automobileLabelColor: .gray, walkingLabelColor: .gray)
         } else {
-            markedLocationView.automobileDirections.isEnabled = true
-            markedLocationView.walkingDirections.isEnabled = true
-            markedLocationView.automobileLabel.textColor = .black
-            markedLocationView.walkingLabel.textColor = .black
+            buttonIsEnabledStateSetup(isEnabled: true)
+            setupLabelColor(automobileLabelColor: .black, walkingLabelColor: .black)
         }
     }
     
