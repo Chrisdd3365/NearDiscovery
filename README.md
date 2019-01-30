@@ -27,7 +27,7 @@ His main purpose is to find and suggest places, based on the types of locations 
 
 - MVC pattern
 - CoreData
-- API rest request with GoogleMaps (Place Search, Place Details)
+- API rest request with GoogleMaps (Place Search, Place Details, Place Photos)
 
 ## Running the tests:
 - UnitTesting API requests with Double Fake URL Session and Fake Response Data.
