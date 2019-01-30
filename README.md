@@ -1,4 +1,4 @@
-# Project 12 of DA IOS Path - Openclassroom
+# Project 12 of DA IOS Path - Openclassrooms
 
 # NearDiscovery
 
@@ -30,7 +30,7 @@ His main purpose is to find and suggest places, based on the types of locations 
 - API rest request with GoogleMaps (Place Search, Place Details)
 
 ## Running the tests:
-- UnitTesting API request with Double Fake URL Session and Fake Response Data.
+- UnitTesting API requests with Double Fake URL Session and Fake Response Data.
 - UnitTesting CoreData.
 - UnitTesting PlaceMarker (Annotations on mapView).
 
@@ -45,3 +45,7 @@ His main purpose is to find and suggest places, based on the types of locations 
 
 - SDWebImage 4.0
 - Cosmos 18.0
+
+## Design UI:
+
+Credits to Vianney Pétré: http://vianneypetre.ovh/
