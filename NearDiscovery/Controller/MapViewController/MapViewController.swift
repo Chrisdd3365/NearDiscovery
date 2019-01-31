@@ -50,6 +50,20 @@ class MapViewController: UIViewController {
     }
 
     //MARK: - Methods
+    //Delegate CoreLocation
+    private func setupCoreLocation() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
+    //Delegate MapKit
+    private func setupMapView() {
+        mapView.delegate = self
+    }
+}
+
+//MARK: - Setup UI methods
+extension MapViewController {
     //Setup SetImage's Buttons
     private func setupButtonSetImage(automobileImage: String, walkingImage: String) {
         mapUIView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
@@ -61,39 +75,22 @@ class MapViewController: UIViewController {
         mapUIView.automobileLabel.textColor = automobileLabelColor
         mapUIView.walkingLabel.textColor = walkingLabelColor
     }
-    
-    //Setup Annotation
-    private func setupAnnotation() {
-        showAnnotation(latitude: placeDetails?.geometry.location.latitude ?? 0.0, longitude: placeDetails?.geometry.location.longitude ?? 0.0, name: placeDetails?.name ?? "No Name".localized())
-        showAnnotation(latitude: favoritePlace?.latitude ?? 0.0, longitude: favoritePlace?.longitude ?? 0.0, name: favoritePlace?.name ?? "No Name".localized())
-    }
-    
-    //Setup GetDirections
-    private func setupGetDirections(sender: UIButton) {
-        if let placeDetails = placeDetails {
-            getDirections(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, sender: sender)
-        } else if let favoritePlace = favoritePlace {
-            getDirections(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, sender: sender)
-        }
-    }
-    
-    //Annotation
+}
+
+//MARK: - Annotation's methods
+extension MapViewController {
+    //Show Annotation
     private func showAnnotation(latitude: Double, longitude: Double, name: String) {
         let placeMarker = PlaceMarker(latitude: latitude, longitude: longitude, name: name)
         DispatchQueue.main.async {
             self.mapView.addAnnotation(placeMarker)
         }
     }
-
-    //Delegate CoreLocation
-    private func setupCoreLocation() {
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-    }
     
-    //Delegate MapKit
-    private func setupMapView() {
-        mapView.delegate = self
+    //Setup Annotation
+    private func setupAnnotation() {
+        showAnnotation(latitude: placeDetails?.geometry.location.latitude ?? 0.0, longitude: placeDetails?.geometry.location.longitude ?? 0.0, name: placeDetails?.name ?? "No Name".localized())
+        showAnnotation(latitude: favoritePlace?.latitude ?? 0.0, longitude: favoritePlace?.longitude ?? 0.0, name: favoritePlace?.name ?? "No Name".localized())
     }
 }
 
@@ -148,6 +145,15 @@ extension MapViewController  {
                     self.showAlert(title: "Sorry!".localized(), message: "No routes found!".localized())
                 }
             }
+        }
+    }
+    
+    //Setup GetDirections
+    private func setupGetDirections(sender: UIButton) {
+        if let placeDetails = placeDetails {
+            getDirections(latitude: placeDetails.geometry.location.latitude, longitude: placeDetails.geometry.location.longitude, sender: sender)
+        } else if let favoritePlace = favoritePlace {
+            getDirections(latitude: favoritePlace.latitude, longitude: favoritePlace.longitude, sender: sender)
         }
     }
     

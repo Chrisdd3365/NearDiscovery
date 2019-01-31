@@ -51,8 +51,19 @@ class FavoritePlaceDetailsViewController: UIViewController {
         addToLocationListSetup()
     }
     
-    //MARK: - Methods
-    //Set Marked Location Image
+    //MARK: - Method
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
+            let mapVC = segue.destination as? MapViewController {
+            mapVC.favoritePlace = detailedFavoritePlace
+        }
+    }
+}
+
+//MARK: - Setup UI methods
+extension FavoritePlaceDetailsViewController {
+    //Setup Marked Location Image
     private func markedLocationButtonSetImage() {
         favoritePlaceDetailsScrollView.markedLocationButton.setImage(updateButtonImage(check: checkMarkedLocation(locations: locations, placeDetailsPlaceId: detailedFavoritePlace?.placeId ?? "") , checkedImage: "markedLocation", uncheckedImage: "noMarkedLocation"), for: .normal)
     }
@@ -61,14 +72,6 @@ class FavoritePlaceDetailsViewController: UIViewController {
     private func favoritePlaceDetailsScrollViewConfigure(favoritePlace: Favorite?) {
         favoritePlaceDetailsScrollView.favoritePlaceScrollViewConfigure = favoritePlace
         favoritePlaceDetailsScrollView.favoritePlaceImageCellConfigure(favoritePlace: favoritePlace)
-    }
-    
-    //Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showFavoriteLocationOnMapSegue,
-            let mapVC = segue.destination as? MapViewController {
-            mapVC.favoritePlace = detailedFavoritePlace
-        }
     }
 }
 

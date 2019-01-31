@@ -55,7 +55,20 @@ class PlaceDetailsViewController: UIViewController {
         addToLocationListSetup()
     }
     
-    //MARK: - Methods
+    //MARK: - Method
+    //Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
+            let mapVC = segue.destination as? MapViewController {
+            mapVC.placeDetails = placeDetails
+            setupBackBarButtonItem()
+        }
+    }
+}
+
+//MARK: - Setup UI methods
+extension PlaceDetailsViewController {
+    //Setup SetImage buttons
     private func buttonsSetImage() {
         placeDetailsScrollView.favoriteButton.setImage(updateButtonImage(check: checkFavoritePlace(favorites: favorites, placeDetailsPlaceId: placeDetails?.placeId ?? ""), checkedImage: "favorite", uncheckedImage: "noFavorite"), for: .normal)
         placeDetailsScrollView.markedLocationButton.setImage(updateButtonImage(check: checkMarkedLocation(locations: locations, placeDetailsPlaceId: placeDetails?.placeId ?? ""), checkedImage: "markedLocation", uncheckedImage: "noMarkedLocation"), for: .normal)
@@ -73,16 +86,9 @@ class PlaceDetailsViewController: UIViewController {
         placeDetailsScrollView.placeDetailsScrollViewConfigure = placeDetails
         placeDetailsScrollView.placeDetailsImageCellConfigure(place: place)
     }
-    
-    //Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.SeguesIdentifiers.showLocationOnMapSegue,
-            let mapVC = segue.destination as? MapViewController {
-            mapVC.placeDetails = placeDetails
-            setupBackBarButtonItem()
-        }
-    }
 }
+
+
 
 //MARK: - List's updates setup methods
 extension PlaceDetailsViewController {

@@ -323,8 +323,8 @@
 		9587404D21C3FBF700489865 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */,
 				95A16B8221E4F19600C6B35D /* CoreData */,
+				95BA4D3F2202F8BE00FE0074 /* MKAnnotation */,
 				9590E5F821C90BAB0016A77F /* Structures */,
 				9587405321C3FE4500489865 /* Services */,
 			);
@@ -413,10 +413,26 @@
 		95B7FF1A21EF3E9000CED8B8 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				9554392621FA38FA00DE712B /* Localizable.strings */,
+				95BA4D3E2202F79200FE0074 /* Localizables */,
 				9554392121FA2D3500DE712B /* Fonts */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		95BA4D3E2202F79200FE0074 /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				9554392621FA38FA00DE712B /* Localizable.strings */,
+			);
+			path = Localizables;
+			sourceTree = "<group>";
+		};
+		95BA4D3F2202F8BE00FE0074 /* MKAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				9501E6CA21CA3F8A00B15629 /* PlaceMarker.swift */,
+			);
+			path = MKAnnotation;
 			sourceTree = "<group>";
 		};
 		95BE0DB021F4978D00C260E0 /* Location */ = {

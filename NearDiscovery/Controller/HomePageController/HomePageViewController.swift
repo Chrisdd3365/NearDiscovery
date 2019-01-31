@@ -41,28 +41,12 @@ class HomePageViewController: UIViewController {
     }
     
     //MARK: - Methods
-    //Setup NearbyDiscoveryButton
-    private func nearbyDiscoveryButtonIsHidden() {
-        homePageView.nearbyDiscoveryButton.isHidden = true
-    }
-    
-    //Setup TextField
-    private func searchTextFieldTextIsNil() {
-        homePageView.searchTextField.text = nil
-    }
-    
-    //Activity Indicator
-    private func toggleActivityIndicator(shown: Bool) {
-        homePageView.activityIndicator.isHidden = !shown
-        homePageView.nearbyDiscoveryButton.isHidden = shown
-    }
-    
     //Helper's method
     private func keywordTextField() -> String {
-        var keyword = ""
+        var keywords = ""
         guard let inputs = homePageView.searchTextField.text else { return "" }
-        keyword = inputs
-        return keyword
+        keywords = inputs
+        return keywords
     }
     
     //Method to dismiss keyboard by tapping anywhere on the screen
@@ -79,6 +63,27 @@ class HomePageViewController: UIViewController {
         }
     }
 }
+
+//MARK: - Setup UI methods
+extension HomePageViewController {
+    //Setup NearbyDiscoveryButton
+    private func nearbyDiscoveryButtonIsHidden() {
+        homePageView.nearbyDiscoveryButton.isHidden = true
+    }
+    
+    //Setup TextField
+    private func searchTextFieldTextIsNil() {
+        homePageView.searchTextField.text = nil
+    }
+    
+    //Setup Activity Indicator
+    private func toggleActivityIndicator(shown: Bool) {
+        homePageView.activityIndicator.isHidden = !shown
+        homePageView.nearbyDiscoveryButton.isHidden = shown
+    }
+}
+
+
 
 //MARK: - API Fetch Google Places Search Data method
 extension HomePageViewController {

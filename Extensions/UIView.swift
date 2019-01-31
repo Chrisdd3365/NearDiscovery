@@ -10,9 +10,7 @@ import UIKit
 
 //Setup Layouts for FooterView into CollectionView
 extension UIView {
-    /**
-     * Set anchors on each directions
-     */
+    //Set anchors on each directions
     func setAnchors(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top { topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true }
@@ -23,16 +21,12 @@ extension UIView {
         if size.height != 0 { heightAnchor.constraint(equalToConstant: size.height).isActive = true }
     }
     
-    /**
-     * Give a square ratio on a view
-     */
+    //Give a square ratio on a view
     func squareRatio() {
         widthAnchor.constraint(equalTo: heightAnchor).isActive = true
     }
     
-    /**
-     * Center a view against another one
-     */
+    //Center a view against another one
     func center(to view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

@@ -101,6 +101,44 @@ class MarkedLocationsMapViewController: UIViewController {
     }
             
     //MARK: - Methods
+    //Delegate CoreLocation
+    private func setupCoreLocation() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+    
+    //Delegate MapKit
+    private func setupMapView() {
+        mapView.delegate = self
+    }
+}
+
+//MARK: - Delete All methods
+extension MarkedLocationsMapViewController {
+    //Delete All Locations from CoreData
+    private func deleteAllFromCoreData() {
+        locations.removeAll()
+        CoreDataManager.deleteAllLocations()
+        CoreDataManager.saveContext()
+    }
+    
+    //Delete All Nodes
+    private func deleteAllFromNodesArray() {
+        nodes.removeAll()
+        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
+        nodes.append(userLocation)
+    }
+    
+    //Delete All Annotations and Overlays
+    private func deleteAllAnnotationsAndOverlays() {
+        placesMarkers.removeAll()
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.removeOverlays(mapView.overlays)
+    }
+}
+
+//MARK: - Setup UI methods
+extension MarkedLocationsMapViewController {
     //Setup SetImage's Buttons
     private func setupButtonSetImage(automobileImage: String, walkingImage: String) {
         markedLocationView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
@@ -129,28 +167,10 @@ class MarkedLocationsMapViewController: UIViewController {
             setupLabelColor(automobileLabelColor: .black, walkingLabelColor: .black)
         }
     }
-    
-    //Delete All Locations from CoreData
-    private func deleteAllFromCoreData() {
-        locations.removeAll()
-        CoreDataManager.deleteAllLocations()
-        CoreDataManager.saveContext()
-    }
-    
-    //Delete All Nodes
-    private func deleteAllFromNodesArray() {
-        nodes.removeAll()
-        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
-        nodes.append(userLocation)
-    }
-    
-    //Delete All Annotations and Overlays
-    private func deleteAllAnnotationsAndOverlays() {
-        placesMarkers.removeAll()
-        self.mapView.removeAnnotations(mapView.annotations)
-        self.mapView.removeOverlays(mapView.overlays)
-    }
-    
+}
+
+//MARK: - Annotation's method
+extension MarkedLocationsMapViewController {
     //Show annotations
     private func showAnnotations(locations: [Location]) {
         for location in locations {
@@ -160,17 +180,6 @@ class MarkedLocationsMapViewController: UIViewController {
                 self.mapView.addAnnotations(self.placesMarkers)
             }
         }
-    }
-        
-    //Delegate CoreLocation
-    private func setupCoreLocation() {
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-    }
-    
-    //Delegate MapKit
-    private func setupMapView() {
-        mapView.delegate = self
     }
 }
 
