@@ -23,6 +23,8 @@ His main purpose is to find and suggest places, based on the types of locations 
 
 - Website: To show the website of the selected place on the WebBrowser Safari.
 
+- Internationalization: NearDiscovery supports others languages such as english, french, korean, spanish and vietnamese.
+
 ## What I used:
 
 - MVC pattern
@@ -47,5 +49,7 @@ His main purpose is to find and suggest places, based on the types of locations 
 - Cosmos 18.0
 
 ## Design UI:
+
+- Responsive design on all iPhone devices, in portrait mode only.
 
 Credits to Vianney Pétré: http://vianneypetre.ovh/
