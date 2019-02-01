@@ -41,10 +41,9 @@ class MarkedLocationsMapViewController: UIViewController {
         super.viewDidLoad()
         showAnnotations(locations: locations)
         setNavigationItemTitle(title: "Marked Locations".localized())
-        locationsCollectionView.reloadData()
         setConstraints()
-        navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        setupLeftBarButtonItem()
+        locationsCollectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +51,9 @@ class MarkedLocationsMapViewController: UIViewController {
         setupMapView()
         setupCoreLocation()
         setTabBarControllerItemBadgeValue(index: 1)
+        secureDirectionsButtons()
         locations = Location.all
         locationsCollectionView.reloadData()
-        secureDirectionsButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -113,32 +112,14 @@ class MarkedLocationsMapViewController: UIViewController {
     }
 }
 
-//MARK: - Delete All methods
-extension MarkedLocationsMapViewController {
-    //Delete All Locations from CoreData
-    private func deleteAllFromCoreData() {
-        locations.removeAll()
-        CoreDataManager.deleteAllLocations()
-        CoreDataManager.saveContext()
-    }
-    
-    //Delete All Nodes
-    private func deleteAllFromNodesArray() {
-        nodes.removeAll()
-        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
-        nodes.append(userLocation)
-    }
-    
-    //Delete All Annotations and Overlays
-    private func deleteAllAnnotationsAndOverlays() {
-        placesMarkers.removeAll()
-        self.mapView.removeAnnotations(mapView.annotations)
-        self.mapView.removeOverlays(mapView.overlays)
-    }
-}
-
 //MARK: - Setup UI methods
 extension MarkedLocationsMapViewController {
+    //Setup LeftBarButtonItem
+    private func setupLeftBarButtonItem() {
+        navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
     //Setup SetImage's Buttons
     private func setupButtonSetImage(automobileImage: String, walkingImage: String) {
         markedLocationView.automobileDirections.setImage(UIImage(named: automobileImage), for: .normal)
@@ -166,6 +147,30 @@ extension MarkedLocationsMapViewController {
             buttonIsEnabledStateSetup(isEnabled: true)
             setupLabelColor(automobileLabelColor: .black, walkingLabelColor: .black)
         }
+    }
+}
+
+//MARK: - Delete All methods
+extension MarkedLocationsMapViewController {
+    //Delete All Locations from CoreData
+    private func deleteAllFromCoreData() {
+        locations.removeAll()
+        CoreDataManager.deleteAllLocations()
+        CoreDataManager.saveContext()
+    }
+    
+    //Delete All Nodes
+    private func deleteAllFromNodesArray() {
+        nodes.removeAll()
+        let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
+        nodes.append(userLocation)
+    }
+    
+    //Delete All Annotations and Overlays
+    private func deleteAllAnnotationsAndOverlays() {
+        placesMarkers.removeAll()
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.removeOverlays(mapView.overlays)
     }
 }
 
