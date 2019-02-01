@@ -51,7 +51,6 @@ class MarkedLocationsMapViewController: UIViewController {
         setupMapView()
         setupCoreLocation()
         setTabBarControllerItemBadgeValue(index: 1)
-        secureDirectionsButtons()
         locations = Location.all
         locationsCollectionView.reloadData()
     }
@@ -59,8 +58,11 @@ class MarkedLocationsMapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         showAnnotations(locations: locations)
+        secureDirectionsButtons()
+        labelIsGreen()
     }
     
+    //MARK: - SetEditing
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         removeAllLocationsButton.isEnabled = editing
@@ -98,7 +100,7 @@ class MarkedLocationsMapViewController: UIViewController {
         setupLabelColor(automobileLabelColor: .black, walkingLabelColor: .black)
         buttonIsEnabledStateSetup(isEnabled: false)
     }
-            
+    
     //MARK: - Methods
     //Delegate CoreLocation
     private func setupCoreLocation() {
@@ -136,6 +138,16 @@ extension MarkedLocationsMapViewController {
     private func buttonIsEnabledStateSetup(isEnabled: Bool) {
         markedLocationView.automobileDirections.isEnabled = isEnabled
         markedLocationView.walkingDirections.isEnabled = isEnabled
+    }
+    
+    //Setup labels color in green when going back and forth ViewControllers
+    private func labelIsGreen() {
+        if markedLocationView.automobileDirections.currentImage == UIImage(named: "automobile") {
+            markedLocationView.automobileLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        }
+        if markedLocationView.walkingDirections.currentImage == UIImage(named: "walking") {
+            markedLocationView.walkingLabel.textColor = UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1)
+        }
     }
     
     //Avoid useless inputs from the user
