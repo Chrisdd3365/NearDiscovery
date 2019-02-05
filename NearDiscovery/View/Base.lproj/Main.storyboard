@@ -226,7 +226,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="7Pz-P9-DmL" secondAttribute="trailing" id="sJE-ID-pIb"/>
                                                 <constraint firstItem="7Pz-P9-DmL" firstAttribute="leading" secondItem="pE0-Ag-NYk" secondAttribute="leading" id="ttW-xU-PcZ"/>
                                                 <constraint firstItem="xvX-UT-eEd" firstAttribute="leading" secondItem="pE0-Ag-NYk" secondAttribute="leading" id="v2i-md-dB1"/>
-                                                <constraint firstItem="7Pz-P9-DmL" firstAttribute="top" secondItem="xvX-UT-eEd" secondAttribute="bottom" id="zBj-K9-dcO"/>
+                                                <constraint firstItem="7Pz-P9-DmL" firstAttribute="top" secondItem="xvX-UT-eEd" secondAttribute="bottom" id="zny-yT-haJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1369,17 +1369,17 @@
         <image name="center" width="44" height="44"/>
         <image name="clearAllLocation" width="48" height="48"/>
         <image name="discover" width="47" height="63"/>
-        <image name="favorite" width="31" height="27"/>
+        <image name="favorite" width="48" height="48"/>
         <image name="favoriteTabBarIcon" width="51.200000762939453" height="51.200000762939453"/>
         <image name="launchscreen" width="141" height="188"/>
         <image name="noAutomobile" width="63" height="48"/>
-        <image name="noFavorite" width="31" height="27"/>
+        <image name="noFavorite" width="48" height="48"/>
         <image name="noMarkedLocation" width="48" height="48"/>
         <image name="noWalking" width="384" height="384"/>
         <image name="phone" width="48" height="48"/>
-        <image name="safari" width="26" height="26"/>
+        <image name="safari" width="48" height="48"/>
         <image name="searchTabBarIcon" width="48" height="48"/>
-        <image name="share" width="25" height="26"/>
+        <image name="share" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fuE-bt-Rhb"/>

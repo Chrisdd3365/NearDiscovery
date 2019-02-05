@@ -472,8 +472,6 @@ extension MarkedLocationsMapViewController: UICollectionViewDelegate {
             let location = locations[indexPath.row]
             for annotation in mapView.annotations {
                 if annotation.coordinate.latitude == location.latitude && annotation.coordinate.longitude == location.longitude {
-                    locationsCollectionView.reloadData()
-                    mapView.reloadInputViews()
                     mapView.selectAnnotation(annotation, animated: true)
                 }
             }
