@@ -202,9 +202,10 @@ extension MarkedLocationsMapViewController {
 
 //MARK: - Travelling Salesman Problem's (TSP) methods
 extension MarkedLocationsMapViewController {
-    //MARK: - TSP Algorithm's methods
+    //MARK: - TSP Greedy Algorithm's methods
     //1
-    func convertLocationIntoCLLocation() {
+    //Convert a location into a node
+    private func convertLocationIntoCLLocation() {
         for location in locations {
             let latitude = location.latitude
             let longitude = location.longitude
@@ -213,11 +214,25 @@ extension MarkedLocationsMapViewController {
     }
     
     //2
-    func createLine() {
+    //We need to create the cords that link the nodes together.
+    //Here, if A is linked to B , B is also Linked to A i.e. (A,B) and (B,A) are the same, we don't need to specifiy the two links.
+    private func createLine() {
+        //We need to link the elements of the array without the same pair twice.
+        //The following procedure implements this particularity.
+        //Example: [ A B C D E ]
         for i in 0...nodes.count - 2 {
             let firstNode = nodes[i]
             let newStartIndex = i + 1
             
+            //for i = 0 , j goes to 1 to 4
+            //We get the following association during the iteration like below:
+            //(A-B) (A-C) (A-D) (A-E)
+            //Then: for i = 1 , j goes from 2 to 4
+            //(B-C) (B-D) (B-E)
+            //Then: for i = 2 , j goes from 3 to 4
+            //(C-D) (C-E)
+            //Then: for i = 3 , j goes from 4 to 4
+            //(D-E)
             for j in newStartIndex...nodes.count - 1 {
                 let secondNode = nodes[j]
                 let distance = calculateDistance(firstNode: firstNode, secondNode: secondNode)
@@ -228,7 +243,7 @@ extension MarkedLocationsMapViewController {
     }
     
     //3
-    func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
+    private func findSon(currentNode: CLLocation, path: [CLLocation]) -> [CLLocation] {
         var nodeSons = [CLLocation]()
         for line in lines {
             if line.firstLocation == currentNode && !path.contains(line.secondLocation) {
@@ -242,40 +257,60 @@ extension MarkedLocationsMapViewController {
     }
     
     //4
-    func getPath() -> [CLLocation] {
+    //Core function of the greedy tsp alogrithm.
+    //We need to get a path using the fact that we have to take the nearest node to our current node.
+    private func getPath() -> [CLLocation] {
+        //Simple Init of key variable
+        //'path' contains the path we need to take
         var path = [CLLocation]()
+        //'distanceSum' is the distance we need to take, considering the path.
         var distanceSum: Double = 0
+         //'currentNode' is the first node of the Nodes array i.e. the currentNode here is the userLocation, also the starting node for the pathFinding
         var currentNode = nodes[0]
         
+        //We add the current node to the path.
         path.append(currentNode)
         
+        //We continue to add nodes in the path until the path's array and nodes array have the same length.
         while path.count < nodes.count  {
+            //We need to find the nodes (the sons) currently connected to the current node.
+            //We ignore the nodes that are already in the path, they are irrelevants.
             var nodeSons = findSon(currentNode: currentNode, path: path)
+            //By default: the first sons to come are the nearest of the current node
+            //So he is the best son
             var bestSon = nodeSons[0]
+            //The minimal distance
             var distanceMin = getDistance(firstNode: currentNode, secondNode: bestSon)
-            
+            //In the following 'for' loop, we want to test if the others sons are better that the current son.
+            //If one of the others sons is better than the current son, he becomes the 'bestSon'.
             for nodeSon in nodeSons {
                 let distance = getDistance(firstNode: currentNode, secondNode: nodeSon)
+                //If 'nodeSon' get a distance that is minimal to bestSon,
+                //Then he becomes the bestSon.
                 if distance < distanceMin {
                     distanceMin = distance
                     bestSon = nodeSon
                 }
             }
+            //Once we have determined the 'bestSon', we add the distance to go from 'currentNode' to 'bestSon'.
             distanceSum += distanceMin
+            //We add bestSon to the path.
             path.append(bestSon)
+            //And now that we have determined the 'bestSon', he becomes the 'currentNode'.
             currentNode = bestSon
         }
         
+        //If we get more than 2 nodes, we will use a litle twerk to check if, maybe, we can get a better travel time.
+        //i.e. We will try to permute the second node of the path with the second best.
         if nodes.count > 2 {
             return checkBetterPath(firstPath: path, distanceSum: distanceSum)
-            
         } else {
             return path
         }
     }
     
     //5
-    func checkBetterPath(firstPath: [CLLocation], distanceSum: Double) -> [CLLocation] {
+    private func checkBetterPath(firstPath: [CLLocation], distanceSum: Double) -> [CLLocation] {
         var path = [CLLocation]()
         var currentNode = firstPath[2]
         var distanceSumCurrentPath = 0.0
@@ -315,13 +350,15 @@ extension MarkedLocationsMapViewController {
     }
     
     //Helper's methods
-    func calculateDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double {
+    private func calculateDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double {
+        //Calculate distance from firstNode to secondNode
         let distance = firstNode.distance(from: secondNode)
         return distance
     }
     
-    func getDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double{
+    private func getDistance(firstNode: CLLocation, secondNode: CLLocation) -> Double {
         for line in lines {
+            //A To B = B To A in term of distance
             if line.firstLocation == firstNode && line.secondLocation == secondNode {
                 return line.distance
             }
