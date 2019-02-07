@@ -212,13 +212,28 @@ extension MarkedLocationsMapViewController {
         }
     }
     
-    //2
+    // We need to create the cords that link the nodes together.
+    // Here, if A is linked to B , B is also Linked to A i.e. (A,B) and (B,A) is the same we don't need to specifiy the two link
     func createLine() {
+        // We need to Link the elements of the array without the same pair twice
+        // the folowing procedures implements this particularity.
+        
+        // Exemple [ A B C D E ]
         for i in 0...nodes.count - 2 {
+            
             let firstNode = nodes[i]
             let newStartIndex = i + 1
-            
+            // for i = 0 , j go to 1 to 4
+            // so we got the folowing association during the itération below
+            // (A-B) (A-C) (A-D) (A-E)
+            // Then for i = 1 , j go to 2 to 4
+            // (B-C) (B-D) (B-E)
+            // Then for i = 2 , j go to 3 to 4
+            // (C-D) (C-E)
+            // Then for i = 3 , j go to 4 to 4
+            // (D-E)
             for j in newStartIndex...nodes.count - 1 {
+
                 let secondNode = nodes[j]
                 let distance = calculateDistance(firstNode: firstNode, secondNode: secondNode)
                 let locationDistance: LocationsDistance = (firstLocation: firstNode, secondLocation: secondNode, distance: distance)
