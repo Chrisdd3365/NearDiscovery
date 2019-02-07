@@ -242,30 +242,58 @@ extension MarkedLocationsMapViewController {
     }
     
     //4
+    
+    // core fucntion of the greedy tsp alogrithm
+    // we need to get a path using the idea that we take the node the nearest to our current Node.
     func getPath() -> [CLLocation] {
+        
+        //Simple Init of key variable
+        // path contains the path we need to take
         var path = [CLLocation]()
+        // distanceSum is distance we need to take considering the path.
         var distanceSum: Double = 0
+        // On current Node is the First Node of the Nodes array i.e. the current location of user when he start the pathFinding.
         var currentNode = nodes[0]
         
+        // we add the current node To our path.
         path.append(currentNode)
         
+        
+        
+        // we continue to add Node in path , until the path and nodes have the same length
         while path.count < nodes.count  {
+            
+            // we need to find the nodes (the sons) currently conected to the currentnode
+            // we ignore the nodes that are already in the path, they are irrelevant.
             var nodeSons = findSon(currentNode: currentNode, path: path)
+            
+            // by default the first sons to come is the nearest of the current node
+            // so he is the best son, and the minimal distance
             var bestSon = nodeSons[0]
             var distanceMin = getDistance(firstNode: currentNode, secondNode: bestSon)
             
+            
+            //In the folowing for we test if the other son are better that the  current son.
+            // If he is better , he becomes the bestSon
             for nodeSon in nodeSons {
                 let distance = getDistance(firstNode: currentNode, secondNode: nodeSon)
+                //If nodeSon got a distance that is minimal to bestSon
+                //He become the bestSon
                 if distance < distanceMin {
                     distanceMin = distance
                     bestSon = nodeSon
                 }
             }
+            //When we have the best son, we add the distance to go to currentNode to bestSon
             distanceSum += distanceMin
+            //We add bestSon to the path
             path.append(bestSon)
+            // Now we are on bestSon, so he becomme the currentNode
             currentNode = bestSon
         }
         
+        // if we get more that 2 Node we use a litle twerk to have maybe a beter time of travel
+        // i.e. we try to permute the second node of the path with the second best.
         if nodes.count > 2 {
             return checkBetterPath(firstPath: path, distanceSum: distanceSum)
             
