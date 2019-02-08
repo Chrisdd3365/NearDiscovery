@@ -166,13 +166,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-UT-eEd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="zyv-zh-rqu"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8T-G6-4ac">
-                                                    <rect key="frame" x="243" y="15" width="62" height="31"/>
+                                                    <rect key="frame" x="298" y="15" width="62" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="s8T-G6-4ac" secondAttribute="height" multiplier="2:1" id="dXz-Y0-dnx"/>
                                                         <constraint firstAttribute="height" constant="31" id="k5q-6w-hlL"/>
@@ -182,20 +182,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Pz-P9-DmL">
-                                                    <rect key="frame" x="0.0" y="130" width="320" height="89.5"/>
+                                                    <rect key="frame" x="0.0" y="130" width="375" height="89.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22J-qp-j8Z">
-                                                            <rect key="frame" x="10" y="10" width="300" height="18"/>
+                                                            <rect key="frame" x="10" y="10" width="355" height="18"/>
                                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA0-Fh-UqC">
-                                                            <rect key="frame" x="10" y="38" width="300" height="15"/>
+                                                            <rect key="frame" x="10" y="38" width="355" height="15"/>
                                                             <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-eP-8k5" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="10" y="59.5" width="300" height="20"/>
+                                                            <rect key="frame" x="10" y="59.5" width="355" height="20"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="AgV-sO-uVj"/>
@@ -955,22 +955,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFl-Oj-tGD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="jty-6m-Qd8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbl-0O-Tu6">
-                                                    <rect key="frame" x="0.0" y="130" width="320" height="89.5"/>
+                                                    <rect key="frame" x="0.0" y="130" width="375" height="89.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s6-VB-eTJ">
-                                                            <rect key="frame" x="10" y="10" width="238" height="18"/>
+                                                            <rect key="frame" x="10" y="10" width="293" height="18"/>
                                                             <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2D-vZ-eAV" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="10" y="61.5" width="300" height="20"/>
+                                                            <rect key="frame" x="10" y="61.5" width="355" height="20"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="4xc-xW-e5d"/>
@@ -985,13 +985,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS7-F1-TJi">
-                                                            <rect key="frame" x="10" y="40" width="300" height="15"/>
+                                                            <rect key="frame" x="10" y="40" width="355" height="15"/>
                                                             <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-ts-OX8">
-                                                            <rect key="frame" x="263" y="7" width="50" height="25"/>
+                                                            <rect key="frame" x="318" y="7" width="50" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="1e3-ts-OX8" secondAttribute="height" multiplier="2:1" id="UiU-mR-uO5"/>
                                                                 <constraint firstAttribute="height" constant="25" id="Xdm-yZ-qJv"/>
@@ -1382,6 +1382,6 @@
         <image name="share" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fuE-bt-Rhb"/>
+        <segue reference="BtR-oO-7p0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -111,7 +111,6 @@ extension HomePageViewController {
     
     @objc func scheduleTimer() {
         timer = Timer(fireAt: Calendar.current.nextDate(after: Date(), matching: DateComponents(hour: 6..<21 ~= Date().hour ? 21 : 6), matchingPolicy: .nextTime)!, interval: 0, target: self, selector: #selector(changeSetup), userInfo: nil, repeats: false)
-        print(timer.fireDate)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
