@@ -39,7 +39,7 @@ class FavoritePlaceDetailsScrollView: UIScrollView {
             cosmosView.rating = favoritePlaceScrollViewConfigure?.rating ?? 0.0
             cosmosView.settings.updateOnTouch = false
             
-            discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
+            discoverLabel.font = UIFont(name: "EurostileRegular", size: 13)
             
             scheduleTextView.text = convertDetailedFavoritePlaceSchedule(schedule: favoritePlaceScrollViewConfigure?.schedule ?? "No opening hours available.".localized())
         }

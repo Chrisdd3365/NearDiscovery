@@ -24,7 +24,8 @@ class HomePageViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nearbyDiscoveryButtonIsHidden()
+        discoverLabelSetup(textColor: .red)
+        nearbyDiscoveryButtonIsEnabled(enabled: false)
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
@@ -32,12 +33,12 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        nearbyDiscoveryButtonIsHidden()
+        discoverLabelSetup(textColor: .red)
+        nearbyDiscoveryButtonIsEnabled(enabled: false)
         searchTextFieldTextIsNil()
         locationServicesIsEnabled()
         notificationScheduleTimer()
         changeSetup()
-        toggleActivityIndicator(shown: true)
     }
     
     //MARK: - Methods
@@ -66,24 +67,22 @@ class HomePageViewController: UIViewController {
 
 //MARK: - Setup UI methods
 extension HomePageViewController {
+    //Setup DiscoverLabel
+    private func discoverLabelSetup(textColor: UIColor) {
+        homePageView.discoverLabel.textColor = textColor
+        homePageView.discoverLabel.text = "Discover".localized()
+    }
+    
     //Setup NearbyDiscoveryButton
-    private func nearbyDiscoveryButtonIsHidden() {
-        homePageView.nearbyDiscoveryButton.isHidden = true
+    private func nearbyDiscoveryButtonIsEnabled(enabled: Bool) {
+        homePageView.nearbyDiscoveryButton.isEnabled = enabled
     }
     
     //Setup TextField
     private func searchTextFieldTextIsNil() {
         homePageView.searchTextField.text = nil
     }
-    
-    //Setup Activity Indicator
-    private func toggleActivityIndicator(shown: Bool) {
-        homePageView.activityIndicator.isHidden = !shown
-        homePageView.nearbyDiscoveryButton.isHidden = shown
-    }
 }
-
-
 
 //MARK: - API Fetch Google Places Search Data method
 extension HomePageViewController {
@@ -91,9 +90,11 @@ extension HomePageViewController {
         let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
         
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: userLocation) { (success, places) in
-            self.toggleActivityIndicator(shown: true)
+            self.discoverLabelSetup(textColor: .red)
+            self.nearbyDiscoveryButtonIsEnabled(enabled: false)
             if success {
-                self.toggleActivityIndicator(shown: false)
+                self.discoverLabelSetup(textColor: .black)
+                self.nearbyDiscoveryButtonIsEnabled(enabled: true)
                 self.places = places.results
             } else {
                 self.showAlert(title: "Sorry!".localized(), message: "I couldn't find what you want to discover for you!".localized())
@@ -118,7 +119,7 @@ extension HomePageViewController {
         self.homePageView.nearDiscoveryLabel.textColor = 6..<21 ~= Date().hour ?
             .black : .white
         self.homePageView.backgroundColor = 6..<21 ~= Date().hour ? UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
-        self.homePageView.buttonActivityIndicatorView.backgroundColor = 6..<21 ~= Date().hour ?
+        self.homePageView.nearbyDiscoveryButtonView.backgroundColor = 6..<21 ~= Date().hour ?
             UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
             
         scheduleTimer()

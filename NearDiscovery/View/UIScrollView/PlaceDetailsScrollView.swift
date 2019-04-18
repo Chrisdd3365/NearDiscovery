@@ -19,6 +19,7 @@ class PlaceDetailsScrollView: UIScrollView {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var discoverLabel: UILabel!
     @IBOutlet weak var markedLocationButton: UIButton!
+    @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var scheduleTextView: UITextView!
     
     //MARK: - Properties
@@ -39,7 +40,9 @@ class PlaceDetailsScrollView: UIScrollView {
             cosmosView.rating = placeDetailsScrollViewConfigure?.rating ?? 0.0
             cosmosView.settings.updateOnTouch = false
             
-            discoverLabel.font = UIFont(name: "EurostileBold", size: 19)
+            markLabel.text = "Mark".localized()
+            
+            discoverLabel.font = UIFont(name: "EurostileRegular", size: 13)
             
             scheduleTextView.text = convertIntoString(weekdayText: placeDetailsScrollViewConfigure?.openingHours?.weekdayText ?? ["No opening hours available.".localized()])
         }

@@ -12,7 +12,7 @@ class HomePageView: UIView {
     //MARK: - Outlets
     @IBOutlet weak var nearDiscoveryLabel: UILabel!
     @IBOutlet weak var nearbyDiscoveryButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var buttonActivityIndicatorView: UIView!
+    @IBOutlet weak var nearbyDiscoveryButtonView: UIView!
+    @IBOutlet weak var discoverLabel: UILabel!
 }
