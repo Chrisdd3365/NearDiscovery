@@ -21,9 +21,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please give me permission to locate you.</string>
+	<string>NearDiscovery uses your location to help you find nearby places, provide directions and more.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NearDiscovery uses your location to help you find nearby places, provide directions and more.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please give me permission to locate you.</string>
+	<string>NearDiscovery uses your location to help you find nearby places, provide directions and more.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>EncodeSansExpanded-ExtraBold.ttf</string>
