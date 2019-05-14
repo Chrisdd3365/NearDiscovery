@@ -65,56 +65,33 @@
                                 <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRR-8G-GeP">
-                                <rect key="frame" x="110" y="293" width="100" height="123"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-sa-Qom">
-                                        <rect key="frame" x="20" y="21.5" width="60" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="TZr-pq-JwO"/>
-                                            <constraint firstAttribute="height" constant="80" id="qlj-yv-qVQ"/>
-                                        </constraints>
-                                        <state key="normal" image="launchscreen"/>
-                                        <connections>
-                                            <segue destination="qe5-iR-AqZ" kind="show" identifier="showNearbySegue" id="FXU-Wb-WGZ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDN-ga-IhN">
-                                        <rect key="frame" x="13" y="111.5" width="74" height="18"/>
-                                        <fontDescription key="fontDescription" name="Eurostile-Medium" family="Eurostile-Medium" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDb-sa-Qom">
+                                <rect key="frame" x="120" y="333" width="80" height="100"/>
                                 <constraints>
-                                    <constraint firstItem="PDN-ga-IhN" firstAttribute="leading" secondItem="QRR-8G-GeP" secondAttribute="leading" constant="13" id="ITD-88-0b9"/>
-                                    <constraint firstItem="wDb-sa-Qom" firstAttribute="centerX" secondItem="QRR-8G-GeP" secondAttribute="centerX" id="PLp-6X-JCL"/>
-                                    <constraint firstAttribute="trailing" secondItem="PDN-ga-IhN" secondAttribute="trailing" constant="13" id="QmC-49-N34"/>
-                                    <constraint firstItem="wDb-sa-Qom" firstAttribute="centerY" secondItem="QRR-8G-GeP" secondAttribute="centerY" id="Ut3-6k-aba"/>
-                                    <constraint firstItem="PDN-ga-IhN" firstAttribute="top" secondItem="wDb-sa-Qom" secondAttribute="bottom" constant="10" id="k9I-0f-dN0"/>
+                                    <constraint firstAttribute="height" constant="100" id="3rP-Wq-fn4"/>
+                                    <constraint firstAttribute="width" constant="80" id="QjY-qm-9B3"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="launchscreen"/>
+                                <connections>
+                                    <segue destination="qe5-iR-AqZ" kind="show" identifier="showNearbySegue" id="FXU-Wb-WGZ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.3311465214" green="0.63852756629999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.67450980390000004" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wDb-sa-Qom" firstAttribute="centerX" secondItem="2xK-W5-OTr" secondAttribute="centerX" id="760-Ug-mZ8"/>
                             <constraint firstItem="x7d-TD-oQC" firstAttribute="top" secondItem="UFc-1V-NPa" secondAttribute="top" constant="53" id="7It-qN-YoP"/>
-                            <constraint firstItem="QRR-8G-GeP" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" constant="110" id="AJf-3D-ev4"/>
                             <constraint firstItem="ztE-ox-Kxj" firstAttribute="top" secondItem="x7d-TD-oQC" secondAttribute="bottom" constant="100" id="ERk-lk-qhe"/>
                             <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="ztE-ox-Kxj" secondAttribute="trailing" constant="15" id="Ict-lx-RQy"/>
-                            <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="QRR-8G-GeP" secondAttribute="trailing" constant="110" id="LlF-Pw-uh3"/>
-                            <constraint firstItem="UFc-1V-NPa" firstAttribute="bottom" secondItem="QRR-8G-GeP" secondAttribute="bottom" constant="152" id="QVK-sq-e0Q"/>
-                            <constraint firstItem="QRR-8G-GeP" firstAttribute="top" secondItem="ztE-ox-Kxj" secondAttribute="bottom" constant="50" id="SJv-z8-CPq"/>
                             <constraint firstItem="x7d-TD-oQC" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" constant="48" id="XPs-GR-Als"/>
+                            <constraint firstItem="wDb-sa-Qom" firstAttribute="top" secondItem="ztE-ox-Kxj" secondAttribute="bottom" constant="90" id="awl-Rc-pi1"/>
                             <constraint firstItem="UFc-1V-NPa" firstAttribute="trailing" secondItem="x7d-TD-oQC" secondAttribute="trailing" constant="15" id="eQl-wX-hAj"/>
                             <constraint firstItem="ztE-ox-Kxj" firstAttribute="leading" secondItem="UFc-1V-NPa" secondAttribute="leading" constant="15" id="f4F-fJ-irM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UFc-1V-NPa"/>
                         <connections>
-                            <outlet property="discoverLabel" destination="PDN-ga-IhN" id="Qc6-zQ-tpu"/>
                             <outlet property="nearDiscoveryLabel" destination="x7d-TD-oQC" id="TDW-6V-slp"/>
                             <outlet property="nearbyDiscoveryButton" destination="wDb-sa-Qom" id="TT5-BQ-nOi"/>
-                            <outlet property="nearbyDiscoveryButtonView" destination="QRR-8G-GeP" id="6HH-4q-ugR"/>
                             <outlet property="searchTextField" destination="ztE-ox-Kxj" id="wi0-IY-SBE"/>
                         </connections>
                     </view>
@@ -1262,43 +1239,60 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooB-rR-HfB">
                                         <rect key="frame" x="0.0" y="314" width="320" height="120"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LNJ-l4-ZsC">
-                                                <rect key="frame" x="122.5" y="14" width="75" height="92.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-P9-zab">
+                                                <rect key="frame" x="100" y="31" width="120" height="58"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-xS-dsr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                        <state key="normal" image="discover"/>
-                                                        <connections>
-                                                            <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showFavoriteLocationOnMapSegue" id="fuE-bt-Rhb"/>
-                                                        </connections>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD9-jY-UfC">
-                                                        <rect key="frame" x="0.0" y="78" width="75" height="14.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bRv-D1-hpk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37" height="58"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0Q-4a-KOz">
+                                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="h0Q-4a-KOz" secondAttribute="height" multiplier="1:1" id="8p6-st-gk8"/>
+                                                                    <constraint firstAttribute="width" constant="37" id="p27-yA-JJ5"/>
+                                                                </constraints>
+                                                                <state key="normal" image="noMarkedLocation"/>
+                                                                <connections>
+                                                                    <action selector="markedLocation:" destination="mIl-zV-nua" eventType="touchUpInside" id="Dkj-8d-ddR"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NW-at-Cj6">
+                                                                <rect key="frame" x="0.0" y="45" width="37" height="13"/>
+                                                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="LNJ-l4-ZsC">
+                                                        <rect key="frame" x="83" y="0.0" width="37" height="58"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-xS-dsr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="uvb-xS-dsr" secondAttribute="height" multiplier="1:1" id="6sQ-XZ-PAv"/>
+                                                                    <constraint firstAttribute="width" constant="37" id="LB7-bg-B5N"/>
+                                                                </constraints>
+                                                                <state key="normal" image="discover"/>
+                                                                <connections>
+                                                                    <segue destination="Gvv-Zz-Kwj" kind="show" identifier="showFavoriteLocationOnMapSegue" id="fuE-bt-Rhb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD9-jY-UfC">
+                                                                <rect key="frame" x="0.0" y="40" width="37" height="18"/>
+                                                                <fontDescription key="fontDescription" name="EurostileRegular" family="Eurostile" pointSize="13"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0Q-4a-KOz">
-                                                <rect key="frame" x="15" y="68" width="37" height="37"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="h0Q-4a-KOz" secondAttribute="height" multiplier="1:1" id="DPi-xV-dBm"/>
-                                                    <constraint firstAttribute="height" constant="37" id="caT-aC-Jij"/>
-                                                </constraints>
-                                                <state key="normal" image="noMarkedLocation"/>
-                                                <connections>
-                                                    <action selector="markedLocation:" destination="mIl-zV-nua" eventType="touchUpInside" id="Dkj-8d-ddR"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="1zl-9u-43z"/>
-                                            <constraint firstItem="LNJ-l4-ZsC" firstAttribute="centerX" secondItem="ooB-rR-HfB" secondAttribute="centerX" id="Afb-iX-pvU"/>
-                                            <constraint firstItem="h0Q-4a-KOz" firstAttribute="leading" secondItem="ooB-rR-HfB" secondAttribute="leading" constant="15" id="FYb-60-DY2"/>
-                                            <constraint firstItem="LNJ-l4-ZsC" firstAttribute="centerY" secondItem="ooB-rR-HfB" secondAttribute="centerY" id="ak9-D0-VUz"/>
-                                            <constraint firstAttribute="bottom" secondItem="h0Q-4a-KOz" secondAttribute="bottom" constant="15" id="wkL-Jf-Wm6"/>
+                                            <constraint firstItem="zkf-P9-zab" firstAttribute="centerX" secondItem="ooB-rR-HfB" secondAttribute="centerX" id="DsN-Py-i1Z"/>
+                                            <constraint firstItem="zkf-P9-zab" firstAttribute="centerY" secondItem="ooB-rR-HfB" secondAttribute="centerY" id="eg6-Cj-Zou"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab9-gw-e1Q">
@@ -1408,6 +1402,6 @@
         <image name="share" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BtR-oO-7p0"/>
+        <segue reference="fuE-bt-Rhb"/>
     </inferredMetricsTieBreakers>
 </document>

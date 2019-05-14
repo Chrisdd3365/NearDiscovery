@@ -24,7 +24,6 @@ class HomePageViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        discoverLabelSetup(textColor: .red)
         nearbyDiscoveryButtonIsEnabled(enabled: false)
         locationServicesIsEnabled()
         notificationScheduleTimer()
@@ -33,7 +32,6 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        discoverLabelSetup(textColor: .red)
         nearbyDiscoveryButtonIsEnabled(enabled: false)
         searchTextFieldTextIsNil()
         locationServicesIsEnabled()
@@ -67,12 +65,6 @@ class HomePageViewController: UIViewController {
 
 //MARK: - Setup UI methods
 extension HomePageViewController {
-    //Setup DiscoverLabel
-    private func discoverLabelSetup(textColor: UIColor) {
-        homePageView.discoverLabel.textColor = textColor
-        homePageView.discoverLabel.text = "Discover".localized()
-    }
-    
     //Setup NearbyDiscoveryButton
     private func nearbyDiscoveryButtonIsEnabled(enabled: Bool) {
         homePageView.nearbyDiscoveryButton.isEnabled = enabled
@@ -90,10 +82,8 @@ extension HomePageViewController {
         let userLocation = CLLocation(latitude: locationManager.location?.coordinate.latitude ?? 0.0, longitude: locationManager.location?.coordinate.longitude ?? 0.0)
         
         googlePlacesSearchService.getGooglePlacesSearchData(keyword: keyword, location: userLocation) { (success, places) in
-            self.discoverLabelSetup(textColor: .red)
             self.nearbyDiscoveryButtonIsEnabled(enabled: false)
             if success {
-                self.discoverLabelSetup(textColor: .black)
                 self.nearbyDiscoveryButtonIsEnabled(enabled: true)
                 self.places = places.results
             } else {
@@ -119,9 +109,7 @@ extension HomePageViewController {
         self.homePageView.nearDiscoveryLabel.textColor = 6..<21 ~= Date().hour ?
             .black : .white
         self.homePageView.backgroundColor = 6..<21 ~= Date().hour ? UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
-        self.homePageView.nearbyDiscoveryButtonView.backgroundColor = 6..<21 ~= Date().hour ?
-            UIColor(displayP3Red: 47/255, green: 172/255, blue: 102/255, alpha: 1) : .black
-            
+
         scheduleTimer()
     }
 }

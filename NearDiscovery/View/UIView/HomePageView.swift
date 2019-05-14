@@ -13,6 +13,5 @@ class HomePageView: UIView {
     @IBOutlet weak var nearDiscoveryLabel: UILabel!
     @IBOutlet weak var nearbyDiscoveryButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var nearbyDiscoveryButtonView: UIView!
     @IBOutlet weak var discoverLabel: UILabel!
 }
