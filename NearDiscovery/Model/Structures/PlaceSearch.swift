@@ -9,7 +9,7 @@
 import Foundation
 
 struct GooglePlacesSearchResponse: Decodable {
-    let results : [PlaceSearch]
+    let results: [PlaceSearch]
     
     enum CodingKeys: String, CodingKey {
         case results = "results"

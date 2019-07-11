@@ -88,8 +88,6 @@ extension PlaceDetailsViewController {
     }
 }
 
-
-
 //MARK: - List's updates setup methods
 extension PlaceDetailsViewController {
     //MARK: - Location's List
@@ -108,7 +106,6 @@ extension PlaceDetailsViewController {
                 CoreDataManager.saveLocation(placeDetails: placeDetails, place: place)
                 tabItem.badgeValue = String(value + 1)
                 locations = Location.all
-                
             } else {
                 showAlert(title: "Sorry!".localized(), message: "You've reached the maximum amount of Marked Locations!".localized())
                 tabItem.badgeValue = nil

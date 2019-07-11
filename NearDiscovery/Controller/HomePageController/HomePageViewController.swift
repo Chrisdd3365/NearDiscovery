@@ -11,7 +11,7 @@ import CoreLocation
 
 class HomePageViewController: UIViewController {
     //MARK: - Outlet
-    @IBOutlet var homePageView: HomePageView!
+    @IBOutlet weak var homePageView: HomePageView!
     
     //MARK: - Properties
     let googlePlacesSearchService = GooglePlacesSearchService()

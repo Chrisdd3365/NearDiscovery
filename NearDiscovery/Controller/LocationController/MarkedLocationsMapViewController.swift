@@ -14,7 +14,7 @@ class MarkedLocationsMapViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsCollectionView: UICollectionView!
-    @IBOutlet var markedLocationView: MarkedLocationView!
+    @IBOutlet weak var markedLocationView: MarkedLocationView!
     @IBOutlet weak var removeAllLocationsButton: UIButton!
     
     //MARK: - Properties
