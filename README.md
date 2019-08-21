@@ -41,7 +41,6 @@ His main purpose is to find and suggest places, based on the types of locations 
 - iOS 12.0+
 - Xcode 10.0+
 - CocoaPods 
-- CoreData
 
 ## Dependencies:
 
